@@ -14,8 +14,9 @@
       <tr>
         <td><%= stream.title %></td>
         <td><%= stream.description %></td>
-        <td><%= link_to 'Show', stream %></td>
-        <td><%= link_to 'Edit', edit_stream_path(stream) %></td>
+		<td> Watch </td>
+        <td><%= link_to 'Edit', stream %></td>
+      <!--  <td><%= link_to 'Edit', edit_stream_path(stream) %></td> -->
         <td><%= link_to 'Destroy', stream, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
