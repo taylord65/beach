@@ -5,6 +5,8 @@ class CreateVideos < ActiveRecord::Migration
       t.text :name
       t.integer :playcount
       t.integer :length
+      
+      t.references :stream, index: true
 
       t.timestamps
     end

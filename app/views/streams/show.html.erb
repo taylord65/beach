@@ -1,0 +1,74 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @stream.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @stream.description %>
+</p>
+
+
+<h2>Videos</h2>
+<% @stream.videos.each do |video| %>
+  <p>
+    <strong>url:</strong>
+    <%= video.url %>
+  </p>
+ 
+  <p>
+    <strong>Name:</strong>
+    <%= video.name %>
+  </p>
+
+  <p>
+    <strong>Play Count:</strong>
+    <%= video.playcount %>
+  </p>
+
+  <p>
+    <strong>Length:</strong>
+    <%= video.length %>
+  </p>
+
+
+
+<% end %>
+
+<h2>Add a video:</h2>
+<%= form_for([@stream, @stream.videos.build]) do |f| %>
+
+<div class="field">
+  <%= f.label :url %><br>
+  <%= f.text_field :url %>
+</div>
+<div class="field">
+  <%= f.label :name %><br>
+  <%= f.text_area :name %>
+</div>
+<div class="field">
+  <%= f.label :playcount %><br>
+  <%= f.number_field :playcount %>
+</div>
+<div class="field">
+  <%= f.label :length %><br>
+  <%= f.number_field :length %>
+</div>
+<div class="actions">
+  <%= f.submit %>
+</div>
+
+
+
+<% end %>
+
+
+
+
+
+
+
+<%= link_to 'Edit', edit_stream_path(@stream) %> |
+<%= link_to 'Back', streams_path %>
