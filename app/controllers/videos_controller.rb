@@ -56,9 +56,12 @@ class VideosController < ApplicationController
   # DELETE /videos/1
   # DELETE /videos/1.json
   def destroy
+    @stream = Stream.find(params[:stream_id])
+    @video = @stream.videos.find(params[:id])
+
     @video.destroy
     respond_to do |format|
-      format.html { redirect_to videos_url, notice: 'Video was successfully destroyed.' }
+      format.html { redirect_to stream_path(@stream), notice: 'Video was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

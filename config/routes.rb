@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'splashpage/splash'
+  
+  root :to => 'splashpage#splash', :as =>'splash'
+
   resources :streams do
   resources :videos
 end

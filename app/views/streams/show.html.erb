@@ -1,4 +1,5 @@
 <p id="notice"><%= notice %></p>
+<h2>Stream</h2>
 
 <p>
   <strong>Title:</strong>
@@ -10,30 +11,26 @@
   <%= @stream.description %>
 </p>
 
+<div id="youtube">
+	<div id="player"></div>
+  <script> src="youtubeplayer.js" </script>
+</div>
 
 <h2>Videos</h2>
 <% @stream.videos.each do |video| %>
-  <p>
-    <strong>url:</strong>
-    <%= video.url %>
-  </p>
  
-  <p>
-    <strong>Name:</strong>
-    <%= video.name %>
-  </p>
 
-  <p>
-    <strong>Play Count:</strong>
-    <%= video.playcount %>
-  </p>
+<p>
+  <strong>Url:</strong>
+  <%= video.url %>
+</p>
 
-  <p>
-    <strong>Length:</strong>
-    <%= video.length %>
-  </p>
+<p>
+  <strong>Name:</strong>
+  <%= video.name %>
+</p>
 
-
+<%= link_to 'Delete Video', [video.stream, video],	method: :delete %>
 
 <% end %>
 
@@ -44,18 +41,7 @@
   <%= f.label :url %><br>
   <%= f.text_field :url %>
 </div>
-<div class="field">
-  <%= f.label :name %><br>
-  <%= f.text_area :name %>
-</div>
-<div class="field">
-  <%= f.label :playcount %><br>
-  <%= f.number_field :playcount %>
-</div>
-<div class="field">
-  <%= f.label :length %><br>
-  <%= f.number_field :length %>
-</div>
+
 <div class="actions">
   <%= f.submit %>
 </div>
