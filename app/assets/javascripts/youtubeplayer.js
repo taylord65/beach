@@ -13,9 +13,10 @@
 			    modestbranding: true,
 				controls: 1,
 			  },
-          height: '720',
-          width: '1280',
+          height: '480',
+          width: '853',
 		
+		videoId: 'M7lc1UVf-VE',
 
           events: {
             'onReady': onPlayerReady,
@@ -38,8 +39,8 @@
 
 		if(event.data == 0){
 			//controller needs to pass in these parameters everytime the video ends
-			loadVideoById({'videoId': 		, 'startSeconds': , 'endSeconds': , 'suggestedQuality': 'large'});
-			event.target.playVideo();
+		//	loadVideoById({'videoId': 		, 'startSeconds': , 'endSeconds': , 'suggestedQuality': 'large'});
+		//	event.target.playVideo();
 		}
 
       }

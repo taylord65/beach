@@ -1,54 +1,12 @@
-<p id="notice"><%= notice %></p>
-<h2>Stream</h2>
+<h2> <%= @stream.title %> </h2>
 
-<p>
-  <strong>Title:</strong>
-  <%= @stream.title %>
-</p>
 
 <p>
   <strong>Description:</strong>
   <%= @stream.description %>
 </p>
 
-<div id="youtube">
-	<div id="player"></div>
-  <script> src="youtubeplayer.js" </script>
-</div>
-
-<h2>Videos</h2>
-<% @stream.videos.each do |video| %>
- 
-
-<p>
-  <strong>Url:</strong>
-  <%= video.url %>
-</p>
-
-<p>
-  <strong>Name:</strong>
-  <%= video.name %>
-</p>
-
-<%= link_to 'Delete Video', [video.stream, video],	method: :delete %>
-
-<% end %>
-
-<h2>Add a video:</h2>
-<%= form_for([@stream, @stream.videos.build]) do |f| %>
-
-<div class="field">
-  <%= f.label :url %><br>
-  <%= f.text_field :url %>
-</div>
-
-<div class="actions">
-  <%= f.submit %>
-</div>
-
-
-
-<% end %>
+<%= render 'watch' %>
 
 
 
@@ -56,5 +14,5 @@
 
 
 
-<%= link_to 'Change Name and Description', edit_stream_path(@stream) %> |
+<%= link_to 'Edit', edit_stream_path(@stream) %> |
 <%= link_to 'Back', streams_path %>

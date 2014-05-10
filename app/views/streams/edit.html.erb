@@ -1,6 +1,44 @@
+<p id="notice"><%= notice %></p>
+
 <h1>Editing stream</h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @stream %> |
+<h2>Videos</h2>
+<% @stream.videos.each do |video| %>
+ 
+
+<p>
+  <strong>Url:</strong>
+  <%= video.url %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= video.name %>
+</p>
+
+<%= link_to 'Delete Video', [video.stream, video],	method: :delete %>
+
+<% end %>
+
+<h2>Add a video:</h2>
+<%= form_for([@stream, @stream.videos.build]) do |f| %>
+
+<div class="field">
+  <%= f.label :url %><br>
+  <%= f.text_field :url %>
+</div>
+
+<div class="actions">
+  <%= f.submit %>
+</div>
+
+
+
+<% end %>
+
+
+
+<%= link_to 'Watch', @stream %> |
 <%= link_to 'Back', streams_path %>
