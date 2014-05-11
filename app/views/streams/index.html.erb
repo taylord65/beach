@@ -4,6 +4,8 @@
 
 <p> Search </p>
 
+
+
 <table>
   <thead>
     <tr>
@@ -18,7 +20,7 @@
       <tr>
         <td><%= stream.title %></td>
         <td><%= stream.description %></td>
-	    <td><%= link_to 'Watch', stream %></td>
+	    <td><%= link_to 'Watch', stream, "data-no-turbolink" => true %></td>
         <td><%= link_to 'Edit', edit_stream_path(stream) %></td>
       </tr>
     <% end %>
