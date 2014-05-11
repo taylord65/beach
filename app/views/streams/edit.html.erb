@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Editing stream</h1>
+<h1>Edit Stream</h1>
 
 <%= render 'form' %>
 
@@ -38,7 +38,9 @@
 
 <% end %>
 
-
+<p>
+<td><%= link_to 'Delete Stream', @stream, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+</p>
 
 <%= link_to 'Watch', @stream %> |
 <%= link_to 'Back', streams_path %>
