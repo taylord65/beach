@@ -33,7 +33,7 @@ class StreamsController < ApplicationController
 
     respond_to do |format|
       if @stream.save
-        format.html { redirect_to @stream, notice: 'Stream was successfully created.' }
+        format.html { redirect_to edit_stream_path(@stream), notice: 'Stream was successfully created.' }
         format.json { render :show, status: :created, location: @stream }
       else
         format.html { render :new }
