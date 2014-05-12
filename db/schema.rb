@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140509165336) do
+ActiveRecord::Schema.define(version: 20140512201252) do
 
   create_table "streams", force: true do |t|
     t.string   "title"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20140509165336) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "stream_id"
+    t.string   "video_id"
   end
 
   add_index "videos", ["stream_id"], name: "index_videos_on_stream_id"

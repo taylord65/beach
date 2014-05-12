@@ -1,5 +1,7 @@
 class VideosController < ApplicationController
   before_action :set_video, only: [:show, :edit, :update, :destroy]
+  #regex = /(?:.be\/|\/watch\?v=|\/(?=p\/))([\w\/\-]+)/
+  
 
   # GET /videos
   # GET /videos.json
@@ -21,21 +23,17 @@ class VideosController < ApplicationController
   def edit
   end
   
-  def parse_youtube url
-     regex = /(?:.be\/|\/watch\?v=|\/(?=p\/))([\w\/\-]+)/
-     url.match(regex)[1]
-  end
-
-
   # POST /videos
   # POST /videos.json
   def create
     @stream = Stream.find(params[:stream_id])
     @video = @stream.videos.create(video_params)
+    #Set the video id by using the converturl function in the model
+    @video.video_id = @video.converturl(@video.url)
     
-
     respond_to do |format|
       if @video.save
+        
         format.html { redirect_to edit_stream_path(@stream), notice: 'Video was successfully created.' }
         format.json { render :show, status: :created, location: @video }
       else
