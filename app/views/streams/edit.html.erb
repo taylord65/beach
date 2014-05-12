@@ -6,12 +6,12 @@
 
 <h2>Videos</h2>
 <% @stream.videos.each do |video| %>
- 
 
 <p>
   <strong>Url:</strong>
   <%= video.url %>
 </p>
+
 
 <p>
   <strong>Name:</strong>
@@ -42,5 +42,5 @@
 <td><%= link_to 'Delete Stream', @stream, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 </p>
 
-<%= link_to 'Watch', @stream %> |
+<%= link_to 'Watch', @stream, "data-no-turbolink" => true  %> |
 <%= link_to 'Back', streams_path %>

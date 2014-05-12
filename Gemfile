@@ -39,3 +39,4 @@ gem 'spring',        group: :development
 # gem 'debugger', group: [:development, :test]
 gem 'tire'
 gem 'jquery-turbolinks', '~> 0.2.1'
+gem 'gon'

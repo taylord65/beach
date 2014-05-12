@@ -10,7 +10,11 @@ class StreamsController < ApplicationController
   # GET /streams/1
   # GET /streams/1.json
   def show
+    #Watch
+    #This is where the youtube player is
+    gon.videoidcurrent = 'dtZAi4Q8GWM'
   end
+  
 
   # GET /streams/new
   def new

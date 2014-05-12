@@ -20,6 +20,12 @@ class VideosController < ApplicationController
   # GET /videos/1/edit
   def edit
   end
+  
+  def parse_youtube url
+     regex = /(?:.be\/|\/watch\?v=|\/(?=p\/))([\w\/\-]+)/
+     url.match(regex)[1]
+  end
+
 
   # POST /videos
   # POST /videos.json
