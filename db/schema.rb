@@ -11,13 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140512201252) do
+ActiveRecord::Schema.define(version: 20140513210325) do
 
   create_table "streams", force: true do |t|
     t.string   "title"
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "current_vid_id"
+    t.time     "counter"
   end
 
   create_table "videos", force: true do |t|

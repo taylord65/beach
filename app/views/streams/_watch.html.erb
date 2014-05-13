@@ -21,8 +21,10 @@ $( document ).ready(function() {
 	      var player;
 	      function onYouTubeIframeAPIReady() {
 	        player = new YT.Player('player', {
-	          height: '390',
-	          width: '640',
+	          height: '480',
+	          width: '853',
+			disablekb: 1,
+			iv_load_policy: 3,
 	          videoId: gon.videoidcurrent,
 
 			playerVars: {
@@ -59,7 +61,8 @@ $( document ).ready(function() {
 	      } 
 	</script>
 </div>
-
+<p>Go to Live</p>
+<p>Previous Stream | Next Stream</p>
 <p>Subscribe Button</p>
 <p>#Subscribers </p>
 <p>Contribute</p>
