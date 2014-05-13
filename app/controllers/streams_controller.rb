@@ -11,7 +11,11 @@ class StreamsController < ApplicationController
   # GET /streams/1.json
   def show
     # This is the controller for the Watch page
-    gon.videoidcurrent = 'dtZAi4Q8GWM'
+    @cstream = Stream.find(params[:id])
+    @randomvideo = @cstream.videos.first
+    #the variable randomvideo is the first entry in the current stream
+    #
+    gon.videoidcurrent = @randomvideo
   end
   
 
