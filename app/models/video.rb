@@ -20,6 +20,12 @@ class Video < ActiveRecord::Base
       end  
     end
     
-  
+    def createvidstring(video_id)
+      
+      vidstring = "http://gdata.youtube.com/feeds/api/videos/" + video_id + "?v=2&alt=jsonc&callback=youtubeFeedCallback&prettyprint=true"
+      vidstring
+      
+    end
+    
   
 end

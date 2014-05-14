@@ -28,10 +28,10 @@ class VideosController < ApplicationController
     @video = @stream.videos.create(video_params)
     #Set the video id by using the converturl function in the model
     @video.video_id = @video.converturl(@video.url)
-    
+    #Create the vidstring
+    @video.vidstring = @video.createvidstring(@video.video_id) 
     respond_to do |format|
       if @video.save
-        
         format.html { redirect_to edit_stream_path(@stream), notice: 'Video was successfully created.' }
         format.json { render :show, status: :created, location: @video }
       else

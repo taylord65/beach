@@ -21,7 +21,7 @@
         <td><%= stream.title %></td>
         <td><%= stream.description %></td>
 	    <td><%= link_to 'Watch', stream, "data-no-turbolink" => true %></td>
-        <td><%= link_to 'Edit', edit_stream_path(stream) %></td>
+        <td><%= link_to 'Edit', edit_stream_path(stream), "data-no-turbolink" => true %></td>
       </tr>
     <% end %>
   </tbody>

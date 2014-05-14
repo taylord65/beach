@@ -14,7 +14,37 @@
 
 <p>
   <strong>Name:</strong>
-  <%= video.name %>
+
+<script type="text/javascript">
+    function youtubeFeedCallback(json){
+    document.write(json["data"]["title"]);
+    }
+
+</script>
+
+<script type="text/javascript" src= <%= video.vidstring %> >
+	
+</script>
+
+
+</p>
+
+<p>
+  <strong>Length:</strong>
+  
+<script type="text/javascript">
+    function youtubeFeedCallback(json){
+	//this one gets just seconds which is useful for the server
+    //document.write(json["data"]["duration"]);
+
+	//This is just for display
+	document.write( Math.floor(	(json["data"]["duration"]) / 60) + ":" + (((json["data"]["duration"]) % 60))  	)
+    }
+</script>
+<script type="text/javascript" src= <%= video.vidstring %> >
+
+</script>
+
 </p>
 
 <%= link_to 'Delete Video', [video.stream, video],	method: :delete %>

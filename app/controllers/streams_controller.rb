@@ -31,6 +31,7 @@ class StreamsController < ApplicationController
 
   # GET /streams/1/edit
   def edit
+        
   end
   
   def watch
