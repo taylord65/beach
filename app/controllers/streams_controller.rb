@@ -11,11 +11,11 @@ class StreamsController < ApplicationController
   # GET /streams/1.json
   def show
     # This is the controller for the Watch page
-    if (Stream.find(params[:id]).videos.first).nil? 
+    if (Stream.friendly.find(params[:id]).videos.first).nil? 
       gon.videoidcurrent = '8tPnX7OPo0Q'
       #default video appears in watch if there are no videos in the database 
     else
-      @cstream = Stream.find(params[:id])
+      @cstream = Stream.friendly.find(params[:id])
       @randomvideo = @cstream.videos.first
       #the variable randomvideo is the first video entry in the current stream
       gon.videoidcurrent = @randomvideo.video_id
@@ -82,7 +82,7 @@ class StreamsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_stream
-      @stream = Stream.find(params[:id])
+      @stream = Stream.friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

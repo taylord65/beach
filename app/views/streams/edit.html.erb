@@ -2,18 +2,19 @@
 
 <h1>Edit Your Stream</h1>
 
+<%= @stream.counter %>
+
 <%= render 'form' %>
 
 <h2>Videos</h2>
+
+<p> Search </p>
+
 <% @stream.videos.each do |video| %>
 
 <p>
-  <strong>Url:</strong>
-  <%= video.url %>
-</p>
 
-<p>
-  <strong>Name:</strong>
+<strong>Name:</strong>
 
 <script type="text/javascript">
     function youtubeFeedCallback(json){
@@ -30,16 +31,29 @@
 </p>
 
 <p>
-  <strong>Length:</strong>
+  <strong>Url:</strong>
+  <%= video.url %>
+</p>
+
+
+<p>
+
+<strong>Length:</strong>
+
   
 <script type="text/javascript">
     function youtubeFeedCallback(json){
 	//this one gets just seconds which is useful for the server
-    //document.write(json["data"]["duration"]);
+    //(json["data"]["duration"]); IS THE TIME IN SECONDS
 
-	//This is just for display
-	document.write( Math.floor(	(json["data"]["duration"]) / 60) + ":" + (((json["data"]["duration"]) % 60))  	)
-    }
+	//Display in Minutes:Seconds format
+	if ( ((json["data"]["duration"]) % 60) < 10 ){
+	document.write( Math.floor(	(json["data"]["duration"]) / 60) + ":0" + (((json["data"]["duration"]) % 60))  	)
+	} else {
+	document.write( Math.floor(	(json["data"]["duration"]) / 60) + ":" + (((json["data"]["duration"]) % 60))  	)	
+	}
+
+}
 </script>
 <script type="text/javascript" src= <%= video.vidstring %> >
 

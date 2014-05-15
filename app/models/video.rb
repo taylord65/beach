@@ -22,8 +22,10 @@ class Video < ActiveRecord::Base
     
     def createvidstring(video_id)
       
+      if url.include? "https://www.youtube.com/"
       vidstring = "http://gdata.youtube.com/feeds/api/videos/" + video_id + "?v=2&alt=jsonc&callback=youtubeFeedCallback&prettyprint=true"
       vidstring
+    end
       
     end
     

@@ -21,10 +21,11 @@ class VideosController < ApplicationController
   def edit
   end
   
+  
   # POST /videos
   # POST /videos.json
   def create
-    @stream = Stream.find(params[:stream_id])
+    @stream = Stream.friendly.find(params[:stream_id])
     @video = @stream.videos.create(video_params)
     #Set the video id by using the converturl function in the model
     @video.video_id = @video.converturl(@video.url)
@@ -58,7 +59,7 @@ class VideosController < ApplicationController
   # DELETE /videos/1
   # DELETE /videos/1.json
   def destroy
-    @stream = Stream.find(params[:stream_id])
+    @stream = Stream.friendly.find(params[:stream_id])
     @video = @stream.videos.find(params[:id])
 
     @video.destroy
