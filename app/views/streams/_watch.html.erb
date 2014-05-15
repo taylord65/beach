@@ -1,5 +1,6 @@
 <div id="player"></div>
 <script>
+var currentvideoplaying;
   var tag = document.createElement('script');
   tag.src = "https://www.youtube.com/iframe_api";
   var firstScriptTag = document.getElementsByTagName('script')[0];
@@ -11,14 +12,13 @@
       width: '853',
 	playerVars:{
 			autoplay: 1,
-			controls: 1,
+			controls: 0,
 			rel: 0,
 			showinfo: 0
 		},
 
      loadPlaylist:{
-        listType:'playlist',
-        index:parseInt(0)
+        listType:'playlist'
      },
 		
       events: {
@@ -28,13 +28,25 @@
     });
   }
   function onPlayerReady(event) {
-	//on page load play this video
-    event.target.loadPlaylist([gon.videoidcurrent]);
+	//When you press watch, this playlist will be loaded and you start at the index and seconds past
+    event.target.loadPlaylist(gon.videoidcurrent, 0 , 10);
   }
 
   function onPlayerStateChange(event) {
+	
+	if (event.data == YT.PlayerState.PLAYING) {
+        var url = event.target.getVideoUrl();
+        // "http://www.youtube.com/watch?v=gzDS-Kfd5XQ&feature=..."
+        var match = url.match(/[?&]v=([^&]+)/);
+        // ["?v=gzDS-Kfd5XQ", "gzDS-Kfd5XQ"]
+        currentvideoplaying = match[1];
+		//This is the current playing videoID
+    }
+	
+	
     if (event.data == YT.PlayerState.ENDED) {
-	event.target.loadPlaylist(['rNMhNJDRnhU']);
+	//when video ends play this video
+	//event.target.loadPlaylist(gon.videoidcurrent);
     }
   }
   function stopVideo() {

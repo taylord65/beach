@@ -10,18 +10,18 @@ class StreamsController < ApplicationController
   # GET /streams/1
   # GET /streams/1.json
   def show
-    # This is the controller for the Watch page
-    if (Stream.friendly.find(params[:id]).videos.first).nil? 
-      gon.videoidcurrent = '8tPnX7OPo0Q'
-      #default video appears in watch if there are no videos in the database 
-    else
-      @cstream = Stream.friendly.find(params[:id])
-      @randomvideo = @cstream.videos.first
-      #the variable randomvideo is the first video entry in the current stream
-      gon.videoidcurrent = @randomvideo.video_id
-    end
-    
-  end
+     # This is the controller for the Watch page
+     if (Stream.friendly.find(params[:id]).videos.first).nil? 
+       gon.videoidcurrent = '8tPnX7OPo0Q'
+       #default video appears in watch if there are no videos in the database 
+     else
+       @cstream = Stream.friendly.find(params[:id])
+       @randomvideo = @cstream.videos.first
+       #the variable randomvideo is the first video entry in the current stream
+       gon.videoidcurrent = [@randomvideo.video_id, 'ftxgpKB1bbk']
+     end
+
+   end
   
 
   # GET /streams/new
