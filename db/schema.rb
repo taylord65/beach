@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20140514155051) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "streams", force: true do |t|
     t.string   "title"
     t.text     "description"
@@ -34,6 +37,6 @@ ActiveRecord::Schema.define(version: 20140514155051) do
     t.string   "vidstring"
   end
 
-  add_index "videos", ["stream_id"], name: "index_videos_on_stream_id"
+  add_index "videos", ["stream_id"], name: "index_videos_on_stream_id", using: :btree
 
 end
