@@ -8,4 +8,6 @@ class Stream < ActiveRecord::Base
   friendly_id :title
   
   
+
+  
 end

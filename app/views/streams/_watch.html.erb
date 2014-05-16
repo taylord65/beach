@@ -29,7 +29,7 @@ var currentvideoplaying;
   }
   function onPlayerReady(event) {
 	//When you press watch, this playlist will be loaded and you start at the index and seconds past
-    event.target.loadPlaylist(gon.videoidcurrent, 0 , 10);
+    event.target.loadPlaylist(gon.videoidcurrent, gon.videoindex , gon.starttime);
   }
 
   function onPlayerStateChange(event) {
@@ -45,13 +45,19 @@ var currentvideoplaying;
 	
 	
     if (event.data == YT.PlayerState.ENDED) {
-	//when video ends play this video
-	//event.target.loadPlaylist(gon.videoidcurrent);
+
+	if(currentvideoplaying == gon.videoidcurrent.slice(-1)[0]) {
+		player.reload(true); //Reload the page when the last video in the playlist has finished 
+		//want to be able to now accept a new playlist
+	}
+	
+	
     }
   }
   function stopVideo() {
     player.stopVideo();
   }
+
 </script>
 
 <p>Go to Live</p>

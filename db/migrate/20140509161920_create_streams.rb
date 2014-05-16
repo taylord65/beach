@@ -3,6 +3,7 @@ class CreateStreams < ActiveRecord::Migration
     create_table :streams do |t|
       t.string :title
       t.text :description
+      t.string :current_playlist, :array => true
 
       t.timestamps
     end

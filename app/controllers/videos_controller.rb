@@ -31,6 +31,9 @@ class VideosController < ApplicationController
     @video.video_id = @video.converturl(@video.url)
     #Create the vidstring
     @video.vidstring = @video.createvidstring(@video.video_id) 
+    
+    @video.length = @video.get_yotube_video_duration(@video.video_id)
+    
     respond_to do |format|
       if @video.save
         format.html { redirect_to edit_stream_path(@stream), notice: 'Video was successfully created.' }

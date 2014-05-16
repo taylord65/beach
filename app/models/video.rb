@@ -1,3 +1,5 @@
+require 'open-uri'
+
 class Video < ActiveRecord::Base
   belongs_to :stream
   #need to validate the correct format "www.youtube.com" or whatever
@@ -9,6 +11,15 @@ class Video < ActiveRecord::Base
   validates :url, :format => {
       :with    => %r{https://www.youtube.com/}i,
       :message => 'must be a https youtube video.' }
+      
+      
+    #  before_save :get_youtube_video_duration
+
+      def get_yotube_video_duration(video_id)
+        duration = JSON.parse(open("http://gdata.youtube.com/feeds/api/videos/#{self.video_id}?v=2&alt=jsonc").read)['data']['duration']
+        length = duration
+        length
+      end
       
     def converturl(url)
         if url.include? "https://www.youtube.com/" 
