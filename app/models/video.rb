@@ -15,10 +15,14 @@ class Video < ActiveRecord::Base
       
     #  before_save :get_youtube_video_duration
 
-      def get_yotube_video_duration(video_id)
-        duration = JSON.parse(open("http://gdata.youtube.com/feeds/api/videos/#{self.video_id}?v=2&alt=jsonc").read)['data']['duration']
-        length = duration
+      def get_youtube_video_duration(video_id)
+        length = JSON.parse(open("http://gdata.youtube.com/feeds/api/videos/#{self.video_id}?v=2&alt=jsonc").read)['data']['duration']
         length
+      end
+      
+      def get_youtube_video_name(video_id)
+        name = JSON.parse(open("http://gdata.youtube.com/feeds/api/videos/#{self.video_id}?v=2&alt=jsonc").read)['data']['title']
+        name
       end
       
     def converturl(url)

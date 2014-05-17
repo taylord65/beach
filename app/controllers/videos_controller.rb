@@ -31,8 +31,9 @@ class VideosController < ApplicationController
     @video.video_id = @video.converturl(@video.url)
     #Create the vidstring
     @video.vidstring = @video.createvidstring(@video.video_id) 
-    
-    @video.length = @video.get_yotube_video_duration(@video.video_id)
+    #Store the video length in seconds
+    @video.length = @video.get_youtube_video_duration(@video.video_id)
+    @video.name = @video.get_youtube_video_name(@video.video_id)
     
     respond_to do |format|
       if @video.save
