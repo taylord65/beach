@@ -36,9 +36,7 @@ class StreamsController < ApplicationController
 
   # GET /streams/1/edit
   def edit
-        #@stream = Stream.friendly.find(params[:id])
-        #@video = @stream.videos.create(video_params)
-        #gon.vidlength = @video.length
+
   end
   
   def watch

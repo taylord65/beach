@@ -4,7 +4,27 @@
 
 <h2>Edit</h2>
 
-<%= render 'form' %>
+<%= form_for(@stream) do |f| %>
+  <% if @stream.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@stream.errors.count, "error") %> prohibited this stream from being saved:</h2>
+
+      <ul>
+      <% @stream.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description , :rows => 10, :cols => 50 %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
 
 <h2>Videos</h2>
 
