@@ -1,5 +1,11 @@
 <div id="player"></div>
 <script>
+//what if you unpacked the array with all their times added them together and built a function that seeks to the propper time in the playlist
+//you unpack every x hours. Then when the last video ends you reset
+//pass id array, pass length array?
+
+
+
 var currentvideoplaying;
   var tag = document.createElement('script');
   tag.src = "https://www.youtube.com/iframe_api";
@@ -12,9 +18,9 @@ var currentvideoplaying;
       width: '853',
 	playerVars:{
 			autoplay: 1,
-			controls: 0,
+			controls: 1,
 			rel: 0,
-			showinfo: 0
+			showinfo: 1
 		},
 
      loadPlaylist:{
@@ -64,5 +70,5 @@ var currentvideoplaying;
 <p>Previous Stream | Next Stream</p>
 <p>Subscribe Button</p>
 <p>#Subscribers </p>
-<p>Contribute</p>
+<p>Contribute Field</p>
 

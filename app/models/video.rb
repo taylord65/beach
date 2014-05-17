@@ -13,7 +13,6 @@ class Video < ActiveRecord::Base
       :message => 'must be a https youtube video.' }
       
       
-    #  before_save :get_youtube_video_duration
 
       def get_youtube_video_duration(video_id)
         length = JSON.parse(open("http://gdata.youtube.com/feeds/api/videos/#{self.video_id}?v=2&alt=jsonc").read)['data']['duration']
@@ -35,14 +34,8 @@ class Video < ActiveRecord::Base
       end  
     end
     
-    def createvidstring(video_id)
       
-      if url.include? "https://www.youtube.com/"
-      vidstring = "http://gdata.youtube.com/feeds/api/videos/" + video_id + "?v=2&alt=jsonc&callback=youtubeFeedCallback&prettyprint=true"
-      vidstring
-    end
-      
-    end
+    
     
   
 end
