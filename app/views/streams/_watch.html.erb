@@ -1,12 +1,10 @@
 <div id="player"></div>
 <script>
-//what if you unpacked the array with all their times added them together and built a function that seeks to the propper time in the playlist
-//you unpack every x hours. Then when the last video ends you reset
-//pass id array, pass length array?
-//Add in looping and if the gon.startime > integer multiple of the total footage, do calc based on that
-//Instead of synchronous updates to the server, the admin makes asynchronous decisions
 
-
+//	$(document).ready(function() {
+	     // Our code here...
+//	});
+	
   var starttime = gon.starttime; 
 
   var currentvideoplaying;
@@ -80,14 +78,14 @@
 		//This is the current playing videoID
     }
 	
-	
-    if (event.data == YT.PlayerState.ENDED) {
-
-	if(currentvideoplaying == gon.videoidcurrent.slice(-1)[0]) {
-	}
-	
+	if(currentvideoplaying == gon.videoids.slice(-1)[0]) {
+  	//Loop the playlist
+ 	if (event.data == YT.PlayerState.ENDED) {
+		event.target.playVideoAt(0);
+		}
     }
   }
+
   function stopVideo() {
     player.stopVideo();
   }
