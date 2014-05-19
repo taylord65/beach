@@ -79,9 +79,9 @@
     }
 	
 	if(currentvideoplaying == gon.videoids.slice(-1)[0]) {
-  	//Loop the playlist
+  	//Loop the playlist by reloading the whole playlist at the beginning
  	if (event.data == YT.PlayerState.ENDED) {
-		event.target.playVideoAt(0);
+		event.target.loadPlaylist(gon.videoids,0,0);
 		}
     }
   }

@@ -77,6 +77,12 @@
 
 
 <% end %>
+<p> </p>
+
+<%= button_to "Reprogram Stream" %>
+
+<p> Reprogramming the stream restarts the stream with the newly added videos. Ideally this should be called every time the total footage has elapsed in time </p>
+
 
 <p>
 <td><%= link_to 'Delete Stream', @stream, method: :delete, data: { confirm: 'Are you sure?' } %></td>
