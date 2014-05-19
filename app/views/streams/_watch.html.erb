@@ -3,10 +3,13 @@
 //what if you unpacked the array with all their times added them together and built a function that seeks to the propper time in the playlist
 //you unpack every x hours. Then when the last video ends you reset
 //pass id array, pass length array?
+//Add in looping and if the gon.startime > integer multiple of the total footage, do calc based on that
+//Instead of synchronous updates to the server, the admin makes asynchronous decisions
 
 
+  var starttime = gon.starttime; 
 
-var currentvideoplaying;
+  var currentvideoplaying;
   var tag = document.createElement('script');
   tag.src = "https://www.youtube.com/iframe_api";
   var firstScriptTag = document.getElementsByTagName('script')[0];
@@ -18,9 +21,10 @@ var currentvideoplaying;
       width: '853',
 	playerVars:{
 			autoplay: 1,
-			controls: 1,
+			controls: 0,
 			rel: 0,
-			showinfo: 1
+			loop: 1,
+			showinfo: 0
 		},
 
      loadPlaylist:{
@@ -34,9 +38,36 @@ var currentvideoplaying;
     });
   }
   function onPlayerReady(event) {
-	//When you press watch, this playlist will be loaded and you start at the index and seconds past
-    event.target.loadPlaylist(gon.videoidcurrent, gon.videoindex , gon.starttime);
-  }
+
+	var runningtotal = 0;
+	var index;
+    var indextime;
+
+	while (starttime > gon.totalfootage){
+		starttime -= gon.totalfootage;
+	}
+	
+	if(starttime < gon.videolengths[0]){
+		//The time is less than the length of the first video. Play first at the time.
+		index = 0;
+		event.target.loadPlaylist(gon.videoids, index, starttime);
+		
+	} else{
+	
+	for (var i = 0; i < gon.videoids.length ; i++){
+		runningtotal += gon.videolengths[i];
+		
+		if (runningtotal >= starttime){
+			indextime = starttime - gon.videolengths[i-1];
+			index = i;
+			runningtotal = 0;
+			event.target.loadPlaylist(gon.videoids,index,indextime);
+			break;
+		}//end if 
+			
+		}//end for
+	}//end else
+}//end onplayerready
 
   function onPlayerStateChange(event) {
 	
@@ -53,10 +84,7 @@ var currentvideoplaying;
     if (event.data == YT.PlayerState.ENDED) {
 
 	if(currentvideoplaying == gon.videoidcurrent.slice(-1)[0]) {
-		player.reload(true); //Reload the page when the last video in the playlist has finished 
-		//want to be able to now accept a new playlist
 	}
-	
 	
     }
   }

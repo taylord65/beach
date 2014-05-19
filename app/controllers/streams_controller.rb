@@ -22,8 +22,11 @@ class StreamsController < ApplicationController
          #Place all of the video lengths into an array
          lengths = Stream.friendly.find(params[:id]).videos.pluck(:length)
          
-         gon.videoidcurrent = ids
-         gon.videoindex = 0
+         #Total footage in the stream
+         gon.totalfootage = lengths.inject(:+)
+         
+         gon.videolengths = lengths
+         gon.videoids = ids
          gon.starttime = (Time.now.to_i - @stream.updated_at.to_i)
        end
 
