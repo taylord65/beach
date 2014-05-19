@@ -9,7 +9,7 @@ class Video < ActiveRecord::Base
   
 #NEED TO VALIDATE youtube url  
   validates :url, :format => {
-      :with    => %r{https://www.youtube.com/}i,
+      :with    => %r{http://www.youtube.com/}i,
       :message => 'must be a https youtube video.' }
       
       
@@ -25,7 +25,7 @@ class Video < ActiveRecord::Base
       end
       
     def converturl(url)
-        if url.include? "https://www.youtube.com/" 
+        if url.include? "www.youtube.com/" 
         #converts a url into a video id
 
         regex = /(?:.be\/|\/watch\?v=|\/(?=p\/))([\w\/\-]+)/

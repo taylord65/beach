@@ -15,6 +15,7 @@ class StreamsController < ApplicationController
          gon.videoidcurrent = ['8tPnX7OPo0Q']
          #blank video appears in watch if there are no videos in the database 
        else
+         #on page load
          #Place all of the video ids into an array
          ids = Stream.friendly.find(params[:id]).videos.pluck(:video_id)
          #can use ids.shuffle to randomize the array
@@ -22,12 +23,13 @@ class StreamsController < ApplicationController
          #Place all of the video lengths into an array
          lengths = Stream.friendly.find(params[:id]).videos.pluck(:length)
          
-         #Total footage in the stream
+         #These should stay here 
          gon.totalfootage = lengths.inject(:+)
-         
          gon.videolengths = lengths
          gon.videoids = ids
          gon.starttime = (Time.now.to_i - @stream.updated_at.to_i)
+        
+   			
        end
 
   end

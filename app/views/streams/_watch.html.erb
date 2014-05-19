@@ -1,13 +1,9 @@
 <div id="player"></div>
 <script>
 
-//	$(document).ready(function() {
-	     // Our code here...
-//	});
-	
-  var starttime = gon.starttime; 
+    var starttime = gon.starttime; 
+	var currentvideoplaying;		
 
-  var currentvideoplaying;
   var tag = document.createElement('script');
   tag.src = "https://www.youtube.com/iframe_api";
   var firstScriptTag = document.getElementsByTagName('script')[0];
@@ -19,10 +15,10 @@
       width: '853',
 	playerVars:{
 			autoplay: 1,
-			controls: 0,
+			controls: 1,
 			rel: 0,
 			loop: 1,
-			showinfo: 0
+			showinfo: 1
 		},
 
      loadPlaylist:{
@@ -35,39 +31,45 @@
       }
     });
   }
+  
+
   function onPlayerReady(event) {
 
-	var runningtotal = 0;
-	var index;
-    var indextime;
-
-	while (starttime > gon.totalfootage){
-		starttime -= gon.totalfootage;
-	}
-	
-	if(starttime < gon.videolengths[0]){
-		//The time is less than the length of the first video. Play first at the time.
-		index = 0;
-		event.target.loadPlaylist(gon.videoids, index, starttime);
+ 	if (starttime < gon.videolengths[0]){
+	//The time is less than the length of the first video. Play first at the time.
+	event.target.loadPlaylist(gon.videoids,0,starttime);
 		
-	} else{
+	} else {
+		
+	if (starttime > gon.totalfootage){
+			while (starttime > gon.totalfootage){
+				starttime -= gon.totalfootage;
+			}//end while
+		}//end if	
+		
+	var runningtotal = 0;
 	
 	for (var i = 0; i < gon.videoids.length ; i++){
 		runningtotal += gon.videolengths[i];
 		
 		if (runningtotal >= starttime){
-			indextime = starttime - gon.videolengths[i-1];
-			index = i;
-			runningtotal = 0;
-			event.target.loadPlaylist(gon.videoids,index,indextime);
+			var total = 0;
+			
+			for (var k = 0; k < i ; k++){
+			total += gon.videolengths[k];	
+			}
+			
+			var indextime = starttime - total;
+			
+			event.target.loadPlaylist(gon.videoids,i,indextime);
 			break;
 		}//end if 
-			
-		}//end for
-	}//end else
+	   }//end for
+	 }//end else
 }//end onplayerready
 
   function onPlayerStateChange(event) {
+	
 	
 	if (event.data == YT.PlayerState.PLAYING) {
         var url = event.target.getVideoUrl();
@@ -82,6 +84,7 @@
   	//Loop the playlist by reloading the whole playlist at the beginning
  	if (event.data == YT.PlayerState.ENDED) {
 		event.target.loadPlaylist(gon.videoids,0,0);
+        
 		}
     }
   }
