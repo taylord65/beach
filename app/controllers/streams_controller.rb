@@ -4,10 +4,7 @@ class StreamsController < ApplicationController
   # GET /streams
   # GET /streams.json
   def index
-    @search = Stream.search do
-      fulltext params[:search]
-    end
-    @streams = @search.results
+    @streams = Stream.all
   end
 
   # GET /streams/1
@@ -17,7 +14,6 @@ class StreamsController < ApplicationController
     @stream = Stream.friendly.find(params[:id])
     @stream.reprogrammed_at = Time.now.to_i
     @stream.save
-    
   end
   
   

@@ -6,13 +6,5 @@ class Stream < ActiveRecord::Base
   
   extend FriendlyId
   friendly_id :title
-  
-  searchable do
-    text :title, :boost => 5
-    text :description
-  end
-  
 
-
-  
 end

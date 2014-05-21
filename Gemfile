@@ -43,8 +43,4 @@ gem 'gon'
 gem 'friendly_id'
 gem 'pg', '~> 0.17.1'
 gem 'rails_12factor', group: :production
-gem 'sunspot_rails'
 
-group :development do
-  gem 'sunspot_solr'
-end

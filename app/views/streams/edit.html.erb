@@ -28,7 +28,7 @@
 
 <h2>Videos</h2>
 
-<table>
+<table style="width:600px">
 
 <% @stream.videos.each do |video| %>
 
@@ -48,6 +48,9 @@
 	document.write( Math.floor(	seconds / 60) + ":" + (seconds % 60) );	
 	}
 </script>
+</td>
+<td>
+<%= video.created_at.to_date %>
 </td>
 <td>
 <%= link_to 'Delete', [video.stream, video],	method: :delete %>
@@ -74,7 +77,8 @@
 
 
 <% end %>
-<p> </p>
+<p>
+</p>
 
 <p> Programming the stream restarts the stream with the newly added videos </p>
 
