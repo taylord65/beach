@@ -4,11 +4,23 @@ class StreamsController < ApplicationController
   # GET /streams
   # GET /streams.json
   def index
-    @streams = Stream.all
+    @search = Stream.search do
+      fulltext params[:search]
+    end
+    @streams = @search.results
   end
 
   # GET /streams/1
   # GET /streams/1.json
+  
+  def setplaylist
+    @stream = Stream.friendly.find(params[:id])
+    @stream.reprogrammed_at = Time.now.to_i
+    @stream.save
+    
+  end
+  
+  
   def show
        
        if (Stream.friendly.find(params[:id]).videos.first).nil? 
@@ -28,10 +40,7 @@ class StreamsController < ApplicationController
          gon.videolengths = lengths
          gon.videoids = ids
          gon.starttime = (Time.now.to_i - @stream.updated_at.to_i)
-        
-   			
        end
-
   end
    
   

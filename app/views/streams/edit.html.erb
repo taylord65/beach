@@ -28,22 +28,15 @@
 
 <h2>Videos</h2>
 
-<p> Search </p>
+<table>
 
 <% @stream.videos.each do |video| %>
 
-<p>
-<strong>Name:</strong>
-<%= video.name %>
-</p>
-
-<p>
-<strong>Url:</strong>
-<%= video.url %>
-</p>
-
-<p>
-<strong>Length:</strong>
+<tr>
+<td>
+<%= link_to video.name, video.url %>
+</td>
+<td>
 
 <script type="text/javascript">
 	//Display in Minutes:Seconds format
@@ -55,12 +48,16 @@
 	document.write( Math.floor(	seconds / 60) + ":" + (seconds % 60) );	
 	}
 </script>
-
-</p>
-
-<%= link_to 'Delete Video', [video.stream, video],	method: :delete %>
+</td>
+<td>
+<%= link_to 'Delete', [video.stream, video],	method: :delete %>
+</td>
+</tr>
 
 <% end %>
+
+</table>
+
 
 <h2>Add a video:</h2>
 <%= form_for([@stream, @stream.videos.build]) do |f| %>
@@ -79,9 +76,7 @@
 <% end %>
 <p> </p>
 
-<%= button_to "Reprogram Stream" %>
-
-<p> Reprogramming the stream restarts the stream with the newly added videos. Ideally this should be called every time the total footage has elapsed in time </p>
+<p> Programming the stream restarts the stream with the newly added videos </p>
 
 <p> Last program: <%= time_ago_in_words(@stream.updated_at) %> ago. </p>
 
