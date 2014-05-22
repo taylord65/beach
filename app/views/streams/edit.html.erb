@@ -34,8 +34,6 @@
 
 <p> Programming the stream restarts the stream with the newly added videos </p>
 
-<p> Last program: <%= time_ago_in_words(@stream.updated_at) %> ago. </p>
-
 <p>
 <td><%= link_to 'Delete Stream', @stream, method: :delete, data: { confirm: 'Are you sure you want to delete this stream?' } %></td>
 </p>

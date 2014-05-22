@@ -35,7 +35,7 @@ class StreamsController < ApplicationController
          gon.totalfootage = lengths.inject(:+)
          gon.videolengths = lengths
          gon.videoids = ids
-         gon.starttime = (Time.now.to_i - @stream.updated_at.to_i)
+         gon.starttime = (Time.now.to_i - @stream.created_at.to_i)
        end
   end
    
@@ -48,7 +48,7 @@ class StreamsController < ApplicationController
 
   # GET /streams/1/edit
   def edit
-
+   #   @stream.totallength = Stream.friendly.find(params[:id]).videos.pluck(:length).inject(:+)
   end
   
   def watch
@@ -89,8 +89,13 @@ class StreamsController < ApplicationController
   # DELETE /streams/1
   # DELETE /streams/1.json
   def destroy
-    @stream = Stream.friendly.find(params[:id])
-    Stream.tire.index.remove @stream
+   # @stream = Stream.friendly.find(params[:id])
+  #  Stream.tire.index(@stream).delete
+  #  @stream.destroy
+    
+    @stream.destroy
+    system "rake environment tire:import CLASS=Stream FORCE=true"
+    
     respond_to do |format|
       format.html { redirect_to streams_url, notice: 'Stream was successfully destroyed.' }
       format.json { head :no_content }
