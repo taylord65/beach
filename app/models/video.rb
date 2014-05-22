@@ -4,8 +4,8 @@ class Video < ActiveRecord::Base
   belongs_to :stream
  
   validates :url, :format => {
-      :with    => %r{http://www.youtube.com/}i,
-      :message => 'must be a http youtube video.' }
+      :with    => %r{www.youtube.com/}i,
+      :message => 'must be a youtube video url.' }
       
       
 

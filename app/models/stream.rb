@@ -2,6 +2,7 @@ class Stream < ActiveRecord::Base
   has_many :videos
   validates :title, :description, :presence => true
   validates :title, :uniqueness => {:case_sensitive => false}
+  validates :title, :format => { without: /[~!@#$%^&*()-+_=]/ , :message => 'no special characters, only letters and numbers' }
   validates :title, :format => { without: /\s/ , :message => 'cannot have spaces' }
   
   extend FriendlyId
@@ -9,7 +10,7 @@ class Stream < ActiveRecord::Base
   
   include Tire::Model::Search
   include Tire::Model::Callbacks
-  
+    
   def self.search(params)
     tire.search(load: true) do
       query { string params[:query], default_operator: "AND" } if params[:query].present?

@@ -89,7 +89,9 @@ class StreamsController < ApplicationController
   # DELETE /streams/1
   # DELETE /streams/1.json
   def destroy
-    @stream.destroy
+   @stream.destroy
+   system "rake environment tire:import CLASS=Stream FORCE=true"
+   #reindexing the whole thing is very slow, need better solution
     respond_to do |format|
       format.html { redirect_to streams_url, notice: 'Stream was successfully destroyed.' }
       format.json { head :no_content }

@@ -1,5 +1,5 @@
 <div id="scrollbox">
-<table style="width:600px">
+<table style="width:650px">
 
 <% @stream.videos.each do |video| %>
 
@@ -33,7 +33,7 @@
 </table>
 </div>
 
-<h2>Add a video:</h2>
+<h2>Add a Video</h2>
 <%= form_for([@stream, @stream.videos.build]) do |f| %>
 
 <div class="field">

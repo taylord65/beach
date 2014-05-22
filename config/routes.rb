@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root :to => 'splashpage#splash', :as =>'splash'
   
 
-resources :streams, :member => {:setplaylist => :post} do
+resources :streams do
   resources :videos
 end
 

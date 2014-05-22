@@ -5,6 +5,8 @@
 
 <h2> <%= @stream.title %> </h2>
 
+<p>#Subscribers </p>
+
 <p>
   <strong>Description:</strong>
   <%= @stream.description %>
@@ -12,7 +14,6 @@
 
 <p>Fullscreen | Go to Live | Subscribe</p>
 <p>Previous Stream | Next Stream</p>
-<p>#Subscribers </p>
 <p>Contribute Field</p>
 
 <%= link_to 'Edit', edit_stream_path(@stream), "data-no-turbolink" => true %> |
