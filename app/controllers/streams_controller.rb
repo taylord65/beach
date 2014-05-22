@@ -10,12 +10,6 @@ class StreamsController < ApplicationController
   # GET /streams/1
   # GET /streams/1.json
   
-  def setplaylist
-    @stream = Stream.friendly.find(params[:id])
-    @stream.reprogrammed_at = Time.now.to_i
-    @stream.save
-  end
-  
   
   def show
        
@@ -48,7 +42,7 @@ class StreamsController < ApplicationController
 
   # GET /streams/1/edit
   def edit
-   #   @stream.totallength = Stream.friendly.find(params[:id]).videos.pluck(:length).inject(:+)
+     @stream.totallength = Stream.friendly.find(params[:id]).videos.pluck(:length).inject(:+)
   end
   
   def watch
@@ -94,6 +88,7 @@ class StreamsController < ApplicationController
   #  @stream.destroy
     
     @stream.destroy
+  #  @stream.tire.update_index
     system "rake environment tire:import CLASS=Stream FORCE=true"
     
     respond_to do |format|

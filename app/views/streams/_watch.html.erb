@@ -12,8 +12,8 @@
   var player;
   function onYouTubePlayerAPIReady() {
     player = new YT.Player('player', {
-      height: '480',
-      width: '853',
+      height: '601',
+      width: '1069',
 	playerVars:{
 			autoplay: 1,
 			controls: 0,
@@ -36,6 +36,9 @@
   
 
   function onPlayerReady(event) {
+	
+	event.target.setPlaybackQuality('hd1080');
+    	
 
  	if (starttime < gon.videolengths[0]){
 	//The time is less than the length of the first video. Play first at the time.
@@ -71,7 +74,10 @@
 }//end onplayerready
 
   function onPlayerStateChange(event) {
-	//event.target.webkitRequestFullScreen()
+	
+	if (event.data == YT.PlayerState.BUFFERING) {
+	    event.target.setPlaybackQuality('hd1080');
+	}
 	
 	if (event.data == YT.PlayerState.PLAYING) {
         var url = event.target.getVideoUrl();

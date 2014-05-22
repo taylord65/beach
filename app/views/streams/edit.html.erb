@@ -30,6 +30,20 @@
 
 <h2>Videos</h2>
 
+<script type="text/javascript">
+	//Display in Minutes:Seconds format
+	var seconds = <%= @stream.totallength %>;
+	
+	if ( (seconds % 60) < 10 ){
+	document.write("Total Footage in Stream: " +  Math.floor(	seconds / 60) + ":0" + (seconds % 60) );
+	} else {
+	document.write("Total Footage in Stream: " +  Math.floor(	seconds / 60) + ":" + (seconds % 60) );	
+	}
+</script>
+<p>
+	
+</p>	
+
 <%= render 'viddisplay' %>
 
 <p> Programming the stream restarts the stream with the newly added videos </p>
