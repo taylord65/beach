@@ -1,18 +1,21 @@
-<h2> <%= @stream.title %> </h2>
-
-
 
 <%= render 'watch' %>
 
+<div id="vidcontrolls">
+
+<h2> <%= @stream.title %> </h2>
 
 <p>
   <strong>Description:</strong>
   <%= @stream.description %>
 </p>
 
-
-
-
+<p>Fullscreen | Go to Live | Subscribe</p>
+<p>Previous Stream | Next Stream</p>
+<p>#Subscribers </p>
+<p>Contribute Field</p>
 
 <%= link_to 'Edit', edit_stream_path(@stream), "data-no-turbolink" => true %> |
 <%= link_to 'Back', streams_path %>
+
+</div>

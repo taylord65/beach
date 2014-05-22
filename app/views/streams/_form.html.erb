@@ -1,7 +1,8 @@
 <%= form_for(@stream) do |f| %>
   <% if @stream.errors.any? %>
+<div id="alligncentertextleft">
     <div id="error_explanation">
-      <h2><%= pluralize(@stream.errors.count, "error") %> prohibited this stream from being saved:</h2>
+    <div id="h2error">  <h2><%= pluralize(@stream.errors.count, "error") %> prohibited this stream from being saved:</h2> </div>
 
       <ul>
       <% @stream.errors.full_messages.each do |message| %>
@@ -9,6 +10,7 @@
       <% end %>
       </ul>
     </div>
+</div>
   <% end %>
 
   <div class="field">

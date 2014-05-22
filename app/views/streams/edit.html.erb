@@ -1,3 +1,5 @@
+<div id="alligncentertextleft">
+
 <p id="notice"><%= notice %></p>
 
 <h1> <%= @stream.title %> </h1>
@@ -7,7 +9,7 @@
 <%= form_for(@stream) do |f| %>
   <% if @stream.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@stream.errors.count, "error") %> prohibited this stream from being saved:</h2>
+   <div id="h2error">   <h2><%= pluralize(@stream.errors.count, "error") %> prohibited this stream from being saved:</h2> </div>
 
       <ul>
       <% @stream.errors.full_messages.each do |message| %>
@@ -19,7 +21,7 @@
 
   <div class="field">
     <%= f.label :description %><br>
-    <%= f.text_area :description , :rows => 10, :cols => 50 %>
+    <%= f.text_area :description , :rows => 5, :cols => 50 %>
   </div>
   <div class="actions">
     <%= f.submit %>
@@ -28,66 +30,16 @@
 
 <h2>Videos</h2>
 
-
-<table style="width:600px">
-
-<% @stream.videos.each do |video| %>
-
-<tr>
-<td>
-<%= link_to video.name, video.url %>
-</td>
-<td>
-
-<script type="text/javascript">
-	//Display in Minutes:Seconds format
-	var seconds = <%= video.length %>;
-	
-	if ( (seconds % 60) < 10 ){
-	document.write( Math.floor(	seconds / 60) + ":0" + (seconds % 60) );
-	} else {
-	document.write( Math.floor(	seconds / 60) + ":" + (seconds % 60) );	
-	}
-</script>
-</td>
-<td>
-<%= video.created_at.to_date %>
-</td>
-<td>
-<%= link_to 'Delete', [video.stream, video],	method: :delete %>
-</td>
-</tr>
-
-<% end %>
-
-</table>
-
-
-<h2>Add a video:</h2>
-<%= form_for([@stream, @stream.videos.build]) do |f| %>
-
-<div class="field">
-  <%= f.label :url %><br>
-  <%= f.text_field :url %>
-</div>
-
-<div class="actions">
-  <%= f.submit %>
-</div>
-
-
-
-<% end %>
-<p>
-</p>
+<%= render 'viddisplay' %>
 
 <p> Programming the stream restarts the stream with the newly added videos </p>
 
 <p> Last program: <%= time_ago_in_words(@stream.updated_at) %> ago. </p>
 
 <p>
-<td><%= link_to 'Delete Stream', @stream, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+<td><%= link_to 'Delete Stream', @stream, method: :delete, data: { confirm: 'Are you sure you want to delete this stream?' } %></td>
 </p>
 
 <%= link_to 'Watch', @stream, "data-no-turbolink" => true  %> |
 <%= link_to 'Back', streams_path %>
+</div>
