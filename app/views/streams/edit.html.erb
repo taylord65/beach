@@ -31,22 +31,20 @@
 <h2>Videos</h2>
 
 <script type="text/javascript">
-	//Display in Minutes:Seconds format
-	var seconds = <%= @stream.totallength %>;
-	
-	if ( (seconds % 60) < 10 ){
-	document.write("Total Footage in Stream: " +  Math.floor(	seconds / 60) + ":0" + (seconds % 60) );
-	} else {
-	document.write("Total Footage in Stream: " +  Math.floor(	seconds / 60) + ":" + (seconds % 60) );	
-	}
+	//Display in Hours:Minutes:Seconds format
+	var totalSec = <%= @stream.totallength %>;
+	var hours = parseInt( totalSec / 3600 ) % 24;
+	var minutes = parseInt( totalSec / 60 ) % 60;
+	var seconds = parseInt(totalSec % 60);
+
+	var result = (hours < 10 ? "0" + hours : hours) + ":" + (minutes < 10 ? "0" + minutes : minutes) + ":" + (seconds  < 10 ? "0" + seconds : seconds);
+	document.write("Total Footage in Stream " + result);
 </script>
 <p>
 	
 </p>	
 
 <%= render 'viddisplay' %>
-
-<p> Programming the stream restarts the stream with the newly added videos </p>
 
 <p>
 <td><%= link_to 'Delete Stream', @stream, method: :delete, data: { confirm: 'Are you sure you want to delete this stream?' } %></td>

@@ -83,16 +83,12 @@ class StreamsController < ApplicationController
   # DELETE /streams/1
   # DELETE /streams/1.json
   def destroy
-   # @stream = Stream.friendly.find(params[:id])
-  #  Stream.tire.index(@stream).delete
-  #  @stream.destroy
-    
     @stream.destroy
-  #  @stream.tire.update_index
-    system "rake environment tire:import CLASS=Stream FORCE=true"
+    @stream.tire.update_index
+  #  system "rake environment tire:import CLASS=Stream FORCE=true"
     
     respond_to do |format|
-      format.html { redirect_to streams_url, notice: 'Stream was successfully destroyed.' }
+      format.html { redirect_to splash_path, notice: 'Stream was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
