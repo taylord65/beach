@@ -4,7 +4,11 @@ class StreamsController < ApplicationController
   # GET /streams
   # GET /streams.json
   def index
-      @streams = Stream.search(params)
+    
+    @streams = Stream.search(params)
+    
+        render :layout => 'splashlayout'
+
   end
 
   # GET /streams/1
@@ -12,7 +16,6 @@ class StreamsController < ApplicationController
   
   
   def show
-       render layout: "watchlayout"
        
        if (Stream.friendly.find(params[:id]).videos.first).nil? 
          gon.videoidcurrent = ['8tPnX7OPo0Q']
@@ -44,6 +47,9 @@ class StreamsController < ApplicationController
   # GET /streams/1/edit
   def edit
      @stream.totallength = Stream.friendly.find(params[:id]).videos.pluck(:length).inject(:+)
+     
+     render :layout => 'splashlayout'
+     
   end
   
   def watch
