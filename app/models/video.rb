@@ -4,10 +4,8 @@ class Video < ActiveRecord::Base
   belongs_to :stream
  
   validates :url, :format => {
-      :with    => %r{www.youtube.com/}i,
+      :with    => %r{www.youtube.com/watch}i,
       :message => 'must be a youtube video url.' }
-      
-      
 
       def get_youtube_video_duration(video_id)
         length = JSON.parse(open("http://gdata.youtube.com/feeds/api/videos/#{self.video_id}?v=2&alt=jsonc").read)['data']['duration']
@@ -20,7 +18,7 @@ class Video < ActiveRecord::Base
       end
       
     def converturl(url)
-        if url.include? "www.youtube.com/" 
+        if url.include? "www.youtube.com/watch?v=" 
         #converts a url into a video id
 
         regex = /(?:.be\/|\/watch\?v=|\/(?=p\/))([\w\/\-]+)/

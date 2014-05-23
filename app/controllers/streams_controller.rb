@@ -88,7 +88,8 @@ class StreamsController < ApplicationController
   #  system "rake environment tire:import CLASS=Stream FORCE=true"
     
     respond_to do |format|
-      format.html { redirect_to splash_path, notice: 'Stream was successfully destroyed.' }
+      format.html { redirect_to splash_path }
+      #, notice: 'Stream was successfully destroyed.'
       format.json { head :no_content }
     end
   end
