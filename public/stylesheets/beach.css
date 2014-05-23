@@ -1,9 +1,10 @@
 .inputBox  {
     border: 1px solid #d1d1d1;
-    font: bold 12px Arial,Helvetica,Sans-serif;
+    font: 13px Arial,Helvetica,Sans-serif;
     color: black;
     width: 200px;
     padding: 6px 15px 6px 35px;
+	outline:none;
     }
 
 #centerplayer{

@@ -12,6 +12,7 @@ class StreamsController < ApplicationController
   
   
   def show
+       render layout: "watchlayout"
        
        if (Stream.friendly.find(params[:id]).videos.first).nil? 
          gon.videoidcurrent = ['8tPnX7OPo0Q']
