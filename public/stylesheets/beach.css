@@ -7,6 +7,10 @@
 	outline:none;
     }
 
+#splashfont{
+	font-family: 'Raleway', sans-serif;
+}
+
 #centerplayer{
 	margin-left:auto;
 	margin-right:auto;
