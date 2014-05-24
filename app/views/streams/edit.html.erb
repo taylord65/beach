@@ -45,11 +45,15 @@
 </p>	
 
 <%= render 'viddisplay' %>
-
+<br>
+<br>
 <p>
 <td><%= link_to 'Delete Stream', @stream, method: :delete, data: { confirm: 'Are you sure you want to delete this stream?' } %></td>
 </p>
 
+<div id="alligncentertextcenter">
+
 <%= link_to 'Watch', @stream, "data-no-turbolink" => true  %> |
 <%= link_to 'Back', streams_path %>
+</div>
 </div>
