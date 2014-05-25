@@ -5,11 +5,18 @@
 	<p> 
 	Create and subscribe to live streams that consist of youtube content	
 	</p>
-	<p>
-		Login
-	</p>
-	<p>
-		Register
+
+	<% if user_signed_in? %>
+	  <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        
+	<% else %>
+	  <%= link_to('Login', new_user_session_path)  %>  
+	<% end %>
+<p>
+	<% if user_signed_in? %>
+	  <%= link_to('Edit registration', edit_user_registration_path) %>
+	<% else %>
+	  <%= link_to('Register', new_user_registration_path)  %>
+	<% end %>
 	</p>
 	<br>
 	<p>

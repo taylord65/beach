@@ -1,6 +1,12 @@
 <div id="alligncentertextleft">
 
-<h1>Streams </h1>
+<% if user_signed_in? %>
+<h1>Subscriptions</h1>
+<br>
+<br>
+<% end %>
+
+<h1>Streams</h1>
 
 <%= form_tag streams_path, method: :get do %>
   <p>
@@ -8,7 +14,6 @@
     <%= image_submit_tag ("search.png") %>
   </p>
 <% end %>
-
 <table style="width:800px">
   <thead>
     <tr>
@@ -22,18 +27,17 @@
     <% @streams.each do |stream| %>
       <tr>
         <td><%= stream.title %></td>
-        <td><%= stream.description %></td>
+        <td><%= truncate(stream.description, :length => 35) %></td>
 	    <td><%= link_to 'Watch', stream, "data-no-turbolink" => true %></td>
-        <td><%= link_to 'Edit', edit_stream_path(stream), "data-no-turbolink" => true %></td>
+     <!--   <td><%= link_to 'Edit', edit_stream_path(stream), "data-no-turbolink" => true %></td> -->
       </tr>
     <% end %>
   </tbody>
 </table>
-
 <br>
 
 <div id="alligncentertextcenter">
-
+<br>
 <%= link_to 'New Stream', new_stream_path %>
 <%= link_to 'Back', splash_path %>
 </div>

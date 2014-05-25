@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   get 'splashpage/splash'
   root :to => 'splashpage#splash', :as =>'splash'
   

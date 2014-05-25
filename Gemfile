@@ -44,4 +44,6 @@ gem 'gon'
 gem 'friendly_id'
 gem 'pg', '~> 0.17.1'
 gem 'rails_12factor', group: :production
+gem 'devise'
+
 

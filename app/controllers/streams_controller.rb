@@ -7,7 +7,7 @@ class StreamsController < ApplicationController
     
     @streams = Stream.search(params)
     
-        render :layout => 'splashlayout'
+    render :layout => 'splashlayout'
 
   end
 

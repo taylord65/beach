@@ -5,6 +5,9 @@ class Stream < ActiveRecord::Base
   validates :title, :format => { without: /[~!@#$%^&*()-+_=]/ , :message => 'no special characters, only letters and numbers' }
   validates :title, :format => { without: /\s/ , :message => 'cannot have spaces' }
   
+  validates :title, length: {in: 2..20, :message => ' must be between 2 and 20 characters' }
+  validates :description, length: {in: 0..400, :message => ' cannot exceed 200 characters' }
+  
   extend FriendlyId
   friendly_id :title
   

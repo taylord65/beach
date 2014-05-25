@@ -6,12 +6,21 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <%= include_gon %>
-</head>
-<body>
+
+	<ul class="hmenu">
+	  <%= render 'devise/menu/registration_items' %>
+	  <%= render 'devise/menu/login_items' %>
+	</ul>
 	
 	<div id="vidcontrolls">
 	<%= image_tag("smallbanner.png")%> 
 	</div>
+	
+	
+</head>
+<body>
+	
+	
 	
 <%= yield %>
 
