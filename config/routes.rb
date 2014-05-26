@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  
+  resources :streams, path: 's'  
+  
   devise_for :users
   get 'splashpage/splash'
   root :to => 'splashpage#splash', :as =>'splash'

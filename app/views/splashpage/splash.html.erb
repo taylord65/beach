@@ -3,8 +3,9 @@
 	<h1> BEACH </h1>
 	
 	<p> 
-	Create and subscribe to live streams that consist of youtube content	
+Better TV
 	</p>
+	<br>
 
 	<% if user_signed_in? %>
 	  <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        
@@ -15,12 +16,12 @@
 	<% if user_signed_in? %>
 	  <%= link_to('Edit registration', edit_user_registration_path) %>
 	<% else %>
-	  <%= link_to('Register', new_user_registration_path)  %>
+	  <%= link_to('Sign Up', new_user_registration_path)  %>
 	<% end %>
 	</p>
 	<br>
 	<p>
-		Version 0.2</p>
+		Version 0.3</p>
 	</div>
 
 <%= link_to 'Browse Streams', streams_path %>

@@ -41,7 +41,10 @@ class StreamsController < ApplicationController
 
   # GET /streams/new
   def new
+    
     @stream = Stream.new
+    render :layout => 'devise'
+    
   end
 
   # GET /streams/1/edit

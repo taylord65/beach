@@ -1,8 +1,22 @@
-<div id="alligncentertextleft">
+<div id="alligncentertextcenter">
+	<br>
+	<% if user_signed_in? %>
+	<h1>New stream</h1>
+	<br>
 
-<h1>New stream</h1>
+	<%= render 'form' %>
+	
+	
+	<% else %>
+	
+	<p> You must sign in to create a new stream </p>
+	<br>
+	<br>
+	<%= link_to('Login', new_user_session_path)  %>  
+	
+	
+	<% end %>
 
-<%= render 'form' %>
 
-<%= link_to 'Back', streams_path %>
+
 </div>

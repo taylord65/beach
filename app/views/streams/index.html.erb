@@ -29,7 +29,6 @@
         <td><%= stream.title %></td>
         <td><%= truncate(stream.description, :length => 35) %></td>
 	    <td><%= link_to 'Watch', stream, "data-no-turbolink" => true %></td>
-     <!--   <td><%= link_to 'Edit', edit_stream_path(stream), "data-no-turbolink" => true %></td> -->
       </tr>
     <% end %>
   </tbody>
@@ -38,7 +37,9 @@
 
 <div id="alligncentertextcenter">
 <br>
+<% if user_signed_in? %>
 <%= link_to 'New Stream', new_stream_path %>
+<% end %>
 <%= link_to 'Back', splash_path %>
 </div>
 </div>
