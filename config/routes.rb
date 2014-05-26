@@ -1,15 +1,19 @@
 Rails.application.routes.draw do
-  
+
   resources :streams, path: 's'  
   
   devise_for :users
   get 'splashpage/splash'
   root :to => 'splashpage#splash', :as =>'splash'
   
-
 resources :streams do
   resources :videos
 end
+
+resources :users do
+  resources :subscriptions
+end
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

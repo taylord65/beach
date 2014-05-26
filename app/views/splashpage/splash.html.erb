@@ -5,6 +5,10 @@
 	<p> 
 Better TV
 	</p>
+	<%= link_to 'Browse Streams', streams_path %>
+	<br>
+	<br>
+	<br>
 	<br>
 
 	<% if user_signed_in? %>
@@ -14,7 +18,7 @@ Better TV
 	<% end %>
 <p>
 	<% if user_signed_in? %>
-	  <%= link_to('Edit registration', edit_user_registration_path) %>
+	  <%= link_to('Edit User', edit_user_registration_path) %>
 	<% else %>
 	  <%= link_to('Sign Up', new_user_registration_path)  %>
 	<% end %>
@@ -24,6 +28,5 @@ Better TV
 		Version 0.3</p>
 	</div>
 
-<%= link_to 'Browse Streams', streams_path %>
 
 </div>

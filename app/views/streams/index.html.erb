@@ -1,4 +1,12 @@
-<div id="alligncentertextleft">
+	<div id="alligncentertextcenter">
+	
+	<% if user_signed_in? %>
+	<%= link_to 'New Stream', new_stream_path %>
+	<% end %>
+	</div>
+	
+	<div id="alligncentertextleft">
+
 
 <% if user_signed_in? %>
 <h1>Subscriptions</h1>
@@ -34,12 +42,11 @@
   </tbody>
 </table>
 <br>
+</div>
 
 <div id="alligncentertextcenter">
+
 <br>
-<% if user_signed_in? %>
-<%= link_to 'New Stream', new_stream_path %>
-<% end %>
+<br>
 <%= link_to 'Back', splash_path %>
-</div>
 </div>
