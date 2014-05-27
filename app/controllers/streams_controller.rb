@@ -21,35 +21,40 @@ class StreamsController < ApplicationController
          gon.videoidcurrent = ['8tPnX7OPo0Q']
          #blank video appears in watch if there are no videos in the database 
        else
-         #on page load
-         #Place all of the video ids into an array
-         ids = Stream.friendly.find(params[:id]).videos.pluck(:video_id)
-         #can use ids.shuffle to randomize the array
+         @stream = Stream.friendly.find(params[:id])
          
-         #Place all of the video lengths into an array
+         def setvideos
+           @stream = Stream.friendly.find(params[:id])
+           @stream.reprogrammed_at = Time.now
+           #Set the start time
+           
+           #SET THE STREAM PLAYLIST
+           
+           @stream.save
+           redirect_to edit_stream_path(@stream), notice: 'Stream was successfully programmed.'
+         end
+
+         ids = Stream.friendly.find(params[:id]).videos.pluck(:video_id)
+         
          lengths = Stream.friendly.find(params[:id]).videos.pluck(:length)
          
-         #These should stay here 
-         gon.totalfootage = lengths.inject(:+)
          gon.videolengths = lengths
-         gon.videoids = ids
+         gon.videoids = ids     
+         gon.totalfootage = @stream.totallength
+         
+         #the time is arbitrary 
          gon.starttime = (Time.now.to_i - @stream.reprogrammed_at.to_i)
        end
   end
-   
+
   def subscribe
     @stream = Stream.friendly.find(params[:id])
     @stream.increment(:subs, by = 1)
+    
     @stream.save
     redirect_to stream_path(@stream)
-  end 
+  end
 
-  def setvideos
-    @stream = Stream.friendly.find(params[:id])
-    @stream.reprogrammed_at = Time.now
-    @stream.save
-    redirect_to edit_stream_path(@stream), notice: 'Stream was successfully programmed.'
-  end  
 
   # GET /streams/new
   def new
@@ -61,10 +66,10 @@ class StreamsController < ApplicationController
 
   # GET /streams/1/edit
   def edit
-     @stream.totallength = Stream.friendly.find(params[:id]).videos.pluck(:length).inject(:+)
+    @stream.totallength = Stream.friendly.find(params[:id]).videos.pluck(:length).inject(:+)
+    @stream.save
      
-     render :layout => 'splashlayout'
-     
+    render :layout => 'editlayout'
   end
   
   def watch
@@ -76,7 +81,7 @@ class StreamsController < ApplicationController
   # POST /streams.json
   def create
     @stream = Stream.new(stream_params)
-
+    @stream.reprogrammed_at = Time.now
     respond_to do |format|
       if @stream.save
         format.html { redirect_to edit_stream_path(@stream), notice: 'Stream was successfully created.' }

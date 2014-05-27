@@ -6,12 +6,15 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <%= include_gon %>
-</head>
-<body>
-	
+
 <div id="vidcontrolls">
 <%= link_to image_tag("smallbanner.png"), streams_path %> 
 </div>
+
+</head>
+<body>
+	
+
 
 <%= yield %>
 

@@ -1,10 +1,10 @@
 <div id="alligncentertextleft">
 
 <p id="notice"><%= notice %></p>
-
 <h1> <%= @stream.title %> </h1>
 
-<h2>Edit</h2>
+<h2>Edit  |   <%= link_to 'Watch', @stream, "data-no-turbolink" => true  %> </h2>
+
 
 <%= form_for(@stream) do |f| %>
   <% if @stream.errors.any? %>
@@ -47,16 +47,22 @@
 
 <%= render 'viddisplay' %>
 <br>
+<div id="alligncentertextcenter">
 <%= button_to "Program Stream", setvideos_stream_path(@stream), :class => "button", :method => :get  %>
-Programming the stream randomizes the videos. Last Program <%= time_ago_in_words(@stream.reprogrammed_at)%> ago.
+Last Program <%= time_ago_in_words(@stream.reprogrammed_at)%> ago. 
+<br>
+Programming the stream randomizes the videos. 
 <br>
 <p>
-<td><%= link_to 'Delete Stream', @stream, method: :delete, data: { confirm: 'Are you sure you want to delete this stream?' } %></td>
 </p>
+</div>
+</div>
+<div id="alligncentertextleft">
+
+<%= link_to 'Delete Stream', @stream, method: :delete, data: { confirm: 'Are you sure you want to delete this stream?' } %>
+</div>
 
 <div id="alligncentertextcenter">
 
-<%= link_to 'Watch', @stream, "data-no-turbolink" => true  %> |
 <%= link_to 'Back', streams_path %>
-</div>
 </div>

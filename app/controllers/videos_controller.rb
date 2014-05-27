@@ -34,7 +34,7 @@ class VideosController < ApplicationController
     @video.length = @video.get_youtube_video_duration(@video.video_id)
     #Store the video name 
     @video.name = @video.get_youtube_video_name(@video.video_id)
-    @stream.save
+ 
     respond_to do |format|
       if @video.save
         format.html { redirect_to edit_stream_path(@stream), notice: 'Video was successfully created.' }
@@ -65,6 +65,7 @@ class VideosController < ApplicationController
   def destroy
     @stream = Stream.friendly.find(params[:stream_id])
     @video = @stream.videos.find(params[:id])
+
 
     @video.destroy
     respond_to do |format|

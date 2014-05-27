@@ -29,11 +29,15 @@
 		
       events: {
         'onReady': onPlayerReady,
-        'onStateChange': onPlayerStateChange
+        'onStateChange': onPlayerStateChange,
+		'onError': onErrorDetect
       }
     });
   }
   
+  function onErrorDetect(event){
+	location.reload();
+}
 
   function onPlayerReady(event) {
 	
