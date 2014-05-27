@@ -8,6 +8,10 @@ Rails.application.routes.draw do
   
 resources :streams do
   resources :videos
+  member do
+    get 'subscribe'
+    get 'setvideos'
+  end
 end
 
 resources :users do

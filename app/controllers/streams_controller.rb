@@ -33,11 +33,23 @@ class StreamsController < ApplicationController
          gon.totalfootage = lengths.inject(:+)
          gon.videolengths = lengths
          gon.videoids = ids
-         gon.starttime = (Time.now.to_i - @stream.created_at.to_i)
+         gon.starttime = (Time.now.to_i - @stream.reprogrammed_at.to_i)
        end
   end
    
-  
+  def subscribe
+    @stream = Stream.friendly.find(params[:id])
+    @stream.increment(:subs, by = 1)
+    @stream.save
+    redirect_to stream_path(@stream)
+  end 
+
+  def setvideos
+    @stream = Stream.friendly.find(params[:id])
+    @stream.reprogrammed_at = Time.now
+    @stream.save
+    redirect_to edit_stream_path(@stream), notice: 'Stream was successfully programmed.'
+  end  
 
   # GET /streams/new
   def new

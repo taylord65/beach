@@ -26,6 +26,7 @@
   <div class="actions">
     <%= f.submit %>
   </div>
+
 <% end %>
 
 <h2>Videos</h2>
@@ -46,6 +47,8 @@
 
 <%= render 'viddisplay' %>
 <br>
+<%= button_to "Program Stream", setvideos_stream_path(@stream), :class => "button", :method => :get  %>
+Programming the stream randomizes the videos. Last Program <%= time_ago_in_words(@stream.reprogrammed_at)%> ago.
 <br>
 <p>
 <td><%= link_to 'Delete Stream', @stream, method: :delete, data: { confirm: 'Are you sure you want to delete this stream?' } %></td>

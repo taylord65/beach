@@ -20,5 +20,6 @@ class Stream < ActiveRecord::Base
     #  filter :range, created_at: {lte: Time.zone.now}
     end
   end
+  
 
 end

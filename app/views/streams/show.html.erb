@@ -4,9 +4,9 @@
 <div id="vidcontrolls">
 
 <h2> <%= @stream.title %> </h2>
-Subscribe 
-#Subscribers
+<%= button_to "Subscribe", subscribe_stream_path(@stream), :class => "button", :method => :get , :remote=>true %>
 
+<%= @stream.subs %>
 <p>
   <strong>Description:</strong>
   <%= @stream.description %>
