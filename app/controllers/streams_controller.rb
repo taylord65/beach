@@ -26,21 +26,17 @@ class StreamsController < ApplicationController
          def setvideos
            @stream = Stream.friendly.find(params[:id])
            @stream.reprogrammed_at = Time.now
-           #Set the start time
            
            #SET THE STREAM PLAYLIST
-           #ids, lengths = Stream.friendly.find(params[:id]).videos.pluck(:video_id, :length).shuffle.transpose
-           
+           @ids, @lengths = Stream.friendly.find(params[:id]).videos.pluck(:video_id, :length).shuffle.transpose
+           @stream.idlist = @ids
+           @stream.lengthlist = @lengths
            @stream.save
            redirect_to edit_stream_path(@stream), notice: 'Stream was successfully programmed.'
          end
-
-         ids = Stream.friendly.find(params[:id]).videos.pluck(:video_id)
          
-         lengths = Stream.friendly.find(params[:id]).videos.pluck(:length)
-         
-         gon.videolengths = lengths
-         gon.videoids = ids     
+         gon.videolengths = @stream.lengthlist
+         gon.videoids = @stream.idlist
          gon.totalfootage = @stream.totallength
          
          #the time is arbitrary 

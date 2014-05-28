@@ -52,7 +52,7 @@
 <%= button_to "Program Stream", setvideos_stream_path(@stream), :class => "button", :method => :get  %>
 Last Program <%= time_ago_in_words(@stream.reprogrammed_at)%> ago. 
 <br>
-Programming the stream randomizes the videos. 
+Programming the stream restarts the stream, applies changes to videos, and randomizes the videos. 
 <br>
 <p>
 </p>
