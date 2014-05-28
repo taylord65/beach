@@ -29,6 +29,7 @@ class StreamsController < ApplicationController
            #Set the start time
            
            #SET THE STREAM PLAYLIST
+           #ids, lengths = Stream.friendly.find(params[:id]).videos.pluck(:video_id, :length).shuffle.transpose
            
            @stream.save
            redirect_to edit_stream_path(@stream), notice: 'Stream was successfully programmed.'
