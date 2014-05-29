@@ -8,7 +8,10 @@
   <%= include_gon %>
 <br>
 	<div id="alligncentertextleft">
-	<%= link_to image_tag("smallbanner.png"), streams_path%> Admin
+	<%= link_to image_tag("smallbanner.png"), streams_path%> Admin |  
+	<% if user_signed_in? %>
+	    <%= current_user.email %>
+	<% end %>
 	</div>
 
 </head>
