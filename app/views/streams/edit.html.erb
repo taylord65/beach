@@ -39,7 +39,9 @@
 	var seconds = parseInt(totalSec % 60);
 
 	var result = (hours < 10 ? "0" + hours : hours) + ":" + (minutes < 10 ? "0" + minutes : minutes) + ":" + (seconds  < 10 ? "0" + seconds : seconds);
+	if (totalSec != 6399){
 	document.write("Total footage currently in stream " + result);
+	}
 </script>
 <p>
 	
@@ -51,10 +53,9 @@
 <div id="alligncentertextcenter">
 <%= button_to "Program Stream", setvideos_stream_path(@stream), :class => "button", :method => :get  %>
 Last Program <%= time_ago_in_words(@stream.reprogrammed_at)%> ago. 
-<br>
-Programming the stream restarts the stream, applies changes to videos, and randomizes the videos. 
-<br>
+</div>
 <p>
+Programming the stream restarts the stream, applies changes to videos, and randomizes the videos. 
 </p>
 </div>
 </div>

@@ -78,6 +78,10 @@ class StreamsController < ApplicationController
   def create
     @stream = Stream.new(stream_params)
     @stream.reprogrammed_at = Time.now
+    @stream.lengthlist = [6399]
+    @stream.idlist = ['8tPnX7OPo0Q']
+    @stream.totallength = 6399
+    
     respond_to do |format|
       if @stream.save
         format.html { redirect_to edit_stream_path(@stream), notice: 'Stream was successfully created.' }
