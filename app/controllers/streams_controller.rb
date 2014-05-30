@@ -16,7 +16,10 @@ class StreamsController < ApplicationController
   # GET /streams/1
   # GET /streams/1.json
   def subscribe
+    
     @stream = Stream.friendly.find(params[:id])
+    
+    if current_user.subscriptions.where(title: @stream.title).blank?
     @stream.increment(:subs, by = 1)
     @stream.save
     
@@ -24,6 +27,13 @@ class StreamsController < ApplicationController
     @subscription.title = @stream.title
     @subscription.save
     redirect_to stream_path(@stream)
+    else
+      @subscription = current_user.subscriptions.find_by title: @stream.title
+      @subscription.destroy
+      @stream.decrement(:subs, by = 1)
+      @stream.save
+      redirect_to stream_path(@stream)      
+    end
   end
   
   def show

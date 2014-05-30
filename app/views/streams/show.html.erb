@@ -5,8 +5,9 @@
 
 <h2> <%= @stream.title %> </h2>
 <%= button_to "Subscribe", subscribe_stream_path(@stream), :class => "button", :method => :get , :remote=>true %>
+<b><%= @stream.subs %></b> Subscribers
 
-<%= @stream.subs %>
+
 <p>
   <strong>Description:</strong>
   <%= @stream.description %>
