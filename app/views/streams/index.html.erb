@@ -1,60 +1,81 @@
 	<div id="alligncentertextcenter">
+		<br>
+	<%= form_tag streams_path, method: :get do %>
+	  <p>
+	    <%= text_field_tag :query, params[:query], :class => 'inputBox' %>
+	    <%= image_submit_tag ("search.png") %>
+	  </p>
+	<% end %>
 	
 	<% if user_signed_in? %>
 	<%= link_to 'New Stream', new_stream_path %>
-	<% end %>
+	<% else %>
+	<%= link_to('Sign Up', new_user_registration_path)  %>
+	<% end %>	
+	
 	</div>
 	
 	<div id="alligncentertextleft">
 
-<% if user_signed_in? %>
-<h1>Subscriptions</h1>
-<table style="width:800px">
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th> </th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<table>
+<tbody>
+	<tr>
+		<td>
+			<h1>Streams</h1>
+		</td>
+		<td>
+			<% if user_signed_in? %>
+			<h1>Subscriptions</h1>
+			<% end %>
+		</td>
+	</tr>
+	<tr>
+		<td valign="top">
+			<table style="width:400px">
+			  <thead>
+			    <tr valign="top">
+			      <th>Title</th>
+			      <th>Description</th>
+			      <th colspan="3"></th>
+			    </tr>
+			  </thead>
 
-  <tbody>
-    <% @subscriptions.each do |subscription| %>
-      <tr>
-        <td><%= subscription.title %></td>
-      </tr>
-    <% end %>
-  </tbody>
+			  <tbody>
+			    <% @streams.each do |stream| %>
+			      <tr>
+				    <td><%= link_to stream.title, stream, "data-no-turbolink" => true %></td>
+			        <td><%= truncate(stream.description, :length => 35) %></td>
+			      </tr>
+			    <% end %>
+			  </tbody>
+			</table>
+		</td>
+		<td valign="top">
+		 	<% if user_signed_in? %>
+			<table style="width:400px">
+			  <thead>
+			    <tr valign="top">
+			      <th>Title</th>
+					<th> </th>
+			      <th colspan="2"></th>
+			    </tr>
+			  </thead>
+
+			  <tbody>
+			    <% @subscriptions.each do |subscription| %>
+			      <tr>
+					<td> <%= link_to subscription.title, watchsub_stream_path(subscription.user_id, title: subscription.title), "data-no-turbolink" => true %> </td>
+					<td><%= link_to 'Delete', [subscription.user, subscription], method: :delete %></td>
+			      </tr>
+			    <% end %>
+			  </tbody>
+			</table>
+			<% end %>
+		</td>
+	</tr>	
+</tbody>
 </table>
-<% end %>
 
-<h1>Streams</h1>
-
-<%= form_tag streams_path, method: :get do %>
-  <p>
-    <%= text_field_tag :query, params[:query], :class => 'inputBox' %>
-    <%= image_submit_tag ("search.png") %>
-  </p>
-<% end %>
-<table style="width:800px">
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @streams.each do |stream| %>
-      <tr>
-        <td><%= stream.title %></td>
-        <td><%= truncate(stream.description, :length => 35) %></td>
-	    <td><%= link_to 'Watch', stream, "data-no-turbolink" => true %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 <br>
 </div>
 
@@ -62,4 +83,5 @@
 
 <br>
 <%= link_to 'Back', splash_path %>
+
 </div>

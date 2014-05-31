@@ -4,7 +4,7 @@
 <div id="vidcontrolls">
 
 <h2> <%= @stream.title %> </h2>
-<%= button_to "Subscribe", subscribe_stream_path(@stream), :class => "button", :method => :get , :remote=>true %>
+<%= button_to "Subscribe / Unsubscribe", subscribe_stream_path(@stream), :class => "button", :method => :get , :remote=>true %>
 <b><%= @stream.subs %></b> Subscribers
 
 

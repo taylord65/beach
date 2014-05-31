@@ -12,6 +12,7 @@ resources :streams do
   member do
     get 'setvideos'
     get 'subscribe'
+    get 'watchsub'
   end
 end
 

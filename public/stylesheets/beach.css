@@ -1,3 +1,4 @@
+
 .inputBox  {
     border: 1px solid #d1d1d1;
     font: 13px Arial,Helvetica,Sans-serif;
@@ -59,6 +60,10 @@ ul.hmenu li {
 	margin-right:auto;
 	text-align: left;
 	width: 50%;
+}
+
+#textright {
+	text-align: right;
 }
 
 #alligncentertextcenter {

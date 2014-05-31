@@ -45,9 +45,18 @@ class SubscriptionsController < ApplicationController
   # DELETE /subscriptions/1
   # DELETE /subscriptions/1.json
   def destroy
+    @stream = Stream.friendly.find_by title: @subscription.title
+    
+  if @stream.nil?
     @subscription.destroy
+  else
+    @stream.decrement(:subs, by = 1)
+    @stream.save
+    @subscription.destroy
+  end
+      
     respond_to do |format|
-      format.html { redirect_to subscriptions_url, notice: 'Subscription was successfully destroyed.' }
+      format.html { redirect_to streams_path, notice: 'Subscription was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

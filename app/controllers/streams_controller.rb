@@ -7,10 +7,20 @@ class StreamsController < ApplicationController
     @streams = Stream.search(params)
     
     if user_signed_in?
-    @subscriptions = current_user.subscriptions 
+    @subscriptions = current_user.subscriptions
     end
     
     render :layout => 'splashlayout'
+  end
+  
+  def watchsub
+    subscription_title = params[:title]
+    @stream = Stream.friendly.find_by title: subscription_title
+    
+    unless @stream.nil?
+      redirect_to stream_path(@stream)
+    end
+    
   end
 
   # GET /streams/1
