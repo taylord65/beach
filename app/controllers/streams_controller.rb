@@ -59,9 +59,10 @@ class StreamsController < ApplicationController
    end
   
   def show
-    @stream = Stream.friendly.find(params[:id])
-    @addkey = @stream.admins.find_by admin_key: current_user.id
+
     if user_signed_in?
+    @stream = Stream.friendly.find(params[:id])
+    @addkey = @stream.admins.find_by admin_key: current_user.id    
     @subscriptions = current_user.subscriptions
     end
        
@@ -89,8 +90,10 @@ class StreamsController < ApplicationController
 
   # GET /streams/1/edit
   def edit  
+    if user_signed_in?
     @stream = Stream.friendly.find(params[:id])
     @addkey = @stream.admins.find_by admin_key: current_user.id
+    end
     render :layout => 'editlayout'
   end
   
