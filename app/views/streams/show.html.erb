@@ -3,7 +3,7 @@
 
 <div id="vidcontrolls">
 
-<h2> <%= @stream.title %> </h2>
+<h1> <%= @stream.title %> </h1>
 
 <b><%= @stream.subs %></b> Subscribers
 
@@ -11,27 +11,18 @@
 <%= button_to "Subscribe / Unsubscribe", subscribe_stream_path(@stream), :class => "button", :method => :get , :remote=>true %>
 <% end %>
 
-
 <p>
   <strong>Description:</strong>
   <%= @stream.description %>
 </p>
 
 	<% if user_signed_in? %>
+<b> Subscriptions </b>
 	<table>
-	  <thead>
-	    <tr valign="top">
-	      <th>Subscriptions</th>
-			<th> </th>
-	      <th colspan="2"></th>
-	    </tr>
-	  </thead>
-
 	  <tbody>
 	    <% @subscriptions.each do |subscription| %>
 	      <td>
-			 <%= link_to subscription.title, watchsub_stream_path(subscription.user_id, title: subscription.title), "data-no-turbolink" => true %> 
-			
+<%= link_to subscription.title, watchsub_stream_path(subscription.user_id, title: subscription.title), "data-no-turbolink" => true %> 
 	      </td>
 	    <% end %>
 	  </tbody>
