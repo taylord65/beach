@@ -38,13 +38,13 @@ class VideosController < ApplicationController
  
     respond_to do |format|
       if @video.save
-        if @contribute == current_user.id 
-        format.html { redirect_to edit_stream_path(@stream), notice: 'Video was successfully created. Program Stream to apply changes' }
-        format.json { render :show, status: :created, location: @video }
-        else
+        if @contributekey.nil?
           format.html { redirect_to stream_path(@stream) }
           #notice contribution was succesful
-          format.json { render :show, status: :created, location: @video }
+          format.json { render :show, status: :created, location: @video }          
+        else
+        format.html { redirect_to edit_stream_path(@stream), notice: 'Video was successfully created. Program Stream to apply changes' }
+        format.json { render :show, status: :created, location: @video }
         end
       else
         format.html { render :new }

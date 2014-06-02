@@ -1,3 +1,4 @@
+<% if user_signed_in? %>
 <% if current_user.id = @addkey %>
 <div id="alligncentertextleft">
 
@@ -77,4 +78,5 @@ You are not the administrator of this stream
 <%= link_to 'Back', stream_path(@stream), "data-no-turbolink" => true  %>
 
 </div>
+<% end %>
 <% end %>
