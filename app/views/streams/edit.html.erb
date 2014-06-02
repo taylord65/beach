@@ -1,3 +1,4 @@
+<% if current_user.id = @addkey %>
 <div id="alligncentertextleft">
 
 <p id="notice"><%= notice %></p>
@@ -28,8 +29,7 @@
   </div>
 
 <% end %>
-
-<h2>Videos  |  Playlists  |  Submissions  |  Subscriptions</h2>
+<h2>Videos  |  Playlists  |  Subscriptions</h2>
 
 <script type="text/javascript">
 	//Display in Hours:Minutes:Seconds format
@@ -68,3 +68,13 @@ Programming the stream restarts the stream, applies changes to videos, and rando
 
 <%= link_to 'Back', streams_path %>
 </div>
+<% else %>
+<div id="alligncentertextcenter">
+<br>
+You are not the administrator of this stream
+<br>
+<br>
+<%= link_to 'Back', stream_path(@stream), "data-no-turbolink" => true  %>
+
+</div>
+<% end %>

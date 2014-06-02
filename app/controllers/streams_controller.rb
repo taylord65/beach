@@ -16,7 +16,7 @@ class StreamsController < ApplicationController
   def watchsub
     subscription_title = params[:title]
     @stream = Stream.friendly.find_by title: subscription_title
-    
+    #need to route to page doesnt exist 
     unless @stream.nil?
       redirect_to stream_path(@stream)
     end
@@ -46,31 +46,35 @@ class StreamsController < ApplicationController
     end
   end
   
+  def setvideos
+     @stream = Stream.friendly.find(params[:id])
+     @stream.reprogrammed_at = Time.now
+
+     @ids, @lengths = Stream.friendly.find(params[:id]).videos.pluck(:video_id, :length).shuffle.transpose
+     @stream.totallength = Stream.friendly.find(params[:id]).videos.pluck(:length).inject(:+)     
+     @stream.idlist = @ids
+     @stream.lengthlist = @lengths
+     @stream.save
+  redirect_to edit_stream_path(@stream), notice: 'Stream was successfully programmed.'
+   end
+  
   def show
+    @stream = Stream.friendly.find(params[:id])
+    @addkey = @stream.admins.find_by admin_key: current_user.id
+    if user_signed_in?
+    @subscriptions = current_user.subscriptions
+    end
        
        if (Stream.friendly.find(params[:id]).videos.first).nil? 
          gon.videoidcurrent = ['8tPnX7OPo0Q']
          #blank video appears in watch if there are no videos in the database 
        else
          @stream = Stream.friendly.find(params[:id])
-              
-       def setvideos
-         @stream = Stream.friendly.find(params[:id])
-         @stream.reprogrammed_at = Time.now
-    
-         @ids, @lengths = Stream.friendly.find(params[:id]).videos.pluck(:video_id, :length).shuffle.transpose
-         @stream.totallength = Stream.friendly.find(params[:id]).videos.pluck(:length).inject(:+)     
-         @stream.idlist = @ids
-         @stream.lengthlist = @lengths
-         @stream.save
-      redirect_to edit_stream_path(@stream), notice: 'Stream was successfully programmed.'
-       end
          
          gon.videolengths = @stream.lengthlist
          gon.videoids = @stream.idlist
          gon.totalfootage = @stream.totallength
          
-         #the time is arbitrary 
          gon.starttime = (Time.now.to_i - @stream.reprogrammed_at.to_i)
        end
   end
@@ -84,7 +88,9 @@ class StreamsController < ApplicationController
   end
 
   # GET /streams/1/edit
-  def edit
+  def edit  
+    @stream = Stream.friendly.find(params[:id])
+    @addkey = @stream.admins.find_by admin_key: current_user.id
     render :layout => 'editlayout'
   end
   
@@ -104,6 +110,11 @@ class StreamsController < ApplicationController
     
     respond_to do |format|
       if @stream.save
+        
+        @admin = @stream.admins.create(params[:admin])
+        @admin.admin_key = current_user.id
+        @admin.save
+        
         format.html { redirect_to edit_stream_path(@stream), notice: 'Stream was successfully created.' }
         format.json { render :show, status: :created, location: @stream }
       else

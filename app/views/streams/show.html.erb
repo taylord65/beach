@@ -4,8 +4,12 @@
 <div id="vidcontrolls">
 
 <h2> <%= @stream.title %> </h2>
-<%= button_to "Subscribe / Unsubscribe", subscribe_stream_path(@stream), :class => "button", :method => :get , :remote=>true %>
+
 <b><%= @stream.subs %></b> Subscribers
+
+<% if user_signed_in? %>
+<%= button_to "Subscribe / Unsubscribe", subscribe_stream_path(@stream), :class => "button", :method => :get , :remote=>true %>
+<% end %>
 
 
 <p>
@@ -13,13 +17,45 @@
   <%= @stream.description %>
 </p>
 
-<p>Fullscreen | Go to Live </p>
-<p>Previous Stream | Next Stream</p>
-<p>Contribute Field</p>
+	<% if user_signed_in? %>
+	<table>
+	  <thead>
+	    <tr valign="top">
+	      <th>Subscriptions</th>
+			<th> </th>
+	      <th colspan="2"></th>
+	    </tr>
+	  </thead>
+
+	  <tbody>
+	    <% @subscriptions.each do |subscription| %>
+	      <td>
+			 <%= link_to subscription.title, watchsub_stream_path(subscription.user_id, title: subscription.title), "data-no-turbolink" => true %> 
+			
+	      </td>
+	    <% end %>
+	  </tbody>
+	</table>
+	<% end %>
+
+<h2>Contribute</h2>
+<%= form_for([@stream, @stream.videos.build]) do |f| %>
+
+	<div class="field">
+	  <%= f.text_field :url %>
+	</div>
+
+	<div class="actions">
+	  <%= f.submit %>
+	</div>
+
+<% end %>
 
 
 <div id="alligncentertextcenter">
+<% if current_user.id = @addkey %>
 <%= link_to 'Edit', edit_stream_path(@stream), "data-no-turbolink" => true %> |
+<% end %>
 <%= link_to 'Back', streams_path %>
 </div>
 </div>

@@ -8,8 +8,8 @@
   <%= include_gon %>
 <br>
 	<div id="alligncentertextleft">
+	<% if current_user.id = @addkey %>
 	<%= link_to image_tag("smallbanner.png"), streams_path%> Admin |  
-	<% if user_signed_in? %>
 	    <%= current_user.email %>
 	<% end %>
 	</div>

@@ -10,7 +10,7 @@
 	<% if user_signed_in? %>
 	<%= link_to 'New Stream', new_stream_path %>
 	<% else %>
-	<%= link_to('Sign Up', new_user_registration_path)  %>
+	<%= link_to('Sign Up', new_user_registration_path) %> To create and subscribe to streams
 	<% end %>	
 	
 	</div>
@@ -65,7 +65,7 @@
 			    <% @subscriptions.each do |subscription| %>
 			      <tr>
 					<td> <%= link_to subscription.title, watchsub_stream_path(subscription.user_id, title: subscription.title), "data-no-turbolink" => true %> </td>
-					<td><%= link_to 'Delete', [subscription.user, subscription], method: :delete %></td>
+					<td><%= link_to 'Unsubscribe', [subscription.user, subscription], method: :delete %></td>
 			      </tr>
 			    <% end %>
 			  </tbody>

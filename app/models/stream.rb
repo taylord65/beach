@@ -1,5 +1,6 @@
 class Stream < ActiveRecord::Base
   has_many :videos, :dependent => :destroy
+  has_many :admins, :dependent => :destroy
   validates :title, :description, :presence => true
   validates :title, :uniqueness => {:case_sensitive => false}
   validates :title, :format => { without: /[~!@#$%^&*()-+_=]/ , :message => 'no special characters, only letters and numbers' }
