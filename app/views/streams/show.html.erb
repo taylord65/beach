@@ -37,7 +37,8 @@
 	  </tbody>
 	</table>
 	<% end %>
-
+	
+<% if user_signed_in? %>
 <h2>Contribute</h2>
 <%= form_for([@stream, @stream.videos.build]) do |f| %>
 
@@ -50,7 +51,7 @@
 	</div>
 
 <% end %>
-
+<% end %>
 
 <div id="alligncentertextcenter">
 <% if user_signed_in? %>
