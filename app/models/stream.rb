@@ -4,6 +4,7 @@ class Stream < ActiveRecord::Base
   validates :title, :description, :presence => true
   validates :title, :uniqueness => {:case_sensitive => false}
   validates :title, :format => { without: /[~!@#$%^&*()-+_=]/ , :message => 'no special characters, only letters and numbers' }
+  #should be a with only 0-9,a-z,A-Z
   validates :title, :format => { without: /\s/ , :message => 'cannot have spaces' }
   
   validates :title, length: {in: 2..20, :message => ' must be between 2 and 20 characters' }
