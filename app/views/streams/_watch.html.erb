@@ -36,7 +36,13 @@
   }
   
   function onErrorDetect(event){
+	if (event.data == 100) {
+	//video request was not found, error occurs when video has been removed or has been marked as private
+	event.target.nextVideo();	
+	} else{
 	location.reload();
+	}
+	
 }
 
   function onPlayerReady(event) {
