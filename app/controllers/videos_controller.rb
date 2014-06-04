@@ -25,8 +25,8 @@ class VideosController < ApplicationController
   # POST /videos
   # POST /videos.json
   def create
-    @stream = Stream.friendly.find(params[:stream_id])
-    @video = @stream.videos.create(video_params)
+    @stream = Stream.friendly.find(params[:stream_id]) 
+    @video = @stream.videos.find_or_create_by(video_params)
     
     #Set the video id by using the converturl function in the model
     @video.video_id = @video.converturl(@video.url)

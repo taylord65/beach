@@ -8,6 +8,7 @@ class StreamsController < ApplicationController
     
     if user_signed_in?
     @subscriptions = current_user.subscriptions
+
     end
     
     render :layout => 'splashlayout'

@@ -23,7 +23,7 @@
 	    <% @subscriptions.each do |subscription| %>
 	      <td>
 <%= link_to subscription.title, watchsub_stream_path(subscription.user_id, title: subscription.title), "data-no-turbolink" => true %> 
-	      </td>
+		</td>
 	    <% end %>
 	  </tbody>
 	</table>

@@ -62,6 +62,10 @@ ul.hmenu li {
 	width: 50%;
 }
 
+#subscribebar{
+	text-align: left;
+}
+
 #textright {
 	text-align: right;
 }
