@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   resources :streams, path: 's'  
   
   devise_for :users
@@ -8,6 +9,7 @@ Rails.application.routes.draw do
   
 resources :streams do
   resources :videos
+  resources :playlists
   resources :admins
   member do
     get 'setvideos'

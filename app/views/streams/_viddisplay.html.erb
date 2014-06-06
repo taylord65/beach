@@ -48,3 +48,19 @@
 </div>
 
 <% end %>
+
+<h2>Add a Playlist</h2>
+<%= form_for([@stream, @stream.playlists.build]) do |f| %>
+
+  <div class="field">
+    <%= f.label :url %><br>
+    <%= f.text_field :url %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+
+

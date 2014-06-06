@@ -37,15 +37,9 @@
 	<tr>
 		<td valign="top">
 			<table style="width:400px">
-			  <thead>
-			    <tr valign="top">
-
-			    </tr>
-			  </thead>
-
 			  <tbody>
 			    <% @streams.each do |stream| %>
-			      <tr>
+			    <tr valign="top">
 				    <td><%= link_to stream.title, stream, "data-no-turbolink" => true %></td>
 			        <td><%= truncate(stream.description, :length => 35) %></td>
 			      </tr>
@@ -56,15 +50,9 @@
 		<td valign="top">
 		 	<% if user_signed_in? %>
 			<table style="width:400px">
-			  <thead>
-			    <tr valign="top">
-
-			    </tr>
-			  </thead>
-
 			  <tbody>
 			    <% @subscriptions.each do |subscription| %>
-			      <tr>
+			    <tr valign="top">
 					<td> <%= link_to subscription.title, watchsub_stream_path(subscription.user_id, title: subscription.title), "data-no-turbolink" => true %> </td>
 					<td><%= link_to 'Unsubscribe', [subscription.user, subscription], method: :delete %></td>
 			      </tr>
@@ -76,12 +64,6 @@
 		<td valign="top">
 		 	<% if user_signed_in? %>
 			<table style="width:400px">
-			  <thead>
-			    <tr valign="top">
-
-			    </tr>
-			  </thead>
-
 			<tbody>
 				
 			

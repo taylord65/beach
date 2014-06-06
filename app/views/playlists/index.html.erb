@@ -1,0 +1,14 @@
+<h1>Listing playlists</h1>
+
+<table>
+  <tbody>
+    <% @stream.playlists.each do |playlist| %>
+      <tr>
+		<td><%= link_to playlist.title, playlist.url, :target => :blank %></td>
+		<td><%= link_to 'Remove', [playlist.stream, playlist],	method: :delete %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

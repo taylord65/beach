@@ -66,8 +66,16 @@ ul.hmenu li {
 	text-align: left;
 }
 
-#textright {
-	text-align: right;
+#subscribecount{
+	font-family: verdana, arial, helvetica, sans-serif;
+  	font-size: 20px;
+	text-align: right;	
+}
+
+.textright {
+	margin-left: auto;
+    text-align: right;
+    display: block;
 }
 
 #alligncentertextcenter {

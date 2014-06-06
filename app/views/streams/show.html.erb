@@ -2,11 +2,27 @@
 <%= render 'watch' %>
 
 <div id="vidcontrolls">
-
-<h1> <%= @stream.title %> </h1>
-
-<b><%= @stream.subs %></b> Subscribers
-
+<table style="width:1070px">
+	<tbody>
+		<td>
+			<h1> <%= @stream.title %> </h1>
+		</td>
+		<td>
+		<div id="textright">		
+			<table>
+				<tbody>
+					<td>
+						<div id="subscribecount"><b> <%= @stream.subs %></b></div> 
+					</td>
+					<td>
+						Subscribers 
+					</td>
+				</tbody>
+			</table>
+		</div>	
+		</td>
+	</tbody>
+</table>
 <% if user_signed_in? %>
 <%= button_to "Subscribe / Unsubscribe", subscribe_stream_path(@stream), :class => "button", :method => :get , :remote=>true %>
 <% end %>
