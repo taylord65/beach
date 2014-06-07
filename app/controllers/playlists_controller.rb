@@ -1,5 +1,6 @@
 class PlaylistsController < ApplicationController
   before_action :set_playlist, only: [:show, :edit, :update, :destroy]
+  require 'open-uri'
 
   # GET /playlists
   # GET /playlists.json
@@ -27,20 +28,27 @@ class PlaylistsController < ApplicationController
   # POST /playlists.json
   def create    
     @stream = Stream.friendly.find(params[:stream_id]) 
-    @playlist = @stream.playlists.find_or_create_by(playlist_params)
+    @playlist = @stream.playlists.find_or_initialize_by(playlist_params)
     
+    if @playlist.valid?
     @playlist.playlist_id = @playlist.playlistconverturl(@playlist.url)
     @playlist.title = @playlist.get_youtube_playlist_title(@playlist.playlist_id)
-    doc = Nokogiri::XML(open("http://gdata.youtube.com/feeds/api/playlists/#{@playlist.playlist_id}?v=2"))   
-    @scrapeurl = doc.xpath('//media:content')[1]['url']
     
+    doc = Nokogiri::HTML(open("https://www.youtube.com/playlist?list=#{@playlist.playlist_id}"))
+
+    doc.css("[data-video-id]").each do |el|
+        @scraped_id = el.attr('data-video-id')
+ video = @stream.videos.find_or_create_by( video_id: @scraped_id, 
+                                           pid: @playlist.playlist_id, 
+                                           length: JSON.parse(open("http://gdata.youtube.com/feeds/api/videos/#{@scraped_id}?v=2&alt=jsonc").read)['data']['duration'],
+                                           name:  JSON.parse(open("http://gdata.youtube.com/feeds/api/videos/#{@scraped_id}?v=2&alt=jsonc").read)['data']['title'],
+                                           url: "https://www.youtube.com/watch?v=" + "#{@scraped_id}"
+                                          )
+    end
+    
+    end
     respond_to do |format|
       if @playlist.save
-        @video = @stream.videos.find_or_create_by(:url => @scrapeurl)
-        @video.video_id = @video.converturl(@video.url)
-        @video.length = @video.get_youtube_video_duration(@video.video_id)
-        @video.name = @video.get_youtube_video_name(@video.video_id)
-        @video.save
         
         format.html { redirect_to edit_stream_path(@stream), notice: 'Playlist was successfully created.' }
         format.json { render :show, status: :created, location: @playlist }
