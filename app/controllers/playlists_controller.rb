@@ -8,6 +8,8 @@ class PlaylistsController < ApplicationController
     @stream = Stream.friendly.find(params[:stream_id]) 
     
     @playlists = Playlist.all
+    
+
   end
 
   # GET /playlists/1
@@ -36,7 +38,8 @@ class PlaylistsController < ApplicationController
     
     doc = Nokogiri::HTML(open("https://www.youtube.com/playlist?list=#{@playlist.playlist_id}"))
 
-    doc.css("[data-video-id]").each do |el|
+      doc.css("[data-video-id]").each do |el|
+        begin
         @scraped_id = el.attr('data-video-id')
  video = @stream.videos.find_or_create_by( video_id: @scraped_id, 
                                            pid: @playlist.playlist_id, 
@@ -44,9 +47,13 @@ class PlaylistsController < ApplicationController
                                            name:  JSON.parse(open("http://gdata.youtube.com/feeds/api/videos/#{@scraped_id}?v=2&alt=jsonc").read)['data']['title'],
                                            url: "https://www.youtube.com/watch?v=" + "#{@scraped_id}"
                                           )
+        rescue OpenURI::HTTPError
+            next
+        end
+        
+      end
     end
     
-    end
     respond_to do |format|
       if @playlist.save
         
@@ -78,7 +85,10 @@ class PlaylistsController < ApplicationController
   def destroy
     @stream = Stream.friendly.find(params[:stream_id]) 
     
+    videos_from_playlist = @stream.videos.where(:pid => @playlist.playlist_id )
+    videos_from_playlist.destroy_all
     @playlist.destroy
+
     respond_to do |format|
       format.html { redirect_to edit_stream_path(@stream), notice: 'Playlist was successfully destroyed.' }
       format.json { head :no_content }

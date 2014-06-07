@@ -74,6 +74,7 @@ ul.hmenu li {
 
 .textright {
 	margin-left: auto;
+	margin-right: 0;
     text-align: right;
     display: block;
 }
