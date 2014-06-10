@@ -37,18 +37,20 @@ class ChannelsController < ApplicationController
     @stream = Stream.friendly.find(params[:stream_id]) 
     @channel = @stream.channels.find_or_initialize_by(channel_params)
     
-     if @channel.valid?
-       
-      #parse url for either user name or channel id through a model method. return either the channel id or the user name into a @channel.doc variable
-      #open the channel.doc string for vid loop and to scrape the <title> for @channel.title 
+    if @channel.valid?
+    @channel.doc = @channel.getdoc(@channel.url)
 
-      doc = Nokogiri::HTML(open("https://www.youtube.com/channel/#{     }/videos"))
-
-        doc.css("[data-video-ids]").each do |el|
+    doc = Nokogiri::HTML(open(@channel.doc))
+    
+    a = doc.at('title').content
+    a.slice! " - YouTube"
+    @channel.title = a
+    
+    doc.css("[data-video-ids]").each do |el|
           begin
           @scraped_id = el.attr('data-video-ids')
    video = @stream.videos.find_or_create_by( video_id: @scraped_id, 
-                                             pid: @playlist.playlist_id, 
+                                             pid: @channel.url, 
                                              length: JSON.parse(open("http://gdata.youtube.com/feeds/api/videos/#{@scraped_id}?v=2&alt=jsonc").read)['data']['duration'],
                                              name:  JSON.parse(open("http://gdata.youtube.com/feeds/api/videos/#{@scraped_id}?v=2&alt=jsonc").read)['data']['title'],
                                              url: "https://www.youtube.com/watch?v=" + "#{@scraped_id}"
@@ -56,12 +58,14 @@ class ChannelsController < ApplicationController
           rescue OpenURI::HTTPError
               next
           end
-        end
-      end
+          
+    end
+        
+    end
 
     respond_to do |format|
       if @channel.save
-        format.html { redirect_to @channel, notice: 'Channel was successfully created.' }
+        format.html { redirect_to edit_stream_path(@stream), notice: 'Channel was successfully created.' }
         format.json { render :show, status: :created, location: @channel }
       else
         format.html { render :new }
@@ -75,7 +79,7 @@ class ChannelsController < ApplicationController
   def update
     respond_to do |format|
       if @channel.update(channel_params)
-        format.html { redirect_to @channel, notice: 'Channel was successfully updated.' }
+        format.html { redirect_to @channel, notice: 'Channel was successfully connected.' }
         format.json { render :show, status: :ok, location: @channel }
       else
         format.html { render :edit }
@@ -87,9 +91,15 @@ class ChannelsController < ApplicationController
   # DELETE /channels/1
   # DELETE /channels/1.json
   def destroy
+    @stream = Stream.friendly.find(params[:stream_id]) 
+    
+    videos_from_channel = @stream.videos.where(:pid => @channel.url )
+    videos_from_channel.destroy_all
+    
     @channel.destroy
+    
     respond_to do |format|
-      format.html { redirect_to channels_url, notice: 'Channel was successfully destroyed.' }
+      format.html { redirect_to edit_stream_path(@stream), notice: 'Channel was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
