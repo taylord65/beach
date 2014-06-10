@@ -1,0 +1,27 @@
+<% if user_signed_in? %>
+<% if current_user.id = @addkey %>
+
+<h1>User Channels</h1>
+Adding a user channel connects the channel's recent uploads to the stream.
+<br>
+Removing a user channel removes all of its associated videos.
+
+<br>
+<br>
+<table>
+  <tbody>
+    <% @stream.channels.each do |channel| %>
+      <tr>
+		<td><%= link_to channel.title, channel.url, :target => :blank %></td>
+		<td><%= link_to 'Remove', [channel.stream, channel],	method: :delete %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+
+
+<% end %>
+<% end %>
+
+

@@ -7,14 +7,26 @@ class PlaylistsController < ApplicationController
   def index
     @stream = Stream.friendly.find(params[:stream_id]) 
     
+    if user_signed_in?
+    @addkey = @stream.admins.find_by admin_key: current_user.id    
+    end
+    
     @playlists = Playlist.all
     
 
+  end
+  
+  
+  def filter
+    @stream = Stream.friendly.find(params[:stream_id]) 
+    @playlist = @stream.playlists.where(stream_id: @stream.id)
+    
   end
 
   # GET /playlists/1
   # GET /playlists/1.json
   def show
+    
   end
 
   # GET /playlists/new

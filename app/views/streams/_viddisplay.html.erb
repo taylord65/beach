@@ -34,12 +34,14 @@
 </table>
 </div>
 </div>
+<table>
+	<tr>
 
-<h2>Add a Video</h2>
+		<td>
+<h2>Video</h2>
 <%= form_for([@stream, @stream.videos.build]) do |f| %>
 
 <div class="field">
-  <%= f.label :url %><br>
   <%= f.text_field :url %>
 </div>
 
@@ -48,12 +50,13 @@
 </div>
 
 <% end %>
+	</td>
+	<td>
 
-<h2>Add a Playlist</h2>
+<h2>Playlist</h2>
 <%= form_for([@stream, @stream.playlists.build]) do |f| %>
 
   <div class="field">
-    <%= f.label :url %><br>
     <%= f.text_field :url %>
   </div>
 
@@ -61,6 +64,23 @@
     <%= f.submit %>
   </div>
 <% end %>
+</td>
+<td>
+	<h2>User Channel</h2>
+	<%= form_for([@stream, @stream.channels.build]) do |f| %>
+
+	  <div class="field">
+	    <%= f.text_field :url %>
+	  </div>
+
+	  <div class="actions">
+	    <%= f.submit %>
+	  </div>
+	<% end %>
+	
+	</td>
+</tr>
+</table>
 
 
 

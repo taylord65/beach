@@ -9,14 +9,24 @@ Rails.application.routes.draw do
   
 resources :streams do
   resources :videos
-  resources :playlists
+  resources :channels
+  
+  resources :playlists do
+    member do 
+      get 'filter'
+    end
+  end
+  
   resources :admins
+  
   member do
     get 'setvideos'
     get 'subscribe'
     get 'watchsub'
   end
+  
 end
+
 
 resources :users do
   resources :subscriptions 

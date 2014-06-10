@@ -51,7 +51,6 @@ ul.hmenu li {
 #vidcontrolls {
 	margin-left:auto;
 	margin-right:auto;
-	text-align: left;
 	width: 1070px;
 }
 
@@ -72,11 +71,10 @@ ul.hmenu li {
 	text-align: right;	
 }
 
-.textright {
-	margin-left: auto;
-	margin-right: 0;
+#textright {
+	margin-left:auto;
+	margin-right:auto;
     text-align: right;
-    display: block;
 }
 
 #alligncentertextcenter {

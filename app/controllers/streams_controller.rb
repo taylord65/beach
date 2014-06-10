@@ -14,6 +14,8 @@ class StreamsController < ApplicationController
     render :layout => 'splashlayout'
   end
   
+
+  
   def watchsub
     subscription_title = params[:title]
     @stream = Stream.friendly.find_by title: subscription_title
