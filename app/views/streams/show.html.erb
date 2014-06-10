@@ -7,16 +7,16 @@
 			<h1> <%= @stream.title %> </h1>
 		</td>
 		<td allign="right">
+		<div id="textright">				
 		<table>
-		<div id="textright">			
 					<td>
 						<div id="subscribecount"><b> <%= @stream.subs %></b></div> 
 					</td>
 					<td>
 						Subscribers 
 					</td>
-			</div>		
 			</table>
+			</div>		
 		</td>
 </table>
 <% if user_signed_in? %>

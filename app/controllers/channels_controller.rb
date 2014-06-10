@@ -65,7 +65,7 @@ class ChannelsController < ApplicationController
 
     respond_to do |format|
       if @channel.save
-        format.html { redirect_to edit_stream_path(@stream), notice: 'Channel was successfully created.' }
+        format.html { redirect_to edit_stream_path(@stream), notice: 'Channel was successfully connected.' }
         format.json { render :show, status: :created, location: @channel }
       else
         format.html { render :new }
@@ -79,7 +79,7 @@ class ChannelsController < ApplicationController
   def update
     respond_to do |format|
       if @channel.update(channel_params)
-        format.html { redirect_to @channel, notice: 'Channel was successfully connected.' }
+        format.html { redirect_to @channel, notice: 'Channel was successfully updated.' }
         format.json { render :show, status: :ok, location: @channel }
       else
         format.html { render :edit }
