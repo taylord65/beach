@@ -13,23 +13,25 @@
 						<div id="subscribecount"><b> <%= @stream.subs %></b></div> 
 					</td>
 					<td>
-						Subscribers 
+						<%= pluralize_without_count(@stream.subs, "subscriber") %> 
 					</td>
 			</table>
 			</div>		
 		</td>
 </table>
+
 <% if user_signed_in? %>
-<%= button_to "Subscribe / Unsubscribe", subscribe_stream_path(@stream), :class => "button", :method => :get , :remote=>true %>
+<div id="textright">				
+<%= button_to "subscribe / unsubscribe", subscribe_stream_path(@stream), :class => "button", :method => :get , :remote=>true %>
+</div>
 <% end %>
 
 <p>
-  <strong>Description:</strong>
   <%= @stream.description %>
 </p>
 
 	<% if user_signed_in? %>
-<b> Subscriptions </b>
+	<div id="subscribebar">
 	<table>
 	  <tbody>
 	    <% @subscriptions.each do |subscription| %>
@@ -39,6 +41,7 @@
 	    <% end %>
 	  </tbody>
 	</table>
+	</div>
 	<% end %>
 	
 <% if user_signed_in? %>
