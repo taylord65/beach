@@ -61,18 +61,28 @@ ul.hmenu li {
 	width: 50%;
 }
 
-#subscribebar {
+.subscribebar {
 	
-	text-decoration: none;
 	background-color:#83B4DB;
 	border:0px solid #ffffff;
 	text-align:center;
-	border-width:0px 0px 1px 1px;
 	font-size:15px;
-	font-family:Arial;
-	font-weight:bold;
-	color:#6b6868;
-    
+
+}
+
+.subscribebar table {  
+    border-collapse: collapse;
+}
+
+.subscribebar a {
+	text-decoration: none;
+	color:#FFFFFF;	
+}
+
+.subscribebar td:hover {
+    background: #FAF7BA;
+	border-collapse: collapse;
+	color:#E6E6E6;
 }
 
 #subscribecount{

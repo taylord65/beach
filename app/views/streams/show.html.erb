@@ -3,10 +3,11 @@
 
 <div id="vidcontrolls">
 <table style="width:1070px">
+	<tr>
 		<td>
 			<h1> <%= @stream.title %> </h1>
 		</td>
-		<td allign="right">
+		<td>
 		<div id="textright">				
 		<table>
 					<td>
@@ -18,20 +19,24 @@
 			</table>
 			</div>		
 		</td>
+	</tr>
+	<tr>
+		<td>
+		  <%= @stream.description %>			
+		</td>
+		<td>
+			<div id="textright">				
+			<% if user_signed_in? %>
+			<%= button_to "subscribe / unsubscribe", subscribe_stream_path(@stream), :class => "button", :method => :get , :remote=>true %>
+			<% end %>
+			</div>
+		</td>
+	</tr>
 </table>
-
-<% if user_signed_in? %>
-<div id="textright">				
-<%= button_to "subscribe / unsubscribe", subscribe_stream_path(@stream), :class => "button", :method => :get , :remote=>true %>
-</div>
-<% end %>
-
-<p>
-  <%= @stream.description %>
-</p>
+<br>
 
 	<% if user_signed_in? %>
-	<div id="subscribebar">
+	<div class="subscribebar">
 	<table>
 	  <tbody>
 	    <% @subscriptions.each do |subscription| %>
