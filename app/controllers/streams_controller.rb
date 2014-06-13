@@ -64,6 +64,14 @@ class StreamsController < ApplicationController
   def show
 
     if user_signed_in?
+      
+      if current_user.subscriptions.where(title: @stream.title).blank?
+        @buttontext = "Subscribe"
+      else
+        @buttontext = "Unsubscribe"
+      end  
+      
+      
     @stream = Stream.friendly.find(params[:id])
     @addkey = @stream.admins.find_by admin_key: current_user.id    
     @subscriptions = current_user.subscriptions

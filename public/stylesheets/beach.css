@@ -170,3 +170,37 @@ div {
     list-style: square;
   }
 }
+
+.subscribebutton {
+	background-color:#ededed;
+	-webkit-border-top-left-radius:6px;
+	border-top-left-radius:6px;
+	-webkit-border-top-right-radius:6px;
+	border-top-right-radius:6px;
+	-webkit-border-bottom-right-radius:6px;
+	border-bottom-right-radius:6px;
+	-webkit-border-bottom-left-radius:6px;
+	border-bottom-left-radius:6px;
+	text-indent:0;
+	border:1px solid #dcdcdc;
+	display:inline-block;
+	color:#777777;
+	font-family:arial;
+	font-size:22px;
+	font-weight:bold;
+	font-style:normal;
+	height:60px;
+	line-height:45px;
+	width:170px;
+	text-decoration:none;
+	text-align:center;
+}
+
+.subscribebutton:hover {
+	background-color:#83b4db;
+}
+
+.subscribebutton:active {
+	position:relative;
+	top:1px;
+}
