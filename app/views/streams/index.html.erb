@@ -1,5 +1,5 @@
 	<div id="alligncentertextcenter">
-		<br>
+		
 	<%= form_tag streams_path, method: :get do %>
 	  <p>
 	    <%= text_field_tag :query, params[:query], :class => 'inputBox' %>
@@ -13,6 +13,7 @@
 	<%= link_to('Sign Up', new_user_registration_path) %> To create, contribute, and subscribe to streams
 	<% end %>	
 	
+	
 	</div>
 	
 	<div id="alligncentertextleft">
@@ -22,11 +23,6 @@
 	<tr>
 		<td>
 			<h1>Streams</h1>
-		</td>
-		<td>
-			<% if user_signed_in? %>
-			<h1>Subscriptions</h1>
-			<% end %>
 		</td>
 		<td>
 			<% if user_signed_in? %>
@@ -47,29 +43,6 @@
 			  </tbody>
 			</table>
 		</td>
-		<td valign="top">
-		 	<% if user_signed_in? %>
-			<table style="width:400px">
-			  <tbody>
-			    <% @subscriptions.each do |subscription| %>
-			    <tr valign="top">
-					<td> <%= link_to subscription.title, watchsub_stream_path(subscription.user_id, title: subscription.title), "data-no-turbolink" => true %> </td>
-					<td><%= link_to 'Unsubscribe', [subscription.user, subscription], method: :delete %></td>
-			      </tr>
-			    <% end %>
-			  </tbody>
-			</table>
-			<% end %>
-		</td>
-		<td valign="top">
-		 	<% if user_signed_in? %>
-			<table style="width:400px">
-			<tbody>
-				
-			
-			</tbody>
-			</table>
-			<% end %>
 	</tr>	
 </tbody>
 </table>
@@ -78,6 +51,21 @@
 </div>
 
 <div id="alligncentertextcenter">
+	<br>
+	<% if user_signed_in? %>
+	<div class="subscribebar">
+	<table>
+	  <tbody>
+	    <% @subscriptions.each do |subscription| %>
+	      <td>
+<%= link_to subscription.title, watchsub_stream_path(subscription.user_id, title: subscription.title), "data-no-turbolink" => true %> 
+		</td>
+	    <% end %>
+	  </tbody>
+	</table>
+	</div>
+	<% end %>
+	<br>
 
 <br>
 <%= link_to 'Back', splash_path %>

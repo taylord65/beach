@@ -11,7 +11,6 @@ Removing a playlist removes all of its associated videos
       <tr>
 		<td><%= link_to playlist.title, playlist.url, :target => :blank %></td>
 		<td><%= link_to 'Remove', [playlist.stream, playlist],	method: :delete %></td>
-		<td><%= button_to "Filter", filter_stream_playlist_path(playlist.stream, playlist),  :class => "button", :method => :get , :remote=>true %></td>
       </tr>
     <% end %>
   </tbody>

@@ -52,8 +52,19 @@
 
 <br>
 <div id="alligncentertextcenter">
+	
+<table>
+	<tr>
+	<td>
 <%= button_to "Program Stream", setvideos_stream_path(@stream), :class => "button", :method => :get  %>
 Last Program <%= time_ago_in_words(@stream.reprogrammed_at)%> ago. 
+	</td>
+	<td>
+		<%= button_to "Filter", filter_stream_path(@stream), :class => "button", :method => :get  %>
+		Adds new videos from sources and removes old content
+	</td>
+</tr>
+</table>
 </div>
 <p>
 Programming the stream restarts the stream, applies changes to videos, and randomizes the videos. 

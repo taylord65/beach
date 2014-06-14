@@ -1,5 +1,6 @@
 class StreamsController < ApplicationController
   before_action :set_stream, only: [:show, :edit, :update, :destroy]
+  require 'open-uri'
 
   # GET /streams
   # GET /streams.json
@@ -14,7 +15,64 @@ class StreamsController < ApplicationController
     render :layout => 'splashlayout'
   end
   
+  def filter
+    #Deletes every video in the playlists and user channels and rescrapes the sources for new content
+    #This is takes a lot of server computation time, it would be better if there was a loading bar that displays the process's progress
+    
+    #still need a way to filter out content that has been in the stream for a long time such as individual videos and playlists and channels that dont get updated often or at all
+    
+    @stream = Stream.friendly.find(params[:id])
+    
+    @stream.playlists.each do |playlist|
+      
+      videos_from_playlist = @stream.videos.where(:pid => playlist.playlist_id )
+      videos_from_playlist.destroy_all
+      
+       doc = Nokogiri::HTML(open("https://www.youtube.com/playlist?list=#{playlist.playlist_id}"))
 
+          doc.css("[data-video-id]").each do |el|
+            begin
+            @scraped_id = el.attr('data-video-id')
+     video = @stream.videos.find_or_create_by( video_id: @scraped_id, 
+                                               pid: playlist.playlist_id, 
+                                               length: JSON.parse(open("http://gdata.youtube.com/feeds/api/videos/#{@scraped_id}?v=2&alt=jsonc").read)['data']['duration'],
+                                               name:  JSON.parse(open("http://gdata.youtube.com/feeds/api/videos/#{@scraped_id}?v=2&alt=jsonc").read)['data']['title'],
+                                               url: "https://www.youtube.com/watch?v=" + "#{@scraped_id}"
+                                              )
+            rescue OpenURI::HTTPError
+                next
+            end
+
+          end
+      
+    end # end playlist loop
+    
+    @stream.channels.each do |channel|
+    
+      videos_from_channel = @stream.videos.where(:pid => channel.url )
+      videos_from_channel.destroy_all
+      
+      doc = Nokogiri::HTML(open(channel.doc))
+      
+      doc.css("[data-video-ids]").each do |el|
+            begin
+            @scraped_id = el.attr('data-video-ids')
+     video = @stream.videos.find_or_create_by( video_id: @scraped_id, 
+                                               pid: channel.url, 
+                                               length: JSON.parse(open("http://gdata.youtube.com/feeds/api/videos/#{@scraped_id}?v=2&alt=jsonc").read)['data']['duration'],
+                                               name:  JSON.parse(open("http://gdata.youtube.com/feeds/api/videos/#{@scraped_id}?v=2&alt=jsonc").read)['data']['title'],
+                                               url: "https://www.youtube.com/watch?v=" + "#{@scraped_id}"
+                                              )
+            rescue OpenURI::HTTPError
+                next
+            end
+
+      end
+    
+    end # end channel loop
+    
+    redirect_to edit_stream_path(@stream) , notice: 'Stream was successfully filtered.'   
+  end
   
   def watchsub
     subscription_title = params[:title]
