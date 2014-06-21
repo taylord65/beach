@@ -18,6 +18,7 @@ class StreamsController < ApplicationController
   def filter
     #Deletes every video in the playlists and user channels and rescrapes the sources for new content
     #This is takes a lot of server computation time, it would be better if there was a loading bar that displays the process's progress
+    #Heroku seems to stop the filtering process before it is completed. Possibly because the request exceeds the 8kb request buffer.
     
     #still need a way to filter out content that has been in the stream for a long time such as individual videos and playlists and channels that dont get updated often or at all
     

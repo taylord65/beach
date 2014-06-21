@@ -56,7 +56,7 @@
 <%= form_for([@stream, @stream.videos.build]) do |f| %>
 
 	<div class="field">
-	  <%= f.text_field :url %>
+	  <%= f.text_field :url, :size => 100 %>
 	</div>
 
 	<div class="actions">
