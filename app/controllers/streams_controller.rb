@@ -5,7 +5,7 @@ class StreamsController < ApplicationController
   # GET /streams
   # GET /streams.json
   def index
-    @streams = Stream.search(params)
+    @streams = Stream.search(params)      
     
     if user_signed_in?
     @subscriptions = current_user.subscriptions
@@ -78,7 +78,7 @@ class StreamsController < ApplicationController
   def watchsub
     subscription_title = params[:title]
     @stream = Stream.friendly.find_by title: subscription_title
-    #need to route to page doesnt exist 
+    #need to route to page doesnt exist, logo with water leaking out
     unless @stream.nil?
       redirect_to stream_path(@stream)
     end
@@ -180,6 +180,7 @@ class StreamsController < ApplicationController
     @stream.lengthlist = [6399]
     @stream.idlist = ['8tPnX7OPo0Q']
     @stream.totallength = 6399
+    @stream.increment(:subs, by = 1)
     
     respond_to do |format|
       if @stream.save
@@ -187,8 +188,12 @@ class StreamsController < ApplicationController
         @admin = @stream.admins.create(params[:admin])
         @admin.admin_key = current_user.id
         @admin.save
+
+        @subscription = current_user.subscriptions.create(params[:subscription])
+        @subscription.title = @stream.title
+        @subscription.save
         
-        format.html { redirect_to edit_stream_path(@stream), notice: 'Stream was successfully created.' }
+        format.html { redirect_to edit_stream_path(@stream), notice: 'Stream Created. Add videos and sources to build the stream' }
         format.json { render :show, status: :created, location: @stream }
       else
         format.html { render :new }
@@ -219,7 +224,7 @@ class StreamsController < ApplicationController
   #  system "rake environment tire:import CLASS=Stream FORCE=true"
     
     respond_to do |format|
-      format.html { redirect_to splash_path }
+      format.html { redirect_to streams_path }
       #, notice: 'Stream was successfully destroyed.'
       format.json { head :no_content }
     end

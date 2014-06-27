@@ -4,8 +4,8 @@ Rails.application.routes.draw do
   
   devise_for :users
   
-  get 'splashpage/splash'
-  root :to => 'splashpage#splash', :as =>'splash'
+  get 'streams/index'
+  root :to => 'streams#index', :as =>'index'
   
 resources :streams do
   resources :videos
