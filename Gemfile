@@ -46,6 +46,9 @@ gem 'pg', '~> 0.17.1'
 gem 'rails_12factor', group: :production
 gem 'devise'
 gem 'nokogiri', '~> 1.6.2.1'
+gem 'delayed_job_active_record'
+gem 'foreman', '~> 0.74.0'
+gem 'clockwork'
 
 
 
