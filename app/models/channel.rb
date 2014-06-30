@@ -12,13 +12,13 @@ class Channel < ActiveRecord::Base
       path = URI.parse(url).path
       id = File.basename(path)
       
-      doc = "https://www.youtube.com/channel/#{id}/videos"
+      doc = "https://www.youtube.com/channel/#{id}/videos?sort=dd&flow=list&view=0"
       doc
     else
       path = URI.parse(url).path
       id = File.basename(path)
       
-      doc = "https://www.youtube.com/user/#{id}/videos"
+      doc = "https://www.youtube.com/user/#{id}/videos?sort=dd&flow=list&view=0"
       doc
     
     end

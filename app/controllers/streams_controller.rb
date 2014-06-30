@@ -16,18 +16,11 @@ class StreamsController < ApplicationController
   end
   
   def filter
-    #Deletes every video in the playlists and user channels and rescrapes the sources for new content
-    #This is takes a lot of server computation time, it would be better if there was a loading bar that displays the process's progress
-    #Heroku seems to stop the filtering process before it is completed. Possibly because the request exceeds the 8kb request buffer.
-    
+    #Deletes every video in the playlists and user channels and rescrapes the sources for new content    
     #still need a way to filter out content that has been in the stream for a long time such as individual videos and playlists and channels that dont get updated often or at all
-    
     @stream = Stream.friendly.find(params[:id])
     
     @stream.playlists.each do |playlist|
-      
-      videos_from_playlist = @stream.videos.where(:pid => playlist.playlist_id )
-      videos_from_playlist.destroy_all
       
        doc = Nokogiri::HTML(open("https://www.youtube.com/playlist?list=#{playlist.playlist_id}"))
 
@@ -48,22 +41,32 @@ class StreamsController < ApplicationController
       
     end # end playlist loop
     
-    @stream.channels.each do |channel|
+      #checks the channel and only gets new videos
+      #should remove old videos 
     
-      videos_from_channel = @stream.videos.where(:pid => channel.url )
-      videos_from_channel.destroy_all
+      #videos_from_channel = @stream.videos.where(:pid => channel.url )
+      #videos_from_channel.destroy_all  
+    
+    @stream.channels.each do |channel|
       
       doc = Nokogiri::HTML(open(channel.doc))
       
       doc.css("[data-video-ids]").each do |el|
             begin
             @scraped_id = el.attr('data-video-ids')
-     video = @stream.videos.find_or_create_by( video_id: @scraped_id, 
-                                               pid: channel.url, 
-                                               length: JSON.parse(open("http://gdata.youtube.com/feeds/api/videos/#{@scraped_id}?v=2&alt=jsonc").read)['data']['duration'],
-                                               name:  JSON.parse(open("http://gdata.youtube.com/feeds/api/videos/#{@scraped_id}?v=2&alt=jsonc").read)['data']['title'],
-                                               url: "https://www.youtube.com/watch?v=" + "#{@scraped_id}"
-                                              )
+            
+            if @stream.videos.where(video_id: @scraped_id).blank?
+              
+              video = @stream.videos.find_or_create_by( video_id: @scraped_id, 
+                                                        pid: channel.url, 
+                                                        length: JSON.parse(open("http://gdata.youtube.com/feeds/api/videos/#{@scraped_id}?v=2&alt=jsonc").read)['data']['duration'],
+                                                        name:  JSON.parse(open("http://gdata.youtube.com/feeds/api/videos/#{@scraped_id}?v=2&alt=jsonc").read)['data']['title'],
+                                                        url: "https://www.youtube.com/watch?v=" + "#{@scraped_id}"
+                                                       )                                    
+             else
+                break
+             end                                        
+                                                    
             rescue OpenURI::HTTPError
                 next
             end

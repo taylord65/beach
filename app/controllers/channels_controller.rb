@@ -34,6 +34,8 @@ class ChannelsController < ApplicationController
   # POST /channels
   # POST /channels.json
   def create
+    #could also get the most popular of all time from each channel
+    
     @stream = Stream.friendly.find(params[:stream_id]) 
     @channel = @stream.channels.find_or_initialize_by(channel_params)
     
