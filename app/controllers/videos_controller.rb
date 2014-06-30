@@ -43,7 +43,7 @@ class VideosController < ApplicationController
           #notice contribution was succesful
           format.json { render :show, status: :created, location: @video }          
         else
-        format.html { redirect_to edit_stream_path(@stream), notice: 'Video was successfully created. Program Stream to apply changes' }
+        format.html { redirect_to edit_stream_path(@stream), notice: 'Video was successfully created' }
         format.json { render :show, status: :created, location: @video }
         end
       else

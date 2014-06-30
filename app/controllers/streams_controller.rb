@@ -5,11 +5,11 @@ class StreamsController < ApplicationController
   # GET /streams
   # GET /streams.json
   def index
-    @streams = Stream.search(params)      
+    @streams = Stream.search(params)  
+    #@streams = params[:search] ? Stream.search(params[:search]) : Stream.none    
     
     if user_signed_in?
     @subscriptions = current_user.subscriptions
-
     end
     
     render :layout => 'splashlayout'
@@ -78,9 +78,12 @@ class StreamsController < ApplicationController
   def watchsub
     subscription_title = params[:title]
     @stream = Stream.friendly.find_by title: subscription_title
-    #need to route to page doesnt exist, logo with water leaking out
-    unless @stream.nil?
-      redirect_to stream_path(@stream)
+    if @stream.nil?
+     #need to route to page doesnt exist with a back link that refreshes
+     subscription = current_user.subscriptions.find_by title: subscription_title
+     subscription.destroy
+    else
+      redirect_to stream_path(@stream)     
     end
     
   end
@@ -88,7 +91,6 @@ class StreamsController < ApplicationController
   # GET /streams/1
   # GET /streams/1.json
   def subscribe
-    
     @stream = Stream.friendly.find(params[:id])
     
     if current_user.subscriptions.where(title: @stream.title).blank?
@@ -100,11 +102,20 @@ class StreamsController < ApplicationController
     @subscription.save
     redirect_to stream_path(@stream)
     else
-      @subscription = current_user.subscriptions.find_by title: @stream.title
-      @subscription.destroy
-      @stream.decrement(:subs, by = 1)
-      @stream.save
-      redirect_to stream_path(@stream)      
+      addkey = @stream.admins.find_by admin_key: current_user.id
+      
+      if addkey.nil?
+        #user is not the admin
+        @subscription = current_user.subscriptions.find_by title: @stream.title
+        @subscription.destroy
+        @stream.decrement(:subs, by = 1)
+        @stream.save
+        redirect_to stream_path(@stream)
+      else
+        #you can't unsubscribe if you are the admin
+        redirect_to stream_path(@stream)        
+      end
+
     end
   end
   
@@ -117,7 +128,7 @@ class StreamsController < ApplicationController
      @stream.idlist = @ids
      @stream.lengthlist = @lengths
      @stream.save
-  redirect_to edit_stream_path(@stream), notice: 'Stream was successfully programmed.'
+     redirect_to edit_stream_path(@stream), notice: 'Stream was successfully programmed.'
    end
   
   def show
@@ -141,6 +152,7 @@ class StreamsController < ApplicationController
          #blank video appears in watch if there are no videos in the database 
        else
          @stream = Stream.friendly.find(params[:id])
+         #Place javascript code here instead
          
          gon.videolengths = @stream.lengthlist
          gon.videoids = @stream.idlist
