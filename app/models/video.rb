@@ -19,6 +19,12 @@ class Video < ActiveRecord::Base
         name
       end
       
+      def get_youtube_video_date(video_id)
+        date = JSON.parse(open("http://gdata.youtube.com/feeds/api/videos/#{self.video_id}?v=2&alt=jsonc").read)['data']['uploaded']
+        datestamp = date.split("T").first
+        datestamp
+      end
+      
     def converturl(url)
         if url.include? "www.youtube.com/watch?v=" 
         #converts a url into a video id

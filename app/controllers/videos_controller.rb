@@ -34,6 +34,7 @@ class VideosController < ApplicationController
     @video.length = @video.get_youtube_video_duration(@video.video_id)
     #Store the video name 
     @video.name = @video.get_youtube_video_name(@video.video_id)
+    @video.y_date_added = @video.get_youtube_video_date(@video.video_id)
     @contributekey = @stream.admins.find_by admin_key: current_user.id
  
     respond_to do |format|

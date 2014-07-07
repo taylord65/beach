@@ -69,9 +69,8 @@
 <div id="alligncentertextcenter">
 <% if user_signed_in? %>
 <% if current_user.id = @addkey %>
-<%= link_to 'Edit', edit_stream_path(@stream), "data-no-turbolink" => true %> |
+<%= link_to 'Edit', edit_stream_path(@stream), "data-no-turbolink" => true %> 
 <% end %>
 <% end %>
-<%= link_to 'Back', streams_path %>
 </div>
 </div>

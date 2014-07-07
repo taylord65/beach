@@ -13,7 +13,7 @@
 	<table>
 		<tr>
 		<td style="width:42px">
-<%= link_to image_tag("miniicon.png"), streams_path %>  
+ 			<%= link_to image_tag("miniicon.png"), streams_path %>  
 		</td>
 		<td>
 			<div class= "headcontrolls">
@@ -24,9 +24,9 @@
 			<div id= "textright">
 				<div class= "headcontrolls">
 				<% if user_signed_in? %>
-				  <%= link_to('EDIT', edit_user_registration_path) %> &nbsp &nbsp &nbsp  <%= link_to 'CREATE', new_stream_path %> &nbsp &nbsp
+				  <%= link_to('ACCOUNT', edit_user_registration_path) %> &nbsp &nbsp &nbsp  <%= link_to 'CREATE', new_stream_path %> &nbsp 
 				<% else %>
-				  <%= link_to('JOIN', new_user_registration_path)  %> &nbsp &nbsp  &nbsp  <%= link_to('LOG IN', new_user_session_path)  %> &nbsp &nbsp &nbsp  <%= link_to 'CREATE', new_stream_path %> &nbsp &nbsp
+				  <%= link_to('JOIN', new_user_registration_path)  %> &nbsp &nbsp  &nbsp  <%= link_to('LOG IN', new_user_session_path)  %> &nbsp &nbsp &nbsp  <%= link_to 'CREATE', new_stream_path %> &nbsp 
 				<% end %>
 				</div>
 			</div>

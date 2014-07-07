@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140629083056) do
+ActiveRecord::Schema.define(version: 20140707215014) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -105,13 +105,13 @@ ActiveRecord::Schema.define(version: 20140629083056) do
   create_table "videos", force: true do |t|
     t.string   "url"
     t.text     "name"
-    t.integer  "playcount"
     t.integer  "length"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "stream_id"
     t.string   "video_id"
     t.string   "pid"
+    t.string   "y_date_added"
   end
 
   add_index "videos", ["stream_id"], name: "index_videos_on_stream_id", using: :btree
