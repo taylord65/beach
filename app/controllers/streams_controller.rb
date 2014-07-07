@@ -16,7 +16,6 @@ class StreamsController < ApplicationController
   end
   
   def filter
-    #Deletes every video in the playlists and user channels and rescrapes the sources for new content    
     #still need a way to filter out content that has been in the stream for a long time such as individual videos and playlists and channels that dont get updated often or at all
     @stream = Stream.friendly.find(params[:id])
     
@@ -48,7 +47,7 @@ class StreamsController < ApplicationController
       #videos_from_channel.destroy_all  
     
     @stream.channels.each do |channel|
-      
+      #vid_total_added = 0
       doc = Nokogiri::HTML(open(channel.doc))
       
       doc.css("[data-video-ids]").each do |el|
@@ -62,7 +61,8 @@ class StreamsController < ApplicationController
                                                         length: JSON.parse(open("http://gdata.youtube.com/feeds/api/videos/#{@scraped_id}?v=2&alt=jsonc").read)['data']['duration'],
                                                         name:  JSON.parse(open("http://gdata.youtube.com/feeds/api/videos/#{@scraped_id}?v=2&alt=jsonc").read)['data']['title'],
                                                         url: "https://www.youtube.com/watch?v=" + "#{@scraped_id}"
-                                                       )                                    
+                                                       ) 
+              #vid_total_added += 1                                                                            
              else
                 break
              end                                        
@@ -70,7 +70,8 @@ class StreamsController < ApplicationController
             rescue OpenURI::HTTPError
                 next
             end
-
+            #remove vid_total_added amount of videos from the stream, the oldest ones, if the total length is over the stable footage limit, maybe use while over remove them
+            #you dont want to remove old to the stream but new to youtube
       end
     
     end # end channel loop
@@ -135,6 +136,7 @@ class StreamsController < ApplicationController
    end
   
   def show
+    @stream = Stream.friendly.find(params[:id])
 
     if user_signed_in?
       
@@ -142,38 +144,68 @@ class StreamsController < ApplicationController
         @buttontext = "Subscribe"
       else
         @buttontext = "Unsubscribe"
-      end  
+      end 
       
-      
-    @stream = Stream.friendly.find(params[:id])
     @addkey = @stream.admins.find_by admin_key: current_user.id    
     @subscriptions = current_user.subscriptions
-    end
+    end #end user signed in
        
        if (Stream.friendly.find(params[:id]).videos.first).nil? 
-         gon.videoidcurrent = ['8tPnX7OPo0Q']
+         gon.playlist = ['8tPnX7OPo0Q']
+         gon.s_index = 0
+         gon.s_time = 0
          #blank video appears in watch if there are no videos in the database 
-       else
-         @stream = Stream.friendly.find(params[:id])
-         #Place javascript code here instead
+       else         
+         videolengths = @stream.lengthlist
+         videoids = @stream.idlist
+         totalfootage = @stream.totallength
+         starttime = (Time.now.to_i - @stream.reprogrammed_at.to_i)
          
-         gon.videolengths = @stream.lengthlist
-         gon.videoids = @stream.idlist
-         gon.totalfootage = @stream.totallength
-         
-         gon.starttime = (Time.now.to_i - @stream.reprogrammed_at.to_i)
-       end
-  end
+         if starttime < videolengths[0] 
+           #The time is less than the length of the first video. Play first at the time.
+           gon.playlist = videoids
+           gon.s_index = 0
+           gon.s_time = starttime
+         else
+           
+           if starttime > totalfootage
+             while starttime > totalfootage
+               starttime -= totalfootage
+             end
+           end
+           
+           runningtotal = 0
+           
+           videoids.each_index do |i|
+             
+              runningtotal += videolengths[i]
+              
+              if runningtotal >= starttime
+                total = 0
+                k = 0
+                
+                while k < i
+                  total += videolengths[k]
+                  k += 1
+                end
+                
+                gon.playlist = videoids
+                gon.s_index = i
+                gon.s_time = starttime - total
 
-  # GET /streams/new
+                break
+                
+              end #end if
+           end #end do loop
+         end # end else
+       end #end else
+  end # end show
+
   def new
-    
     @stream = Stream.new
     render :layout => 'devise'
-    
   end
 
-  # GET /streams/1/edit
   def edit  
     if user_signed_in?
     @stream = Stream.friendly.find(params[:id])
@@ -182,13 +214,7 @@ class StreamsController < ApplicationController
     render :layout => 'editlayout'
   end
   
-  def watch
-    @streams = Stream.all
-  end
 
-
-  # POST /streams
-  # POST /streams.json
   def create
     @stream = Stream.new(stream_params)
     @stream.reprogrammed_at = Time.now

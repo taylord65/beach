@@ -2,8 +2,7 @@
 <div id="player"></div>
 <script>
 
-    var starttime = gon.starttime; 
-	var currentvideoplaying;		
+  var currentvideoplaying;		
 
   var tag = document.createElement('script');
   tag.src = "https://www.youtube.com/iframe_api";
@@ -48,40 +47,9 @@
   function onPlayerReady(event) {
 	
 	event.target.setPlaybackQuality('hd1080');
-    	
+	event.target.loadPlaylist(gon.playlist,gon.s_index,gon.s_time);
 
- 	if (starttime < gon.videolengths[0]){
-	//The time is less than the length of the first video. Play first at the time.
-	event.target.loadPlaylist(gon.videoids,0,starttime);
-		
-	} else {
-		
-	if (starttime > gon.totalfootage){
-		while (starttime > gon.totalfootage){
-				starttime -= gon.totalfootage;
-			}//end while
-		}//end if	
-		
-	var runningtotal = 0;
-	
-	for (var i = 0; i < gon.videoids.length ; i++){
-		runningtotal += gon.videolengths[i];
-		
-		if (runningtotal >= starttime){
-			var total = 0;
-			
-			for (var k = 0; k < i ; k++){
-			total += gon.videolengths[k];	
-			}
-			
-			var indextime = starttime - total;
-			
-			event.target.loadPlaylist(gon.videoids,i,indextime);
-			break;
-		}//end if 
-	   }//end for
-	 }//end else
-}//end onplayerready
+	}
 
   function onPlayerStateChange(event) {
 	
@@ -91,17 +59,13 @@
 	
 	if (event.data == YT.PlayerState.PLAYING) {
         var url = event.target.getVideoUrl();
-        // "http://www.youtube.com/watch?v=gzDS-Kfd5XQ&feature=..."
         var match = url.match(/[?&]v=([^&]+)/);
-        // ["?v=gzDS-Kfd5XQ", "gzDS-Kfd5XQ"]
         currentvideoplaying = match[1];
-		//This is the current playing videoID
     }
 	
-	if(currentvideoplaying == gon.videoids.slice(-1)[0]) {
-  	//Loop the playlist by reloading the whole playlist at the beginning
+	if(currentvideoplaying == gon.playlist.slice(-1)[0]) {
  	if (event.data == YT.PlayerState.ENDED) {
-		event.target.loadPlaylist(gon.videoids,0,0);
+		event.target.loadPlaylist(gon.playlist,0,0);
         
 		}
     }

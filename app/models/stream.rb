@@ -20,7 +20,6 @@ class Stream < ActiveRecord::Base
   def self.search(params)
     tire.search(load: true) do
       query { string params[:query], default_operator: "AND" } if params[:query].present?
-    #  filter :range, created_at: {lte: Time.zone.now}
     end
   end
   

@@ -101,7 +101,7 @@ class ChannelsController < ApplicationController
     @channel.destroy
     
     respond_to do |format|
-      format.html { redirect_to edit_stream_path(@stream), notice: 'Channel was successfully destroyed.' }
+      format.html { redirect_to edit_stream_path(@stream), notice: 'Channel was successfully removed.' }
       format.json { head :no_content }
     end
   end
