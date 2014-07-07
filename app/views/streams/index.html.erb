@@ -6,14 +6,7 @@
 	    <%= image_submit_tag ("search.png") %>
 	  </p>
 	<% end %>
-	
-	<% if user_signed_in? %>
-	<%= link_to 'New Stream', new_stream_path %>
-	<% else %>
-	<%= link_to('Sign Up', new_user_registration_path) %> To create, contribute, and subscribe to streams
-	<% end %>	
-	
-	
+		
 	</div>
 	
 	<div id="alligncentertextleft">
@@ -60,18 +53,9 @@
 
 <br>
 <% if user_signed_in? %>
-    <%= current_user.email %>
- <br>
- <br>
+
    <%= link_to('Logout', destroy_user_session_path, :method => :delete) %> 
-<% else %>
-  <%= link_to('Login', new_user_session_path)  %>  
-<% end %>
-<p>
-<% if user_signed_in? %>
-  <%= link_to('Edit User', edit_user_registration_path) %>
-<% else %>
-  <%= link_to('Sign Up', new_user_registration_path)  %>
+
 <% end %>
 </p>
 

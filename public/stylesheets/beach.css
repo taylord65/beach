@@ -1,3 +1,29 @@
+.header {
+	height : 50px;
+	border-bottom: 1.5px solid #E5E5E5;
+	width: 100%;
+}
+
+.headcontrolls a {
+	text-decoration: none;
+	font-family: 'Lato', sans-serif; font-weight: 400;
+	  color:#9C9C9C;
+
+	  -o-transition:color .2s ease-out, background 2s ease-in;
+	  -ms-transition:color .2s ease-out, background 2s ease-in;
+	  -moz-transition:color .2s ease-out, background 2s ease-in;
+	  -webkit-transition:color .2s ease-out, background 2s ease-in;
+	  transition:color .2s ease-out, background 2s ease-in;	
+}
+
+.headcontrolls a:hover { 
+	text-decoration: none;
+	color: black; 
+	}
+
+.header table {
+	width: 100%;
+}
 
 .inputBox  {
     border: 1px solid #d1d1d1;
@@ -204,3 +230,4 @@ div {
 	position:relative;
 	top:1px;
 }
+

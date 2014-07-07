@@ -12,7 +12,6 @@ class StreamsController < ApplicationController
     @subscriptions = current_user.subscriptions
     end
     
-    render :layout => 'splashlayout'
   end
   
   def filter
@@ -83,9 +82,9 @@ class StreamsController < ApplicationController
     subscription_title = params[:title]
     @stream = Stream.friendly.find_by title: subscription_title
     if @stream.nil?
-     #need to route to page doesnt exist with a back link that refreshes
      subscription = current_user.subscriptions.find_by title: subscription_title
      subscription.destroy
+     redirect_to streamnotfound_pagedoesntexist_path
     else
       redirect_to stream_path(@stream)     
     end
@@ -203,7 +202,6 @@ class StreamsController < ApplicationController
 
   def new
     @stream = Stream.new
-    render :layout => 'devise'
   end
 
   def edit  
@@ -211,7 +209,6 @@ class StreamsController < ApplicationController
     @stream = Stream.friendly.find(params[:id])
     @addkey = @stream.admins.find_by admin_key: current_user.id
     end
-    render :layout => 'editlayout'
   end
   
 
@@ -260,12 +257,15 @@ class StreamsController < ApplicationController
   # DELETE /streams/1
   # DELETE /streams/1.json
   def destroy
+    subscription = current_user.subscriptions.find_by title: @stream.title
+    subscription.destroy
+    
     @stream.destroy
     @stream.tire.update_index
   #  system "rake environment tire:import CLASS=Stream FORCE=true"
     
     respond_to do |format|
-      format.html { redirect_to streams_path }
+      format.html { redirect_to streamnotfound_pagedoesntexist_path }
       #, notice: 'Stream was successfully destroyed.'
       format.json { head :no_content }
     end
