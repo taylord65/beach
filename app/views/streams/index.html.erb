@@ -36,19 +36,8 @@
 
 <div id="alligncentertextcenter">
 	<br>
-	<% if user_signed_in? %>
-	<div class="subscribebar">
-	<table>
-	  <tbody>
-	    <% @subscriptions.each do |subscription| %>
-	      <td>
-<%= link_to subscription.title, watchsub_stream_path(subscription.user_id, title: subscription.title), "data-no-turbolink" => true %> 
-		</td>
-	    <% end %>
-	  </tbody>
-	</table>
-	</div>
-	<% end %>
+		<%= render "subscribebar" %>
+		
 	<br>
 
 <br>
