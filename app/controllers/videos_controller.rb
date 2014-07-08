@@ -35,18 +35,11 @@ class VideosController < ApplicationController
     #Store the video name 
     @video.name = @video.get_youtube_video_name(@video.video_id)
     @video.y_date_added = @video.get_youtube_video_date(@video.video_id)
-    @contributekey = @stream.admins.find_by admin_key: current_user.id
  
     respond_to do |format|
       if @video.save
-        if @contributekey.nil?
-          format.html { redirect_to stream_path(@stream) }
-          #notice contribution was succesful
-          format.json { render :show, status: :created, location: @video }          
-        else
         format.html { redirect_to edit_stream_path(@stream), notice: 'Video was successfully created' }
         format.json { render :show, status: :created, location: @video }
-        end
       else
         format.html { render :new }
         format.json { render json: @video.errors, status: :unprocessable_entity }

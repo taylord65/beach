@@ -21,67 +21,22 @@
 	}
 </script>
 </td>
+
 <td>
-<%= video.created_at.to_date %>
-</td>
-<td>
+<% if current_user.id = @addkey %>
 <%= link_to 'Remove', [video.stream, video],	method: :delete %>
+<% end %>
 </td>
+
 </tr>
 
 <% end %>
 
 </table>
+
 </div>
 </div>
-<table>
-	<tr>
 
-		<td>
-<h2>Video</h2>
-<%= form_for([@stream, @stream.videos.build]) do |f| %>
-
-<div class="field">
-  <%= f.text_field :url %>
-</div>
-
-<div class="actions">
-  <%= f.submit %>
-</div>
-
-<% end %>
-	</td>
-	<td>
-
-<h2>Playlist</h2>
-<%= form_for([@stream, @stream.playlists.build]) do |f| %>
-
-  <div class="field">
-    <%= f.text_field :url %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
-</td>
-<td>
-	<h2>User Channel</h2>
-	<%= form_for([@stream, @stream.channels.build]) do |f| %>
-
-	  <div class="field">
-	    <%= f.text_field :url %>
-	  </div>
-
-	  <div class="actions">
-	    <%= f.submit %>
-	  </div>
-	<% end %>
-	
-	</td>
-
-</tr>
-</table>
 
 
 

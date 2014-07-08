@@ -25,11 +25,16 @@ class StreamsController < ApplicationController
           doc.css("[data-video-id]").each do |el|
             begin
             @scraped_id = el.attr('data-video-id')
+            
+            @date = JSON.parse(open("http://gdata.youtube.com/feeds/api/videos/#{@scraped_id}?v=2&alt=jsonc").read)['data']['uploaded']
+            @datestamp = @date.split("T").first
+            
      video = @stream.videos.find_or_create_by( video_id: @scraped_id, 
                                                pid: playlist.playlist_id, 
                                                length: JSON.parse(open("http://gdata.youtube.com/feeds/api/videos/#{@scraped_id}?v=2&alt=jsonc").read)['data']['duration'],
                                                name:  JSON.parse(open("http://gdata.youtube.com/feeds/api/videos/#{@scraped_id}?v=2&alt=jsonc").read)['data']['title'],
-                                               url: "https://www.youtube.com/watch?v=" + "#{@scraped_id}"
+                                               url: "https://www.youtube.com/watch?v=" + "#{@scraped_id}",
+                                               y_date_added: @datestamp
                                               )
             rescue OpenURI::HTTPError
                 next
@@ -55,11 +60,15 @@ class StreamsController < ApplicationController
             
             if @stream.videos.where(video_id: @scraped_id).blank?
               
+              @date = JSON.parse(open("http://gdata.youtube.com/feeds/api/videos/#{@scraped_id}?v=2&alt=jsonc").read)['data']['uploaded']
+              @datestamp = @date.split("T").first
+              
               video = @stream.videos.find_or_create_by( video_id: @scraped_id, 
                                                         pid: channel.url, 
                                                         length: JSON.parse(open("http://gdata.youtube.com/feeds/api/videos/#{@scraped_id}?v=2&alt=jsonc").read)['data']['duration'],
                                                         name:  JSON.parse(open("http://gdata.youtube.com/feeds/api/videos/#{@scraped_id}?v=2&alt=jsonc").read)['data']['title'],
-                                                        url: "https://www.youtube.com/watch?v=" + "#{@scraped_id}"
+                                                        url: "https://www.youtube.com/watch?v=" + "#{@scraped_id}",
+                                                        y_date_added: @datestamp
                                                        ) 
               #vid_total_added += 1                                                                            
              else
@@ -75,7 +84,7 @@ class StreamsController < ApplicationController
     
     end # end channel loop
     
-    redirect_to edit_stream_path(@stream) , notice: 'Stream was successfully filtered.'   
+    redirect_to edit_stream_path(@stream) , notice: 'Stream was successfully filtered.'# no notice when this is done automatically
   end
   
   def watchsub
@@ -205,8 +214,8 @@ class StreamsController < ApplicationController
   end
 
   def edit  
-    if user_signed_in?
     @stream = Stream.friendly.find(params[:id])
+    if user_signed_in?
     @addkey = @stream.admins.find_by admin_key: current_user.id
     end
   end

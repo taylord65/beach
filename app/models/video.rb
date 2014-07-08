@@ -3,7 +3,6 @@ require 'open-uri'
 class Video < ActiveRecord::Base
   belongs_to :stream
  
-  # 'views' and 'date' are available 
   
   validates :url, :format => {
       :with    => %r{www.youtube.com/watch}i,

@@ -1,11 +1,37 @@
 <% if user_signed_in? %>
-<% if current_user.id = @addkey %>
 <div id="alligncentertextleft">
 
 <p id="notice"><%= notice %></p>
+<table>
+	<td>
+		<%= link_to image_tag("playbutton.png"), @stream, "data-no-turbolink" => true  %>  
+		</td>
+	<td>
 <h1> <%= @stream.title %> </h1>
+	</td>
+	<div id= "textright">
+	<td>
+		<script type="text/javascript">
+			//Display in Hours:Minutes:Seconds format
+			var totalSec = <%= @stream.totallength %>;
+			var hours = parseInt( totalSec / 3600 ) % 24;
+			var minutes = parseInt( totalSec / 60 ) % 60;
+			var seconds = parseInt(totalSec % 60);
 
-<h2>Edit  |   <%= link_to 'Watch', @stream, "data-no-turbolink" => true  %> </h2>
+			var result = (hours < 10 ? "0" + hours : hours) + ":" + (minutes < 10 ? "0" + minutes : minutes) + ":" + (seconds  < 10 ? "0" + seconds : seconds);
+			if (totalSec != 6399){
+			document.write("Footage duration in stream " + result);
+			}
+		</script>
+		</td>
+	</div>
+</table>
+
+<% if current_user.id = @addkey %>
+ADMIN
+<% else%>
+You can contribute Youtube videos, playlists, and user channels to this stream
+<% end %>
 
 
 <%= form_for(@stream) do |f| %>
@@ -20,7 +46,7 @@
       </ul>
     </div>
   <% end %>
-
+<% if current_user.id = @addkey %>
   <div class="field">
     <%= f.label :description %><br>
     <%= f.text_area :description , :rows => 5, :cols => 50 %>
@@ -28,31 +54,103 @@
   <div class="actions">
     <%= f.submit %>
   </div>
+<% end %>
 
 <% end %>
-<h2>Videos  |  <%= link_to 'Playlists', stream_playlists_path(@stream) %>  |  <%= link_to 'User Channels', stream_channels_path(@stream) %> </h2>
-
-<script type="text/javascript">
-	//Display in Hours:Minutes:Seconds format
-	var totalSec = <%= @stream.totallength %>;
-	var hours = parseInt( totalSec / 3600 ) % 24;
-	var minutes = parseInt( totalSec / 60 ) % 60;
-	var seconds = parseInt(totalSec % 60);
-
-	var result = (hours < 10 ? "0" + hours : hours) + ":" + (minutes < 10 ? "0" + minutes : minutes) + ":" + (seconds  < 10 ? "0" + seconds : seconds);
-	if (totalSec != 6399){
-	document.write("Footage duration in stream " + result);
-	}
-</script>
-<p>
 	
-</p>	
+<br>
+<br>
+<% if current_user.id = @addkey %>
+<%= render "viddisplay" %>
+<%= form_for([@stream, @stream.videos.build]) do |f| %>
 
-<%= render 'viddisplay' %>
+<div class="field">
+  <%= f.text_field :url, :size => 115 %>
+</div>
+
+<div class="actions">
+  <%= f.submit %>
+</div>
+
+<% end %>
+<% else %>
+<%= form_for([@stream, @stream.videos.build]) do |f| %>
+
+<div class="field">
+  <%= f.text_field :url, :size => 115 %>
+</div>
+
+<div class="actions">
+  <%= f.submit %>
+</div>
+
+<% end %>
+<% end %>
+					<h1>Playlists</h1>
+					<% if current_user.id = @addkey %>
+					Removing a playlist removes all of its associated videos 				
+					<% end %>
+					<br>
+					<br>
+					<table>
+					  <tbody>
+					    <% @stream.playlists.each do |playlist| %>
+					      <tr>
+							<td><%= link_to playlist.title, playlist.url, :target => :blank %></td>
+							<% if current_user.id = @addkey %>
+							<td><%= link_to 'Remove', [playlist.stream, playlist],	method: :delete %></td>
+							<% end %>
+					      </tr>
+					    <% end %>
+					  </tbody>
+					</table>
+					
+						<%= form_for([@stream, @stream.playlists.build]) do |f| %>
+
+						  <div class="field">
+						    <%= f.text_field :url, :size => 115 %>
+						  </div>
+
+						  <div class="actions">
+						    <%= f.submit %>
+						  </div>
+						<% end %>
+						
+					<h1>User Channels</h1>
+					Adding a user channel connects the channel's recent uploads to the stream.
+					<br>
+					<br>
+					<% if current_user.id = @addkey %>
+					Removing a user channel removes all of its associated videos.
+					<% end %>
+					<br>
+					<table>
+					  <tbody>
+					    <% @stream.channels.each do |channel| %>
+					      <tr>
+							<td><%= link_to channel.title, channel.url, :target => :blank %></td>
+							<% if current_user.id = @addkey %>
+							<td><%= link_to 'Remove', [channel.stream, channel],	method: :delete %></td>
+							<% end %>
+					      </tr>
+					    <% end %>
+					  </tbody>
+					</table>	
+					
+						<%= form_for([@stream, @stream.channels.build]) do |f| %>
+
+						  <div class="field">
+						    <%= f.text_field :url, :size => 115 %>
+						  </div>
+
+						  <div class="actions">
+						    <%= f.submit %>
+						  </div>
+						<% end %>
 
 <br>
-<div id="alligncentertextcenter">
-	
+
+	<% if current_user.id = @addkey %>
 <table>
 	<tr>
 	<td>
@@ -61,34 +159,23 @@ Last Program <%= time_ago_in_words(@stream.reprogrammed_at)%> ago.
 	</td>
 	<td>
 		<%= button_to "Filter", filter_stream_path(@stream), :class => "button", :method => :get  %>
-		Adds new videos from sources and removes old content
 	</td>
 </tr>
 </table>
-</div>
-<p>
-Programming the stream restarts the stream, applies changes to videos, and randomizes the videos. 
-</p>
-</div>
-</div>
-<div id="alligncentertextleft">
-
+	<% end %>
+<br>
+<br>
+<% if current_user.id = @addkey %>
+<div id= "textright">
 <%= link_to 'Delete Stream', @stream, method: :delete, data: { confirm: 'Are you sure you want to delete this stream?' } %>
-</div>
-
-<div id="alligncentertextcenter">
-
-<%= link_to 'Back', streams_path %>
-</div>
-<% else %>
-<div id="alligncentertextcenter">
-<br>
-You are not the administrator of this stream
-<br>
-<br>
-<%= link_to "Back", :back, "data-no-turbolink" => true %>
-
 </div>
 <% end %>
 
+<% else %>
+<br>
+You are not signed in
+<br>
+<br>
+<%= link_to "Back", :back, "data-no-turbolink" => true %>
+</div>
 <% end %>

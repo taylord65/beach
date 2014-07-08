@@ -53,11 +53,16 @@ class PlaylistsController < ApplicationController
       doc.css("[data-video-id]").each do |el|
         begin
         @scraped_id = el.attr('data-video-id')
+        
+        @date = JSON.parse(open("http://gdata.youtube.com/feeds/api/videos/#{@scraped_id}?v=2&alt=jsonc").read)['data']['uploaded']
+        @datestamp = @date.split("T").first        
+
  video = @stream.videos.find_or_create_by( video_id: @scraped_id, 
                                            pid: @playlist.playlist_id, 
                                            length: JSON.parse(open("http://gdata.youtube.com/feeds/api/videos/#{@scraped_id}?v=2&alt=jsonc").read)['data']['duration'],
                                            name:  JSON.parse(open("http://gdata.youtube.com/feeds/api/videos/#{@scraped_id}?v=2&alt=jsonc").read)['data']['title'],
-                                           url: "https://www.youtube.com/watch?v=" + "#{@scraped_id}"
+                                           url: "https://www.youtube.com/watch?v=" + "#{@scraped_id}",
+                                           y_date_added: @datestamp                                           
                                           )
         rescue OpenURI::HTTPError
             next
@@ -68,7 +73,7 @@ class PlaylistsController < ApplicationController
     
     respond_to do |format|
       if @playlist.save
-        
+        @stream.save
         format.html { redirect_to edit_stream_path(@stream), notice: 'Playlist was successfully created.' }
         format.json { render :show, status: :created, location: @playlist }
       else

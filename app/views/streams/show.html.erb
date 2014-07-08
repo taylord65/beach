@@ -50,27 +50,17 @@
 	</table>
 	</div>
 	<% end %>
-	
-<% if user_signed_in? %>
-<h2>Contribute</h2>
-<%= form_for([@stream, @stream.videos.build]) do |f| %>
-
-	<div class="field">
-	  <%= f.text_field :url, :size => 100 %>
-	</div>
-
-	<div class="actions">
-	  <%= f.submit %>
-	</div>
-
-<% end %>
-<% end %>
-
+<br>
+<br>	
 <div id="alligncentertextcenter">
 <% if user_signed_in? %>
-<% if current_user.id = @addkey %>
-<%= link_to 'Edit', edit_stream_path(@stream), "data-no-turbolink" => true %> 
-<% end %>
+	<% if current_user.id = @addkey %>
+		<%= link_to 'Edit', edit_stream_path(@stream), "data-no-turbolink" => true %> 
+		<% else %>
+		<%= link_to 'Contribute', edit_stream_path(@stream), "data-no-turbolink" => true %> 
+	<% end %>
+<% else %>
+		<%= link_to('Contribute', new_user_registration_path)  %>
 <% end %>
 </div>
 </div>
