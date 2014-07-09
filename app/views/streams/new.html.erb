@@ -1,8 +1,10 @@
 <div id="alligncentertextcenter">
 	<br>
 	<% if user_signed_in? %>
-	<h1>New stream</h1>
+	<h1>Create Stream</h1>
 	<br>
+	<%= image_tag("newinstructions.png", :alt => "New Instructions") %>
+
 
 	<%= render 'form' %>
 	
@@ -15,9 +17,6 @@
 	
 	
 	<% end %>
-
-	<br>
-	<%= link_to "Back", :back, "data-no-turbolink" => true %>
 	
 
 </div>

@@ -135,6 +135,13 @@ ul.hmenu li {
 	
 }
 
+#centerimage {
+	margin-left:auto;
+	margin-right:auto;
+	text-align: center;
+	
+}
+
 body {
   background-color: #fff;
   color: #333;

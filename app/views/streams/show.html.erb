@@ -29,7 +29,7 @@
 			<% if user_signed_in? %>
 			<%= button_to @buttontext, subscribe_stream_path(@stream), :method => :get , :remote=>true, :class => 'subscribebutton'  %>
 			<% else %>
-			<%= button_to "Subscribe", new_user_registration_path, :method => :get, :class => 'subscribebutton' %>
+			<%= button_to "subscribe", new_user_registration_path, :method => :get, :class => 'subscribebutton' %>
 			<% end %>
 			</div>
 		</td>

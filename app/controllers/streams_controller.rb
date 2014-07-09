@@ -149,9 +149,9 @@ class StreamsController < ApplicationController
     if user_signed_in?
       
       if current_user.subscriptions.where(title: @stream.title).blank?
-        @buttontext = "Subscribe"
+        @buttontext = "subscribe"
       else
-        @buttontext = "Unsubscribe"
+        @buttontext = "unsubscribe"
       end 
       
     @addkey = @stream.admins.find_by admin_key: current_user.id    

@@ -45,9 +45,28 @@
 }
 
   function onPlayerReady(event) {
-	
+
 	event.target.setPlaybackQuality('hd1080');
 	event.target.loadPlaylist(gon.playlist,gon.s_index,gon.s_time);
+	
+	var playButton = document.getElementById("play-button");
+	  playButton.addEventListener("click", function() {
+		if (event.data==YT.PlayerState.PLAYING) {
+		    player.pauseVideo();    
+		}else {
+			player.playVideo();
+		}
+	  });
+	
+	  var muteButton = document.getElementById("mute-button");
+	  muteButton.addEventListener("click", function() {
+	    player.mute();
+	  });
+	
+	  var enlargeButton = document.getElementById("enlarge-button");
+	  enlargeButton.addEventListener("click", function() {
+	    player.setSize(2138,1202);
+	  });
 
 	}
 
@@ -78,4 +97,11 @@
 </script>
 
 </div>
+<div id="alligncentertextcenter">
+	<br>
+<a id="play-button">Play / Pause</a>  |  	<a id="mute-button">Mute</a>  |  	<a id="enlarge-button">Fullscreen</a>
+</div>
+
+
+
 
