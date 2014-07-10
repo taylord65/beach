@@ -1,7 +1,8 @@
 <div id="centerplayer">
 <div id="player"></div>
 <script>
-
+  var is_playing = false;
+	
   var currentvideoplaying;		
 
   var tag = document.createElement('script');
@@ -50,12 +51,13 @@
 	event.target.loadPlaylist(gon.playlist,gon.s_index,gon.s_time);
 	
 	var playButton = document.getElementById("play-button");
-	  playButton.addEventListener("click", function() {
-		if (event.data==YT.PlayerState.PLAYING) {
-		    player.pauseVideo();    
-		}else {
-			player.playVideo();
-		}
+	  var that = this;
+	  playButton.addEventListener("click", function(click_event) {
+	    if (that.is_playing) {
+	        player.pauseVideo();    
+	    }else {
+	        player.playVideo();
+	    }
 	  });
 	
 	  var muteButton = document.getElementById("mute-button");
@@ -65,18 +67,24 @@
 	
 	  var enlargeButton = document.getElementById("enlarge-button");
 	  enlargeButton.addEventListener("click", function() {
-	    player.setSize(2138,1202);
+	    player.setSize(1407,790);
 	  });
 
 	}
 
   function onPlayerStateChange(event) {
 	
+	
 	if (event.data == YT.PlayerState.BUFFERING) {
 	    event.target.setPlaybackQuality('hd1080');
 	}
 	
+	if (event.data == YT.PlayerState.PAUSED) {
+		this.is_playing = false;
+	}
+	
 	if (event.data == YT.PlayerState.PLAYING) {
+		this.is_playing = true;
         var url = event.target.getVideoUrl();
         var match = url.match(/[?&]v=([^&]+)/);
         currentvideoplaying = match[1];
@@ -99,7 +107,7 @@
 </div>
 <div id="alligncentertextcenter">
 	<br>
-<a id="play-button">Play / Pause</a>  |  	<a id="mute-button">Mute</a>  |  	<a id="enlarge-button">Fullscreen</a>
+<a id="play-button">Play / Pause</a>  |  	<a id="mute-button">Mute</a>  |  	<a id="enlarge-button">Widescreen</a>
 </div>
 
 
