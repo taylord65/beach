@@ -1,11 +1,16 @@
 
 <%= render 'watch' %>
-
-<div id="vidcontrolls">
+<br>
+<div class="vidcontrolls">
 <table style="width:1070px">
 	<tr>
 		<td>
 			<h1> <%= @stream.title %> </h1>
+		</td>
+		<td>
+			<div id="alligncentertextcenter">
+			<img src="http://www.beached.tv/assets/pause-c1c0a3d060f908372ebecf2eb7e7c018.svg" id="play-button" />  &nbsp &nbsp &nbsp<img src="http://www.beached.tv/assets/sound-2850c52028b16dd2c2e264c5dddb39ba.svg" id="mute-button" /> &nbsp &nbsp &nbsp<img src="http://www.beached.tv/assets/resize-enlarge-a44a4204dca596b45aacb25610ee3189.svg" id="enlarge-button" />  
+			</div>
 		</td>
 		<td>
 		<div id="textright">				
@@ -23,6 +28,8 @@
 	<tr>
 		<td>
 		  <%= @stream.description %>			
+		</td>
+		<td>
 		</td>
 		<td>
 			<div id="textright">				

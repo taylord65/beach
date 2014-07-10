@@ -74,11 +74,17 @@ ul.hmenu li {
 	padding:5px;
 }
 
-#vidcontrolls {
+.vidcontrolls {
 	margin-left:auto;
 	margin-right:auto;
 	width: 1070px;
 }
+
+.vidcontrolls table {
+    border-collapse: collapse;
+	table-layout:fixed;
+}
+
 
 #alligncentertextleft {
 	margin-left:auto;

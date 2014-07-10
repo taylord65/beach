@@ -78,9 +78,11 @@
 	  var enlargeButton = document.getElementById("enlarge-button");
 	  enlargeButton.addEventListener("click", function() {
 		if (fullscreen){
+			$("#enlarge-button").attr("src", "http://www.beached.tv/assets/resize-enlarge-a44a4204dca596b45aacb25610ee3189.svg");
 			player.setSize(1067,600);
 			fullscreen = false;			
 		}else{
+			$("#enlarge-button").attr("src", "http://www.beached.tv/assets/resize-shrink-f63cf0e6ab1eb2bb8f7223798c4fc9c5.svg");
 			player.setSize(1410,793);
 			fullscreen = true;
 		}
@@ -128,10 +130,6 @@
 
 </script>
 
-</div>
-<div id="alligncentertextcenter">
-	<br>
-<img src="http://www.beached.tv/assets/pause-c1c0a3d060f908372ebecf2eb7e7c018.svg" id="play-button" />  &nbsp <img src="http://www.beached.tv/assets/sound-2850c52028b16dd2c2e264c5dddb39ba.svg" id="mute-button" /> &nbsp <%= image_tag("resize-enlarge.svg") %> &nbsp <%= image_tag("resize-shrink.svg") %> 
 </div>
 
 
