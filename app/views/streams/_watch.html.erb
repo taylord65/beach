@@ -2,6 +2,7 @@
 <div id="player"></div>
 <script>
   var is_playing = false;
+  var fullscreen = false;
 	
   var currentvideoplaying;		
 
@@ -12,8 +13,8 @@
   var player;
   function onYouTubePlayerAPIReady() {
     player = new YT.Player('player', {
-      height: '601',
-      width: '1069',
+      height: '600',
+      width: '1067',
 	playerVars:{
 			autoplay: 1,
 			controls: 0,
@@ -47,9 +48,10 @@
 
   function onPlayerReady(event) {
 
-	event.target.setPlaybackQuality('hd1080');
+	event.target.setPlaybackQuality('default');
 	event.target.loadPlaylist(gon.playlist,gon.s_index,gon.s_time);
 	
+	//PLAYER CONTROLS
 	var playButton = document.getElementById("play-button");
 	  var that = this;
 	  playButton.addEventListener("click", function(click_event) {
@@ -62,12 +64,27 @@
 	
 	  var muteButton = document.getElementById("mute-button");
 	  muteButton.addEventListener("click", function() {
-	    player.mute();
+		if(player.isMuted()){
+			player.unMute();
+		}else{
+	    	player.mute();
+		}
 	  });
 	
 	  var enlargeButton = document.getElementById("enlarge-button");
 	  enlargeButton.addEventListener("click", function() {
-	    player.setSize(1407,790);
+		if (fullscreen){
+			player.setSize(1067,600);
+			fullscreen = false;			
+		}else{
+			player.setSize(1410,793);
+			fullscreen = true;
+		}
+	  });
+	
+	  var liveButton = document.getElementById("live-button");
+	  liveButton.addEventListener("click", function() {	
+		location.reload();			
 	  });
 
 	}
@@ -107,7 +124,7 @@
 </div>
 <div id="alligncentertextcenter">
 	<br>
-<a id="play-button">Play / Pause</a>  |  	<a id="mute-button">Mute</a>  |  	<a id="enlarge-button">Widescreen</a>
+<a id="play-button">Play / Pause</a>  |  	<a id="mute-button">Mute</a>  |  	<a id="enlarge-button">Widescreen</a>  |  <a id="live-button">Go to Live</a>
 </div>
 
 
