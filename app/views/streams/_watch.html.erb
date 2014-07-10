@@ -56,10 +56,10 @@
 	  var that = this;
 	  playButton.addEventListener("click", function(click_event) {
 	    if (that.is_playing) {
-			$("#play-button").attr("src", "http://behdasht.co/wp/imgs/right.gif");
+			$("#play-button").attr("src", "http://www.beached.tv/assets/pause-c1c0a3d060f908372ebecf2eb7e7c018.svg");
 	        player.pauseVideo();    
 	    }else {
-	        $("#play-button").attr("src", "http://behdasht.co/wp/imgs/left.gif");
+	        $("#play-button").attr("src", "http://www.beached.tv/assets/play-0a292db2c7cb500e5e768d0222ef1f94.svg");
 			player.playVideo();
 	    }
 	  });
@@ -67,8 +67,10 @@
 	  var muteButton = document.getElementById("mute-button");
 	  muteButton.addEventListener("click", function() {
 		if(player.isMuted()){
+			$("#mute-button").attr("src", "http://www.beached.tv/assets/sound-2850c52028b16dd2c2e264c5dddb39ba.svg");
 			player.unMute();
 		}else{
+			$("#mute-button").attr("src", "http://www.beached.tv/assets/mute-8d50674fdbcdd2cc9597f009be41cea9.svg");
 	    	player.mute();
 		}
 	  });
@@ -83,11 +85,6 @@
 			fullscreen = true;
 		}
 	  });
-	
-	  var liveButton = document.getElementById("live-button");
-	  liveButton.addEventListener("click", function() {	
-		location.reload();			
-	  });
 
 	}
 
@@ -99,12 +96,12 @@
 	}
 	
 	if (event.data == YT.PlayerState.PAUSED) {
-		$("#play-button").attr("src", "http://behdasht.co/wp/imgs/left.gif");
+		$("#play-button").attr("src", "http://www.beached.tv/assets/play-0a292db2c7cb500e5e768d0222ef1f94.svg");
 		this.is_playing = false;
 	}
 	
 	if (event.data == YT.PlayerState.PLAYING) {
-		$("#play-button").attr("src", "http://behdasht.co/wp/imgs/right.gif");
+		$("#play-button").attr("src", "http://www.beached.tv/assets/pause-c1c0a3d060f908372ebecf2eb7e7c018.svg");
 		this.is_playing = true;
         var url = event.target.getVideoUrl();
         var match = url.match(/[?&]v=([^&]+)/);
@@ -123,16 +120,21 @@
     player.stopVideo();
   }
 
+  var liveButton = document.getElementById("live-button");
+  liveButton.addEventListener("click", function() {	
+	location.reload();			
+  });
+
 
 </script>
 
 </div>
 <div id="alligncentertextcenter">
 	<br>
-<img src="http://behdasht.co/wp/imgs/left.gif" id="play-button" />  &nbsp <a id="mute-button">Mute</a> &nbsp <a id="enlarge-button">Widescreen</a> &nbsp <a id="live-button">Go to Live</a>
+<img src="http://www.beached.tv/assets/pause-c1c0a3d060f908372ebecf2eb7e7c018.svg" id="play-button" />  &nbsp <img src="http://www.beached.tv/assets/sound-2850c52028b16dd2c2e264c5dddb39ba.svg" id="mute-button" /> &nbsp <%= image_tag("resize-enlarge.svg") %> &nbsp <%= image_tag("resize-shrink.svg") %> 
 </div>
 
- <%= image_tag("sound.svg") %>   <%= image_tag("mute.svg") %> <%= image_tag("play.svg") %>  <%= image_tag("pause.svg") %> 
+
 
 
 
