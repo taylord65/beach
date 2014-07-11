@@ -80,6 +80,16 @@ ul.hmenu li {
 	width: 1067px;
 }
 
+.vidcontrolls h1 {
+	font-family: 'Lato', sans-serif; font-weight: 900;
+	font-size:25px;
+}
+
+.vidcontrolls h3 {
+	font-family: 'Lato', sans-serif; font-weight: 700;
+	font-size:15px;
+}
+
 .vidcontrolls table {
     border-collapse: collapse;
 	table-layout:fixed;
@@ -110,7 +120,7 @@ ul.hmenu li {
 .subscribebar a {
 	text-decoration: none;
 	color: #FFFFFF;	
-	font-family: 'Lato', sans-serif; font-weight: 400;
+	font-family: 'Lato', sans-serif; font-weight: 700;
 	font-size:16px;	
 }
 
@@ -232,10 +242,7 @@ div {
 	border:1px solid #dcdcdc;
 	display:inline-block;
 	color:#777777;
-	font-family:arial;
-	font-size:22px;
-	font-weight:bold;
-	font-style:normal;
+font-family: 'Lato', sans-serif; font-weight: 700;	font-size:22px;
 	height:60px;
 	line-height:45px;
 	width:170px;

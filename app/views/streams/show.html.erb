@@ -19,7 +19,7 @@
 						<div id="subscribecount"><b> <%= @stream.subs %></b></div> 
 					</td>
 					<td>
-						<%= pluralize_without_count(@stream.subs, "Subscriber") %> 
+					<h3><%= pluralize_without_count(@stream.subs, "subscriber") %> </h3>
 					</td>
 			</table>
 			</div>		
@@ -32,12 +32,30 @@
 		<td>
 		</td>
 		<td>
-			<div id="textright">				
+			<div id="textright">
+				<table>
+					<td>
+				<% if user_signed_in? %>
+					<% if current_user.id = @addkey %>
+						<% else %>
+						<%= button_to 'contribute', edit_stream_path(@stream), :class => 'subscribebutton', :method => "get" %> 
+					<% end %>
+				<% else %>
+					<%= button_to "contribute", new_user_registration_path, :method => :get, :class => 'subscribebutton' %>
+				<% end %>
+					</td>
+					<td>		
 			<% if user_signed_in? %>
-			<%= button_to @buttontext, subscribe_stream_path(@stream), :method => :get , :remote=>true, :class => 'subscribebutton'  %>
+				<% if current_user.id = @addkey %>
+					<%= button_to 'edit', edit_stream_path(@stream), :class => 'subscribebutton', :method => "get"  %> 
+					<% else %>
+					<%= button_to @buttontext, subscribe_stream_path(@stream), :method => :get , :remote=>true, :class => 'subscribebutton'  %>
+				<% end %>
 			<% else %>
 			<%= button_to "subscribe", new_user_registration_path, :method => :get, :class => 'subscribebutton' %>
 			<% end %>
+				</td>
+				</table>
 			</div>
 		</td>
 	</tr>
@@ -48,15 +66,5 @@
 	
 <br>
 <br>	
-<div id="alligncentertextcenter">
-<% if user_signed_in? %>
-	<% if current_user.id = @addkey %>
-		<%= link_to 'Edit', edit_stream_path(@stream), "data-no-turbolink" => true %> 
-		<% else %>
-		<%= link_to 'Contribute', edit_stream_path(@stream), "data-no-turbolink" => true %> 
-	<% end %>
-<% else %>
-		<%= link_to('Contribute', new_user_registration_path)  %>
-<% end %>
-</div>
+
 </div>
