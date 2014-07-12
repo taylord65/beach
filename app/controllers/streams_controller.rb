@@ -84,6 +84,15 @@ class StreamsController < ApplicationController
     
     end # end channel loop
     
+    #Now program the stream
+    @stream.reprogrammed_at = Time.now
+
+    @ids, @lengths = Stream.friendly.find(params[:id]).videos.pluck(:video_id, :length).shuffle.transpose
+    @stream.totallength = Stream.friendly.find(params[:id]).videos.pluck(:length).inject(:+)     
+    @stream.idlist = @ids
+    @stream.lengthlist = @lengths
+    @stream.save
+    
     redirect_to edit_stream_path(@stream) , notice: 'Stream was successfully filtered.'# no notice when this is done automatically
   end
   

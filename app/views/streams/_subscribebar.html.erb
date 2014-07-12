@@ -1,10 +1,14 @@
 	<% if user_signed_in? %>
 	<div class="subscribebar">
+		<% if @subscriptions.blank? %>
+		<table>
+
+				&nbsp
+
+			</table>
+		<% else %>
 	<table>
 	  <tbody>
-		  <td>
-			 &nbsp
-		</td>
 	    <% @subscriptions.each do |subscription| %>
 	      <td>
 <%= link_to subscription.title, watchsub_stream_path(subscription.user_id, title: subscription.title), "data-no-turbolink" => true %> 
@@ -13,6 +17,7 @@
 	  </tbody>
 	</table>
 	</div>
+	<% end %>
 	<% else %>
 	<div class="subscribebar">
 	<table>

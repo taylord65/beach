@@ -7,7 +7,9 @@
 .headcontrolls a {
 	text-decoration: none;
 	font-family: 'Lato', sans-serif; font-weight: 400;
-	  color:#9C9C9C;
+	color:#9C9C9C;
+	
+    
 
 	  -o-transition:color .2s ease-out, background 2s ease-in;
 	  -ms-transition:color .2s ease-out, background 2s ease-in;
@@ -23,6 +25,13 @@
 
 .header table {
 	width: 100%;
+	border-collapse: collapse;
+	table-layout:fixed;
+}
+
+.logo {
+	float: left;
+	vertical-align:middle
 }
 
 .inputBox  {
@@ -119,21 +128,15 @@ ul.hmenu li {
 
 .subscribebar a {
 	text-decoration: none;
-	color: #FFFFFF;	
+	color: #3E708D;	
 	font-family: 'Lato', sans-serif; font-weight: 700;
 	font-size:16px;	
 }
 
 .subscribebar td:hover {
-	color:#83B4DB;
 	border-collapse: collapse;
 	background-color: #FAF7BA;
 }
-
-.subscribebar a:hover {
-	color:#83B4DB;
-}
-
 
 #subscribecount{
 	font-family: verdana, arial, helvetica, sans-serif;
@@ -229,7 +232,7 @@ div {
 }
 
 .subscribebutton {
-	background-color:#ededed;
+	background-color: white;
 	-webkit-border-top-left-radius:6px;
 	border-top-left-radius:6px;
 	-webkit-border-top-right-radius:6px;
@@ -241,8 +244,8 @@ div {
 	text-indent:0;
 	border:1px solid #dcdcdc;
 	display:inline-block;
-	color:#777777;
-font-family: 'Lato', sans-serif; font-weight: 700;	font-size:22px;
+	color: #333333;
+font-family: 'Lato', sans-serif; font-weight: 700;	font-size:15px;
 	height:60px;
 	line-height:45px;
 	width:170px;
