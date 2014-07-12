@@ -1,12 +1,14 @@
 <div id="alligncentertextleft">
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<h2>Account</h2>
+<br>
 
 <% if user_signed_in? %>
-   <%= current_user.email %>   |   
+<div class ="logo"> <%= link_to image_tag("user.svg")%> </div> &nbsp
+   <%= current_user.email %> &nbsp| &nbsp  
    <%= link_to('LOG OUT', destroy_user_session_path, :method => :delete) %> 
 
 <% end %>
-
+<br>
 <br>
 <br>
 
