@@ -25,6 +25,8 @@ class StreamsController < ApplicationController
             begin
             @scraped_id = el.attr('data-video-id')
             
+            if @stream.videos.where(video_id: @scraped_id).blank?
+            
             @date = JSON.parse(open("http://gdata.youtube.com/feeds/api/videos/#{@scraped_id}?v=2&alt=jsonc").read)['data']['uploaded']
             @datestamp = @date.split("T").first
             
@@ -35,6 +37,10 @@ class StreamsController < ApplicationController
                                                url: "https://www.youtube.com/watch?v=" + "#{@scraped_id}",
                                                y_date_added: @datestamp
                                               )
+            else
+                next
+            end                     
+                                     
             rescue OpenURI::HTTPError
                 next
             end

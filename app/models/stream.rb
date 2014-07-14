@@ -1,3 +1,4 @@
+
 class Stream < ActiveRecord::Base
   has_many :videos, :dependent => :destroy
   has_many :admins, :dependent => :destroy
@@ -26,6 +27,8 @@ class Stream < ActiveRecord::Base
   
   
    def download_playlist_videos(list_id)
+     
+     require 'open-uri'
       
       doc = Nokogiri::HTML(open("https://www.youtube.com/playlist?list=#{list_id}"))
       

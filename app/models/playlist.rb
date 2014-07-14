@@ -5,7 +5,7 @@ class Playlist < ActiveRecord::Base
   
   validates :url, :format => {
       :with    => %r{www.youtube.com/playlist}i,
-      :message => 'must be a youtube playlist url.' }
+      :message => 'must be a youtube playlist url. Example format http://www.youtube.com/playlist?list=XXXXXXXXXXXX' }
       
       def playlistconverturl(url)
           if url.include? "www.youtube.com/playlist?list=" 

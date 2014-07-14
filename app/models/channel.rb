@@ -3,7 +3,7 @@ class Channel < ActiveRecord::Base
   
   belongs_to :stream
   
-  validates :url, :format => {:with => %r{youtube.com(/channel|/user)}, :message => 'must be a youtube channel or user url.' }
+  validates :url, :format => {:with => %r{youtube.com(/channel|/user)}, :message => 'must be a youtube channel or user url. Example formats: http://www.youtube.com/user/XXXXXXX or http://www.youtube.com/channel/XXXXXXX' }
   
   
   def getdoc(url)
