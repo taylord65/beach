@@ -15,7 +15,6 @@ class StreamsController < ApplicationController
   end
   
   def filter
-    #still need a way to filter out content that has been in the stream for a long time such as individual videos and playlists and channels that dont get updated often or at all
     @stream = Stream.friendly.find(params[:id])
     
     @stream.playlists.each do |playlist|
@@ -44,14 +43,9 @@ class StreamsController < ApplicationController
       
     end # end playlist loop
     
-      #checks the channel and only gets new videos
-      #should remove old videos 
-    
-      #videos_from_channel = @stream.videos.where(:pid => channel.url )
-      #videos_from_channel.destroy_all  
     
     @stream.channels.each do |channel|
-      #vid_total_added = 0
+      
       doc = Nokogiri::HTML(open(channel.doc))
       
       doc.css("[data-video-ids]").each do |el|
@@ -70,7 +64,6 @@ class StreamsController < ApplicationController
                                                         url: "https://www.youtube.com/watch?v=" + "#{@scraped_id}",
                                                         y_date_added: @datestamp
                                                        ) 
-              #vid_total_added += 1                                                                            
              else
                 break
              end                                        
@@ -78,11 +71,20 @@ class StreamsController < ApplicationController
             rescue OpenURI::HTTPError
                 next
             end
-            #remove vid_total_added amount of videos from the stream, the oldest ones, if the total length is over the stable footage limit, maybe use while over remove them
-            #you dont want to remove old to the stream but new to youtube
+            
       end
     
     end # end channel loop
+    
+    # REMOVE OLD CONTENT
+    footagelength = Stream.friendly.find(params[:id]).videos.pluck(:length).inject(:+) 
+    
+    while footagelength > 28800
+      firstvideo = @stream.videos.order("created_at").first
+      firstvideo.destroy
+      @stream.save
+      footagelength = Stream.friendly.find(params[:id]).videos.pluck(:length).inject(:+) 
+    end
     
     #Now program the stream
     @stream.reprogrammed_at = Time.now

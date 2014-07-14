@@ -23,5 +23,34 @@ class Stream < ActiveRecord::Base
     end
   end
   
+  
+  
+   def download_playlist_videos(list_id)
+      
+      doc = Nokogiri::HTML(open("https://www.youtube.com/playlist?list=#{list_id}"))
+      
+           doc.css("[data-video-id]").each do |el|
+             begin
+             @scraped_id = el.attr('data-video-id')
+
+             @date = JSON.parse(open("http://gdata.youtube.com/feeds/api/videos/#{@scraped_id}?v=2&alt=jsonc").read)['data']['uploaded']
+             @datestamp = @date.split("T").first        
+
+      video = self.videos.find_or_create_by( video_id: @scraped_id, 
+                                                pid: list_id, 
+                                                length: JSON.parse(open("http://gdata.youtube.com/feeds/api/videos/#{@scraped_id}?v=2&alt=jsonc").read)['data']['duration'],
+                                                name:  JSON.parse(open("http://gdata.youtube.com/feeds/api/videos/#{@scraped_id}?v=2&alt=jsonc").read)['data']['title'],
+                                                url: "https://www.youtube.com/watch?v=" + "#{@scraped_id}",
+                                                y_date_added: @datestamp                                           
+                                               )
+             rescue OpenURI::HTTPError
+                 next
+             end
+
+           end
+      
+      
+    end
+  
 
 end

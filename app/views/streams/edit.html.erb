@@ -30,7 +30,8 @@
 </table>
 
 <% if current_user.id = @addkey %>
-ADMIN
+You are the administrator of <%= @stream.title %>
+
 <% else%>
 You can contribute Youtube videos, playlists, and user channels to this stream
 <% end %>
@@ -49,7 +50,8 @@ You can contribute Youtube videos, playlists, and user channels to this stream
     </div>
   <% end %>
 <% if current_user.id = @addkey %>
-  <div class="field">
+<br> 
+ <div class="field">
     <%= f.label :description %><br>
     <%= f.text_area :description , :rows => 5, :cols => 50 %>
   </div>
@@ -79,7 +81,7 @@ You can contribute Youtube videos, playlists, and user channels to this stream
 <%= form_for([@stream, @stream.videos.build]) do |f| %>
 
 <div class="field">
-  <%= f.text_field :url, :size => 115 %>
+ <%= f.text_field :url, :size => 115 %>
 </div>
 
 <div class="actions">
@@ -89,10 +91,6 @@ You can contribute Youtube videos, playlists, and user channels to this stream
 <% end %>
 <% end %>
 					<h1>Playlists</h1>
-					<% if current_user.id = @addkey %>
-					Removing a playlist removes all of its associated videos 				
-					<% end %>
-					<br>
 					<br>
 					<table>
 					  <tbody>
@@ -119,12 +117,6 @@ You can contribute Youtube videos, playlists, and user channels to this stream
 						<% end %>
 						
 					<h1>User Channels</h1>
-					Adding a user channel connects the channel's recent uploads to the stream.
-					<br>
-					<br>
-					<% if current_user.id = @addkey %>
-					Removing a user channel removes all of its associated videos.
-					<% end %>
 					<br>
 					<table>
 					  <tbody>

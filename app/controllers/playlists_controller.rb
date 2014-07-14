@@ -13,7 +13,6 @@ class PlaylistsController < ApplicationController
     
     @playlists = Playlist.all
     
-
   end
   
   
@@ -45,30 +44,13 @@ class PlaylistsController < ApplicationController
     @playlist = @stream.playlists.find_or_initialize_by(playlist_params)
     
     if @playlist.valid?
+      
     @playlist.playlist_id = @playlist.playlistconverturl(@playlist.url)
-    @playlist.title = @playlist.get_youtube_playlist_title(@playlist.playlist_id)
     
-    doc = Nokogiri::HTML(open("https://www.youtube.com/playlist?list=#{@playlist.playlist_id}"))
-
-      doc.css("[data-video-id]").each do |el|
-        begin
-        @scraped_id = el.attr('data-video-id')
+    @playlist.title = @playlist.get_youtube_playlist_title(@playlist.playlist_id)
         
-        @date = JSON.parse(open("http://gdata.youtube.com/feeds/api/videos/#{@scraped_id}?v=2&alt=jsonc").read)['data']['uploaded']
-        @datestamp = @date.split("T").first        
+    @stream.delay.download_playlist_videos(@playlist.playlist_id)
 
- video = @stream.videos.find_or_create_by( video_id: @scraped_id, 
-                                           pid: @playlist.playlist_id, 
-                                           length: JSON.parse(open("http://gdata.youtube.com/feeds/api/videos/#{@scraped_id}?v=2&alt=jsonc").read)['data']['duration'],
-                                           name:  JSON.parse(open("http://gdata.youtube.com/feeds/api/videos/#{@scraped_id}?v=2&alt=jsonc").read)['data']['title'],
-                                           url: "https://www.youtube.com/watch?v=" + "#{@scraped_id}",
-                                           y_date_added: @datestamp                                           
-                                          )
-        rescue OpenURI::HTTPError
-            next
-        end
-        
-      end
     end
     
     respond_to do |format|

@@ -49,5 +49,6 @@ gem 'nokogiri', '~> 1.6.2.1'
 gem 'delayed_job_active_record'
 gem 'foreman', '~> 0.74.0'
 gem 'clockwork'
+gem 'kaminari'
 
 
