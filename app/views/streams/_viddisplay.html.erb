@@ -1,5 +1,8 @@
+<h1>Videos</h1>
+
 <div id="scrollbox">
 <div id="viddisplaytable">
+	
 <table style="width:670px">
 
 <% @stream.videos.each do |video| %>
@@ -24,7 +27,7 @@
 
 <td>
 <% if current_user.id = @addkey %>
-<%= link_to 'Remove', [video.stream, video],	method: :delete %>
+<%= link_to image_tag("cross.svg"), [video.stream, video],	method: :delete %>
 <% end %>
 </td>
 

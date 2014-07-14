@@ -56,7 +56,7 @@ class PlaylistsController < ApplicationController
     respond_to do |format|
       if @playlist.save
         @stream.save
-        format.html { redirect_to edit_stream_path(@stream), notice: 'Playlist was successfully created.' }
+        format.html { redirect_to edit_stream_path(@stream), notice: '✓ Playlist was successfully created.' }
         format.json { render :show, status: :created, location: @playlist }
       else
         format.html { render :new }

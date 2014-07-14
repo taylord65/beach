@@ -63,7 +63,6 @@ You can contribute Youtube videos, playlists, and user channels to this stream
 <% end %>
 	
 <br>
-<br>
 <% if current_user.id = @addkey %>
 <%= render "viddisplay" %>
 <%= form_for([@stream, @stream.videos.build]) do |f| %>
@@ -90,20 +89,57 @@ You can contribute Youtube videos, playlists, and user channels to this stream
 
 <% end %>
 <% end %>
+<br>
+<h1>User Channels</h1>
+<br>
+<div id="miniscrollbox">
+<div id="viddisplaytable">
+	
+<table style="width:670px">
+  <tbody>
+    <% @stream.channels.each do |channel| %>
+      <tr>
+		<td><%= link_to channel.title, channel.url, :target => :blank %></td>
+		<% if current_user.id = @addkey %>
+		<td><%= link_to image_tag("cross.svg"), [channel.stream, channel],	method: :delete %></td>
+		<% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>	
+</div>
+</div>
+
+	<%= form_for([@stream, @stream.channels.build]) do |f| %>
+
+	  <div class="field">
+	    <%= f.text_field :url, :size => 115 %>
+	  </div>
+
+	  <div class="actions">
+	    <%= f.submit %>
+	  </div>
+	<% end %>
+	<br>
 					<h1>Playlists</h1>
 					<br>
-					<table>
+					<div id="miniscrollbox">
+					<div id="viddisplaytable">
+
+					<table style="width:670px">
 					  <tbody>
 					    <% @stream.playlists.each do |playlist| %>
 					      <tr>
 							<td><%= link_to playlist.title, playlist.url, :target => :blank %></td>
-							<% if current_user.id = @addkey %>
-							<td><%= link_to 'Remove', [playlist.stream, playlist],	method: :delete %></td>
+							<% if current_user.id = @addkey %>							
+							<td><%= link_to image_tag("cross.svg"), [playlist.stream, playlist],	method: :delete %></td>
 							<% end %>
 					      </tr>
 					    <% end %>
 					  </tbody>
 					</table>
+					</div>
+					</div>
 					
 						<%= form_for([@stream, @stream.playlists.build]) do |f| %>
 
@@ -116,31 +152,7 @@ You can contribute Youtube videos, playlists, and user channels to this stream
 						  </div>
 						<% end %>
 						
-					<h1>User Channels</h1>
-					<br>
-					<table>
-					  <tbody>
-					    <% @stream.channels.each do |channel| %>
-					      <tr>
-							<td><%= link_to channel.title, channel.url, :target => :blank %></td>
-							<% if current_user.id = @addkey %>
-							<td><%= link_to 'Remove', [channel.stream, channel],	method: :delete %></td>
-							<% end %>
-					      </tr>
-					    <% end %>
-					  </tbody>
-					</table>	
-					
-						<%= form_for([@stream, @stream.channels.build]) do |f| %>
 
-						  <div class="field">
-						    <%= f.text_field :url, :size => 115 %>
-						  </div>
-
-						  <div class="actions">
-						    <%= f.submit %>
-						  </div>
-						<% end %>
 
 <br>
 

@@ -257,7 +257,7 @@ class StreamsController < ApplicationController
         @subscription.title = @stream.title
         @subscription.save
         
-        format.html { redirect_to edit_stream_path(@stream), notice: 'Stream Created. Add videos and sources to build the stream' }
+        format.html { redirect_to edit_stream_path(@stream), notice: '✓ Stream Created. Add videos and sources to build the stream' }
         format.json { render :show, status: :created, location: @stream }
       else
         format.html { render :new }

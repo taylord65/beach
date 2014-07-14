@@ -43,9 +43,11 @@
 	outline:none;
     }
 
-#splashfont{
-	font-family: 'Raleway', sans-serif;
-}
+.splashfont h1 {
+		font-family: 'Lato', sans-serif; font-weight: 900;
+		font-size:25px;
+		color: #73A7CA;
+	}
 
 ul.hmenu {
   list-style: none; 
@@ -70,6 +72,13 @@ ul.hmenu li {
 	margin-right:auto;
 	text-align: center;
 	padding-top: 5px;
+}
+
+#miniscrollbox{
+	width:800px;
+	height:100px;
+	overflow-y:scroll;
+	overflow-x:hidden;	
 }
 
 #scrollbox{

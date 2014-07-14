@@ -48,37 +48,13 @@ class ChannelsController < ApplicationController
     a.slice! " - YouTube"
     @channel.title = a
     
-    doc.css("[data-video-ids]").each do |el|
-          begin
-          @scraped_id = el.attr('data-video-ids')
-          
-          if @stream.videos.where(video_id: @scraped_id).blank?
-          
-          @date = JSON.parse(open("http://gdata.youtube.com/feeds/api/videos/#{@scraped_id}?v=2&alt=jsonc").read)['data']['uploaded']
-          @datestamp = @date.split("T").first          
-          
-   video = @stream.videos.find_or_create_by( video_id: @scraped_id, 
-                                             pid: @channel.url, 
-                                             length: JSON.parse(open("http://gdata.youtube.com/feeds/api/videos/#{@scraped_id}?v=2&alt=jsonc").read)['data']['duration'],
-                                             name:  JSON.parse(open("http://gdata.youtube.com/feeds/api/videos/#{@scraped_id}?v=2&alt=jsonc").read)['data']['title'],
-                                             url: "https://www.youtube.com/watch?v=" + "#{@scraped_id}",
-                                             y_date_added: @datestamp                                           
-                                            )
-          else
-              next
-          end        
-            
-          rescue OpenURI::HTTPError
-              next
-          end
-          
-    end
+    @stream.download_channel_videos(doc, @channel.url)
         
-    end
+    end 
 
     respond_to do |format|
       if @channel.save
-        format.html { redirect_to edit_stream_path(@stream), notice: 'Channel was successfully connected.' }
+        format.html { redirect_to edit_stream_path(@stream), notice: '✓ Channel was successfully connected.' }
         format.json { render :show, status: :created, location: @channel }
       else
         format.html { render :new }

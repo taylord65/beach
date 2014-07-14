@@ -1,4 +1,3 @@
-
 class Stream < ActiveRecord::Base
   has_many :videos, :dependent => :destroy
   has_many :admins, :dependent => :destroy
@@ -35,6 +34,8 @@ class Stream < ActiveRecord::Base
            doc.css("[data-video-id]").each do |el|
              begin
              @scraped_id = el.attr('data-video-id')
+             
+             if self.videos.where(video_id: @scraped_id).blank?
 
              @date = JSON.parse(open("http://gdata.youtube.com/feeds/api/videos/#{@scraped_id}?v=2&alt=jsonc").read)['data']['uploaded']
              @datestamp = @date.split("T").first        
@@ -46,6 +47,10 @@ class Stream < ActiveRecord::Base
                                                 url: "https://www.youtube.com/watch?v=" + "#{@scraped_id}",
                                                 y_date_added: @datestamp                                           
                                                )
+            else
+                next
+            end
+                                                                                            
              rescue OpenURI::HTTPError
                  next
              end
@@ -54,6 +59,38 @@ class Stream < ActiveRecord::Base
       
       
     end
-  
+    
+    
+    def download_channel_videos(doc, url)
+      
+      require 'open-uri'
+      
+      doc.css("[data-video-ids]").each do |el|
+            begin
+            @scraped_id = el.attr('data-video-ids')
+
+            if self.videos.where(video_id: @scraped_id).blank?
+
+            @date = JSON.parse(open("http://gdata.youtube.com/feeds/api/videos/#{@scraped_id}?v=2&alt=jsonc").read)['data']['uploaded']
+            @datestamp = @date.split("T").first          
+
+     video = self.videos.find_or_create_by( video_id: @scraped_id, 
+                                               pid: url, 
+                                               length: JSON.parse(open("http://gdata.youtube.com/feeds/api/videos/#{@scraped_id}?v=2&alt=jsonc").read)['data']['duration'],
+                                               name:  JSON.parse(open("http://gdata.youtube.com/feeds/api/videos/#{@scraped_id}?v=2&alt=jsonc").read)['data']['title'],
+                                               url: "https://www.youtube.com/watch?v=" + "#{@scraped_id}",
+                                               y_date_added: @datestamp                                           
+                                              )
+            else
+                next
+            end        
+
+            rescue OpenURI::HTTPError
+                next
+            end
+
+      end
+    
+    end
 
 end
