@@ -14,13 +14,6 @@ class PlaylistsController < ApplicationController
     @playlists = Playlist.all
     
   end
-  
-  
-  def filter
-    @stream = Stream.friendly.find(params[:stream_id]) 
-    @playlist = @stream.playlists.where(stream_id: @stream.id)
-    
-  end
 
   # GET /playlists/1
   # GET /playlists/1.json

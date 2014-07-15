@@ -44,7 +44,7 @@
 .logo img {
 	float: left;
 	vertical-align:middle;
-	opacity: .8;
+	opacity: .9;
     transition: opacity .7s ease-out;
     -moz-transition: opacity .7s ease-out;
     -webkit-transition: opacity .7s ease-out;
