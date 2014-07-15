@@ -27,7 +27,7 @@
 
 <td>
 <% if current_user.id = @addkey %>
-<%= link_to image_tag("cross.svg"), [video.stream, video],	method: :delete %>
+<div class="fader"><%= link_to image_tag("cross.svg"), [video.stream, video],	method: :delete %></div>
 <% end %>
 </td>
 

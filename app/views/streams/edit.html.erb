@@ -101,7 +101,7 @@ You can contribute Youtube videos, playlists, and user channels to this stream
       <tr>
 		<td><%= link_to channel.title, channel.url, :target => :blank %></td>
 		<% if current_user.id = @addkey %>
-		<td><%= link_to image_tag("cross.svg"), [channel.stream, channel],	method: :delete %></td>
+		<td><div class="fader"><%= link_to image_tag("cross.svg"), [channel.stream, channel],	method: :delete %></div></td>
 		<% end %>
       </tr>
     <% end %>
@@ -132,7 +132,7 @@ You can contribute Youtube videos, playlists, and user channels to this stream
 					      <tr>
 							<td><%= link_to playlist.title, playlist.url, :target => :blank %></td>
 							<% if current_user.id = @addkey %>							
-							<td><%= link_to image_tag("cross.svg"), [playlist.stream, playlist],	method: :delete %></td>
+							<td><div class="fader"><%= link_to image_tag("cross.svg"), [playlist.stream, playlist],	method: :delete %></div></td>
 							<% end %>
 					      </tr>
 					    <% end %>

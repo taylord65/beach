@@ -75,10 +75,11 @@ class Stream < ActiveRecord::Base
         id = File.basename(path)
         channel_page = Nokogiri::HTML(open("https://www.youtube.com/user/#{id}/videos?sort=dd&flow=list&view=0"))
       end
-            
-      channel_page.css("[data-video-ids]").each do |el|
+      
+                  
+      channel_page.css("[data-video-ids]").take(10).each do |el|
             begin
-            @scraped_id = el.attr('data-video-ids')
+            @scraped_id = el.attr('data-video-ids') 
 
             if self.videos.where(video_id: @scraped_id).blank?
 
@@ -91,10 +92,11 @@ class Stream < ActiveRecord::Base
                                                name:  JSON.parse(open("http://gdata.youtube.com/feeds/api/videos/#{@scraped_id}?v=2&alt=jsonc").read)['data']['title'],
                                                url: "https://www.youtube.com/watch?v=" + "#{@scraped_id}",
                                                y_date_added: @datestamp                                           
-                                              )
+                                              )  
+                      
             else
                 next
-            end        
+            end     
 
             rescue OpenURI::HTTPError
                 next

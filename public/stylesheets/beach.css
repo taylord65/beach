@@ -29,10 +29,34 @@
 	table-layout:fixed;
 }
 
-.logo {
+.fader img {
+	opacity: .4;
+    transition: opacity .7s ease-out;
+    -moz-transition: opacity .7s ease-out;
+    -webkit-transition: opacity .7s ease-out;
+    -o-transition: opacity .7s ease-out;
+}
+
+.fader img:hover {
+	opacity: 1;
+}
+
+.logo img {
+	float: left;
+	vertical-align:middle;
+	opacity: .8;
+    transition: opacity .7s ease-out;
+    -moz-transition: opacity .7s ease-out;
+    -webkit-transition: opacity .7s ease-out;
+    -o-transition: opacity .7s ease-out;
+}
+
+.logo img:hover {
+	opacity: 1;
 	float: left;
 	vertical-align:middle
 }
+
 
 .inputBox  {
     border: 1px solid #d1d1d1;
