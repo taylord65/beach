@@ -49,14 +49,14 @@ class PlaylistsController < ApplicationController
     
     @playlist.title = @playlist.get_youtube_playlist_title(@playlist.playlist_id)
         
-    @stream.download_playlist_videos(@playlist.playlist_id)
+    @stream.delay.download_playlist_videos(@playlist.playlist_id)
 
     end
     
     respond_to do |format|
       if @playlist.save
         @stream.save
-        format.html { redirect_to edit_stream_path(@stream), notice: '✓ Playlist was successfully created.' }
+        format.html { redirect_to edit_stream_path(@stream), notice: '✓ Playlist is downloading to stream' }
         format.json { render :show, status: :created, location: @playlist }
       else
         format.html { render :new }
@@ -70,7 +70,7 @@ class PlaylistsController < ApplicationController
   def update
     respond_to do |format|
       if @playlist.update(playlist_params)
-        format.html { redirect_to @playlist, notice: 'Playlist was successfully updated.' }
+        format.html { redirect_to @playlist, notice: 'Playlist was successfully updated' }
         format.json { render :show, status: :ok, location: @playlist }
       else
         format.html { render :edit }
@@ -89,7 +89,7 @@ class PlaylistsController < ApplicationController
     @playlist.destroy
 
     respond_to do |format|
-      format.html { redirect_to edit_stream_path(@stream), notice: 'Playlist was successfully removed.' }
+      format.html { redirect_to edit_stream_path(@stream), notice: '✓ Playlist was successfully removed' }
       format.json { head :no_content }
     end
   end

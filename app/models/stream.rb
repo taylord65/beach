@@ -61,11 +61,22 @@ class Stream < ActiveRecord::Base
     end
     
     
-    def download_channel_videos(doc, url)
+    def download_channel_videos(url)
+      #could also get the most popular of all time from each channel
       
       require 'open-uri'
       
-      doc.css("[data-video-ids]").each do |el|
+      if url =~ /channel/
+        path = URI.parse(url).path
+        id = File.basename(path)
+        channel_page = Nokogiri::HTML(open("https://www.youtube.com/channel/#{id}/videos?sort=dd&flow=list&view=0"))
+      else
+        path = URI.parse(url).path
+        id = File.basename(path)
+        channel_page = Nokogiri::HTML(open("https://www.youtube.com/user/#{id}/videos?sort=dd&flow=list&view=0"))
+      end
+            
+      channel_page.css("[data-video-ids]").each do |el|
             begin
             @scraped_id = el.attr('data-video-ids')
 
@@ -89,8 +100,8 @@ class Stream < ActiveRecord::Base
                 next
             end
 
-      end
+      end #end do
     
-    end
+    end #end download_channel_videos
 
 end

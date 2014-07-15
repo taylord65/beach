@@ -34,7 +34,6 @@ class ChannelsController < ApplicationController
   # POST /channels
   # POST /channels.json
   def create
-    #could also get the most popular of all time from each channel
     
     @stream = Stream.friendly.find(params[:stream_id]) 
     @channel = @stream.channels.find_or_initialize_by(channel_params)
@@ -48,13 +47,13 @@ class ChannelsController < ApplicationController
     a.slice! " - YouTube"
     @channel.title = a
     
-    @stream.download_channel_videos(doc, @channel.url)
+    @stream.delay.download_channel_videos(@channel.url)
         
     end 
 
     respond_to do |format|
       if @channel.save
-        format.html { redirect_to edit_stream_path(@stream), notice: '✓ Channel was successfully connected.' }
+        format.html { redirect_to edit_stream_path(@stream), notice: '✓ Channel is being connected to stream' }
         format.json { render :show, status: :created, location: @channel }
       else
         format.html { render :new }
@@ -68,7 +67,7 @@ class ChannelsController < ApplicationController
   def update
     respond_to do |format|
       if @channel.update(channel_params)
-        format.html { redirect_to @channel, notice: 'Channel was successfully updated.' }
+        format.html { redirect_to @channel, notice: '✓ Channel was successfully updated' }
         format.json { render :show, status: :ok, location: @channel }
       else
         format.html { render :edit }
@@ -88,7 +87,7 @@ class ChannelsController < ApplicationController
     @channel.destroy
     
     respond_to do |format|
-      format.html { redirect_to edit_stream_path(@stream), notice: 'Channel was successfully removed.' }
+      format.html { redirect_to edit_stream_path(@stream), notice: '✓ Channel was successfully removed' }
       format.json { head :no_content }
     end
   end
