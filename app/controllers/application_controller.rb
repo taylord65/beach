@@ -3,5 +3,12 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   
+  before_filter :set_trending
+  def set_trending
+    @trending1 = "smashbros"
+     @trending2 = "latenight"
+      @trending3 = "skate"
+  end
+  
   
 end

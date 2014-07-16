@@ -7,6 +7,12 @@ html, body {
 	height : 50px;
 	border-bottom: 1.5px solid #E5E5E5;
 	width: 100%;
+	
+}
+
+
+.header td {
+	white-space: nowrap;
 }
 
 .headcontrolls a {

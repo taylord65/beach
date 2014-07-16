@@ -6,7 +6,6 @@ class StreamsController < ApplicationController
   # GET /streams.json
   def index
     @streams = Stream.search(params)  
-    #@streams = params[:search] ? Stream.search(params[:search]) : Stream.none    
     
     if user_signed_in?
     @subscriptions = current_user.subscriptions
