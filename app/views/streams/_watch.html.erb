@@ -1,10 +1,12 @@
+<meta http-Equiv="Cache-Control" Content="no-cache">
+<meta http-Equiv="Pragma" Content="no-cache">
+<meta http-Equiv="Expires" Content="0">
+
 <div id="centerplayer">
 <div id="player"></div>
 <script>
   var is_playing = false;
   var fullscreen = false;
-	
-  var currentvideoplaying;		
 
   var tag = document.createElement('script');
   tag.src = "https://www.youtube.com/iframe_api";
@@ -20,14 +22,13 @@
 			controls: 0,
 			rel: 0,
 			iv_load_policy: 3,
-			loop: 1,
 			showinfo: 0
 		},
 
      loadPlaylist:{
         listType:'playlist'
      },
-		
+
       events: {
         'onReady': onPlayerReady,
         'onStateChange': onPlayerStateChange,
@@ -43,14 +44,14 @@
 	} else{
 	location.reload();
 	}
-	
+
 }
 
   function onPlayerReady(event) {
-
 	event.target.setPlaybackQuality('default');
 	event.target.loadPlaylist(gon.playlist,gon.s_index,gon.s_time);
-	
+	event.target.setLoop(true);
+
 	//PLAYER CONTROLS
 	  var playButton = document.getElementById("play-button");
 	  var that = this;
@@ -63,7 +64,7 @@
 			player.playVideo();
 	    }
 	  });
-	
+
 	  var muteButton = document.getElementById("mute-button");
 	  muteButton.addEventListener("click", function() {
 		if(player.isMuted()){
@@ -74,7 +75,7 @@
 	    	player.mute();
 		}
 	  });
-	
+
 	  var enlargeButton = document.getElementById("enlarge-button");
 	  enlargeButton.addEventListener("click", function() {
 		if (fullscreen){
@@ -91,51 +92,32 @@
 	}
 
   function onPlayerStateChange(event) {
-	
-	
+
 	if (event.data == YT.PlayerState.BUFFERING) {
 	    event.target.setPlaybackQuality('hd1080');
 	}
-	
+
 	if (event.data == YT.PlayerState.PAUSED) {
 		$("#play-button").attr("src", "http://www.beached.tv/assets/play-0a292db2c7cb500e5e768d0222ef1f94.svg");
 		this.is_playing = false;
 	}
-	
+
 	if (event.data == YT.PlayerState.PLAYING) {
 		$("#play-button").attr("src", "http://www.beached.tv/assets/pause-c1c0a3d060f908372ebecf2eb7e7c018.svg");
 		this.is_playing = true;
-        var url = event.target.getVideoUrl();
-        var match = url.match(/[?&]v=([^&]+)/);
-        currentvideoplaying = match[1];
     }
-	
-	if(currentvideoplaying == gon.playlist.slice(-1)[0]) {
- 	if (event.data == YT.PlayerState.ENDED) {
-		event.target.loadPlaylist(gon.playlist,0,0);
-        
+
+	if (event.data == YT.PlayerState.ENDED) {
+		var current_time = Math.round(new Date().getTime() / 1000);
+		if (current_time > gon.end_of_stream){
+		//	location.reload();
 		}
     }
+
   }
-
-  function stopVideo() {
-    player.stopVideo();
-  }
-
-  var liveButton = document.getElementById("live-button");
-  liveButton.addEventListener("click", function() {	
-	location.reload();			
-  });
-
-//Math.round(new Date().getTime() / 1000)
 
 </script>
 
 </div>
 
-
-
-
-
-
-
+</div>

@@ -162,7 +162,8 @@ class StreamsController < ApplicationController
   
   def show
     @stream = Stream.friendly.find(params[:id])
-
+    gon.end_of_stream = @stream.totallength + @stream.reprogrammed_at.to_i
+    
     if user_signed_in?
       
       if current_user.subscriptions.where(title: @stream.title).blank?
