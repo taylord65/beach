@@ -105,14 +105,13 @@
 	if (event.data == YT.PlayerState.PLAYING) {
 		$("#play-button").attr("src", "http://www.beached.tv/assets/pause-c1c0a3d060f908372ebecf2eb7e7c018.svg");
 		this.is_playing = true;
-    }
-
-	if (event.data == YT.PlayerState.ENDED) {
+		
 		var current_time = Math.round(new Date().getTime() / 1000);
 		if (current_time > gon.end_of_stream){
 		//	location.reload();
 		}
     }
+
 
   }
 

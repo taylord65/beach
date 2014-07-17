@@ -28,13 +28,15 @@ class VideosController < ApplicationController
     @stream = Stream.friendly.find(params[:stream_id]) 
     @video = @stream.videos.find_or_create_by(video_params)
     
-    #Set the video id by using the converturl function in the model
     @video.video_id = @video.converturl(@video.url)
-    #Store the video length in seconds
+    
+    if @stream.videos.where(video_id: @video.video_id).blank?
+    
     @video.length = @video.get_youtube_video_duration(@video.video_id)
-    #Store the video name 
     @video.name = @video.get_youtube_video_name(@video.video_id)
     @video.y_date_added = @video.get_youtube_video_date(@video.video_id)
+    
+    end
  
     respond_to do |format|
       if @video.save

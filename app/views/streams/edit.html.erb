@@ -90,7 +90,7 @@ You can contribute Youtube videos, playlists, and user channels to <%= @stream.t
 <% end %>
 <% end %>
 <br>
-<h1>User Channels</h1>
+<div class= "edittitles"><h1>User Channels</h1></div>
 <br>
 <div id="miniscrollbox">
 <div id="viddisplaytable">
@@ -121,7 +121,7 @@ You can contribute Youtube videos, playlists, and user channels to <%= @stream.t
 	  </div>
 	<% end %>
 	<br>
-					<h1>Playlists</h1>
+					<div class= "edittitles"><h1>Playlists</h1></div>
 					<br>
 					<div id="miniscrollbox">
 					<div id="viddisplaytable">
@@ -143,13 +143,7 @@ You can contribute Youtube videos, playlists, and user channels to <%= @stream.t
 					
 						<%= form_for([@stream, @stream.playlists.build]) do |f| %>
 
-						  <div class="field">
-						    <%= f.text_field :url, :size => 115 %>
-						  </div>
-
-						  <div class="actions">
-						    <%= f.submit %>
-						  </div>
+						  <div class="field"><%= f.text_field :url, :size => 115 %></div><div class="actions"><%= f.submit %></div>
 						<% end %>
 						
 

@@ -4,4 +4,4 @@ require 'clockwork'
 
 include Clockwork
 
-#every(2.minutes, 'Updating Streams') { Delayed::Job.enqueue IntervalJob.new }
+every(2.minutes, 'Updating Streams') { Delayed::Job.enqueue FilterJob.new }

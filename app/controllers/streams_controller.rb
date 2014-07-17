@@ -16,6 +16,10 @@ class StreamsController < ApplicationController
   def filter
     @stream = Stream.friendly.find(params[:id])
     
+    timenow = Time.now.to_i
+    
+    if timenow >= @stream.totallength + @stream.reprogrammed_at.to_i 
+    
     @stream.playlists.each do |playlist|
       
        doc = Nokogiri::HTML(open("https://www.youtube.com/playlist?list=#{playlist.playlist_id}"))
@@ -101,6 +105,9 @@ class StreamsController < ApplicationController
     @stream.save
     
     redirect_to edit_stream_path(@stream) , notice: 'Stream was successfully filtered.'# no notice when this is done automatically
+    else
+      redirect_to edit_stream_path(@stream) , notice: 'Not time for filter.'# no notice when this is done automatically
+    end  
   end
   
   def watchsub
@@ -241,9 +248,10 @@ class StreamsController < ApplicationController
   def create
     @stream = Stream.new(stream_params)
     @stream.reprogrammed_at = Time.now
-    @stream.lengthlist = [6399]
+    @stream.lengthlist = [1]
     @stream.idlist = ['8tPnX7OPo0Q']
-    @stream.totallength = 6399
+    @stream.totallength = 1
+    #ready for filter at next cycle
     @stream.increment(:subs, by = 1)
     
     respond_to do |format|
