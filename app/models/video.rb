@@ -1,6 +1,4 @@
 require 'open-uri'
-require 'date'
-
 
 class Video < ActiveRecord::Base
   belongs_to :stream

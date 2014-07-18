@@ -83,8 +83,9 @@ class StreamsController < ApplicationController
     
     # REMOVE OLD CONTENT
     footagelength = Stream.friendly.find(params[:id]).videos.pluck(:length).inject(:+) 
+    avgtime = 14400
     
-    while footagelength > 14400
+    while footagelength > avgtime
       firstvideo = @stream.videos.order('y_date_added asc').first
       firstvideo.destroy
       @stream.save
