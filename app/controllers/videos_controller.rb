@@ -72,7 +72,7 @@ class VideosController < ApplicationController
 
     @video.destroy
     respond_to do |format|
-      format.html { redirect_to edit_stream_path(@stream), notice: 'Video was successfully destroyed.' }
+      format.html { redirect_to edit_stream_path(@stream), notice: '✓ Video was removed' }
       format.json { head :no_content }
     end
   end

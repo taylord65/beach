@@ -31,6 +31,9 @@
 
 <% if current_user.id = @addkey %>
 You are the administrator of <%= @stream.title %>
+<p>Add Youtube Channels and their recent uploads will automatically download to the stream over time</p>
+<p>You can also add individual playlists and videos </p>
+<p>Old content will be automatically filtered out</p>
 
 <% else%>
 You can contribute Youtube videos, playlists, and user channels to <%= @stream.title %>

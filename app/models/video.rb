@@ -6,7 +6,7 @@ class Video < ActiveRecord::Base
   
   validates :url, :format => {
       :with    => %r{www.youtube.com/watch}i,
-      :message => 'must be a youtube video url. Accepted Formats: ' }
+      :message => 'must be a youtube video url' }
 
       def get_youtube_video_duration(video_id)
         length = JSON.parse(open("http://gdata.youtube.com/feeds/api/videos/#{self.video_id}?v=2&alt=jsonc").read)['data']['duration']

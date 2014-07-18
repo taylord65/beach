@@ -82,7 +82,7 @@ class PlaylistsController < ApplicationController
     @playlist.destroy
 
     respond_to do |format|
-      format.html { redirect_to edit_stream_path(@stream), notice: '✓ Playlist was successfully removed' }
+      format.html { redirect_to edit_stream_path(@stream), notice: '✓ Playlist was removed' }
       format.json { head :no_content }
     end
   end
