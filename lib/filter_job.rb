@@ -85,7 +85,7 @@ def perform
   avgtime = 14400
   
   while footagelength > avgtime
-    firstvideo = stream.videos.order("created_at").first
+    firstvideo = stream.videos.order('created_at asc').first
     firstvideo.destroy
     stream.save
     footagelength = stream.videos.pluck(:length).inject(:+) 

@@ -5,7 +5,7 @@ class StreamsController < ApplicationController
   # GET /streams
   # GET /streams.json
   def index
-    @streams = Stream.search(params)  
+    @streams = Stream.search(params) 
     
     if user_signed_in?
     @subscriptions = current_user.subscriptions
@@ -18,7 +18,7 @@ class StreamsController < ApplicationController
     
     timenow = Time.now.to_i
     
-    if timenow >= @stream.totallength + @stream.reprogrammed_at.to_i 
+    #if timenow >= @stream.totallength + @stream.reprogrammed_at.to_i 
     
     @stream.playlists.each do |playlist|
       
@@ -29,16 +29,13 @@ class StreamsController < ApplicationController
             @scraped_id = el.attr('data-video-id')
             
             if @stream.videos.where(video_id: @scraped_id).blank?
-            
-            @date = JSON.parse(open("http://gdata.youtube.com/feeds/api/videos/#{@scraped_id}?v=2&alt=jsonc").read)['data']['uploaded']
-            @datestamp = @date.split("T").first
-            
+
      video = @stream.videos.find_or_create_by( video_id: @scraped_id, 
                                                pid: playlist.playlist_id, 
                                                length: JSON.parse(open("http://gdata.youtube.com/feeds/api/videos/#{@scraped_id}?v=2&alt=jsonc").read)['data']['duration'],
                                                name:  JSON.parse(open("http://gdata.youtube.com/feeds/api/videos/#{@scraped_id}?v=2&alt=jsonc").read)['data']['title'],
                                                url: "https://www.youtube.com/watch?v=" + "#{@scraped_id}",
-                                               y_date_added: @datestamp
+                                               y_date_added: JSON.parse(open("http://gdata.youtube.com/feeds/api/videos/#{@scraped_id}?v=2&alt=jsonc").read)['data']['uploaded']
                                               )
             else
                 next
@@ -49,6 +46,7 @@ class StreamsController < ApplicationController
             end
 
           end
+      
       
     end # end playlist loop
     
@@ -63,15 +61,12 @@ class StreamsController < ApplicationController
             
             if @stream.videos.where(video_id: @scraped_id).blank?
               
-              @date = JSON.parse(open("http://gdata.youtube.com/feeds/api/videos/#{@scraped_id}?v=2&alt=jsonc").read)['data']['uploaded']
-              @datestamp = @date.split("T").first
-              
               video = @stream.videos.find_or_create_by( video_id: @scraped_id, 
                                                         pid: channel.url, 
                                                         length: JSON.parse(open("http://gdata.youtube.com/feeds/api/videos/#{@scraped_id}?v=2&alt=jsonc").read)['data']['duration'],
                                                         name:  JSON.parse(open("http://gdata.youtube.com/feeds/api/videos/#{@scraped_id}?v=2&alt=jsonc").read)['data']['title'],
                                                         url: "https://www.youtube.com/watch?v=" + "#{@scraped_id}",
-                                                        y_date_added: @datestamp
+                                                        y_date_added: JSON.parse(open("http://gdata.youtube.com/feeds/api/videos/#{@scraped_id}?v=2&alt=jsonc").read)['data']['uploaded']
                                                        ) 
              else
                 break
@@ -82,14 +77,15 @@ class StreamsController < ApplicationController
             end
             
       end
+      
     
     end # end channel loop
     
     # REMOVE OLD CONTENT
     footagelength = Stream.friendly.find(params[:id]).videos.pluck(:length).inject(:+) 
     
-    while footagelength > 28800
-      firstvideo = @stream.videos.order("created_at").first
+    while footagelength > 14400
+      firstvideo = @stream.videos.order('y_date_added asc').first
       firstvideo.destroy
       @stream.save
       footagelength = Stream.friendly.find(params[:id]).videos.pluck(:length).inject(:+) 
@@ -105,9 +101,9 @@ class StreamsController < ApplicationController
     @stream.save
     
     redirect_to edit_stream_path(@stream) , notice: 'Stream was successfully filtered.'# no notice when this is done automatically
-    else
-      redirect_to edit_stream_path(@stream) , notice: 'Not time for filter.'# no notice when this is done automatically
-    end  
+    #else
+     # redirect_to edit_stream_path(@stream) , notice: 'Not time for filter.'# no notice when this is done automatically
+   # end  
   end
   
   def watchsub

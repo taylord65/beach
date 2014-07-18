@@ -40,7 +40,7 @@ class VideosController < ApplicationController
  
     respond_to do |format|
       if @video.save
-        format.html { redirect_to edit_stream_path(@stream), notice: '✓ Video was successfully created' }
+        format.html { redirect_to edit_stream_path(@stream), notice: '✓ Video was successfully added' }
         format.json { render :show, status: :created, location: @video }
       else
         format.html { render :new }

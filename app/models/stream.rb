@@ -37,15 +37,12 @@ class Stream < ActiveRecord::Base
              
              if self.videos.where(video_id: @scraped_id).blank?
 
-             @date = JSON.parse(open("http://gdata.youtube.com/feeds/api/videos/#{@scraped_id}?v=2&alt=jsonc").read)['data']['uploaded']
-             @datestamp = @date.split("T").first        
-
       video = self.videos.find_or_create_by( video_id: @scraped_id, 
                                                 pid: list_id, 
                                                 length: JSON.parse(open("http://gdata.youtube.com/feeds/api/videos/#{@scraped_id}?v=2&alt=jsonc").read)['data']['duration'],
                                                 name:  JSON.parse(open("http://gdata.youtube.com/feeds/api/videos/#{@scraped_id}?v=2&alt=jsonc").read)['data']['title'],
                                                 url: "https://www.youtube.com/watch?v=" + "#{@scraped_id}",
-                                                y_date_added: @datestamp                                           
+                                                y_date_added: JSON.parse(open("http://gdata.youtube.com/feeds/api/videos/#{@scraped_id}?v=2&alt=jsonc").read)['data']['uploaded']                                       
                                                )
             else
                 next
@@ -81,17 +78,14 @@ class Stream < ActiveRecord::Base
             begin
             @scraped_id = el.attr('data-video-ids') 
 
-            if self.videos.where(video_id: @scraped_id).blank?
-
-            @date = JSON.parse(open("http://gdata.youtube.com/feeds/api/videos/#{@scraped_id}?v=2&alt=jsonc").read)['data']['uploaded']
-            @datestamp = @date.split("T").first          
+            if self.videos.where(video_id: @scraped_id).blank?       
 
      video = self.videos.find_or_create_by( video_id: @scraped_id, 
                                                pid: url, 
                                                length: JSON.parse(open("http://gdata.youtube.com/feeds/api/videos/#{@scraped_id}?v=2&alt=jsonc").read)['data']['duration'],
                                                name:  JSON.parse(open("http://gdata.youtube.com/feeds/api/videos/#{@scraped_id}?v=2&alt=jsonc").read)['data']['title'],
                                                url: "https://www.youtube.com/watch?v=" + "#{@scraped_id}",
-                                               y_date_added: @datestamp                                           
+                                               y_date_added: JSON.parse(open("http://gdata.youtube.com/feeds/api/videos/#{@scraped_id}?v=2&alt=jsonc").read)['data']['uploaded']                                         
                                               )  
                       
             else

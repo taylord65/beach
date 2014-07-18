@@ -1,4 +1,6 @@
 require 'open-uri'
+require 'date'
+
 
 class Video < ActiveRecord::Base
   belongs_to :stream
@@ -19,9 +21,9 @@ class Video < ActiveRecord::Base
       end
       
       def get_youtube_video_date(video_id)
-        date = JSON.parse(open("http://gdata.youtube.com/feeds/api/videos/#{self.video_id}?v=2&alt=jsonc").read)['data']['uploaded']
-        datestamp = date.split("T").first
-        datestamp
+        #single video submissions are given a y_date_added of the time at submission 
+        date = Time.now
+        date
       end
       
     def converturl(url)
