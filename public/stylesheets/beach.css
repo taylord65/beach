@@ -3,13 +3,43 @@ html, body {
     margin: 0;
 }
 
+*:focus {
+    outline: 0;
+}
+
 .header {
 	height : 50px;
 	border-bottom: 1.5px solid #E5E5E5;
 	width: 100%;
 	
 }
+.form-inline div { display: inline-block }
 
+.search {
+                padding:8px 15px;
+                background-color: white;
+                border:1px solid #E5E5E5;
+			    width: 666px;
+				height: 40px;
+				font-family: 'Lato', sans-serif; font-weight: 900;
+				font-size:25px;
+				color:grey;
+				
+			
+}
+.fieldbutton {
+                position:relative;
+                padding:0px 15px 0px 15px;
+                left:-8px;
+                border:19px solid #83B4DB;
+                background-color:#83B4DB;
+				height: 58px;
+                color:white;
+				font-family: 'Lato', sans-serif; font-weight: 400;
+				font-size:20px;
+				
+				
+}
 
 .header td {
 	white-space: nowrap;
@@ -64,14 +94,6 @@ html, body {
 
 
 
-.inputBox  {
-    border: 1px solid #d1d1d1;
-    font: 13px Arial,Helvetica,Sans-serif;
-    color: black;
-    width: 607px;
-    padding: 6px 15px 6px 35px;
-	outline:none;
-    }
 
 .splashfont h1 {
 		font-family: 'Lato', sans-serif; font-weight: 900;
@@ -104,12 +126,6 @@ ul.hmenu li {
 	padding-top: 5px;
 }
 
-#miniscrollbox{
-	width:800px;
-	height:100px;
-	overflow-y:scroll;
-	overflow-x:hidden;	
-}
 
 #scrollbox{
 	width:800px;

@@ -12,8 +12,8 @@
 		
 	<%= form_tag streams_path, method: :get do %>
 	  <p>
-	    <%= text_field_tag :query, params[:query], :class => 'inputBox' %>
-	    <%= image_submit_tag ("search.png") %>
+	    <%= text_field_tag :query, params[:query], :class => 'search' %>
+	    <%= submit_tag "Search", :class => 'fieldbutton' %>
 	  </p>
 	<% end %>
 		

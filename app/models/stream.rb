@@ -74,7 +74,7 @@ class Stream < ActiveRecord::Base
       end
       
                   
-      channel_page.css("[data-video-ids]").take(10).each do |el|
+      channel_page.css("[data-video-ids]").each do |el|
             begin
             @scraped_id = el.attr('data-video-ids') 
 

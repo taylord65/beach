@@ -65,34 +65,38 @@ You can contribute Youtube videos, playlists, and user channels to <%= @stream.t
 <br>
 <% if current_user.id = @addkey %>
 <%= render "viddisplay" %>
+<br>
 <%= form_for([@stream, @stream.videos.build]) do |f| %>
 
+<div class="form-inline">
 <div class="field">
-  <%= f.text_field :url, :size => 115 %>
+  <%= f.text_field :url, :size => 115, :class => 'search', :placeholder => "Paste Youtube video URL" %>
 </div>
 
 <div class="actions">
-  <%= f.submit %>
+  <%= f.submit 'Add' , :class => 'fieldbutton' %>
+</div>
 </div>
 
 <% end %>
 <% else %>
 <%= form_for([@stream, @stream.videos.build]) do |f| %>
-
+<div class="form-inline">
 <div class="field">
- <%= f.text_field :url, :size => 115 %>
+  <%= f.text_field :url, :size => 115, :class => 'search', :placeholder => "Paste Youtube video URL" %>
 </div>
 
 <div class="actions">
-  <%= f.submit %>
+  <%= f.submit 'Add' , :class => 'fieldbutton' %>
+</div>
 </div>
 
 <% end %>
 <% end %>
 <br>
-<div class= "edittitles"><h1>User Channels</h1></div>
+<div class= "edittitles"><h1>Connected Channels</h1></div>
 <br>
-<div id="miniscrollbox">
+<div id="scrollbox">
 <div id="viddisplaytable">
 	
 <table style="width:670px">
@@ -109,21 +113,22 @@ You can contribute Youtube videos, playlists, and user channels to <%= @stream.t
 </table>	
 </div>
 </div>
-
+<br>
 	<%= form_for([@stream, @stream.channels.build]) do |f| %>
-
+	<div class="form-inline">
 	  <div class="field">
-	    <%= f.text_field :url, :size => 115 %>
+		  <%= f.text_field :url, :size => 115, :class => 'search', :placeholder => "Paste Youtube user or channel URL" %>
 	  </div>
 
 	  <div class="actions">
-	    <%= f.submit %>
+		  <%= f.submit 'Add' , :class => 'fieldbutton' %>
 	  </div>
+	</div>
 	<% end %>
 	<br>
-					<div class= "edittitles"><h1>Playlists</h1></div>
+					<div class= "edittitles"><h1>Connected Playlists</h1></div>
 					<br>
-					<div id="miniscrollbox">
+					<div id="scrollbox">
 					<div id="viddisplaytable">
 
 					<table style="width:670px">
@@ -140,10 +145,16 @@ You can contribute Youtube videos, playlists, and user channels to <%= @stream.t
 					</table>
 					</div>
 					</div>
-					
+					<br>
 						<%= form_for([@stream, @stream.playlists.build]) do |f| %>
-
-						  <div class="field"><%= f.text_field :url, :size => 115 %></div><div class="actions"><%= f.submit %></div>
+						<div class="form-inline">
+						  <div class="field">
+							  <%= f.text_field :url, :size => 115, :class => 'search', :placeholder => "Paste Youtube playlist URL" %>
+						</div>
+						<div class="actions">
+						  	<%= f.submit 'Add' , :class => 'fieldbutton' %>
+						</div>
+						</div>
 						<% end %>
 						
 
