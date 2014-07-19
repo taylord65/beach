@@ -8,7 +8,7 @@ def perform
   
   Stream.all.each do |stream|
         
-  if timenow >= @stream.totallength + @stream.reprogrammed_at.to_i    
+  if timenow >= stream.totallength + stream.reprogrammed_at.to_i    
       
 ####################################################################################       
   stream.playlists.each do |playlist|
