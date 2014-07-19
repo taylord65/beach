@@ -1,8 +1,9 @@
 class FilterJob
-
-def perform
   
   require 'open-uri'
+  
+
+def perform
   
   timenow = Time.now.to_i
   
