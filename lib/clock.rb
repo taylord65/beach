@@ -1,7 +1,12 @@
-require File.expand_path('../../config/boot',        __FILE__)
-require File.expand_path('../../config/environment', __FILE__)
 require 'clockwork'
+require './config/boot'
+require './config/environment'
 
-include Clockwork
+module Clockwork
 
-#every(2.minutes, 'Updating Streams') { Delayed::Job.enqueue FilterJob.new }
+  handler do |job|
+    puts "Running #{job}"
+  end
+
+  every(2.minutes, 'Filtering Streams') { Delayed::Job.enqueue FilterJob.new}
+end

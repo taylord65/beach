@@ -21,15 +21,13 @@ def perform
           
           if stream.videos.where(video_id: @scraped_id).blank?
           
-          @date = JSON.parse(open("http://gdata.youtube.com/feeds/api/videos/#{@scraped_id}?v=2&alt=jsonc").read)['data']['uploaded']
-          @datestamp = @date.split("T").first
           
    video = stream.videos.find_or_create_by( video_id: @scraped_id, 
                                              pid: playlist.playlist_id, 
                                              length: JSON.parse(open("http://gdata.youtube.com/feeds/api/videos/#{@scraped_id}?v=2&alt=jsonc").read)['data']['duration'],
                                              name:  JSON.parse(open("http://gdata.youtube.com/feeds/api/videos/#{@scraped_id}?v=2&alt=jsonc").read)['data']['title'],
                                              url: "https://www.youtube.com/watch?v=" + "#{@scraped_id}",
-                                             y_date_added: @datestamp
+                                             y_date_added: JSON.parse(open("http://gdata.youtube.com/feeds/api/videos/#{@scraped_id}?v=2&alt=jsonc").read)['data']['uploaded']
                                             )
           else
               next
@@ -54,15 +52,12 @@ def perform
           
           if stream.videos.where(video_id: @scraped_id).blank?
             
-            @date = JSON.parse(open("http://gdata.youtube.com/feeds/api/videos/#{@scraped_id}?v=2&alt=jsonc").read)['data']['uploaded']
-            @datestamp = @date.split("T").first
-            
             video = stream.videos.find_or_create_by( video_id: @scraped_id, 
                                                       pid: channel.url, 
                                                       length: JSON.parse(open("http://gdata.youtube.com/feeds/api/videos/#{@scraped_id}?v=2&alt=jsonc").read)['data']['duration'],
                                                       name:  JSON.parse(open("http://gdata.youtube.com/feeds/api/videos/#{@scraped_id}?v=2&alt=jsonc").read)['data']['title'],
                                                       url: "https://www.youtube.com/watch?v=" + "#{@scraped_id}",
-                                                      y_date_added: @datestamp
+                                                      y_date_added: JSON.parse(open("http://gdata.youtube.com/feeds/api/videos/#{@scraped_id}?v=2&alt=jsonc").read)['data']['uploaded']
                                                      ) 
            else
               break
@@ -85,7 +80,7 @@ def perform
   avgtime = 14400
   
   while footagelength > avgtime
-    firstvideo = stream.videos.order('created_at asc').first
+    firstvideo = stream.videos.order('y_date_added asc').first
     firstvideo.destroy
     stream.save
     footagelength = stream.videos.pluck(:length).inject(:+) 

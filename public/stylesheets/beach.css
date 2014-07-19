@@ -85,7 +85,7 @@ html, body {
 }
 
 .fader img {
-	opacity: .4;
+	opacity: .7;
     transition: opacity .7s ease-out;
     -moz-transition: opacity .7s ease-out;
     -webkit-transition: opacity .7s ease-out;
