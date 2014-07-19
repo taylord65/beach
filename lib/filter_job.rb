@@ -1,12 +1,12 @@
 class FilterJob
 
 def perform
-
-  @streams = Stream.all
+  
+  require 'open-uri'
   
   timenow = Time.now.to_i
   
-  @streams.each do |stream|
+  Stream.all.each do |stream|
         
   if timenow >= @stream.totallength + @stream.reprogrammed_at.to_i    
       
