@@ -1,6 +1,7 @@
 html, body {
     padding: 0;
     margin: 0;
+
 }
 
 *:focus {
@@ -15,11 +16,17 @@ html, body {
 }
 .form-inline div { display: inline-block }
 
+.controlbar div { 
+	display: block;
+	white-space: nowrap;
+	
+}
+
 .search {
                 padding:8px 15px;
                 background-color: white;
                 border:1px solid #E5E5E5;
-			    width: 666px;
+			    width: 530px;
 				height: 40px;
 				font-family: 'Lato', sans-serif; font-weight: 900;
 				font-size:25px;
@@ -45,10 +52,17 @@ html, body {
 	white-space: nowrap;
 }
 
+.headcontrolls div {
+	display: block;
+	white-space: nowrap;
+}
+
 .headcontrolls a {
 	text-decoration: none;
 	font-family: 'Lato', sans-serif; font-weight: 400;
 	color:#9C9C9C;
+
+	
 	
     
 
@@ -183,15 +197,20 @@ ul.hmenu li {
 
 .subscribebar a {
 	text-decoration: none;
-	color: #3E708D;	
+	color: white;	
 	font-family: 'Lato', sans-serif; font-weight: 700;
 	font-size:16px;	
 }
 
 .subscribebar td:hover {
 	border-collapse: collapse;
-	background-color: #FAF7BA;
+	background-color: #FAF7BA;	
 }
+
+.subscribebar table tr td:hover a{
+	color:#83B4DB;
+}
+
 
 #subscribecount{
 	font-family: verdana, arial, helvetica, sans-serif;
@@ -272,9 +291,9 @@ div {
    color: #fff;
  }
 
+
 #error_explanation {
-  width: 450px;
-  border: 2px solid blue;
+  width: 600px;
   padding: 7px;
   padding-bottom: 0;
   margin-bottom: 20px;
