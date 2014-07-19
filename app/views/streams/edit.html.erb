@@ -31,10 +31,6 @@
 
 <% if current_user.id = @addkey %>
 You are the administrator of <%= @stream.title %>
-<p>Add Youtube Channels and their recent uploads will automatically download to the stream over time</p>
-<p>You can also add individual playlists and videos </p>
-<p>Old content will be automatically filtered out</p>
-
 <% else%>
 You can contribute Youtube videos, playlists, and user channels to <%= @stream.title %>
 <% end %>
@@ -163,20 +159,6 @@ You can contribute Youtube videos, playlists, and user channels to <%= @stream.t
 
 
 <br>
-
-	<% if current_user.id = @addkey %>
-<table>
-	<tr>
-	<td>
-<%= button_to "Program Stream", setvideos_stream_path(@stream), :class => "button", :method => :get  %>
-Last Program <%= time_ago_in_words(@stream.reprogrammed_at)%> ago. 
-	</td>
-	<td>
-		<%= button_to "Filter", filter_stream_path(@stream), :class => "button", :method => :get  %>
-	</td>
-</tr>
-</table>
-	<% end %>
 <br>
 <br>
 <% if current_user.id = @addkey %>

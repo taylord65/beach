@@ -13,100 +13,6 @@ class StreamsController < ApplicationController
     
   end
   
-  def filter
-    @stream = Stream.friendly.find(params[:id])
-    
-    timenow = Time.now.to_i
-    
-    #if timenow >= @stream.totallength + @stream.reprogrammed_at.to_i 
-    
-    @stream.playlists.each do |playlist|
-      
-       doc = Nokogiri::HTML(open("https://www.youtube.com/playlist?list=#{playlist.playlist_id}"))
-
-          doc.css("[data-video-id]").each do |el|
-            begin
-            @scraped_id = el.attr('data-video-id')
-            
-            if @stream.videos.where(video_id: @scraped_id).blank?
-
-     video = @stream.videos.find_or_create_by( video_id: @scraped_id, 
-                                               pid: playlist.playlist_id, 
-                                               length: JSON.parse(open("http://gdata.youtube.com/feeds/api/videos/#{@scraped_id}?v=2&alt=jsonc").read)['data']['duration'],
-                                               name:  JSON.parse(open("http://gdata.youtube.com/feeds/api/videos/#{@scraped_id}?v=2&alt=jsonc").read)['data']['title'],
-                                               url: "https://www.youtube.com/watch?v=" + "#{@scraped_id}",
-                                               y_date_added: JSON.parse(open("http://gdata.youtube.com/feeds/api/videos/#{@scraped_id}?v=2&alt=jsonc").read)['data']['uploaded']
-                                              )
-            else
-                next
-            end                     
-                                     
-            rescue OpenURI::HTTPError
-                next
-            end
-
-          end
-      
-      
-    end # end playlist loop
-    
-    
-    @stream.channels.each do |channel|
-      
-      doc = Nokogiri::HTML(open(channel.doc))
-      
-      doc.css("[data-video-ids]").each do |el|
-            begin
-            @scraped_id = el.attr('data-video-ids')
-            
-            if @stream.videos.where(video_id: @scraped_id).blank?
-              
-              video = @stream.videos.find_or_create_by( video_id: @scraped_id, 
-                                                        pid: channel.url, 
-                                                        length: JSON.parse(open("http://gdata.youtube.com/feeds/api/videos/#{@scraped_id}?v=2&alt=jsonc").read)['data']['duration'],
-                                                        name:  JSON.parse(open("http://gdata.youtube.com/feeds/api/videos/#{@scraped_id}?v=2&alt=jsonc").read)['data']['title'],
-                                                        url: "https://www.youtube.com/watch?v=" + "#{@scraped_id}",
-                                                        y_date_added: JSON.parse(open("http://gdata.youtube.com/feeds/api/videos/#{@scraped_id}?v=2&alt=jsonc").read)['data']['uploaded']
-                                                       ) 
-             else
-                break
-             end                                        
-                                                    
-            rescue OpenURI::HTTPError
-                next
-            end
-            
-      end
-      
-    
-    end # end channel loop
-    
-    # REMOVE OLD CONTENT
-    footagelength = Stream.friendly.find(params[:id]).videos.pluck(:length).inject(:+) 
-    avgtime = 14400
-    
-    while footagelength > avgtime
-      firstvideo = @stream.videos.order('y_date_added asc').first
-      firstvideo.destroy
-      @stream.save
-      footagelength = Stream.friendly.find(params[:id]).videos.pluck(:length).inject(:+) 
-    end
-    
-    #Now program the stream
-    @stream.reprogrammed_at = Time.now
-
-    @ids, @lengths = Stream.friendly.find(params[:id]).videos.pluck(:video_id, :length).shuffle.transpose
-    @stream.totallength = Stream.friendly.find(params[:id]).videos.pluck(:length).inject(:+)     
-    @stream.idlist = @ids
-    @stream.lengthlist = @lengths
-    @stream.save
-    
-    redirect_to edit_stream_path(@stream) , notice: 'Stream was successfully filtered.'# no notice when this is done automatically
-    #else
-     # redirect_to edit_stream_path(@stream) , notice: 'Not time for filter.'# no notice when this is done automatically
-   # end  
-  end
-  
   def watchsub
     subscription_title = params[:title]
     @stream = Stream.friendly.find_by title: subscription_title
@@ -151,17 +57,6 @@ class StreamsController < ApplicationController
     end
   end
   
-  def setvideos
-     @stream = Stream.friendly.find(params[:id])
-     @stream.reprogrammed_at = Time.now
-
-     @ids, @lengths = Stream.friendly.find(params[:id]).videos.pluck(:video_id, :length).shuffle.transpose
-     @stream.totallength = Stream.friendly.find(params[:id]).videos.pluck(:length).inject(:+)     
-     @stream.idlist = @ids
-     @stream.lengthlist = @lengths
-     @stream.save
-     redirect_to edit_stream_path(@stream), notice: 'Stream was successfully programmed.'
-   end
   
   def show
     @stream = Stream.friendly.find(params[:id])

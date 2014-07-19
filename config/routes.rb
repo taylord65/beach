@@ -19,7 +19,6 @@ resources :streams do
     get 'setvideos'
     get 'subscribe'
     get 'watchsub'
-    get 'filter'
   end
   
 end
