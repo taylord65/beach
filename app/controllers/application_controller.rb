@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
   def set_trending
     @trending1 = "smashbros"
      @trending2 = "worldnews"
-      @trending3 = "latenight"
+      @trending3 = "comedians"
   end
   
   

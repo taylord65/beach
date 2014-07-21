@@ -10,7 +10,7 @@ def perform
   Stream.all.each do |stream|
         
   if timenow >= stream.totallength + stream.reprogrammed_at.to_i    
-      
+=begin      
 ####################################################################################       
   stream.playlists.each do |playlist|
     
@@ -42,7 +42,7 @@ def perform
     
   end # end playlist loop
 ####################################################################################   
-  
+=end  
   stream.channels.each do |channel|
     
     doc = Nokogiri::HTML(open(channel.doc))

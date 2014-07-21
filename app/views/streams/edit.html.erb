@@ -51,11 +51,10 @@ You can contribute Youtube videos, playlists, and user channels to <%= @stream.t
 <% if current_user.id = @addkey %>
 <br> 
  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description , :rows => 5, :cols => 91 %>
+    <%= f.text_area :description , :rows => 5, :cols => 91, :class => 'textarea' %>
   </div>
   <div class="actions">
-    <%= f.submit 'Update Description' %>
+    <%= f.submit 'Update Description', :class => 'subscribebutton' %>
   </div>
 <% end %>
 
