@@ -2,7 +2,7 @@
 	<div id="centerimage">
 		<br>
 		<br>
-			<%= image_tag("beached_newcolors.svg") %>
+			<%= image_tag("beached_onlyletters.svg") %>
 			<br>
 			<br>
 			<div class = "splashfont">
@@ -19,6 +19,14 @@
 		
 	</div>
 	
+	<div id="alligncentertextcenter">
+		<br>
+			<%= render "subscribebar" %>
+
+		<br>
+
+	</div>
+	
 	<div id="alligncentertextleft">
 
 <table>
@@ -29,9 +37,9 @@
 			<table style="width:400px">
 			  <tbody>
 			    <% @streams.each do |stream| %>
-			    <tr valign="top">
-				    <td><%= link_to stream.title, stream, "data-no-turbolink" => true %></td>
-			        <td><%= truncate(stream.description, :length => 35) %></td>
+			    <tr valign="middle">
+				<td><%= button_to stream.title, stream, :class => 'subscribebutton', :method => "get", "data-no-turbolink" => true  %></td>
+			        <td><%= truncate(stream.description, :length => 100) %></td>
 			      </tr>
 			    <% end %>
 			  </tbody>
@@ -43,14 +51,4 @@
 <br>
 </div>
 
-<div id="alligncentertextcenter">
-	<br>
-		<%= render "subscribebar" %>
-		
-	<br>
 
-<br>
-
-</p>
-
-</div>
