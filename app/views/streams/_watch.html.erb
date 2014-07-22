@@ -7,6 +7,7 @@
 <script>
   var is_playing = false;
   var fullscreen = false;
+  var live = true;
 
   var tag = document.createElement('script');
   tag.src = "https://www.youtube.com/iframe_api";
@@ -58,6 +59,13 @@
 	  playButton.addEventListener("click", function(click_event) {
 	    if (that.is_playing) {
 			$("#play-button").attr("src", "http://www.beached.tv/assets/pause-c1c0a3d060f908372ebecf2eb7e7c018.svg");
+			
+		//	if(live){
+		//	var liveimg = document.getElementById('live-icon');
+		//	liveimg.parentNode.removeChild(liveimg);
+		//	live = false;
+		//	}
+			
 	        player.pauseVideo();    
 	    }else {
 	        $("#play-button").attr("src", "http://www.beached.tv/assets/play-0a292db2c7cb500e5e768d0222ef1f94.svg");
@@ -100,6 +108,12 @@
 	if (event.data == YT.PlayerState.PAUSED) {
 		$("#play-button").attr("src", "http://www.beached.tv/assets/play-0a292db2c7cb500e5e768d0222ef1f94.svg");
 		this.is_playing = false;
+		
+		if(live){
+		var liveimg = document.getElementById('live-icon');
+		liveimg.parentNode.removeChild(liveimg);
+		live = false;
+		}
 	}
 
 	if (event.data == YT.PlayerState.PLAYING) {
