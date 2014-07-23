@@ -12,7 +12,6 @@ def perform
 if stream.videos.first.present? 
         
 if timenow >= stream.totallength + stream.reprogrammed_at.to_i    
-=begin      
 ####################################################################################       
   stream.playlists.each do |playlist|
     
@@ -30,10 +29,11 @@ if timenow >= stream.totallength + stream.reprogrammed_at.to_i
                                              length: JSON.parse(open("http://gdata.youtube.com/feeds/api/videos/#{@scraped_id}?v=2&alt=jsonc").read)['data']['duration'],
                                              name:  JSON.parse(open("http://gdata.youtube.com/feeds/api/videos/#{@scraped_id}?v=2&alt=jsonc").read)['data']['title'],
                                              url: "https://www.youtube.com/watch?v=" + "#{@scraped_id}",
-                                             y_date_added: JSON.parse(open("http://gdata.youtube.com/feeds/api/videos/#{@scraped_id}?v=2&alt=jsonc").read)['data']['uploaded']
+                                             y_date_added: Time.now
                                             )
+          video.save
           else
-              next
+              break
           end                     
                                    
           rescue OpenURI::HTTPError
@@ -44,7 +44,6 @@ if timenow >= stream.totallength + stream.reprogrammed_at.to_i
     
   end # end playlist loop
 ####################################################################################   
-=end  
   stream.channels.each do |channel|
     
     doc = Nokogiri::HTML(open(channel.doc))
