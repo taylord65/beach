@@ -160,7 +160,7 @@ You can contribute Youtube videos, playlists, and user channels to <%= @stream.t
 <br>
 <br>
 <br>
-<% if current_user.id = @addkey or current_user.id = 1 %>
+<% if current_user.id = @addkey %>
 Last video download was <%= time_ago_in_words(@stream.reprogrammed_at)%> ago.
 <div id= "textright">
 <%= link_to 'Delete Stream', @stream, method: :delete, data: { confirm: 'Are you sure you want to delete this stream?' } %>
