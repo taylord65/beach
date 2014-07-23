@@ -14,8 +14,8 @@ class ApplicationController < ActionController::Base
   before_filter :set_trending
   def set_trending
     @trending1 = "smashbros"
-     @trending2 = "hiphopheads"
-      @trending3 = "comedians"
+     @trending2 = "skate"
+      @trending3 = "latenight"
   end
   
   
