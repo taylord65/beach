@@ -45,6 +45,7 @@ class Stream < ActiveRecord::Base
                                                 url: "https://www.youtube.com/watch?v=" + "#{@scraped_id}",
                                                 y_date_added: JSON.parse(open("http://gdata.youtube.com/feeds/api/videos/#{@scraped_id}?v=2&alt=jsonc").read)['data']['uploaded']                                       
                                                )
+                          
             else
                 next
             end
@@ -88,7 +89,6 @@ class Stream < ActiveRecord::Base
                                                url: "https://www.youtube.com/watch?v=" + "#{@scraped_id}",
                                                y_date_added: JSON.parse(open("http://gdata.youtube.com/feeds/api/videos/#{@scraped_id}?v=2&alt=jsonc").read)['data']['uploaded']                                         
                                               )  
-                      
             else
                 next
             end     

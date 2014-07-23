@@ -8,8 +8,10 @@ def perform
   timenow = Time.now.to_i
   
   Stream.all.each do |stream|
+    
+if stream.videos.first.present? 
         
-  if timenow >= stream.totallength + stream.reprogrammed_at.to_i    
+if timenow >= stream.totallength + stream.reprogrammed_at.to_i    
 =begin      
 ####################################################################################       
   stream.playlists.each do |playlist|
@@ -60,6 +62,7 @@ def perform
                                                       url: "https://www.youtube.com/watch?v=" + "#{@scraped_id}",
                                                       y_date_added: JSON.parse(open("http://gdata.youtube.com/feeds/api/videos/#{@scraped_id}?v=2&alt=jsonc").read)['data']['uploaded']
                                                      ) 
+            video.save
            else
               break
            end                                        
@@ -73,6 +76,7 @@ def perform
   end # end channel loop
   
 #################################################################################### 
+  stream.save
   
   # REMOVE OLD CONTENT
   footagelength = stream.videos.pluck(:length).inject(:+) 
@@ -101,6 +105,7 @@ def perform
   stream.save
   
 end #if allowed
+end #if present
 
 end #end each stream
 end

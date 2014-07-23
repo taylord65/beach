@@ -131,6 +131,7 @@ class StreamsController < ApplicationController
 
   def edit  
     @stream = Stream.friendly.find(params[:id])
+    #@orderedvideos = @stream.videos.find(:all, :order => 'created_at DESC')
     if user_signed_in?
     @addkey = @stream.admins.find_by admin_key: current_user.id
     end
