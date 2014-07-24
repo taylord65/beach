@@ -57,6 +57,11 @@ html, body {
 				
 }
 
+.indexresults table {
+	margin: auto;
+    
+}
+
 .header td {
 	white-space: nowrap;
 }

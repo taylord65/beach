@@ -19,25 +19,25 @@
 		
 	</div>
 	<br>
-	<div id="alligncentertextleft">
+	<div class="indexresults">
 
 <table>
 <tbody>
-
-	<tr>
+  <% @streams.each_slice(5) do |slice| %>   
 		<td valign="top">
-			<table style="width:400px">
+			<table>
 			  <tbody>
-			    <% @streams.each do |stream| %>
+			    <% slice.each do |stream| %>
 			    <tr valign="middle">
-				<td><%= button_to stream.title, stream, :class => 'subscribebutton', :method => "get", "data-no-turbolink" => true  %></td>
-			        <td><%= truncate(stream.description, :length => 100) %></td>
-			      </tr>
+				    <td><%= button_to stream.title, stream, :class => 'subscribebutton', :method => "get", "data-no-turbolink" => true  %></td>
+			        <td><%= truncate(stream.description, :length => 30) %></td>
+			    </tr>
 			    <% end %>
 			  </tbody>
 			</table>
 		</td>
-	</tr>	
+	<% end %>
+    
 </tbody>
 </table>
 <br>
