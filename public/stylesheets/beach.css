@@ -61,9 +61,11 @@ html, body {
 	white-space: nowrap;
 }
 
+.headcontrolls div { margin: auto; }
+
+
 .headcontrolls table tr td {
 	display: block;
-	margin:auto;
 	text-align: center;
 	position:absolute;     
 
@@ -74,7 +76,6 @@ html, body {
 	font-family: 'Lato', sans-serif; font-weight: 400;
 	color:#9C9C9C;
 	text-align:left; 
-    vertical-align:middle;
 	
 	  -o-transition:color .2s ease-out, background 2s ease-in;
 	  -ms-transition:color .2s ease-out, background 2s ease-in;
