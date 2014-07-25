@@ -72,7 +72,9 @@ class StreamsController < ApplicationController
       
     @addkey = @stream.admins.find_by admin_key: current_user.id    
     @subscriptions = current_user.subscriptions
-    end #end user signed in
+  else
+    @guide = Stream.all
+  end
        
        if (Stream.friendly.find(params[:id]).videos.first).nil? 
          gon.playlist = ['8tPnX7OPo0Q']
