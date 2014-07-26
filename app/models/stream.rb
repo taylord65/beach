@@ -43,7 +43,7 @@ class Stream < ActiveRecord::Base
                                                 length: JSON.parse(open("http://gdata.youtube.com/feeds/api/videos/#{@scraped_id}?v=2&alt=jsonc").read)['data']['duration'],
                                                 name:  JSON.parse(open("http://gdata.youtube.com/feeds/api/videos/#{@scraped_id}?v=2&alt=jsonc").read)['data']['title'],
                                                 url: "https://www.youtube.com/watch?v=" + "#{@scraped_id}",
-                                                y_date_added: JSON.parse(open("http://gdata.youtube.com/feeds/api/videos/#{@scraped_id}?v=2&alt=jsonc").read)['data']['uploaded']                                       
+                                                y_date_added: Time.now                                       
                                                )
             else
                 next
