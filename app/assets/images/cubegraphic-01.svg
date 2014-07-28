@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="1043.107px" height="532px" viewBox="0 0 1043.107 532" enable-background="new 0 0 1043.107 532" xml:space="preserve">
+<g id="Layer_4">
+	<rect x="0.5" y="72.5" fill="none" stroke="#9C9E9F" stroke-miterlimit="10" width="1042.107" height="459"/>
+	<rect x="117.5" y="0.5" fill="none" stroke="#9C9E9F" stroke-miterlimit="10" width="810" height="434"/>
+	<line fill="none" stroke="#9C9E9F" stroke-miterlimit="10" x1="0.5" y1="72.5" x2="117.5" y2="0.5"/>
+	<line fill="none" stroke="#9C9E9F" stroke-miterlimit="10" x1="927.5" y1="0.5" x2="1042.607" y2="72.5"/>
+</g>
+<g id="Layer_5">
+	<polyline opacity="0.5" fill="none" points="117.975,329.238 2.395,444.817 1042.607,444.817 927.029,329.238 	"/>
+</g>
+<g id="Layer_3">
+	<g id="XMLID_1_">
+		<g>
+			<polygon fill="#7FB5D5" points="1042.607,444.816 1042.607,531.5 955.923,444.816 			"/>
+			<polygon fill="#55A0C9" points="1042.607,444.816 955.923,444.816 927.028,415.921 927.028,329.236 			"/>
+			<path fill="#F7F5C5" d="M1042.607,531.5H580.29v-86.684c0,0,158.922,0,245.606,28.895S1042.607,531.5,1042.607,531.5z"/>
+			<path fill="#A1C4D8" d="M955.923,444.816l86.685,86.684c0,0-130.026-28.895-216.711-57.789S580.29,444.816,580.29,444.816
+				H955.923z"/>
+			<polygon fill="#F7F5C5" points="955.923,444.816 580.29,444.816 580.29,415.921 927.028,415.921 			"/>
+			<path fill="#9DC7DF" d="M927.028,329.236v86.685c0,0-57.79-28.895-101.132-57.789c-43.343-28.896-245.606-28.896-245.606-28.896
+				H927.028z"/>
+			<path fill="#F7F5C5" d="M927.028,415.921H580.29v-86.685c0,0,202.264,0,245.606,28.896
+				C869.238,387.026,927.028,415.921,927.028,415.921z"/>
+			<polygon fill="#F7F5C5" points="580.29,444.816 580.29,531.5 2.394,531.5 89.079,444.816 			"/>
+			<polygon fill="#F7F5C5" points="580.29,415.921 580.29,444.816 89.079,444.816 117.974,415.921 			"/>
+			<rect x="117.974" y="329.236" fill="#F7F5C5" width="462.316" height="86.685"/>
+			<polygon fill="#F7F5C5" points="117.974,329.236 117.974,415.921 89.079,444.816 2.394,444.816 			"/>
+			<polygon fill="#F7F5C5" points="89.079,444.816 2.394,531.5 2.394,444.816 			"/>
+		</g>
+		<g>
+		</g>
+	</g>
+	<polyline opacity="0.7" fill="#A1C4D8" points="580.29,329.238 580.29,444.817 1042.607,444.817 927.029,329.238 	"/>
+</g>
+<g id="Layer_6">
+	<text transform="matrix(1.0345 0 0 1 45.7368 300.3423)" font-family="'Lato-Black'" font-size="157.999">[ BEACHED. ]</text>
+</g>
+</svg>

@@ -122,7 +122,11 @@ html, body {
 	vertical-align:middle;
 }
 
-
+.splashfontblack h1 {
+		font-family: 'Lato', sans-serif; font-weight: 900;
+		font-size:25px;
+		color: black;
+	}
 
 
 .splashfont h1 {
