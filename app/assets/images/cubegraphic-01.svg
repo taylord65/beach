@@ -4,10 +4,10 @@
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 width="1043.107px" height="532px" viewBox="0 0 1043.107 532" enable-background="new 0 0 1043.107 532" xml:space="preserve">
 <g id="Layer_4">
-	<rect x="0.5" y="72.5" fill="none" stroke="#9C9E9F" stroke-miterlimit="10" width="1042.107" height="459"/>
-	<rect x="117.5" y="0.5" fill="none" stroke="#9C9E9F" stroke-miterlimit="10" width="810" height="434"/>
-	<line fill="none" stroke="#9C9E9F" stroke-miterlimit="10" x1="0.5" y1="72.5" x2="117.5" y2="0.5"/>
-	<line fill="none" stroke="#9C9E9F" stroke-miterlimit="10" x1="927.5" y1="0.5" x2="1042.607" y2="72.5"/>
+	<rect x="0.5" y="72.5" fill="none" stroke="#E5E5E5" stroke-miterlimit="10" width="1042.107" height="459"/>
+	<rect x="117.5" y="0.5" fill="none" stroke="#E5E5E5" stroke-miterlimit="10" width="810" height="434"/>
+	<line fill="none" stroke="#E5E5E5" stroke-miterlimit="10" x1="0.5" y1="72.5" x2="117.5" y2="0.5"/>
+	<line fill="none" stroke="#E5E5E5" stroke-miterlimit="10" x1="927.5" y1="0.5" x2="1042.607" y2="72.5"/>
 </g>
 <g id="Layer_5">
 	<polyline opacity="0.5" fill="none" points="117.975,329.238 2.395,444.817 1042.607,444.817 927.029,329.238 	"/>
@@ -40,6 +40,6 @@
 	<polyline fill="#F7F5C5" points="117.974,329.236 2.394,444.816 315.5,441.5 324.5,333.5 	"/>
 </g>
 <g id="Layer_6">
-	<text transform="matrix(1.0345 0 0 1 45.7368 300.3423)" font-family="'Lato-Black'" font-size="157.999">[ BEACHED. ]</text>
+	<text transform="matrix(1.0345 0 0 1 54.5 300.3423)"><tspan x="0" y="0" font-family="'MyriadPro-Bold'" font-size="180">[</tspan><tspan x="56.519" y="0" font-family="'Lato-Black'" font-size="157.999"> </tspan><tspan x="87.012" y="0" font-family="'CoolveticaRg-Regular'" font-size="157.999" letter-spacing="11.6">BEACHED.</tspan><tspan x="855.189" y="0" font-family="'Lato-Black'" font-size="157.999"> </tspan><tspan x="885.683" y="0" font-family="'MyriadPro-Bold'" font-size="180">]</tspan></text>
 </g>
 </svg>
