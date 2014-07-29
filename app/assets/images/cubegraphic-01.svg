@@ -2,44 +2,44 @@
 <!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 width="1043.107px" height="532px" viewBox="0 0 1043.107 532" enable-background="new 0 0 1043.107 532" xml:space="preserve">
+	 width="901.805px" height="460px" viewBox="0 0 901.805 460" enable-background="new 0 0 901.805 460" xml:space="preserve">
 <g id="Layer_4">
-	<rect x="0.5" y="72.5" fill="none" stroke="#E5E5E5" stroke-miterlimit="10" width="1042.107" height="459"/>
-	<rect x="117.5" y="0.5" fill="none" stroke="#E5E5E5" stroke-miterlimit="10" width="810" height="434"/>
-	<line fill="none" stroke="#E5E5E5" stroke-miterlimit="10" x1="0.5" y1="72.5" x2="117.5" y2="0.5"/>
-	<line fill="none" stroke="#E5E5E5" stroke-miterlimit="10" x1="927.5" y1="0.5" x2="1042.607" y2="72.5"/>
+	<rect x="0.5" y="62.737" fill="none" stroke="#E5E5E5" stroke-miterlimit="10" width="900.805" height="396.763"/>
+	<rect x="101.636" y="0.5" fill="none" stroke="#E5E5E5" stroke-miterlimit="10" width="700.169" height="375.152"/>
+	<line fill="none" stroke="#E5E5E5" stroke-miterlimit="10" x1="0.5" y1="62.737" x2="101.636" y2="0.5"/>
+	<line fill="none" stroke="#E5E5E5" stroke-miterlimit="10" x1="801.805" y1="0.5" x2="901.305" y2="62.737"/>
 </g>
 <g id="Layer_5">
-	<polyline opacity="0.5" fill="none" points="117.975,329.238 2.395,444.817 1042.607,444.817 927.029,329.238 	"/>
+	<polyline opacity="0.5" fill="none" points="102.046,284.664 2.138,384.571 901.305,384.571 801.398,284.664 	"/>
 </g>
 <g id="Layer_3">
 	<g id="XMLID_1_">
 		<g>
-			<polygon fill="#7FB5D5" points="1042.607,444.816 1042.607,531.5 955.923,444.816 			"/>
-			<polygon fill="#55A0C9" points="1042.607,444.816 955.923,444.816 927.028,415.921 927.028,329.236 			"/>
-			<path fill="#FAF7D5" d="M1042.607,531.5H580.29v-86.684c0,0,158.922,0,245.606,28.895S1042.607,531.5,1042.607,531.5z"/>
-			<path fill="#A1C4D8" d="M955.923,444.816l86.685,86.684c0,0-130.026-28.895-216.711-57.789S580.29,444.816,580.29,444.816
-				H955.923z"/>
-			<polygon fill="#F7F5C5" points="955.923,444.816 580.29,444.816 580.29,415.921 927.028,415.921 			"/>
-			<path fill="#9DC7DF" d="M927.028,329.236v86.685c0,0-57.79-28.895-101.132-57.789c-43.343-28.896-245.606-28.896-245.606-28.896
-				H927.028z"/>
-			<path fill="#F7F5C5" d="M927.028,415.921H580.29v-86.685c0,0,202.264,0,245.606,28.896
-				C869.238,387.026,927.028,415.921,927.028,415.921z"/>
-			<polygon fill="#FAF7D5" points="580.29,444.816 580.29,531.5 2.394,531.5 89.079,444.816 			"/>
-			<polygon fill="#F7F5C5" points="580.29,415.921 580.29,444.816 89.079,444.816 117.974,415.921 			"/>
-			<rect x="117.974" y="329.236" fill="#F7F5C5" width="462.316" height="86.685"/>
-			<polygon fill="#F7F5C5" points="117.974,329.236 117.974,415.921 89.079,444.816 2.394,444.816 			"/>
-			<polygon fill="#FAF7D5" points="89.079,444.816 2.394,531.5 2.394,444.816 			"/>
+			<polygon fill="#7FB5D5" points="901.305,384.57 901.305,459.501 826.374,384.57 			"/>
+			<polygon fill="#55A0C9" points="901.305,384.57 826.374,384.57 801.397,359.593 801.397,284.663 			"/>
+			<path fill="#FAF7D5" d="M901.305,459.501h-399.63V384.57c0,0,137.373,0,212.304,24.977S901.305,459.501,901.305,459.501z"/>
+			<path fill="#A1C4D8" d="M826.374,384.57l74.931,74.931c0,0-112.396-24.978-187.326-49.954S501.675,384.57,501.675,384.57H826.374
+				z"/>
+			<polygon fill="#F7F5C5" points="826.374,384.57 501.675,384.57 501.675,359.593 801.397,359.593 			"/>
+			<path fill="#9DC7DF" d="M801.397,284.663v74.93c0,0-49.954-24.977-87.419-49.953c-37.466-24.977-212.304-24.977-212.304-24.977
+				H801.397z"/>
+			<path fill="#F7F5C5" d="M801.397,359.593H501.675v-74.93c0,0,174.838,0,212.304,24.977
+				C751.443,334.616,801.397,359.593,801.397,359.593z"/>
+			<polygon fill="#FAF7D5" points="501.675,384.57 501.675,459.501 2.137,459.501 77.068,384.57 			"/>
+			<polygon fill="#F7F5C5" points="501.675,359.593 501.675,384.57 77.068,384.57 102.045,359.593 			"/>
+			<rect x="102.045" y="284.663" fill="#F7F5C5" width="399.63" height="74.93"/>
+			<polygon fill="#F7F5C5" points="102.045,284.663 102.045,359.593 77.068,384.57 2.137,384.57 			"/>
+			<polygon fill="#FAF7D5" points="77.068,384.57 2.137,459.501 2.137,384.57 			"/>
 		</g>
 		<g>
 		</g>
 	</g>
-	<polyline opacity="0.7" fill="#A1C4D8" points="580.29,329.238 580.29,444.817 1042.607,444.817 927.029,329.238 	"/>
+	<polyline opacity="0.7" fill="#A1C4D8" points="501.675,284.664 501.675,384.571 901.305,384.571 801.398,284.664 	"/>
 </g>
 <g id="Layer_7">
-	<polyline fill="#F7F5C5" points="117.974,329.236 2.394,444.816 315.5,441.5 324.5,333.5 	"/>
+	<polyline fill="#F7F5C5" points="102.045,284.662 2.137,384.57 272.788,381.703 280.568,288.348 	"/>
 </g>
 <g id="Layer_6">
-	<text transform="matrix(1.0345 0 0 1 54.5 300.3423)"><tspan x="0" y="0" font-family="'MyriadPro-Bold'" font-size="180">[</tspan><tspan x="56.519" y="0" font-family="'Lato-Black'" font-size="157.999"> </tspan><tspan x="87.012" y="0" font-family="'CoolveticaRg-Regular'" font-size="157.999" letter-spacing="11.6">BEACHED.</tspan><tspan x="855.189" y="0" font-family="'Lato-Black'" font-size="157.999"> </tspan><tspan x="885.683" y="0" font-family="'MyriadPro-Bold'" font-size="180">]</tspan></text>
+	<text transform="matrix(1.0345 0 0 1 47.1787 259.6865)"><tspan x="0" y="0" font-family="'MyriadPro-Bold'" font-size="155.5932">[</tspan><tspan x="48.855" y="0" font-family="'Lato-Black'" font-size="136.5754"> </tspan><tspan x="75.214" y="0" font-family="'CoolveticaRg-Regular'" font-size="136.5754" letter-spacing="10.634">BEACHED.</tspan><tspan x="739.232" y="0" font-family="'Lato-Black'" font-size="136.5754"> </tspan><tspan x="765.59" y="0" font-family="'MyriadPro-Bold'" font-size="155.5932">]</tspan></text>
 </g>
 </svg>
