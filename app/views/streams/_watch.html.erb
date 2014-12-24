@@ -1,9 +1,7 @@
-<meta http-Equiv="Cache-Control" Content="no-cache">
-<meta http-Equiv="Pragma" Content="no-cache">
-<meta http-Equiv="Expires" Content="0">
 
-<div id="centerplayer">
-<div id="player"></div>
+<div class="flex-video widescreen youtube">
+
+<div id="player">
 <script>
   var is_playing = false;
   var fullscreen = false;
@@ -16,8 +14,7 @@
   var player;
   function onYouTubePlayerAPIReady() {
     player = new YT.Player('player', {
-      height: '600',
-      width: '1067',
+
 	playerVars:{
 			autoplay: 1,
 			controls: 0,
@@ -132,5 +129,4 @@
 </script>
 
 </div>
-
 </div>
