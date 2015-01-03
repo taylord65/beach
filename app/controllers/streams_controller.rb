@@ -59,6 +59,7 @@ class StreamsController < ApplicationController
   
   
   def show
+    @allstreams = Stream.all
     @stream = Stream.friendly.find(params[:id])
     gon.end_of_stream = @stream.totallength + @stream.reprogrammed_at.to_i
     

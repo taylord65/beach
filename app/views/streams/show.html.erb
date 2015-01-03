@@ -1,76 +1,51 @@
+<script>
+$(document).ready(function() {
+	
+    $('#showmenu').click(function() {
+            $('.menu').slideToggle("slideUp");
+    });
+});
+</script>
 
 
- <div class="small-1 columns">LEFT</div>
- <div class="small-10 columns text-center"><%= render 'watch' %></div>
- <div class="small-1 columns">RIGHT</div>
+<div class="menu" style="display: none;">
+<ul class="navigation">
+	
+	<li class="nav-item"><%= link_to('Log In', new_user_session_path)  %></li>
+	<li class="nav-item"><%= link_to('Create Stream', new_stream_path )%></li>
+	<%= link_to image_tag("user.svg"), edit_user_registration_path %>
 
-<br>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-
-			<h1> <%= @stream.title %> </h1>
-			<%= @stream.description %>			
-		  
-
-			 <img src="http://www.beached.tv/assets/pause-c1c0a3d060f908372ebecf2eb7e7c018.svg" id="play-button" />  &nbsp &nbsp &nbsp<img src="http://www.beached.tv/assets/sound-2850c52028b16dd2c2e264c5dddb39ba.svg" id="mute-button" /> &nbsp &nbsp &nbsp<img src="http://www.beached.tv/assets/resize-enlarge-a44a4204dca596b45aacb25610ee3189.svg" id="enlarge-button" /> &nbsp &nbsp &nbsp <%= link_to image_tag("twitter.svg"), "https://twitter.com/share", :target => :blank %>
-
-
-						<div id="subscribecount"><b> <%= @stream.subs %></b></div> 
-
-					<h3><%= pluralize_without_count(@stream.subs, "subscriber") %> </h3>
-					
-		  <%= @stream.description %>			
+	<h1> Subscriptions </h1>
+	
+	<% if user_signed_in? %>
+		<% if @subscriptions.blank? %>
 		
-				<% if user_signed_in? %>
-					<% if current_user.id = @addkey %>
-						<% else %>
-						<%= button_to 'contribute', edit_stream_path(@stream), :class => 'subscribebutton', :method => "get" %> 
-					<% end %>
-				<% else %>
-					<%= button_to "contribute", new_user_registration_path, :method => :get, :class => 'subscribebutton' %>
-				<% end %>
-						
-			<% if user_signed_in? %>
-				<% if current_user.id = @addkey %>
-					<%= button_to 'edit', edit_stream_path(@stream), :class => 'subscribebutton', :method => "get"  %> 
-					<% else %>
-					<%= button_to @buttontext, subscribe_stream_path(@stream), :method => :get , :remote=>true, :class => 'subscribebutton'  %>
-				<% end %>
-			<% else %>
-			<%= button_to "subscribe", new_user_registration_path, :method => :get, :class => 'subscribebutton' %>
-			<% end %>
-			
+		<% else %>
+	    <% @subscriptions.each do |subscription| %>
+	
+<li class="nav-item"><%= link_to subscription.title, watchsub_stream_path(subscription.user_id, title: subscription.title), "data-no-turbolink" => true %> </li>
+	    <% end %>
 
-	<%= render "subscribebar" %>
+
+		<% end %>
+	<% else %>
 		
-
-
-<% if user_signed_in? %>
-<% else %>
-<h1> More Streams </h1>
-<br>
-	<div class="indexresults">
-
-<table>
-<tbody>
-  <% @guide.each_slice(5) do |slice| %>   
-		<td valign="top">
-			<table>
-			  <tbody>
-			    <% slice.each do |stream| %>
-			    <tr valign="middle">
-				    <td><%= button_to stream.title, stream, :class => 'subscribebutton', :method => "get", "data-no-turbolink" => true  %></td>
-			        <td><%= truncate(stream.description, :length => 30) %></td>
-			    </tr>
-			    <% end %>
-			  </tbody>
-			</table>
-		</td>
 	<% end %>
+	<h1> All</h1>
+		    <% @allstreams.each do |stream| %>
 
-</tbody>
-</table>
-<br>
-<% end %>
+	<li class="nav-item"><%= link_to stream.title, watchsub_stream_path(title: stream.title), "data-no-turbolink" => true %> </li>
+		    <% end %>
+	
+	
+</ul>
+</div>	
 
 
+<div class="site-wrap">
+	<div class="Vid-Container">
+ 	<%= render 'watch' %>
+	</div> 
+  
+</div>
 
