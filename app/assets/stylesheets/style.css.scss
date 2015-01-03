@@ -1,11 +1,11 @@
 @font-face {
     font-family: "camptonbold";
-    src: asset-url('campton-bolddemo-webfont.eot');
-    src: asset-url('campton-bolddemo-webfont.eot?#iefix') format('embedded-opentype'),
-         asset-url('campton-bolddemo-webfont.woff2') format('woff2'),
-         asset-url('campton-bolddemo-webfont.woff') format('woff'),
-         asset-url('campton-bolddemo-webfont.ttf') format('truetype'),
-         asset-url('campton-bolddemo-webfont.svg#camptonbold_demo') format('svg');
+    src: font-url('campton-bolddemo-webfont.eot');
+    src: font-url('campton-bolddemo-webfont.eot?#iefix') format('embedded-opentype'),
+         font-url('campton-bolddemo-webfont.woff2') format('woff2'),
+         font-url('campton-bolddemo-webfont.woff') format('woff'),
+         font-url('campton-bolddemo-webfont.ttf') format('truetype'),
+         font-url('campton-bolddemo-webfont.svg#camptonbold_demo') format('svg');
     font-weight: normal;
     font-style: normal;	
 }
