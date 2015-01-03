@@ -1,5 +1,5 @@
 @font-face {
-    font-family: "camptonbold";
+    font-family: 'camptonbold';
     src: font-url('campton-bolddemo-webfont.eot');
     src: font-url('campton-bolddemo-webfont.eot?#iefix') format('embedded-opentype'),
          font-url('campton-bolddemo-webfont.woff2') format('woff2'),
@@ -11,7 +11,7 @@
 }
 
 @font-face {
-    font-family: "camptonlight";
+    font-family: 'camptonlight';
     src: url('/assets/campton-lightdemo-webfont.eot');
     src: url('/assets/campton-lightdemo-webfont.eot?#iefix') format('embedded-opentype'),
          url('/assets/campton-lightdemo-webfont.woff2') format('woff2'),
@@ -58,12 +58,12 @@
   width: 200px;
   border-top: 1px ;
   border-bottom: 1px ;
-  font-family: "camptonlight";
+  font-family: 'camptonlight';
 
 }
 
 .menu h1 {
-	font-family: "camptonbold";
+	font-family: 'camptonbold';
 	color: white;
 	font-size: 1.1em;
 }
