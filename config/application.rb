@@ -28,6 +28,5 @@ module Beach
 
     # Precompile additional assets
     config.assets.precompile << /\.(?:svg|eot|woff|ttf)$/
-
   end
 end
