@@ -51,8 +51,7 @@ gem 'foreman', '~> 0.74.0'
 gem 'clockwork'
 gem 'kaminari'
 gem 'twitter', '~> 5.11.0'
-gem 'foundation-rails'
-
+gem 'foundation-rails', '5.4.3.1'
 
 
 
