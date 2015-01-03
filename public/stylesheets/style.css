@@ -1,11 +1,41 @@
+@font-face {
+    font-family: "camptonbold";
+    src: url('/assets/campton-bolddemo-webfont.eot');
+    src: url('/assets/campton-bolddemo-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/assets/campton-bolddemo-webfont.woff2') format('woff2'),
+         url('/assets/campton-bolddemo-webfont.woff') format('woff'),
+         url('/assets/campton-bolddemo-webfont.ttf') format('truetype'),
+         url('/assets/campton-bolddemo-webfont.svg#camptonbold_demo') format('svg');
+    font-weight: normal;
+    font-style: normal;	
+}
+
+@font-face {
+    font-family: "camptonlight";
+    src: url('/assets/campton-lightdemo-webfont.eot');
+    src: url('/assets/campton-lightdemo-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/assets/campton-lightdemo-webfont.woff2') format('woff2'),
+         url('/assets/campton-lightdemo-webfont.woff') format('woff'),
+         url('/assets/campton-lightdemo-webfont.ttf') format('truetype'),
+         url('/assets/campton-lightdemo-webfont.svg#camptonlight_demo') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+.logo h1{
+	font-family: 'Lato', sans-serif; font-weight: 900;
+	
+}
+
 .black {
 	background-color:black;
 }
 
 /* Navigation Menu - Background */
-.navigation {
+.menu {
   /* critical sizing and position styles */
-  width: 200px;
+  width: 250px;
   height: 100%;
   position: fixed;
   right: 0;
@@ -13,7 +43,9 @@
   left: -17px;
   z-index: 2;
   overflow-x: hidden;
-padding: 1em;
+  padding-left: 45px;
+  padding-top: 10px;
+
   
   /* non-critical appearance styles */
   list-style: none;
@@ -24,20 +56,42 @@ padding: 1em;
 .nav-item {
   /* non-critical appearance styles */
   width: 200px;
-  border-top: 1px solid #111;
-  border-bottom: 1px solid #000;
+  border-top: 1px ;
+  border-bottom: 1px ;
+  font-family: "camptonlight";
+
+}
+
+.menu h1 {
+	font-family: "camptonbold";
+	color: white;
+	font-size: 1.1em;
+}
+
+.menu hr {
+	display: block;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-right: auto;
+    border-width: 1px;
+    margin-left: -25px;
+	border-color: black;
+
 }
 
 .nav-item a {
   /* non-critical appearance styles */
   display: block;
-  color: white;
-  font-size: 1.2em;
-  text-decoration: none;
+  color: #494847;
+  font-size: 1.1em;
+  border-top: 5px ;
+  border-bottom: 5px ;
+  margin: 10px 0;
 }
 
 .nav-item a:hover {
-  background: orange;
+  background: #A67744;
+  color: white;
 }
 
 /* Site Wrapper - Everything that isn't navigation */

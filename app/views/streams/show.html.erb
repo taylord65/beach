@@ -2,25 +2,37 @@
 $(document).ready(function() {
 	
     $('#showmenu').click(function() {
-            $('.menu').slideToggle("slideUp");
+            $('.menu').slideToggle("fast");
     });
 });
 </script>
 
+<div class="black">
 
 <div class="menu" style="display: none;">
-<ul class="navigation">
+	<br>
 	
-	<li class="nav-item"><%= link_to('Log In', new_user_session_path)  %></li>
+	<% if user_signed_in? %>
 	<li class="nav-item"><%= link_to('Create Stream', new_stream_path )%></li>
-	<%= link_to image_tag("user.svg"), edit_user_registration_path %>
+	<li class="nav-item"><%= link_to('Account Settings', edit_user_registration_path )%></li>
+	<% else %>
+	<li class="nav-item"><%= link_to('Log In', new_user_session_path)  %></li>
+	<li class="nav-item"><%= link_to('Create Stream', new_user_session_path )%></li>
+	<% end %>
+	
+<br>
 
-	<h1> Subscriptions </h1>
 	
 	<% if user_signed_in? %>
 		<% if @subscriptions.blank? %>
 		
 		<% else %>
+	
+			<i style="position: absolute;display:inline-block;width:1em;height:2em;background-color:#A67744;margin-left:-34px;"></i></span></span>
+		
+		<h1> SUBSCRIPTIONS </h1> 
+		<hr>
+		
 	    <% @subscriptions.each do |subscription| %>
 	
 <li class="nav-item"><%= link_to subscription.title, watchsub_stream_path(subscription.user_id, title: subscription.title), "data-no-turbolink" => true %> </li>
@@ -31,14 +43,17 @@ $(document).ready(function() {
 	<% else %>
 		
 	<% end %>
-	<h1> All</h1>
+	<br>
+			<i style="position: absolute;display:inline-block;width:1em;height:2em;background-color:#A67744;margin-left:-34px;"></i></span></span>
+			
+  <h1>	ALL </h1>
+		<hr>
 		    <% @allstreams.each do |stream| %>
 
 	<li class="nav-item"><%= link_to stream.title, watchsub_stream_path(title: stream.title), "data-no-turbolink" => true %> </li>
 		    <% end %>
 	
 	
-</ul>
 </div>	
 
 
@@ -48,4 +63,4 @@ $(document).ready(function() {
 	</div> 
   
 </div>
-
+</div>

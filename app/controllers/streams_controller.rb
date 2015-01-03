@@ -59,9 +59,13 @@ class StreamsController < ApplicationController
   
   
   def show
-    @allstreams = Stream.all
+    
+    
+    @allstreams = Stream.all.order('title ASC')
     @stream = Stream.friendly.find(params[:id])
     gon.end_of_stream = @stream.totallength + @stream.reprogrammed_at.to_i
+    
+    
     
     if user_signed_in?
       
@@ -72,7 +76,7 @@ class StreamsController < ApplicationController
       end 
       
     @addkey = @stream.admins.find_by admin_key: current_user.id    
-    @subscriptions = current_user.subscriptions
+    @subscriptions = current_user.subscriptions.order('title ASC')
   else
     @guide = Stream.all
   end
@@ -126,6 +130,9 @@ class StreamsController < ApplicationController
            end #end do loop
          end # end else
        end #end else
+       
+       render :layout => 'player'
+       
   end # end show
 
   def new

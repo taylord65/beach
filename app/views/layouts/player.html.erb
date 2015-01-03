@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link href='http://fonts.googleapis.com/css?family=Lato:400,700,900' rel='stylesheet' type='text/css'>
+	<div class="black">
+
+ 
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-52156202-1', 'beached.tv');
+	  ga('send', 'pageview');
+
+	</script>
+
+
+    <title>beached.</title>
+
+    <%= stylesheet_link_tag  "application" %>
+    <%= stylesheet_link_tag  "style" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+    <%= include_gon %>
+
+	<nav class="top-bar" data-topbar role="navigation">
+	  <ul class="title-area">
+	    <li class="name">
+	      <h1><%= link_to('beached.', streams_path)  %></h1>
+	    </li>
+
+
+	  </ul>
+
+	  <section class="top-bar-section">
+
+	    <!-- Left Nav Section -->
+	    <ul class="left">	
+			
+			<div id="showmenu">
+				<h1> = </h1>
+			</div>
+
+	    </ul>
+	  </section>
+	</nav>
+
+  </head>
+
+  <body>
+
+    <%= yield %>
+
+  </body>
+</div>
+</html>

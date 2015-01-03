@@ -23,5 +23,11 @@ module Beach
     # config.i18n.default_locale = :de
     config.autoload_paths << Rails.root.join('lib')
     
+    # Add the fonts path
+    config.assets.paths << "#{Rails.root}/app/assets/fonts"
+
+    # Precompile additional assets
+    config.assets.precompile += %w( .svg .eot .woff .ttf )
+
   end
 end

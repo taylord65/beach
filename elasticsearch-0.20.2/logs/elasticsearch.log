@@ -834,3 +834,13 @@ java.net.SocketException: Network is unreachable
 	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
 	at java.lang.Thread.run(Thread.java:695)
+[2015-01-02 20:50:37,286][INFO ][node                     ] [Nuke - Frank Simpson] {0.20.2}[847]: initializing ...
+[2015-01-02 20:50:37,336][INFO ][plugins                  ] [Nuke - Frank Simpson] loaded [], sites []
+[2015-01-02 20:50:43,333][INFO ][node                     ] [Nuke - Frank Simpson] {0.20.2}[847]: initialized
+[2015-01-02 20:50:43,334][INFO ][node                     ] [Nuke - Frank Simpson] {0.20.2}[847]: starting ...
+[2015-01-02 20:50:43,651][INFO ][transport                ] [Nuke - Frank Simpson] bound_address {inet[/0:0:0:0:0:0:0:0%0:9300]}, publish_address {inet[/192.168.1.141:9300]}
+[2015-01-02 20:50:47,008][INFO ][cluster.service          ] [Nuke - Frank Simpson] new_master [Nuke - Frank Simpson][Bouh8eleQ_al0AqM_TjMKQ][inet[/192.168.1.141:9300]], reason: zen-disco-join (elected_as_master)
+[2015-01-02 20:50:47,210][INFO ][discovery                ] [Nuke - Frank Simpson] elasticsearch/Bouh8eleQ_al0AqM_TjMKQ
+[2015-01-02 20:50:47,319][INFO ][http                     ] [Nuke - Frank Simpson] bound_address {inet[/0:0:0:0:0:0:0:0%0:9200]}, publish_address {inet[/192.168.1.141:9200]}
+[2015-01-02 20:50:47,320][INFO ][node                     ] [Nuke - Frank Simpson] {0.20.2}[847]: started
+[2015-01-02 20:50:49,877][INFO ][gateway                  ] [Nuke - Frank Simpson] recovered [1] indices into cluster_state
