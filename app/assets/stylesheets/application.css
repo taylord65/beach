@@ -16,30 +16,5 @@
 
  */
 
-@import 'camptonbold';
-@import 'camptonlight';
 
-@font-face {
-    font-family: 'camptonbold';
-    src: font-url('campton-bolddemo-webfont.eot');
-    src: font-url('campton-bolddemo-webfont.eot?#iefix') format('embedded-opentype'),
-         font-url('campton-bolddemo-webfont.woff2') format('woff2'),
-         font-url('campton-bolddemo-webfont.woff') format('woff'),
-         font-url('campton-bolddemo-webfont.ttf') format('truetype'),
-         font-url('campton-bolddemo-webfont.svg#camptonbold_demo') format('svg');
-    font-weight: normal;
-    font-style: normal;	
-}
 
-@font-face {
-    font-family: 'camptonlight';
-    src: url('/assets/campton-lightdemo-webfont.eot');
-    src: url('/assets/campton-lightdemo-webfont.eot?#iefix') format('embedded-opentype'),
-         url('/assets/campton-lightdemo-webfont.woff2') format('woff2'),
-         url('/assets/campton-lightdemo-webfont.woff') format('woff'),
-         url('/assets/campton-lightdemo-webfont.ttf') format('truetype'),
-         url('/assets/campton-lightdemo-webfont.svg#camptonlight_demo') format('svg');
-    font-weight: normal;
-    font-style: normal;
-
-}
