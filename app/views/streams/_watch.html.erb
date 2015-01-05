@@ -53,7 +53,7 @@
 	  var that = this;
 	  playButton.addEventListener("click", function(click_event) {
 	    if (that.is_playing) {
-			$("#play-button").attr("src", "http://www.beached.tv/assets/pause-c1c0a3d060f908372ebecf2eb7e7c018.svg");
+			$("#play-button").attr("src", "<%= asset_path( 'pause.svg' ) %>");
 			
 		//	if(live){
 		//	var liveimg = document.getElementById('live-icon');
@@ -63,7 +63,7 @@
 			
 	        player.pauseVideo();    
 	    }else {
-	        $("#play-button").attr("src", "http://www.beached.tv/assets/play-0a292db2c7cb500e5e768d0222ef1f94.svg");
+	        $("#play-button").attr("src", "<%= asset_path( 'play.svg' ) %>");
 			player.playVideo();
 	    }
 	  });
@@ -101,7 +101,7 @@
 	}
 
 	if (event.data == YT.PlayerState.PAUSED) {
-		$("#play-button").attr("src", "http://www.beached.tv/assets/play-0a292db2c7cb500e5e768d0222ef1f94.svg");
+		$("#play-button").attr("src", "<%= asset_path( 'play.svg' ) %>");
 		this.is_playing = false;
 		
 		if(live){
@@ -112,7 +112,7 @@
 	}
 
 	if (event.data == YT.PlayerState.PLAYING) {
-		$("#play-button").attr("src", "http://www.beached.tv/assets/pause-c1c0a3d060f908372ebecf2eb7e7c018.svg");
+		$("#play-button").attr("src", "<%= asset_path( 'pause.svg' ) %>");
 		this.is_playing = true;
 		
 		var current_time = Math.round(new Date().getTime() / 1000);
