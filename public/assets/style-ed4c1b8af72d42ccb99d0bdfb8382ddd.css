@@ -1,0 +1,547 @@
+@font-face {
+  font-family: 'camptonbold';
+  src: url(/assets/campton-bolddemo-webfont.eot);
+  src: url(/assets/campton-bolddemo-webfont.eot?#iefix) format("embedded-opentype"), url(/assets/campton-bolddemo-webfont.woff2) format("woff2"), url(/assets/campton-bolddemo-webfont.woff) format("woff"), url(/assets/campton-bolddemo-webfont.ttf) format("truetype"), url(/assets/campton-bolddemo-webfont.svg#camptonbold_demo) format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'camptonlight';
+  src: url(/assets/campton-lightdemo-webfont.eot);
+  src: url(/assets/campton-lightdemo-webfont.eot?#iefix) format("embedded-opentype"), url(/assets/campton-lightdemo-webfont.woff2) format("woff2"), url(/assets/campton-lightdemo-webfont.woff) format("woff"), url(/assets/campton-lightdemo-webfont.ttf) format("truetype"), url(/assets/campton-lightdemo-webfont.svg#camptonlight_demo) format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* line 28, /Users/taylorddotsikas/development/beach/app/assets/stylesheets/style.css.scss */
+.logo h1 {
+  font-family: 'Lato', sans-serif;
+  font-weight: 900;
+}
+
+/* line 33, /Users/taylorddotsikas/development/beach/app/assets/stylesheets/style.css.scss */
+.black {
+  background-color: black;
+}
+
+/* Navigation Menu - Background */
+/* line 38, /Users/taylorddotsikas/development/beach/app/assets/stylesheets/style.css.scss */
+.menu {
+  /* critical sizing and position styles */
+  width: 250px;
+  height: 100%;
+  position: fixed;
+  right: 0;
+  bottom: 15;
+  left: -17px;
+  z-index: 2;
+  overflow-x: hidden;
+  padding-left: 45px;
+  padding-top: 10px;
+  /* non-critical appearance styles */
+  list-style: none;
+  background-color: #151718;
+}
+
+/* Navigation Menu - List items */
+/* line 57, /Users/taylorddotsikas/development/beach/app/assets/stylesheets/style.css.scss */
+.nav-item {
+  /* non-critical appearance styles */
+  width: 200px;
+  border-top: 1px;
+  border-bottom: 1px;
+  font-family: 'camptonlight';
+}
+
+/* line 66, /Users/taylorddotsikas/development/beach/app/assets/stylesheets/style.css.scss */
+.menu h1 {
+  font-family: 'camptonbold';
+  color: white;
+  font-size: 1.1em;
+}
+
+/* line 72, /Users/taylorddotsikas/development/beach/app/assets/stylesheets/style.css.scss */
+.menu hr {
+  display: block;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  margin-right: auto;
+  border-width: 1px;
+  margin-left: -25px;
+  border-color: black;
+}
+
+/* line 83, /Users/taylorddotsikas/development/beach/app/assets/stylesheets/style.css.scss */
+.nav-item a {
+  /* non-critical appearance styles */
+  display: block;
+  color: #B9BABC;
+  font-size: 1.1em;
+  border-top: 5px;
+  border-bottom: 5px;
+  margin: 10px 0;
+}
+
+/* line 93, /Users/taylorddotsikas/development/beach/app/assets/stylesheets/style.css.scss */
+.nav-item a:hover {
+  background: #A67744;
+  color: white;
+}
+
+/* Site Wrapper - Everything that isn't navigation */
+/* line 99, /Users/taylorddotsikas/development/beach/app/assets/stylesheets/style.css.scss */
+.site-wrap {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  position: fixed;
+  /* Critical position and size styles */
+  min-height: 100%;
+  min-width: 100%;
+  background-color: black;
+  /* Needs a background or else the nav will show through */
+  z-index: 1;
+}
+
+/* Nav Trigger */
+/* line 116, /Users/taylorddotsikas/development/beach/app/assets/stylesheets/style.css.scss */
+.nav-trigger {
+  /* critical styles - hide the checkbox input */
+}
+
+/* Make the Magic Happen */
+/* line 125, /Users/taylorddotsikas/development/beach/app/assets/stylesheets/style.css.scss */
+.navigation + .nav-trigger:checked {
+  position: fixed;
+  z-index: 0;
+}
+
+/* line 132, /Users/taylorddotsikas/development/beach/app/assets/stylesheets/style.css.scss */
+body {
+  /* Without this, the body has excess horizontal scroll when the menu is open */
+  overflow-x: hidden;
+}
+
+/* Micro reset */
+/* line 139, /Users/taylorddotsikas/development/beach/app/assets/stylesheets/style.css.scss */
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* line 140, /Users/taylorddotsikas/development/beach/app/assets/stylesheets/style.css.scss */
+html, body {
+  height: 100%;
+  width: 100%;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+/* line 143, /Users/taylorddotsikas/development/beach/app/assets/stylesheets/style.css.scss */
+.Vid-Container {
+  width: 85%;
+  height: 85%;
+  margin: 0 auto;
+  background-color: black;
+}
+
+/* line 151, /Users/taylorddotsikas/development/beach/app/assets/stylesheets/style.css.scss */
+*:focus {
+  outline: 0;
+}
+
+/* line 155, /Users/taylorddotsikas/development/beach/app/assets/stylesheets/style.css.scss */
+.header {
+  height: 50px;
+  border-bottom: 1.5px solid #E5E5E5;
+  width: 100%;
+}
+
+/* line 161, /Users/taylorddotsikas/development/beach/app/assets/stylesheets/style.css.scss */
+.form-inline div {
+  display: inline-block;
+}
+
+/* line 163, /Users/taylorddotsikas/development/beach/app/assets/stylesheets/style.css.scss */
+.controlbar div {
+  display: block;
+  white-space: nowrap;
+}
+
+/* line 169, /Users/taylorddotsikas/development/beach/app/assets/stylesheets/style.css.scss */
+.textarea {
+  background-color: white;
+  border: 1px solid #E5E5E5;
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  color: grey;
+}
+
+/* line 178, /Users/taylorddotsikas/development/beach/app/assets/stylesheets/style.css.scss */
+.search {
+  padding: 8px 15px;
+  background-color: white;
+  border: 1px solid #E5E5E5;
+  width: 530px;
+  height: 40px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 900;
+  font-size: 25px;
+  color: grey;
+}
+
+/* line 190, /Users/taylorddotsikas/development/beach/app/assets/stylesheets/style.css.scss */
+.fieldbutton {
+  position: relative;
+  padding: 0px 15px 0px 15px;
+  left: -8px;
+  border: 19px solid #83B4DB;
+  background-color: #83B4DB;
+  height: 58px;
+  color: white;
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+}
+
+/* line 204, /Users/taylorddotsikas/development/beach/app/assets/stylesheets/style.css.scss */
+.indexresults table {
+  margin: auto;
+}
+
+/* line 209, /Users/taylorddotsikas/development/beach/app/assets/stylesheets/style.css.scss */
+.header td {
+  white-space: nowrap;
+}
+
+/* line 213, /Users/taylorddotsikas/development/beach/app/assets/stylesheets/style.css.scss */
+.headcontrolls div {
+  margin: auto;
+}
+
+/* line 216, /Users/taylorddotsikas/development/beach/app/assets/stylesheets/style.css.scss */
+.headcontrolls table tr td {
+  display: block;
+  text-align: center;
+  position: absolute;
+}
+
+/* line 223, /Users/taylorddotsikas/development/beach/app/assets/stylesheets/style.css.scss */
+.headcontrolls a {
+  text-decoration: none;
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  color: #9C9C9C;
+  text-align: left;
+  -o-transition: color .2s ease-out, background 2s ease-in;
+  -ms-transition: color .2s ease-out, background 2s ease-in;
+  -moz-transition: color .2s ease-out, background 2s ease-in;
+  -webkit-transition: color .2s ease-out, background 2s ease-in;
+  transition: color .2s ease-out, background 2s ease-in;
+}
+
+/* line 236, /Users/taylorddotsikas/development/beach/app/assets/stylesheets/style.css.scss */
+.headcontrolls a:hover {
+  text-decoration: none;
+  color: black;
+}
+
+/* line 241, /Users/taylorddotsikas/development/beach/app/assets/stylesheets/style.css.scss */
+.header table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+/* line 247, /Users/taylorddotsikas/development/beach/app/assets/stylesheets/style.css.scss */
+.fader img {
+  opacity: .7;
+  transition: opacity .7s ease-out;
+  -moz-transition: opacity .7s ease-out;
+  -webkit-transition: opacity .7s ease-out;
+  -o-transition: opacity .7s ease-out;
+}
+
+/* line 255, /Users/taylorddotsikas/development/beach/app/assets/stylesheets/style.css.scss */
+.edittitles h1 {
+  font-family: 'Lato', sans-serif;
+  font-weight: 900;
+  font-size: 25px;
+}
+
+/* line 260, /Users/taylorddotsikas/development/beach/app/assets/stylesheets/style.css.scss */
+.fader img:hover {
+  opacity: 1;
+}
+
+/* line 264, /Users/taylorddotsikas/development/beach/app/assets/stylesheets/style.css.scss */
+.logo img {
+  float: left;
+  vertical-align: middle;
+}
+
+/* line 269, /Users/taylorddotsikas/development/beach/app/assets/stylesheets/style.css.scss */
+.splashfontblack h1 {
+  font-family: 'Lato', sans-serif;
+  font-weight: 900;
+  font-size: 25px;
+  color: black;
+}
+
+/* line 276, /Users/taylorddotsikas/development/beach/app/assets/stylesheets/style.css.scss */
+.splashfont h1 {
+  font-family: 'Lato', sans-serif;
+  font-weight: 900;
+  font-size: 25px;
+  color: #73A7CA;
+}
+
+/* line 282, /Users/taylorddotsikas/development/beach/app/assets/stylesheets/style.css.scss */
+ul.hmenu {
+  list-style: none;
+  margin: 0 0 2em;
+  padding: 0;
+}
+
+/* line 288, /Users/taylorddotsikas/development/beach/app/assets/stylesheets/style.css.scss */
+ul.hmenu li {
+  display: inline;
+}
+
+/* line 292, /Users/taylorddotsikas/development/beach/app/assets/stylesheets/style.css.scss */
+#footer {
+  clear: both;
+  position: relative;
+  z-index: 10;
+  height: 3em;
+  margin-top: -3em;
+}
+
+/* line 300, /Users/taylorddotsikas/development/beach/app/assets/stylesheets/style.css.scss */
+#centerplayer {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  padding-top: 5px;
+}
+
+/* line 308, /Users/taylorddotsikas/development/beach/app/assets/stylesheets/style.css.scss */
+#scrollbox {
+  width: 800px;
+  height: 400px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+/* line 315, /Users/taylorddotsikas/development/beach/app/assets/stylesheets/style.css.scss */
+#viddisplaytable, td {
+  padding: 5px;
+}
+
+/* line 319, /Users/taylorddotsikas/development/beach/app/assets/stylesheets/style.css.scss */
+.vidcontrolls {
+  margin-left: auto;
+  margin-right: auto;
+  width: 1067px;
+}
+
+/* line 325, /Users/taylorddotsikas/development/beach/app/assets/stylesheets/style.css.scss */
+.vidcontrolls h1 {
+  font-family: 'Lato', sans-serif;
+  font-weight: 900;
+  font-size: 25px;
+}
+
+/* line 330, /Users/taylorddotsikas/development/beach/app/assets/stylesheets/style.css.scss */
+.vidcontrolls h3 {
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+}
+
+/* line 335, /Users/taylorddotsikas/development/beach/app/assets/stylesheets/style.css.scss */
+.vidcontrolls table {
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+/* line 341, /Users/taylorddotsikas/development/beach/app/assets/stylesheets/style.css.scss */
+#alligncentertextleft {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+  width: 50%;
+}
+
+/* line 348, /Users/taylorddotsikas/development/beach/app/assets/stylesheets/style.css.scss */
+.subscribebar {
+  background-color: #83B4DB;
+  border: 0px solid #ffffff;
+  text-align: center;
+  font-size: 15px;
+}
+
+/* line 357, /Users/taylorddotsikas/development/beach/app/assets/stylesheets/style.css.scss */
+.subscribebar table {
+  border-collapse: collapse;
+}
+
+/* line 362, /Users/taylorddotsikas/development/beach/app/assets/stylesheets/style.css.scss */
+.subscribebar a {
+  text-decoration: none;
+  color: white;
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+/* line 369, /Users/taylorddotsikas/development/beach/app/assets/stylesheets/style.css.scss */
+.subscribebar td:hover {
+  border-collapse: collapse;
+  background-color: #FAF7BA;
+}
+
+/* line 374, /Users/taylorddotsikas/development/beach/app/assets/stylesheets/style.css.scss */
+.subscribebar table tr td:hover a {
+  color: #83B4DB;
+}
+
+/* line 379, /Users/taylorddotsikas/development/beach/app/assets/stylesheets/style.css.scss */
+#subscribecount {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 20px;
+  text-align: right;
+}
+
+/* line 385, /Users/taylorddotsikas/development/beach/app/assets/stylesheets/style.css.scss */
+#textright {
+  margin-left: auto;
+  margin-right: auto;
+  float: right;
+}
+
+/* line 391, /Users/taylorddotsikas/development/beach/app/assets/stylesheets/style.css.scss */
+#alligncentertextcenter {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  width: 50%;
+}
+
+/* line 399, /Users/taylorddotsikas/development/beach/app/assets/stylesheets/style.css.scss */
+#centerimage {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+/* line 406, /Users/taylorddotsikas/development/beach/app/assets/stylesheets/style.css.scss */
+body {
+  background-color: #fff;
+  color: #333;
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+/* line 414, /Users/taylorddotsikas/development/beach/app/assets/stylesheets/style.css.scss */
+p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+/* line 420, /Users/taylorddotsikas/development/beach/app/assets/stylesheets/style.css.scss */
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+/* line 426, /Users/taylorddotsikas/development/beach/app/assets/stylesheets/style.css.scss */
+a {
+  color: #666666;
+}
+
+/* line 432, /Users/taylorddotsikas/development/beach/app/assets/stylesheets/style.css.scss */
+div.field, div.actions {
+  margin-bottom: 10px;
+}
+
+/* line 437, /Users/taylorddotsikas/development/beach/app/assets/stylesheets/style.css.scss */
+#notice {
+  color: green;
+}
+
+/* line 441, /Users/taylorddotsikas/development/beach/app/assets/stylesheets/style.css.scss */
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+/* line 447, /Users/taylorddotsikas/development/beach/app/assets/stylesheets/style.css.scss */
+#h2error {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  margin-bottom: 0px;
+  background-color: #c00;
+  color: #fff;
+}
+
+/* line 459, /Users/taylorddotsikas/development/beach/app/assets/stylesheets/style.css.scss */
+#error_explanation {
+  width: 600px;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+/* line 466, /Users/taylorddotsikas/development/beach/app/assets/stylesheets/style.css.scss */
+#error_explanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+
+/* line 472, /Users/taylorddotsikas/development/beach/app/assets/stylesheets/style.css.scss */
+.subscribebutton {
+  background-color: white;
+  -webkit-border-top-left-radius: 0px;
+  border-top-left-radius: 0px;
+  -webkit-border-top-right-radius: 0px;
+  border-top-right-radius: 0px;
+  -webkit-border-bottom-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  -webkit-border-bottom-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  text-indent: 0;
+  border: 1px solid #dcdcdc;
+  display: inline-block;
+  color: #333333;
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  font-size: 17px;
+  height: 60px;
+  line-height: 45px;
+  width: 170px;
+  text-decoration: none;
+  text-align: center;
+}
+
+/* line 494, /Users/taylorddotsikas/development/beach/app/assets/stylesheets/style.css.scss */
+.subscribebutton:hover {
+  background-color: #83b4db;
+}
+
+/* line 499, /Users/taylorddotsikas/development/beach/app/assets/stylesheets/style.css.scss */
+.subscribebutton:active {
+  position: relative;
+  top: 1px;
+}
