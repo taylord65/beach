@@ -28,35 +28,48 @@
     <%= csrf_meta_tags %>
     <%= include_gon %>
 
+<div class="sticky">
+	<div style="border-bottom: 1px solid #2D2C2F;"> 
 	<nav class="top-bar" data-topbar role="navigation">
 	  <ul class="title-area">
+		
 	    <li class="name">
 	      <h1><%= link_to('beached.', streams_path)  %></h1>
-
 	    </li>
-
-
 	  </ul>
 
 	  <section class="top-bar-section">
 
 	    <!-- Left Nav Section -->
 	    <ul class="left">	
+		
+		<li>
 			<div id="showmenu">
 				<img src="<%= asset_path( 'menu_1.svg' ) %>" id="drop_menu"/>
 			</div>
-		<!--	<img src="<%= asset_path( 'sound.svg' ) %>" id="mute-button" /> -->
-			
+		</li>
+				
+
+		<li>	
+			<img src="<%= asset_path( 'pause.svg' ) %>" id="play-button" /> 
+		</li>
+		
+		<li>			
+			<img src="<%= asset_path( 'sound.svg' ) %>" id="mute-button" />
+		</li>
+						
 	    </ul>
 	  </section>
 	
 	<ul class="right">
-		<li>	<img src="<%= asset_path( 'pause.svg' ) %>" id="play-button" />  </li>
 
+		
 	</ul>
 	
 	
 	</nav>
+	</div>
+	</div>
 
   </head>
 

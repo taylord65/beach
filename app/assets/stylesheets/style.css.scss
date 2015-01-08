@@ -37,7 +37,7 @@
 /* Navigation Menu - Background */
 .menu {
   /* critical sizing and position styles */
-  width: 250px;
+  width: 220px;
   height: 100%;
   position: fixed;
   right: 0;
@@ -51,6 +51,8 @@
   /* non-critical appearance styles */
   list-style: none;
   background-color: #151718;
+  border-right: 1px solid #2D2C2F;
+
 }
 
 /* Navigation Menu - List items */
