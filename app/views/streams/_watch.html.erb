@@ -71,10 +71,10 @@
 	  var muteButton = document.getElementById("mute-button");
 	  muteButton.addEventListener("click", function() {
 		if(player.isMuted()){
-			$("#mute-button").attr("src", "http://www.beached.tv/assets/sound-2850c52028b16dd2c2e264c5dddb39ba.svg");
+			$("#mute-button").attr("src", "<%= asset_path( 'sound.svg' ) %>");
 			player.unMute();
 		}else{
-			$("#mute-button").attr("src", "http://www.beached.tv/assets/mute-8d50674fdbcdd2cc9597f009be41cea9.svg");
+			$("#mute-button").attr("src", "<%= asset_path( 'mute.svg' ) %>");
 	    	player.mute();
 		}
 	  });

@@ -1,4 +1,13 @@
+.top-bar #showmenu  {
+    padding-top: 7px;
+  background-color: #151718;
 
+    }
+.top-bar #play_Controls {
+	    padding-top: 10px;
+	  background-color: #151718;
+	
+	 }
 
 @font-face {
     font-family: 'camptonbold';
@@ -37,7 +46,7 @@
 /* Navigation Menu - Background */
 .menu {
   /* critical sizing and position styles */
-  width: 220px;
+  width: 219px;
   height: 100%;
   position: fixed;
   right: 0;
