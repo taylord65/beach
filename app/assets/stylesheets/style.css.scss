@@ -8,6 +8,19 @@
 	  background-color: #151718;
 	
 	 }
+	
+.top-bar {	
+	
+	#stream_title h1 {
+		padding-top: 7px;
+	    
+		font-family: 'camptonbold';
+		color: white;
+		font-size: 1.1em;
+		background-color: #151718;
+	  
+	}
+}
 
 @font-face {
     font-family: 'camptonbold';
@@ -153,9 +166,9 @@ html, body { height: 100%; width: 100%; font-family: Helvetica, Arial, sans-seri
 
 .Vid-Container {
 	width: 85%;
-	height: 85%;
+	height: 85%; 
     margin: 0 auto;
-	background-color: black;
+	background-color: black; 
 }
 
 
