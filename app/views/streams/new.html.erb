@@ -1,0 +1,25 @@
+<div id="alligncentertextcenter">
+	<br>
+	<% if user_signed_in? %>
+<div class="edittitles">	<h1>Create Stream</h1> </div>
+	<br>
+	<%= image_tag("newinstructions.png", :alt => "New Instructions") %>
+</div>
+<div id="alligncentertextleft">
+	<%= render 'form' %>
+</div>
+	
+	<% else %>
+<div id="alligncentertextcenter">
+
+	<p> You must be logged in to create a new stream </p>
+	<br>
+	<br>
+	<%= image_tag("newinstructions.png", :alt => "New Instructions") %>
+</div>
+	
+	<% end %>
+	
+
+</div>
+

@@ -1,0 +1,54 @@
+	
+	<div id="centerimage">
+<br>
+<br>
+			<%= image_tag("indexgraphic.png") %>
+			<br>
+			<br>
+			<div class = "splashfontblack">
+				
+				<h1> Instant video entertainment </h1>
+				<br>
+			</div>
+		
+	<%= form_tag streams_path, method: :get do %>
+	  <p>
+	    <%= text_field_tag :query, params[:query], :class => 'search' %>
+	    <%= submit_tag "Search", :class => 'fieldbutton' %>
+	  </p>
+	<% end %>
+		
+	</div>
+	<br>
+	<div class="indexresults">
+
+<table>
+<tbody>
+  <% @streams.each_slice(6) do |slice| %>   
+		<td valign="top">
+			<table>
+			  <tbody>
+			    <% slice.each do |stream| %>
+			    <tr valign="middle">
+				    <td><%= button_to stream.title, stream, :class => 'subscribebutton', :method => "get", "data-no-turbolink" => true  %></td>
+			        <td><%= truncate(stream.description, :length => 30) %></td>
+			    </tr>
+			    <% end %>
+			  </tbody>
+			</table>
+		</td>
+	<% end %>
+    
+</tbody>
+</table>
+<br>
+</div>
+
+<div id="alligncentertextcenter">
+	<br>
+		<%= render "subscribebar" %>
+
+	<br>
+</div>
+
+

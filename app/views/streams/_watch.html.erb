@@ -1,0 +1,130 @@
+<div class="flex-video widescreen vimeo">
+
+<div id="player">
+<script>
+  var is_playing = false;
+  var fullscreen = false;
+  var live = true;
+
+  var tag = document.createElement('script');
+  tag.src = "https://www.youtube.com/iframe_api";
+  var firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+  var player;
+  function onYouTubePlayerAPIReady() {
+    player = new YT.Player('player', {
+	playerVars:{
+			autoplay: 1,
+			controls: 0,
+			rel: 0,
+			iv_load_policy: 3,
+			showinfo: 0
+		},
+
+     loadPlaylist:{
+        listType:'playlist'
+     },
+
+      events: {
+        'onReady': onPlayerReady,
+        'onStateChange': onPlayerStateChange,
+		'onError': onErrorDetect
+      }
+    });
+  }
+  
+  function onErrorDetect(event){
+	if (event.data == 100) {
+	//video request was not found, error occurs when video has been removed or has been marked as private
+	event.target.nextVideo();	
+	} else{
+	location.reload();
+	}
+
+}
+
+  function onPlayerReady(event) {
+	event.target.setPlaybackQuality('default');
+	event.target.loadPlaylist(gon.playlist,gon.s_index,gon.s_time);
+	event.target.setLoop(true);
+
+	//PLAYER CONTROLS
+	  var playButton = document.getElementById("play-button");
+	  var that = this;
+	  playButton.addEventListener("click", function(click_event) {
+	    if (that.is_playing) {
+			$("#play-button").attr("src", "<%= asset_path( 'pause.svg' ) %>");
+			
+		//	if(live){
+		//	var liveimg = document.getElementById('live-icon');
+		//	liveimg.parentNode.removeChild(liveimg);
+		//	live = false;
+		//	}
+			
+	        player.pauseVideo();    
+	    }else {
+	        $("#play-button").attr("src", "<%= asset_path( 'play.svg' ) %>");
+			player.playVideo();
+	    }
+	  });
+
+	  var muteButton = document.getElementById("mute-button");
+	  muteButton.addEventListener("click", function() {
+		if(player.isMuted()){
+			$("#mute-button").attr("src", "<%= asset_path( 'sound.svg' ) %>");
+			player.unMute();
+		}else{
+			$("#mute-button").attr("src", "<%= asset_path( 'mute.svg' ) %>");
+	    	player.mute();
+		}
+	  });
+
+	  var enlargeButton = document.getElementById("enlarge-button");
+	  enlargeButton.addEventListener("click", function() {
+		if (fullscreen){
+			$("#enlarge-button").attr("src", "http://www.beached.tv/assets/resize-enlarge-a44a4204dca596b45aacb25610ee3189.svg");
+			player.setSize(1067,600);
+			fullscreen = false;			
+		}else{
+			$("#enlarge-button").attr("src", "http://www.beached.tv/assets/resize-shrink-f63cf0e6ab1eb2bb8f7223798c4fc9c5.svg");
+			player.setSize(1410,793);
+			fullscreen = true;
+		}
+	  });
+
+	}
+
+  function onPlayerStateChange(event) {
+
+	if (event.data == YT.PlayerState.BUFFERING) {
+	    event.target.setPlaybackQuality('hd1080');
+	}
+
+	if (event.data == YT.PlayerState.PAUSED) {
+		$("#play-button").attr("src", "<%= asset_path( 'play.svg' ) %>");
+		this.is_playing = false;
+		
+		if(live){
+		var liveimg = document.getElementById('live-icon');
+		liveimg.parentNode.removeChild(liveimg);
+		live = false;
+		}
+	}
+
+	if (event.data == YT.PlayerState.PLAYING) {
+		$("#play-button").attr("src", "<%= asset_path( 'pause.svg' ) %>");
+		this.is_playing = true;
+		
+		var current_time = Math.round(new Date().getTime() / 1000);
+		if (current_time > gon.end_of_stream){
+		//	location.reload();
+		}
+    }
+
+
+  }
+
+</script>
+
+</div>
+</div>

@@ -1,0 +1,33 @@
+<%= form_for(@stream) do |f| %>
+  <% if @stream.errors.any? %>
+<div id="alligncentertextleft">
+    <div id="error_explanation">
+    <div id="h2error">  <h2><%= pluralize(@stream.errors.count, "error") %> prohibited this stream from being saved:</h2> </div>
+
+      <ul>
+      <% @stream.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+</div>
+  <% end %>
+
+  <div class="field">
+	<div class="edittitles">	<h1>Title</h1> </div>
+    <%= f.text_field :title, :size => 100, :class => 'search'  %>
+  </div>
+	<br>
+
+  <div class="field">
+	<div class="edittitles">	<h1>Description</h1> </div>
+    <%= f.text_area :description , :rows => 10, :cols => 100, :class => 'textarea' %>
+  </div>
+	<br>
+
+  <div class="actions">
+    <%= f.submit 'Create Stream' , :class => 'fieldbutton' %>
+  </div>
+<% end %>
+<br>
+

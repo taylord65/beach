@@ -1,0 +1,12 @@
+[2014-12-30 10:02:45,853][INFO ][node                     ] [El Aguila] {0.20.2}[20177]: initializing ...
+[2014-12-30 10:02:45,860][INFO ][plugins                  ] [El Aguila] loaded [], sites []
+[2014-12-30 10:02:49,102][INFO ][node                     ] [El Aguila] {0.20.2}[20177]: initialized
+[2014-12-30 10:02:49,102][INFO ][node                     ] [El Aguila] {0.20.2}[20177]: starting ...
+[2014-12-30 10:02:49,299][INFO ][transport                ] [El Aguila] bound_address {inet[/0:0:0:0:0:0:0:0%0:9300]}, publish_address {inet[/192.168.1.141:9300]}
+[2014-12-30 10:02:52,513][INFO ][cluster.service          ] [El Aguila] new_master [El Aguila][hgJ7NVP9TluifF7mfV7Tuw][inet[/192.168.1.141:9300]], reason: zen-disco-join (elected_as_master)
+[2014-12-30 10:02:52,570][INFO ][discovery                ] [El Aguila] elasticsearch/hgJ7NVP9TluifF7mfV7Tuw
+[2014-12-30 10:02:52,586][INFO ][http                     ] [El Aguila] bound_address {inet[/0:0:0:0:0:0:0:0%0:9200]}, publish_address {inet[/192.168.1.141:9200]}
+[2014-12-30 10:02:52,587][INFO ][node                     ] [El Aguila] {0.20.2}[20177]: started
+[2014-12-30 10:02:52,647][INFO ][gateway                  ] [El Aguila] recovered [0] indices into cluster_state
+[2014-12-30 10:04:26,369][INFO ][cluster.metadata         ] [El Aguila] [streams] creating index, cause [api], shards [5]/[1], mappings [stream]
+[2014-12-30 10:04:27,584][INFO ][cluster.metadata         ] [El Aguila] [streams] update_mapping [stream] (dynamic)

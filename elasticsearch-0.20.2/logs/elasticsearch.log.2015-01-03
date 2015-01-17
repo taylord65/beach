@@ -1,0 +1,6 @@
+[2015-01-03 17:54:59,481][INFO ][cluster.metadata         ] [Nuke - Frank Simpson] [streams] deleting index
+[2015-01-03 17:55:00,415][INFO ][cluster.metadata         ] [Nuke - Frank Simpson] [streams] creating index, cause [api], shards [5]/[1], mappings [stream]
+[2015-01-03 17:55:00,896][INFO ][cluster.metadata         ] [Nuke - Frank Simpson] [streams] update_mapping [stream] (dynamic)
+[2015-01-03 17:56:10,528][INFO ][cluster.metadata         ] [Nuke - Frank Simpson] [streams] deleting index
+[2015-01-03 17:56:10,664][INFO ][cluster.metadata         ] [Nuke - Frank Simpson] [streams] creating index, cause [api], shards [5]/[1], mappings [stream]
+[2015-01-03 17:56:10,926][INFO ][cluster.metadata         ] [Nuke - Frank Simpson] [streams] update_mapping [stream] (dynamic)

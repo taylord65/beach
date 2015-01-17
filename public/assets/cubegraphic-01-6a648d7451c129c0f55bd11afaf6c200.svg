@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="901.805px" height="460px" viewBox="0 0 901.805 460" enable-background="new 0 0 901.805 460" xml:space="preserve">
+<g id="Layer_4">
+	<rect x="0.5" y="62.737" fill="none" stroke="#E5E5E5" stroke-miterlimit="10" width="900.805" height="396.763"/>
+	<rect x="101.636" y="0.5" fill="none" stroke="#E5E5E5" stroke-miterlimit="10" width="700.169" height="375.152"/>
+	<line fill="none" stroke="#E5E5E5" stroke-miterlimit="10" x1="0.5" y1="62.737" x2="101.636" y2="0.5"/>
+	<line fill="none" stroke="#E5E5E5" stroke-miterlimit="10" x1="801.805" y1="0.5" x2="901.305" y2="62.737"/>
+</g>
+<g id="Layer_5">
+	<polyline opacity="0.5" fill="none" points="102.046,284.664 2.138,384.571 901.305,384.571 801.398,284.664 	"/>
+</g>
+<g id="Layer_3">
+	<g id="XMLID_1_">
+		<g>
+			<polygon fill="#7FB5D5" points="901.305,384.57 901.305,459.501 826.374,384.57 			"/>
+			<polygon fill="#55A0C9" points="901.305,384.57 826.374,384.57 801.397,359.593 801.397,284.663 			"/>
+			<path fill="#FAF7D5" d="M901.305,459.501h-399.63V384.57c0,0,137.373,0,212.304,24.977S901.305,459.501,901.305,459.501z"/>
+			<path fill="#A1C4D8" d="M826.374,384.57l74.931,74.931c0,0-112.396-24.978-187.326-49.954S501.675,384.57,501.675,384.57H826.374
+				z"/>
+			<polygon fill="#F7F5C5" points="826.374,384.57 501.675,384.57 501.675,359.593 801.397,359.593 			"/>
+			<path fill="#9DC7DF" d="M801.397,284.663v74.93c0,0-49.954-24.977-87.419-49.953c-37.466-24.977-212.304-24.977-212.304-24.977
+				H801.397z"/>
+			<path fill="#F7F5C5" d="M801.397,359.593H501.675v-74.93c0,0,174.838,0,212.304,24.977
+				C751.443,334.616,801.397,359.593,801.397,359.593z"/>
+			<polygon fill="#FAF7D5" points="501.675,384.57 501.675,459.501 2.137,459.501 77.068,384.57 			"/>
+			<polygon fill="#F7F5C5" points="501.675,359.593 501.675,384.57 77.068,384.57 102.045,359.593 			"/>
+			<rect x="102.045" y="284.663" fill="#F7F5C5" width="399.63" height="74.93"/>
+			<polygon fill="#F7F5C5" points="102.045,284.663 102.045,359.593 77.068,384.57 2.137,384.57 			"/>
+			<polygon fill="#FAF7D5" points="77.068,384.57 2.137,459.501 2.137,384.57 			"/>
+		</g>
+		<g>
+		</g>
+	</g>
+	<polyline opacity="0.7" fill="#A1C4D8" points="501.675,284.664 501.675,384.571 901.305,384.571 801.398,284.664 	"/>
+</g>
+<g id="Layer_7">
+	<polyline fill="#F7F5C5" points="102.045,284.662 2.137,384.57 272.788,381.703 280.568,288.348 	"/>
+</g>
+<g id="Layer_6">
+	<text transform="matrix(1.0232 0 0 1 173.2651 207.5)"><tspan x="0" y="0" fill="#9C9E9F" font-family="'MyriadPro-Bold'" font-size="105.9155">[</tspan><tspan x="33.257" y="0" fill="#9C9E9F" font-family="'Lato-Black'" font-size="92.9697"> </tspan><tspan x="51.2" y="0" fill="#9C9E9F" font-family="'CoolveticaRg-Regular'" font-size="92.9697" letter-spacing="6.841">BEACHED.</tspan><tspan x="503.21" y="0" fill="#9C9E9F" font-family="'Lato-Black'" font-size="92.9697"> </tspan><tspan x="521.153" y="0" fill="#9C9E9F" font-family="'MyriadPro-Bold'" font-size="105.9155">]</tspan></text>
+</g>
+</svg>

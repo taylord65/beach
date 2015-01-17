@@ -1,0 +1,25 @@
+<%= form_for([@stream, @video]) do |f| %>
+  <% if @video.errors.any? %>
+    <div id="error_explanation">
+   <div id="h2error">   <h2><%= pluralize(@video.errors.count, "error") %> prohibited this video from being saved:</h2> </div>
+
+      <ul>
+      <% @video.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :url %><br>
+    <%= f.text_field :url %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+
+
+<% end %>

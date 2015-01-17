@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link href='http://fonts.googleapis.com/css?family=Lato:400,700,900' rel='stylesheet' type='text/css'>
+	
+  <title>Beached.TV - Better TV</title>
+  <%= stylesheet_link_tag  "style" %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <%= include_gon %>
+
+<meta name="description" content="Beached - A new TV experience. Watch and Create streams that feature Youtube content.">
+
+<div class="header">
+	<table>
+		<tr>
+		<td> 
+			<div class ="logo"> <%= link_to image_tag("minilogonew.png"), streams_path %> </div>  
+		</td>
+			<div id="alligncentertextcenter">
+		<td>
+			<div id="alligncentertextcenter">
+	<!--	<div class= "headcontrolls">trending streams:&nbsp <%= link_to("/s/#{@trending1}", "http://www.beached.tv/s/#{@trending1}", "data-no-turbolink" => true ) %> &nbsp <%= link_to("/s/#{@trending2}", "http://www.beached.tv/s/#{@trending2}", "data-no-turbolink" => true ) %> &nbsp <%= link_to("/s/#{@trending3}", "http://www.beached.tv/s/#{@trending3}", "data-no-turbolink" => true ) %> </div> -->
+		
+			</div>
+		</td>
+			</div>
+
+		<td>
+			<div id= "textright">
+				<div class= "headcontrolls">
+				<% if user_signed_in? %>
+				  <div class="fader"> <%= link_to image_tag("user.svg"), edit_user_registration_path %>  &nbsp <%= link_to image_tag("newstream.svg"), new_stream_path %>  &nbsp  <%= link_to image_tag("search.svg") , streams_path %> &nbsp </div>
+				<% else %>
+				  <%= link_to('JOIN', new_user_registration_path)  %> &nbsp &nbsp  &nbsp  <%= link_to('LOG IN', new_user_session_path)  %> &nbsp &nbsp &nbsp  <%= link_to 'CREATE', new_stream_path %> &nbsp 
+				<% end %>
+				</div>
+			</div>
+		</td>
+		</tr>
+	</table>
+</div>
+
+<br>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-52156202-1', 'beached.tv');
+  ga('send', 'pageview');
+
+</script>
+
+</head>
+<body>
+	
+
+
+<%= yield %>
+
+
+
+</body>
+
+<footer>
+<br>
+</footer>
+
+
+</html>

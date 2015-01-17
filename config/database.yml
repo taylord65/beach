@@ -1,0 +1,13 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: beach_development
+  pool: 5
+  password:
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: beach_production
+  pool: 5
+  password:      
