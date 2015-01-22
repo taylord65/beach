@@ -1,22 +1,27 @@
-.top-bar #showmenu  {
-    padding-top: 7px;
-  background-color: #151718;
+	
+.top-bar {	
+
+	#showmenu  {
+
+    	padding-top: 7px;
+  		background-color: #151718;
 
     }
-.top-bar #play_Controls {
+
+	#play_Controls {
+
 	    padding-top: 10px;
-	  background-color: #151718;
+	  	background-color: #151718;
 	
 	 }
 	
-.top-bar {	
-	
 	#stream_title h1 {
+
 		padding-top: 7px;
 	    
 		font-family: 'camptonbold';
 		color: white;
-		font-size: 1.1em;
+		font-size: 1em;
 		background-color: #151718;
 	  
 	}
@@ -72,7 +77,7 @@
   
   /* non-critical appearance styles */
   list-style: none;
-  background-color: #151718;
+  background-color: #384961;
   border-right: 1px solid #2D2C2F;
 
 }
