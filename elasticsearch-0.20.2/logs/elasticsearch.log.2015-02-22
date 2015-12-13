@@ -1,0 +1,846 @@
+[2015-02-22 20:55:20,983][WARN ][cluster.service          ] [Nuke - Frank Simpson] failed to reconnect to node [Nuke - Frank Simpson][Bouh8eleQ_al0AqM_TjMKQ][inet[/192.168.1.141:9300]]
+org.elasticsearch.transport.ConnectTransportException: [Nuke - Frank Simpson][inet[/192.168.1.141:9300]] connect_timeout[30s]
+	at org.elasticsearch.transport.netty.NettyTransport.connectToChannels(NettyTransport.java:665)
+	at org.elasticsearch.transport.netty.NettyTransport.connectToNode(NettyTransport.java:604)
+	at org.elasticsearch.transport.netty.NettyTransport.connectToNode(NettyTransport.java:574)
+	at org.elasticsearch.transport.TransportService.connectToNode(TransportService.java:127)
+	at org.elasticsearch.cluster.service.InternalClusterService$ReconnectToNodes.run(InternalClusterService.java:395)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:695)
+Caused by: java.net.ConnectException: connection timed out
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.processConnectTimeout(NioClientBoss.java:136)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.process(NioClientBoss.java:82)
+	at org.elasticsearch.common.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:313)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.run(NioClientBoss.java:41)
+	at org.elasticsearch.common.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+	at org.elasticsearch.common.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+	... 3 more
+[2015-02-22 20:59:21,683][WARN ][cluster.service          ] [Nuke - Frank Simpson] failed to reconnect to node [Nuke - Frank Simpson][Bouh8eleQ_al0AqM_TjMKQ][inet[/192.168.1.141:9300]]
+org.elasticsearch.transport.ConnectTransportException: [Nuke - Frank Simpson][inet[/192.168.1.141:9300]] connect_timeout[30s]
+	at org.elasticsearch.transport.netty.NettyTransport.connectToChannels(NettyTransport.java:665)
+	at org.elasticsearch.transport.netty.NettyTransport.connectToNode(NettyTransport.java:604)
+	at org.elasticsearch.transport.netty.NettyTransport.connectToNode(NettyTransport.java:574)
+	at org.elasticsearch.transport.TransportService.connectToNode(TransportService.java:127)
+	at org.elasticsearch.cluster.service.InternalClusterService$ReconnectToNodes.run(InternalClusterService.java:395)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:695)
+Caused by: java.net.ConnectException: connection timed out
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.processConnectTimeout(NioClientBoss.java:136)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.process(NioClientBoss.java:82)
+	at org.elasticsearch.common.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:313)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.run(NioClientBoss.java:41)
+	at org.elasticsearch.common.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+	at org.elasticsearch.common.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+	... 3 more
+[2015-02-22 21:03:21,920][WARN ][cluster.service          ] [Nuke - Frank Simpson] failed to reconnect to node [Nuke - Frank Simpson][Bouh8eleQ_al0AqM_TjMKQ][inet[/192.168.1.141:9300]]
+org.elasticsearch.transport.ConnectTransportException: [Nuke - Frank Simpson][inet[/192.168.1.141:9300]] connect_timeout[30s]
+	at org.elasticsearch.transport.netty.NettyTransport.connectToChannels(NettyTransport.java:665)
+	at org.elasticsearch.transport.netty.NettyTransport.connectToNode(NettyTransport.java:604)
+	at org.elasticsearch.transport.netty.NettyTransport.connectToNode(NettyTransport.java:574)
+	at org.elasticsearch.transport.TransportService.connectToNode(TransportService.java:127)
+	at org.elasticsearch.cluster.service.InternalClusterService$ReconnectToNodes.run(InternalClusterService.java:395)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:695)
+Caused by: java.net.ConnectException: connection timed out
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.processConnectTimeout(NioClientBoss.java:136)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.process(NioClientBoss.java:82)
+	at org.elasticsearch.common.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:313)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.run(NioClientBoss.java:41)
+	at org.elasticsearch.common.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+	at org.elasticsearch.common.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+	... 3 more
+[2015-02-22 21:07:22,829][WARN ][cluster.service          ] [Nuke - Frank Simpson] failed to reconnect to node [Nuke - Frank Simpson][Bouh8eleQ_al0AqM_TjMKQ][inet[/192.168.1.141:9300]]
+org.elasticsearch.transport.ConnectTransportException: [Nuke - Frank Simpson][inet[/192.168.1.141:9300]] connect_timeout[30s]
+	at org.elasticsearch.transport.netty.NettyTransport.connectToChannels(NettyTransport.java:665)
+	at org.elasticsearch.transport.netty.NettyTransport.connectToNode(NettyTransport.java:604)
+	at org.elasticsearch.transport.netty.NettyTransport.connectToNode(NettyTransport.java:574)
+	at org.elasticsearch.transport.TransportService.connectToNode(TransportService.java:127)
+	at org.elasticsearch.cluster.service.InternalClusterService$ReconnectToNodes.run(InternalClusterService.java:395)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:695)
+Caused by: java.net.ConnectException: connection timed out
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.processConnectTimeout(NioClientBoss.java:136)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.process(NioClientBoss.java:82)
+	at org.elasticsearch.common.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:313)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.run(NioClientBoss.java:41)
+	at org.elasticsearch.common.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+	at org.elasticsearch.common.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+	... 3 more
+[2015-02-22 21:11:23,080][WARN ][cluster.service          ] [Nuke - Frank Simpson] failed to reconnect to node [Nuke - Frank Simpson][Bouh8eleQ_al0AqM_TjMKQ][inet[/192.168.1.141:9300]]
+org.elasticsearch.transport.ConnectTransportException: [Nuke - Frank Simpson][inet[/192.168.1.141:9300]] connect_timeout[30s]
+	at org.elasticsearch.transport.netty.NettyTransport.connectToChannels(NettyTransport.java:665)
+	at org.elasticsearch.transport.netty.NettyTransport.connectToNode(NettyTransport.java:604)
+	at org.elasticsearch.transport.netty.NettyTransport.connectToNode(NettyTransport.java:574)
+	at org.elasticsearch.transport.TransportService.connectToNode(TransportService.java:127)
+	at org.elasticsearch.cluster.service.InternalClusterService$ReconnectToNodes.run(InternalClusterService.java:395)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:695)
+Caused by: java.net.ConnectException: connection timed out
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.processConnectTimeout(NioClientBoss.java:136)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.process(NioClientBoss.java:82)
+	at org.elasticsearch.common.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:313)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.run(NioClientBoss.java:41)
+	at org.elasticsearch.common.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+	at org.elasticsearch.common.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+	... 3 more
+[2015-02-22 21:15:23,517][WARN ][cluster.service          ] [Nuke - Frank Simpson] failed to reconnect to node [Nuke - Frank Simpson][Bouh8eleQ_al0AqM_TjMKQ][inet[/192.168.1.141:9300]]
+org.elasticsearch.transport.ConnectTransportException: [Nuke - Frank Simpson][inet[/192.168.1.141:9300]] connect_timeout[30s]
+	at org.elasticsearch.transport.netty.NettyTransport.connectToChannels(NettyTransport.java:665)
+	at org.elasticsearch.transport.netty.NettyTransport.connectToNode(NettyTransport.java:604)
+	at org.elasticsearch.transport.netty.NettyTransport.connectToNode(NettyTransport.java:574)
+	at org.elasticsearch.transport.TransportService.connectToNode(TransportService.java:127)
+	at org.elasticsearch.cluster.service.InternalClusterService$ReconnectToNodes.run(InternalClusterService.java:395)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:695)
+Caused by: java.net.ConnectException: connection timed out
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.processConnectTimeout(NioClientBoss.java:136)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.process(NioClientBoss.java:82)
+	at org.elasticsearch.common.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:313)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.run(NioClientBoss.java:41)
+	at org.elasticsearch.common.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+	at org.elasticsearch.common.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+	... 3 more
+[2015-02-22 21:19:24,629][WARN ][cluster.service          ] [Nuke - Frank Simpson] failed to reconnect to node [Nuke - Frank Simpson][Bouh8eleQ_al0AqM_TjMKQ][inet[/192.168.1.141:9300]]
+org.elasticsearch.transport.ConnectTransportException: [Nuke - Frank Simpson][inet[/192.168.1.141:9300]] connect_timeout[30s]
+	at org.elasticsearch.transport.netty.NettyTransport.connectToChannels(NettyTransport.java:665)
+	at org.elasticsearch.transport.netty.NettyTransport.connectToNode(NettyTransport.java:604)
+	at org.elasticsearch.transport.netty.NettyTransport.connectToNode(NettyTransport.java:574)
+	at org.elasticsearch.transport.TransportService.connectToNode(TransportService.java:127)
+	at org.elasticsearch.cluster.service.InternalClusterService$ReconnectToNodes.run(InternalClusterService.java:395)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:695)
+Caused by: java.net.ConnectException: connection timed out
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.processConnectTimeout(NioClientBoss.java:136)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.process(NioClientBoss.java:82)
+	at org.elasticsearch.common.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:313)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.run(NioClientBoss.java:41)
+	at org.elasticsearch.common.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+	at org.elasticsearch.common.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+	... 3 more
+[2015-02-22 21:23:25,326][WARN ][cluster.service          ] [Nuke - Frank Simpson] failed to reconnect to node [Nuke - Frank Simpson][Bouh8eleQ_al0AqM_TjMKQ][inet[/192.168.1.141:9300]]
+org.elasticsearch.transport.ConnectTransportException: [Nuke - Frank Simpson][inet[/192.168.1.141:9300]] connect_timeout[30s]
+	at org.elasticsearch.transport.netty.NettyTransport.connectToChannels(NettyTransport.java:665)
+	at org.elasticsearch.transport.netty.NettyTransport.connectToNode(NettyTransport.java:604)
+	at org.elasticsearch.transport.netty.NettyTransport.connectToNode(NettyTransport.java:574)
+	at org.elasticsearch.transport.TransportService.connectToNode(TransportService.java:127)
+	at org.elasticsearch.cluster.service.InternalClusterService$ReconnectToNodes.run(InternalClusterService.java:395)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:695)
+Caused by: java.net.ConnectException: connection timed out
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.processConnectTimeout(NioClientBoss.java:136)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.process(NioClientBoss.java:82)
+	at org.elasticsearch.common.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:313)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.run(NioClientBoss.java:41)
+	at org.elasticsearch.common.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+	at org.elasticsearch.common.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+	... 3 more
+[2015-02-22 21:27:25,570][WARN ][cluster.service          ] [Nuke - Frank Simpson] failed to reconnect to node [Nuke - Frank Simpson][Bouh8eleQ_al0AqM_TjMKQ][inet[/192.168.1.141:9300]]
+org.elasticsearch.transport.ConnectTransportException: [Nuke - Frank Simpson][inet[/192.168.1.141:9300]] connect_timeout[30s]
+	at org.elasticsearch.transport.netty.NettyTransport.connectToChannels(NettyTransport.java:665)
+	at org.elasticsearch.transport.netty.NettyTransport.connectToNode(NettyTransport.java:604)
+	at org.elasticsearch.transport.netty.NettyTransport.connectToNode(NettyTransport.java:574)
+	at org.elasticsearch.transport.TransportService.connectToNode(TransportService.java:127)
+	at org.elasticsearch.cluster.service.InternalClusterService$ReconnectToNodes.run(InternalClusterService.java:395)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:695)
+Caused by: java.net.ConnectException: connection timed out
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.processConnectTimeout(NioClientBoss.java:136)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.process(NioClientBoss.java:82)
+	at org.elasticsearch.common.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:313)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.run(NioClientBoss.java:41)
+	at org.elasticsearch.common.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+	at org.elasticsearch.common.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+	... 3 more
+[2015-02-22 21:31:25,925][WARN ][cluster.service          ] [Nuke - Frank Simpson] failed to reconnect to node [Nuke - Frank Simpson][Bouh8eleQ_al0AqM_TjMKQ][inet[/192.168.1.141:9300]]
+org.elasticsearch.transport.ConnectTransportException: [Nuke - Frank Simpson][inet[/192.168.1.141:9300]] connect_timeout[30s]
+	at org.elasticsearch.transport.netty.NettyTransport.connectToChannels(NettyTransport.java:665)
+	at org.elasticsearch.transport.netty.NettyTransport.connectToNode(NettyTransport.java:604)
+	at org.elasticsearch.transport.netty.NettyTransport.connectToNode(NettyTransport.java:574)
+	at org.elasticsearch.transport.TransportService.connectToNode(TransportService.java:127)
+	at org.elasticsearch.cluster.service.InternalClusterService$ReconnectToNodes.run(InternalClusterService.java:395)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:695)
+Caused by: java.net.ConnectException: connection timed out
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.processConnectTimeout(NioClientBoss.java:136)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.process(NioClientBoss.java:82)
+	at org.elasticsearch.common.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:313)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.run(NioClientBoss.java:41)
+	at org.elasticsearch.common.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+	at org.elasticsearch.common.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+	... 3 more
+[2015-02-22 21:35:26,157][WARN ][cluster.service          ] [Nuke - Frank Simpson] failed to reconnect to node [Nuke - Frank Simpson][Bouh8eleQ_al0AqM_TjMKQ][inet[/192.168.1.141:9300]]
+org.elasticsearch.transport.ConnectTransportException: [Nuke - Frank Simpson][inet[/192.168.1.141:9300]] connect_timeout[30s]
+	at org.elasticsearch.transport.netty.NettyTransport.connectToChannels(NettyTransport.java:665)
+	at org.elasticsearch.transport.netty.NettyTransport.connectToNode(NettyTransport.java:604)
+	at org.elasticsearch.transport.netty.NettyTransport.connectToNode(NettyTransport.java:574)
+	at org.elasticsearch.transport.TransportService.connectToNode(TransportService.java:127)
+	at org.elasticsearch.cluster.service.InternalClusterService$ReconnectToNodes.run(InternalClusterService.java:395)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:695)
+Caused by: java.net.ConnectException: connection timed out
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.processConnectTimeout(NioClientBoss.java:136)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.process(NioClientBoss.java:82)
+	at org.elasticsearch.common.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:313)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.run(NioClientBoss.java:41)
+	at org.elasticsearch.common.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+	at org.elasticsearch.common.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+	... 3 more
+[2015-02-22 21:39:26,370][WARN ][cluster.service          ] [Nuke - Frank Simpson] failed to reconnect to node [Nuke - Frank Simpson][Bouh8eleQ_al0AqM_TjMKQ][inet[/192.168.1.141:9300]]
+org.elasticsearch.transport.ConnectTransportException: [Nuke - Frank Simpson][inet[/192.168.1.141:9300]] connect_timeout[30s]
+	at org.elasticsearch.transport.netty.NettyTransport.connectToChannels(NettyTransport.java:665)
+	at org.elasticsearch.transport.netty.NettyTransport.connectToNode(NettyTransport.java:604)
+	at org.elasticsearch.transport.netty.NettyTransport.connectToNode(NettyTransport.java:574)
+	at org.elasticsearch.transport.TransportService.connectToNode(TransportService.java:127)
+	at org.elasticsearch.cluster.service.InternalClusterService$ReconnectToNodes.run(InternalClusterService.java:395)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:695)
+Caused by: java.net.ConnectException: connection timed out
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.processConnectTimeout(NioClientBoss.java:136)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.process(NioClientBoss.java:82)
+	at org.elasticsearch.common.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:313)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.run(NioClientBoss.java:41)
+	at org.elasticsearch.common.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+	at org.elasticsearch.common.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+	... 3 more
+[2015-02-22 21:43:26,563][WARN ][cluster.service          ] [Nuke - Frank Simpson] failed to reconnect to node [Nuke - Frank Simpson][Bouh8eleQ_al0AqM_TjMKQ][inet[/192.168.1.141:9300]]
+org.elasticsearch.transport.ConnectTransportException: [Nuke - Frank Simpson][inet[/192.168.1.141:9300]] connect_timeout[30s]
+	at org.elasticsearch.transport.netty.NettyTransport.connectToChannels(NettyTransport.java:665)
+	at org.elasticsearch.transport.netty.NettyTransport.connectToNode(NettyTransport.java:604)
+	at org.elasticsearch.transport.netty.NettyTransport.connectToNode(NettyTransport.java:574)
+	at org.elasticsearch.transport.TransportService.connectToNode(TransportService.java:127)
+	at org.elasticsearch.cluster.service.InternalClusterService$ReconnectToNodes.run(InternalClusterService.java:395)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:695)
+Caused by: java.net.ConnectException: connection timed out
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.processConnectTimeout(NioClientBoss.java:136)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.process(NioClientBoss.java:82)
+	at org.elasticsearch.common.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:313)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.run(NioClientBoss.java:41)
+	at org.elasticsearch.common.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+	at org.elasticsearch.common.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+	... 3 more
+[2015-02-22 21:47:26,766][WARN ][cluster.service          ] [Nuke - Frank Simpson] failed to reconnect to node [Nuke - Frank Simpson][Bouh8eleQ_al0AqM_TjMKQ][inet[/192.168.1.141:9300]]
+org.elasticsearch.transport.ConnectTransportException: [Nuke - Frank Simpson][inet[/192.168.1.141:9300]] connect_timeout[30s]
+	at org.elasticsearch.transport.netty.NettyTransport.connectToChannels(NettyTransport.java:665)
+	at org.elasticsearch.transport.netty.NettyTransport.connectToNode(NettyTransport.java:604)
+	at org.elasticsearch.transport.netty.NettyTransport.connectToNode(NettyTransport.java:574)
+	at org.elasticsearch.transport.TransportService.connectToNode(TransportService.java:127)
+	at org.elasticsearch.cluster.service.InternalClusterService$ReconnectToNodes.run(InternalClusterService.java:395)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:695)
+Caused by: java.net.ConnectException: connection timed out
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.processConnectTimeout(NioClientBoss.java:136)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.process(NioClientBoss.java:82)
+	at org.elasticsearch.common.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:313)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.run(NioClientBoss.java:41)
+	at org.elasticsearch.common.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+	at org.elasticsearch.common.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+	... 3 more
+[2015-02-22 21:51:26,974][WARN ][cluster.service          ] [Nuke - Frank Simpson] failed to reconnect to node [Nuke - Frank Simpson][Bouh8eleQ_al0AqM_TjMKQ][inet[/192.168.1.141:9300]]
+org.elasticsearch.transport.ConnectTransportException: [Nuke - Frank Simpson][inet[/192.168.1.141:9300]] connect_timeout[30s]
+	at org.elasticsearch.transport.netty.NettyTransport.connectToChannels(NettyTransport.java:665)
+	at org.elasticsearch.transport.netty.NettyTransport.connectToNode(NettyTransport.java:604)
+	at org.elasticsearch.transport.netty.NettyTransport.connectToNode(NettyTransport.java:574)
+	at org.elasticsearch.transport.TransportService.connectToNode(TransportService.java:127)
+	at org.elasticsearch.cluster.service.InternalClusterService$ReconnectToNodes.run(InternalClusterService.java:395)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:695)
+Caused by: java.net.ConnectException: connection timed out
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.processConnectTimeout(NioClientBoss.java:136)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.process(NioClientBoss.java:82)
+	at org.elasticsearch.common.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:313)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.run(NioClientBoss.java:41)
+	at org.elasticsearch.common.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+	at org.elasticsearch.common.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+	... 3 more
+[2015-02-22 21:55:27,171][WARN ][cluster.service          ] [Nuke - Frank Simpson] failed to reconnect to node [Nuke - Frank Simpson][Bouh8eleQ_al0AqM_TjMKQ][inet[/192.168.1.141:9300]]
+org.elasticsearch.transport.ConnectTransportException: [Nuke - Frank Simpson][inet[/192.168.1.141:9300]] connect_timeout[30s]
+	at org.elasticsearch.transport.netty.NettyTransport.connectToChannels(NettyTransport.java:665)
+	at org.elasticsearch.transport.netty.NettyTransport.connectToNode(NettyTransport.java:604)
+	at org.elasticsearch.transport.netty.NettyTransport.connectToNode(NettyTransport.java:574)
+	at org.elasticsearch.transport.TransportService.connectToNode(TransportService.java:127)
+	at org.elasticsearch.cluster.service.InternalClusterService$ReconnectToNodes.run(InternalClusterService.java:395)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:695)
+Caused by: java.net.ConnectException: connection timed out
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.processConnectTimeout(NioClientBoss.java:136)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.process(NioClientBoss.java:82)
+	at org.elasticsearch.common.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:313)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.run(NioClientBoss.java:41)
+	at org.elasticsearch.common.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+	at org.elasticsearch.common.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+	... 3 more
+[2015-02-22 21:59:27,372][WARN ][cluster.service          ] [Nuke - Frank Simpson] failed to reconnect to node [Nuke - Frank Simpson][Bouh8eleQ_al0AqM_TjMKQ][inet[/192.168.1.141:9300]]
+org.elasticsearch.transport.ConnectTransportException: [Nuke - Frank Simpson][inet[/192.168.1.141:9300]] connect_timeout[30s]
+	at org.elasticsearch.transport.netty.NettyTransport.connectToChannels(NettyTransport.java:665)
+	at org.elasticsearch.transport.netty.NettyTransport.connectToNode(NettyTransport.java:604)
+	at org.elasticsearch.transport.netty.NettyTransport.connectToNode(NettyTransport.java:574)
+	at org.elasticsearch.transport.TransportService.connectToNode(TransportService.java:127)
+	at org.elasticsearch.cluster.service.InternalClusterService$ReconnectToNodes.run(InternalClusterService.java:395)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:695)
+Caused by: java.net.ConnectException: connection timed out
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.processConnectTimeout(NioClientBoss.java:136)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.process(NioClientBoss.java:82)
+	at org.elasticsearch.common.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:313)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.run(NioClientBoss.java:41)
+	at org.elasticsearch.common.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+	at org.elasticsearch.common.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+	... 3 more
+[2015-02-22 22:03:27,572][WARN ][cluster.service          ] [Nuke - Frank Simpson] failed to reconnect to node [Nuke - Frank Simpson][Bouh8eleQ_al0AqM_TjMKQ][inet[/192.168.1.141:9300]]
+org.elasticsearch.transport.ConnectTransportException: [Nuke - Frank Simpson][inet[/192.168.1.141:9300]] connect_timeout[30s]
+	at org.elasticsearch.transport.netty.NettyTransport.connectToChannels(NettyTransport.java:665)
+	at org.elasticsearch.transport.netty.NettyTransport.connectToNode(NettyTransport.java:604)
+	at org.elasticsearch.transport.netty.NettyTransport.connectToNode(NettyTransport.java:574)
+	at org.elasticsearch.transport.TransportService.connectToNode(TransportService.java:127)
+	at org.elasticsearch.cluster.service.InternalClusterService$ReconnectToNodes.run(InternalClusterService.java:395)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:695)
+Caused by: java.net.ConnectException: connection timed out
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.processConnectTimeout(NioClientBoss.java:136)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.process(NioClientBoss.java:82)
+	at org.elasticsearch.common.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:313)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.run(NioClientBoss.java:41)
+	at org.elasticsearch.common.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+	at org.elasticsearch.common.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+	... 3 more
+[2015-02-22 22:07:27,774][WARN ][cluster.service          ] [Nuke - Frank Simpson] failed to reconnect to node [Nuke - Frank Simpson][Bouh8eleQ_al0AqM_TjMKQ][inet[/192.168.1.141:9300]]
+org.elasticsearch.transport.ConnectTransportException: [Nuke - Frank Simpson][inet[/192.168.1.141:9300]] connect_timeout[30s]
+	at org.elasticsearch.transport.netty.NettyTransport.connectToChannels(NettyTransport.java:665)
+	at org.elasticsearch.transport.netty.NettyTransport.connectToNode(NettyTransport.java:604)
+	at org.elasticsearch.transport.netty.NettyTransport.connectToNode(NettyTransport.java:574)
+	at org.elasticsearch.transport.TransportService.connectToNode(TransportService.java:127)
+	at org.elasticsearch.cluster.service.InternalClusterService$ReconnectToNodes.run(InternalClusterService.java:395)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:695)
+Caused by: java.net.ConnectException: connection timed out
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.processConnectTimeout(NioClientBoss.java:136)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.process(NioClientBoss.java:82)
+	at org.elasticsearch.common.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:313)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.run(NioClientBoss.java:41)
+	at org.elasticsearch.common.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+	at org.elasticsearch.common.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+	... 3 more
+[2015-02-22 22:11:27,968][WARN ][cluster.service          ] [Nuke - Frank Simpson] failed to reconnect to node [Nuke - Frank Simpson][Bouh8eleQ_al0AqM_TjMKQ][inet[/192.168.1.141:9300]]
+org.elasticsearch.transport.ConnectTransportException: [Nuke - Frank Simpson][inet[/192.168.1.141:9300]] connect_timeout[30s]
+	at org.elasticsearch.transport.netty.NettyTransport.connectToChannels(NettyTransport.java:665)
+	at org.elasticsearch.transport.netty.NettyTransport.connectToNode(NettyTransport.java:604)
+	at org.elasticsearch.transport.netty.NettyTransport.connectToNode(NettyTransport.java:574)
+	at org.elasticsearch.transport.TransportService.connectToNode(TransportService.java:127)
+	at org.elasticsearch.cluster.service.InternalClusterService$ReconnectToNodes.run(InternalClusterService.java:395)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:695)
+Caused by: java.net.ConnectException: connection timed out
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.processConnectTimeout(NioClientBoss.java:136)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.process(NioClientBoss.java:82)
+	at org.elasticsearch.common.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:313)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.run(NioClientBoss.java:41)
+	at org.elasticsearch.common.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+	at org.elasticsearch.common.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+	... 3 more
+[2015-02-22 22:15:28,168][WARN ][cluster.service          ] [Nuke - Frank Simpson] failed to reconnect to node [Nuke - Frank Simpson][Bouh8eleQ_al0AqM_TjMKQ][inet[/192.168.1.141:9300]]
+org.elasticsearch.transport.ConnectTransportException: [Nuke - Frank Simpson][inet[/192.168.1.141:9300]] connect_timeout[30s]
+	at org.elasticsearch.transport.netty.NettyTransport.connectToChannels(NettyTransport.java:665)
+	at org.elasticsearch.transport.netty.NettyTransport.connectToNode(NettyTransport.java:604)
+	at org.elasticsearch.transport.netty.NettyTransport.connectToNode(NettyTransport.java:574)
+	at org.elasticsearch.transport.TransportService.connectToNode(TransportService.java:127)
+	at org.elasticsearch.cluster.service.InternalClusterService$ReconnectToNodes.run(InternalClusterService.java:395)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:695)
+Caused by: java.net.ConnectException: connection timed out
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.processConnectTimeout(NioClientBoss.java:136)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.process(NioClientBoss.java:82)
+	at org.elasticsearch.common.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:313)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.run(NioClientBoss.java:41)
+	at org.elasticsearch.common.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+	at org.elasticsearch.common.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+	... 3 more
+[2015-02-22 22:19:28,381][WARN ][cluster.service          ] [Nuke - Frank Simpson] failed to reconnect to node [Nuke - Frank Simpson][Bouh8eleQ_al0AqM_TjMKQ][inet[/192.168.1.141:9300]]
+org.elasticsearch.transport.ConnectTransportException: [Nuke - Frank Simpson][inet[/192.168.1.141:9300]] connect_timeout[30s]
+	at org.elasticsearch.transport.netty.NettyTransport.connectToChannels(NettyTransport.java:665)
+	at org.elasticsearch.transport.netty.NettyTransport.connectToNode(NettyTransport.java:604)
+	at org.elasticsearch.transport.netty.NettyTransport.connectToNode(NettyTransport.java:574)
+	at org.elasticsearch.transport.TransportService.connectToNode(TransportService.java:127)
+	at org.elasticsearch.cluster.service.InternalClusterService$ReconnectToNodes.run(InternalClusterService.java:395)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:695)
+Caused by: java.net.ConnectException: connection timed out
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.processConnectTimeout(NioClientBoss.java:136)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.process(NioClientBoss.java:82)
+	at org.elasticsearch.common.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:313)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.run(NioClientBoss.java:41)
+	at org.elasticsearch.common.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+	at org.elasticsearch.common.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+	... 3 more
+[2015-02-22 22:23:28,583][WARN ][cluster.service          ] [Nuke - Frank Simpson] failed to reconnect to node [Nuke - Frank Simpson][Bouh8eleQ_al0AqM_TjMKQ][inet[/192.168.1.141:9300]]
+org.elasticsearch.transport.ConnectTransportException: [Nuke - Frank Simpson][inet[/192.168.1.141:9300]] connect_timeout[30s]
+	at org.elasticsearch.transport.netty.NettyTransport.connectToChannels(NettyTransport.java:665)
+	at org.elasticsearch.transport.netty.NettyTransport.connectToNode(NettyTransport.java:604)
+	at org.elasticsearch.transport.netty.NettyTransport.connectToNode(NettyTransport.java:574)
+	at org.elasticsearch.transport.TransportService.connectToNode(TransportService.java:127)
+	at org.elasticsearch.cluster.service.InternalClusterService$ReconnectToNodes.run(InternalClusterService.java:395)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:695)
+Caused by: java.net.ConnectException: connection timed out
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.processConnectTimeout(NioClientBoss.java:136)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.process(NioClientBoss.java:82)
+	at org.elasticsearch.common.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:313)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.run(NioClientBoss.java:41)
+	at org.elasticsearch.common.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+	at org.elasticsearch.common.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+	... 3 more
+[2015-02-22 22:27:28,783][WARN ][cluster.service          ] [Nuke - Frank Simpson] failed to reconnect to node [Nuke - Frank Simpson][Bouh8eleQ_al0AqM_TjMKQ][inet[/192.168.1.141:9300]]
+org.elasticsearch.transport.ConnectTransportException: [Nuke - Frank Simpson][inet[/192.168.1.141:9300]] connect_timeout[30s]
+	at org.elasticsearch.transport.netty.NettyTransport.connectToChannels(NettyTransport.java:665)
+	at org.elasticsearch.transport.netty.NettyTransport.connectToNode(NettyTransport.java:604)
+	at org.elasticsearch.transport.netty.NettyTransport.connectToNode(NettyTransport.java:574)
+	at org.elasticsearch.transport.TransportService.connectToNode(TransportService.java:127)
+	at org.elasticsearch.cluster.service.InternalClusterService$ReconnectToNodes.run(InternalClusterService.java:395)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:695)
+Caused by: java.net.ConnectException: connection timed out
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.processConnectTimeout(NioClientBoss.java:136)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.process(NioClientBoss.java:82)
+	at org.elasticsearch.common.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:313)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.run(NioClientBoss.java:41)
+	at org.elasticsearch.common.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+	at org.elasticsearch.common.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+	... 3 more
+[2015-02-22 22:31:28,983][WARN ][cluster.service          ] [Nuke - Frank Simpson] failed to reconnect to node [Nuke - Frank Simpson][Bouh8eleQ_al0AqM_TjMKQ][inet[/192.168.1.141:9300]]
+org.elasticsearch.transport.ConnectTransportException: [Nuke - Frank Simpson][inet[/192.168.1.141:9300]] connect_timeout[30s]
+	at org.elasticsearch.transport.netty.NettyTransport.connectToChannels(NettyTransport.java:665)
+	at org.elasticsearch.transport.netty.NettyTransport.connectToNode(NettyTransport.java:604)
+	at org.elasticsearch.transport.netty.NettyTransport.connectToNode(NettyTransport.java:574)
+	at org.elasticsearch.transport.TransportService.connectToNode(TransportService.java:127)
+	at org.elasticsearch.cluster.service.InternalClusterService$ReconnectToNodes.run(InternalClusterService.java:395)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:695)
+Caused by: java.net.ConnectException: connection timed out
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.processConnectTimeout(NioClientBoss.java:136)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.process(NioClientBoss.java:82)
+	at org.elasticsearch.common.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:313)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.run(NioClientBoss.java:41)
+	at org.elasticsearch.common.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+	at org.elasticsearch.common.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+	... 3 more
+[2015-02-22 22:35:29,183][WARN ][cluster.service          ] [Nuke - Frank Simpson] failed to reconnect to node [Nuke - Frank Simpson][Bouh8eleQ_al0AqM_TjMKQ][inet[/192.168.1.141:9300]]
+org.elasticsearch.transport.ConnectTransportException: [Nuke - Frank Simpson][inet[/192.168.1.141:9300]] connect_timeout[30s]
+	at org.elasticsearch.transport.netty.NettyTransport.connectToChannels(NettyTransport.java:665)
+	at org.elasticsearch.transport.netty.NettyTransport.connectToNode(NettyTransport.java:604)
+	at org.elasticsearch.transport.netty.NettyTransport.connectToNode(NettyTransport.java:574)
+	at org.elasticsearch.transport.TransportService.connectToNode(TransportService.java:127)
+	at org.elasticsearch.cluster.service.InternalClusterService$ReconnectToNodes.run(InternalClusterService.java:395)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:695)
+Caused by: java.net.ConnectException: connection timed out
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.processConnectTimeout(NioClientBoss.java:136)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.process(NioClientBoss.java:82)
+	at org.elasticsearch.common.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:313)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.run(NioClientBoss.java:41)
+	at org.elasticsearch.common.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+	at org.elasticsearch.common.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+	... 3 more
+[2015-02-22 22:39:29,383][WARN ][cluster.service          ] [Nuke - Frank Simpson] failed to reconnect to node [Nuke - Frank Simpson][Bouh8eleQ_al0AqM_TjMKQ][inet[/192.168.1.141:9300]]
+org.elasticsearch.transport.ConnectTransportException: [Nuke - Frank Simpson][inet[/192.168.1.141:9300]] connect_timeout[30s]
+	at org.elasticsearch.transport.netty.NettyTransport.connectToChannels(NettyTransport.java:665)
+	at org.elasticsearch.transport.netty.NettyTransport.connectToNode(NettyTransport.java:604)
+	at org.elasticsearch.transport.netty.NettyTransport.connectToNode(NettyTransport.java:574)
+	at org.elasticsearch.transport.TransportService.connectToNode(TransportService.java:127)
+	at org.elasticsearch.cluster.service.InternalClusterService$ReconnectToNodes.run(InternalClusterService.java:395)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:695)
+Caused by: java.net.ConnectException: connection timed out
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.processConnectTimeout(NioClientBoss.java:136)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.process(NioClientBoss.java:82)
+	at org.elasticsearch.common.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:313)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.run(NioClientBoss.java:41)
+	at org.elasticsearch.common.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+	at org.elasticsearch.common.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+	... 3 more
+[2015-02-22 22:43:29,583][WARN ][cluster.service          ] [Nuke - Frank Simpson] failed to reconnect to node [Nuke - Frank Simpson][Bouh8eleQ_al0AqM_TjMKQ][inet[/192.168.1.141:9300]]
+org.elasticsearch.transport.ConnectTransportException: [Nuke - Frank Simpson][inet[/192.168.1.141:9300]] connect_timeout[30s]
+	at org.elasticsearch.transport.netty.NettyTransport.connectToChannels(NettyTransport.java:665)
+	at org.elasticsearch.transport.netty.NettyTransport.connectToNode(NettyTransport.java:604)
+	at org.elasticsearch.transport.netty.NettyTransport.connectToNode(NettyTransport.java:574)
+	at org.elasticsearch.transport.TransportService.connectToNode(TransportService.java:127)
+	at org.elasticsearch.cluster.service.InternalClusterService$ReconnectToNodes.run(InternalClusterService.java:395)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:695)
+Caused by: java.net.ConnectException: connection timed out
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.processConnectTimeout(NioClientBoss.java:136)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.process(NioClientBoss.java:82)
+	at org.elasticsearch.common.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:313)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.run(NioClientBoss.java:41)
+	at org.elasticsearch.common.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+	at org.elasticsearch.common.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+	... 3 more
+[2015-02-22 22:47:29,783][WARN ][cluster.service          ] [Nuke - Frank Simpson] failed to reconnect to node [Nuke - Frank Simpson][Bouh8eleQ_al0AqM_TjMKQ][inet[/192.168.1.141:9300]]
+org.elasticsearch.transport.ConnectTransportException: [Nuke - Frank Simpson][inet[/192.168.1.141:9300]] connect_timeout[30s]
+	at org.elasticsearch.transport.netty.NettyTransport.connectToChannels(NettyTransport.java:665)
+	at org.elasticsearch.transport.netty.NettyTransport.connectToNode(NettyTransport.java:604)
+	at org.elasticsearch.transport.netty.NettyTransport.connectToNode(NettyTransport.java:574)
+	at org.elasticsearch.transport.TransportService.connectToNode(TransportService.java:127)
+	at org.elasticsearch.cluster.service.InternalClusterService$ReconnectToNodes.run(InternalClusterService.java:395)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:695)
+Caused by: java.net.ConnectException: connection timed out
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.processConnectTimeout(NioClientBoss.java:136)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.process(NioClientBoss.java:82)
+	at org.elasticsearch.common.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:313)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.run(NioClientBoss.java:41)
+	at org.elasticsearch.common.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+	at org.elasticsearch.common.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+	... 3 more
+[2015-02-22 22:51:29,983][WARN ][cluster.service          ] [Nuke - Frank Simpson] failed to reconnect to node [Nuke - Frank Simpson][Bouh8eleQ_al0AqM_TjMKQ][inet[/192.168.1.141:9300]]
+org.elasticsearch.transport.ConnectTransportException: [Nuke - Frank Simpson][inet[/192.168.1.141:9300]] connect_timeout[30s]
+	at org.elasticsearch.transport.netty.NettyTransport.connectToChannels(NettyTransport.java:665)
+	at org.elasticsearch.transport.netty.NettyTransport.connectToNode(NettyTransport.java:604)
+	at org.elasticsearch.transport.netty.NettyTransport.connectToNode(NettyTransport.java:574)
+	at org.elasticsearch.transport.TransportService.connectToNode(TransportService.java:127)
+	at org.elasticsearch.cluster.service.InternalClusterService$ReconnectToNodes.run(InternalClusterService.java:395)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:695)
+Caused by: java.net.ConnectException: connection timed out
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.processConnectTimeout(NioClientBoss.java:136)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.process(NioClientBoss.java:82)
+	at org.elasticsearch.common.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:313)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.run(NioClientBoss.java:41)
+	at org.elasticsearch.common.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+	at org.elasticsearch.common.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+	... 3 more
+[2015-02-22 22:55:30,179][WARN ][cluster.service          ] [Nuke - Frank Simpson] failed to reconnect to node [Nuke - Frank Simpson][Bouh8eleQ_al0AqM_TjMKQ][inet[/192.168.1.141:9300]]
+org.elasticsearch.transport.ConnectTransportException: [Nuke - Frank Simpson][inet[/192.168.1.141:9300]] connect_timeout[30s]
+	at org.elasticsearch.transport.netty.NettyTransport.connectToChannels(NettyTransport.java:665)
+	at org.elasticsearch.transport.netty.NettyTransport.connectToNode(NettyTransport.java:604)
+	at org.elasticsearch.transport.netty.NettyTransport.connectToNode(NettyTransport.java:574)
+	at org.elasticsearch.transport.TransportService.connectToNode(TransportService.java:127)
+	at org.elasticsearch.cluster.service.InternalClusterService$ReconnectToNodes.run(InternalClusterService.java:395)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:695)
+Caused by: java.net.ConnectException: connection timed out
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.processConnectTimeout(NioClientBoss.java:136)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.process(NioClientBoss.java:82)
+	at org.elasticsearch.common.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:313)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.run(NioClientBoss.java:41)
+	at org.elasticsearch.common.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+	at org.elasticsearch.common.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+	... 3 more
+[2015-02-22 22:59:30,343][WARN ][cluster.service          ] [Nuke - Frank Simpson] failed to reconnect to node [Nuke - Frank Simpson][Bouh8eleQ_al0AqM_TjMKQ][inet[/192.168.1.141:9300]]
+org.elasticsearch.transport.ConnectTransportException: [Nuke - Frank Simpson][inet[/192.168.1.141:9300]] connect_timeout[30s]
+	at org.elasticsearch.transport.netty.NettyTransport.connectToChannels(NettyTransport.java:665)
+	at org.elasticsearch.transport.netty.NettyTransport.connectToNode(NettyTransport.java:604)
+	at org.elasticsearch.transport.netty.NettyTransport.connectToNode(NettyTransport.java:574)
+	at org.elasticsearch.transport.TransportService.connectToNode(TransportService.java:127)
+	at org.elasticsearch.cluster.service.InternalClusterService$ReconnectToNodes.run(InternalClusterService.java:395)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:695)
+Caused by: java.net.ConnectException: connection timed out
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.processConnectTimeout(NioClientBoss.java:136)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.process(NioClientBoss.java:82)
+	at org.elasticsearch.common.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:313)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.run(NioClientBoss.java:41)
+	at org.elasticsearch.common.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+	at org.elasticsearch.common.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+	... 3 more
+[2015-02-22 23:03:30,633][WARN ][cluster.service          ] [Nuke - Frank Simpson] failed to reconnect to node [Nuke - Frank Simpson][Bouh8eleQ_al0AqM_TjMKQ][inet[/192.168.1.141:9300]]
+org.elasticsearch.transport.ConnectTransportException: [Nuke - Frank Simpson][inet[/192.168.1.141:9300]] connect_timeout[30s]
+	at org.elasticsearch.transport.netty.NettyTransport.connectToChannels(NettyTransport.java:665)
+	at org.elasticsearch.transport.netty.NettyTransport.connectToNode(NettyTransport.java:604)
+	at org.elasticsearch.transport.netty.NettyTransport.connectToNode(NettyTransport.java:574)
+	at org.elasticsearch.transport.TransportService.connectToNode(TransportService.java:127)
+	at org.elasticsearch.cluster.service.InternalClusterService$ReconnectToNodes.run(InternalClusterService.java:395)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:695)
+Caused by: java.net.ConnectException: connection timed out
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.processConnectTimeout(NioClientBoss.java:136)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.process(NioClientBoss.java:82)
+	at org.elasticsearch.common.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:313)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.run(NioClientBoss.java:41)
+	at org.elasticsearch.common.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+	at org.elasticsearch.common.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+	... 3 more
+[2015-02-22 23:07:30,878][WARN ][cluster.service          ] [Nuke - Frank Simpson] failed to reconnect to node [Nuke - Frank Simpson][Bouh8eleQ_al0AqM_TjMKQ][inet[/192.168.1.141:9300]]
+org.elasticsearch.transport.ConnectTransportException: [Nuke - Frank Simpson][inet[/192.168.1.141:9300]] connect_timeout[30s]
+	at org.elasticsearch.transport.netty.NettyTransport.connectToChannels(NettyTransport.java:665)
+	at org.elasticsearch.transport.netty.NettyTransport.connectToNode(NettyTransport.java:604)
+	at org.elasticsearch.transport.netty.NettyTransport.connectToNode(NettyTransport.java:574)
+	at org.elasticsearch.transport.TransportService.connectToNode(TransportService.java:127)
+	at org.elasticsearch.cluster.service.InternalClusterService$ReconnectToNodes.run(InternalClusterService.java:395)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:695)
+Caused by: java.net.ConnectException: connection timed out
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.processConnectTimeout(NioClientBoss.java:136)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.process(NioClientBoss.java:82)
+	at org.elasticsearch.common.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:313)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.run(NioClientBoss.java:41)
+	at org.elasticsearch.common.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+	at org.elasticsearch.common.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+	... 3 more
+[2015-02-22 23:11:31,083][WARN ][cluster.service          ] [Nuke - Frank Simpson] failed to reconnect to node [Nuke - Frank Simpson][Bouh8eleQ_al0AqM_TjMKQ][inet[/192.168.1.141:9300]]
+org.elasticsearch.transport.ConnectTransportException: [Nuke - Frank Simpson][inet[/192.168.1.141:9300]] connect_timeout[30s]
+	at org.elasticsearch.transport.netty.NettyTransport.connectToChannels(NettyTransport.java:665)
+	at org.elasticsearch.transport.netty.NettyTransport.connectToNode(NettyTransport.java:604)
+	at org.elasticsearch.transport.netty.NettyTransport.connectToNode(NettyTransport.java:574)
+	at org.elasticsearch.transport.TransportService.connectToNode(TransportService.java:127)
+	at org.elasticsearch.cluster.service.InternalClusterService$ReconnectToNodes.run(InternalClusterService.java:395)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:695)
+Caused by: java.net.ConnectException: connection timed out
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.processConnectTimeout(NioClientBoss.java:136)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.process(NioClientBoss.java:82)
+	at org.elasticsearch.common.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:313)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.run(NioClientBoss.java:41)
+	at org.elasticsearch.common.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+	at org.elasticsearch.common.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+	... 3 more
+[2015-02-22 23:15:31,283][WARN ][cluster.service          ] [Nuke - Frank Simpson] failed to reconnect to node [Nuke - Frank Simpson][Bouh8eleQ_al0AqM_TjMKQ][inet[/192.168.1.141:9300]]
+org.elasticsearch.transport.ConnectTransportException: [Nuke - Frank Simpson][inet[/192.168.1.141:9300]] connect_timeout[30s]
+	at org.elasticsearch.transport.netty.NettyTransport.connectToChannels(NettyTransport.java:665)
+	at org.elasticsearch.transport.netty.NettyTransport.connectToNode(NettyTransport.java:604)
+	at org.elasticsearch.transport.netty.NettyTransport.connectToNode(NettyTransport.java:574)
+	at org.elasticsearch.transport.TransportService.connectToNode(TransportService.java:127)
+	at org.elasticsearch.cluster.service.InternalClusterService$ReconnectToNodes.run(InternalClusterService.java:395)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:695)
+Caused by: java.net.ConnectException: connection timed out
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.processConnectTimeout(NioClientBoss.java:136)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.process(NioClientBoss.java:82)
+	at org.elasticsearch.common.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:313)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.run(NioClientBoss.java:41)
+	at org.elasticsearch.common.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+	at org.elasticsearch.common.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+	... 3 more
+[2015-02-22 23:19:31,533][WARN ][cluster.service          ] [Nuke - Frank Simpson] failed to reconnect to node [Nuke - Frank Simpson][Bouh8eleQ_al0AqM_TjMKQ][inet[/192.168.1.141:9300]]
+org.elasticsearch.transport.ConnectTransportException: [Nuke - Frank Simpson][inet[/192.168.1.141:9300]] connect_timeout[30s]
+	at org.elasticsearch.transport.netty.NettyTransport.connectToChannels(NettyTransport.java:665)
+	at org.elasticsearch.transport.netty.NettyTransport.connectToNode(NettyTransport.java:604)
+	at org.elasticsearch.transport.netty.NettyTransport.connectToNode(NettyTransport.java:574)
+	at org.elasticsearch.transport.TransportService.connectToNode(TransportService.java:127)
+	at org.elasticsearch.cluster.service.InternalClusterService$ReconnectToNodes.run(InternalClusterService.java:395)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:695)
+Caused by: java.net.ConnectException: connection timed out
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.processConnectTimeout(NioClientBoss.java:136)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.process(NioClientBoss.java:82)
+	at org.elasticsearch.common.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:313)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.run(NioClientBoss.java:41)
+	at org.elasticsearch.common.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+	at org.elasticsearch.common.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+	... 3 more
+[2015-02-22 23:23:31,780][WARN ][cluster.service          ] [Nuke - Frank Simpson] failed to reconnect to node [Nuke - Frank Simpson][Bouh8eleQ_al0AqM_TjMKQ][inet[/192.168.1.141:9300]]
+org.elasticsearch.transport.ConnectTransportException: [Nuke - Frank Simpson][inet[/192.168.1.141:9300]] connect_timeout[30s]
+	at org.elasticsearch.transport.netty.NettyTransport.connectToChannels(NettyTransport.java:665)
+	at org.elasticsearch.transport.netty.NettyTransport.connectToNode(NettyTransport.java:604)
+	at org.elasticsearch.transport.netty.NettyTransport.connectToNode(NettyTransport.java:574)
+	at org.elasticsearch.transport.TransportService.connectToNode(TransportService.java:127)
+	at org.elasticsearch.cluster.service.InternalClusterService$ReconnectToNodes.run(InternalClusterService.java:395)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:695)
+Caused by: java.net.ConnectException: connection timed out
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.processConnectTimeout(NioClientBoss.java:136)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.process(NioClientBoss.java:82)
+	at org.elasticsearch.common.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:313)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.run(NioClientBoss.java:41)
+	at org.elasticsearch.common.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+	at org.elasticsearch.common.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+	... 3 more
+[2015-02-22 23:27:31,983][WARN ][cluster.service          ] [Nuke - Frank Simpson] failed to reconnect to node [Nuke - Frank Simpson][Bouh8eleQ_al0AqM_TjMKQ][inet[/192.168.1.141:9300]]
+org.elasticsearch.transport.ConnectTransportException: [Nuke - Frank Simpson][inet[/192.168.1.141:9300]] connect_timeout[30s]
+	at org.elasticsearch.transport.netty.NettyTransport.connectToChannels(NettyTransport.java:665)
+	at org.elasticsearch.transport.netty.NettyTransport.connectToNode(NettyTransport.java:604)
+	at org.elasticsearch.transport.netty.NettyTransport.connectToNode(NettyTransport.java:574)
+	at org.elasticsearch.transport.TransportService.connectToNode(TransportService.java:127)
+	at org.elasticsearch.cluster.service.InternalClusterService$ReconnectToNodes.run(InternalClusterService.java:395)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:695)
+Caused by: java.net.ConnectException: connection timed out
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.processConnectTimeout(NioClientBoss.java:136)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.process(NioClientBoss.java:82)
+	at org.elasticsearch.common.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:313)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.run(NioClientBoss.java:41)
+	at org.elasticsearch.common.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+	at org.elasticsearch.common.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+	... 3 more
+[2015-02-22 23:31:32,279][WARN ][cluster.service          ] [Nuke - Frank Simpson] failed to reconnect to node [Nuke - Frank Simpson][Bouh8eleQ_al0AqM_TjMKQ][inet[/192.168.1.141:9300]]
+org.elasticsearch.transport.ConnectTransportException: [Nuke - Frank Simpson][inet[/192.168.1.141:9300]] connect_timeout[30s]
+	at org.elasticsearch.transport.netty.NettyTransport.connectToChannels(NettyTransport.java:665)
+	at org.elasticsearch.transport.netty.NettyTransport.connectToNode(NettyTransport.java:604)
+	at org.elasticsearch.transport.netty.NettyTransport.connectToNode(NettyTransport.java:574)
+	at org.elasticsearch.transport.TransportService.connectToNode(TransportService.java:127)
+	at org.elasticsearch.cluster.service.InternalClusterService$ReconnectToNodes.run(InternalClusterService.java:395)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:695)
+Caused by: java.net.ConnectException: connection timed out
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.processConnectTimeout(NioClientBoss.java:136)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.process(NioClientBoss.java:82)
+	at org.elasticsearch.common.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:313)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.run(NioClientBoss.java:41)
+	at org.elasticsearch.common.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+	at org.elasticsearch.common.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+	... 3 more
+[2015-02-22 23:35:32,483][WARN ][cluster.service          ] [Nuke - Frank Simpson] failed to reconnect to node [Nuke - Frank Simpson][Bouh8eleQ_al0AqM_TjMKQ][inet[/192.168.1.141:9300]]
+org.elasticsearch.transport.ConnectTransportException: [Nuke - Frank Simpson][inet[/192.168.1.141:9300]] connect_timeout[30s]
+	at org.elasticsearch.transport.netty.NettyTransport.connectToChannels(NettyTransport.java:665)
+	at org.elasticsearch.transport.netty.NettyTransport.connectToNode(NettyTransport.java:604)
+	at org.elasticsearch.transport.netty.NettyTransport.connectToNode(NettyTransport.java:574)
+	at org.elasticsearch.transport.TransportService.connectToNode(TransportService.java:127)
+	at org.elasticsearch.cluster.service.InternalClusterService$ReconnectToNodes.run(InternalClusterService.java:395)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:695)
+Caused by: java.net.ConnectException: connection timed out
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.processConnectTimeout(NioClientBoss.java:136)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.process(NioClientBoss.java:82)
+	at org.elasticsearch.common.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:313)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.run(NioClientBoss.java:41)
+	at org.elasticsearch.common.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+	at org.elasticsearch.common.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+	... 3 more
+[2015-02-22 23:39:32,783][WARN ][cluster.service          ] [Nuke - Frank Simpson] failed to reconnect to node [Nuke - Frank Simpson][Bouh8eleQ_al0AqM_TjMKQ][inet[/192.168.1.141:9300]]
+org.elasticsearch.transport.ConnectTransportException: [Nuke - Frank Simpson][inet[/192.168.1.141:9300]] connect_timeout[30s]
+	at org.elasticsearch.transport.netty.NettyTransport.connectToChannels(NettyTransport.java:665)
+	at org.elasticsearch.transport.netty.NettyTransport.connectToNode(NettyTransport.java:604)
+	at org.elasticsearch.transport.netty.NettyTransport.connectToNode(NettyTransport.java:574)
+	at org.elasticsearch.transport.TransportService.connectToNode(TransportService.java:127)
+	at org.elasticsearch.cluster.service.InternalClusterService$ReconnectToNodes.run(InternalClusterService.java:395)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:695)
+Caused by: java.net.ConnectException: connection timed out
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.processConnectTimeout(NioClientBoss.java:136)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.process(NioClientBoss.java:82)
+	at org.elasticsearch.common.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:313)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.run(NioClientBoss.java:41)
+	at org.elasticsearch.common.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+	at org.elasticsearch.common.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+	... 3 more
+[2015-02-22 23:43:33,083][WARN ][cluster.service          ] [Nuke - Frank Simpson] failed to reconnect to node [Nuke - Frank Simpson][Bouh8eleQ_al0AqM_TjMKQ][inet[/192.168.1.141:9300]]
+org.elasticsearch.transport.ConnectTransportException: [Nuke - Frank Simpson][inet[/192.168.1.141:9300]] connect_timeout[30s]
+	at org.elasticsearch.transport.netty.NettyTransport.connectToChannels(NettyTransport.java:665)
+	at org.elasticsearch.transport.netty.NettyTransport.connectToNode(NettyTransport.java:604)
+	at org.elasticsearch.transport.netty.NettyTransport.connectToNode(NettyTransport.java:574)
+	at org.elasticsearch.transport.TransportService.connectToNode(TransportService.java:127)
+	at org.elasticsearch.cluster.service.InternalClusterService$ReconnectToNodes.run(InternalClusterService.java:395)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:695)
+Caused by: java.net.ConnectException: connection timed out
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.processConnectTimeout(NioClientBoss.java:136)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.process(NioClientBoss.java:82)
+	at org.elasticsearch.common.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:313)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.run(NioClientBoss.java:41)
+	at org.elasticsearch.common.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+	at org.elasticsearch.common.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+	... 3 more
+[2015-02-22 23:47:33,384][WARN ][cluster.service          ] [Nuke - Frank Simpson] failed to reconnect to node [Nuke - Frank Simpson][Bouh8eleQ_al0AqM_TjMKQ][inet[/192.168.1.141:9300]]
+org.elasticsearch.transport.ConnectTransportException: [Nuke - Frank Simpson][inet[/192.168.1.141:9300]] connect_timeout[30s]
+	at org.elasticsearch.transport.netty.NettyTransport.connectToChannels(NettyTransport.java:665)
+	at org.elasticsearch.transport.netty.NettyTransport.connectToNode(NettyTransport.java:604)
+	at org.elasticsearch.transport.netty.NettyTransport.connectToNode(NettyTransport.java:574)
+	at org.elasticsearch.transport.TransportService.connectToNode(TransportService.java:127)
+	at org.elasticsearch.cluster.service.InternalClusterService$ReconnectToNodes.run(InternalClusterService.java:395)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:695)
+Caused by: java.net.ConnectException: connection timed out
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.processConnectTimeout(NioClientBoss.java:136)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.process(NioClientBoss.java:82)
+	at org.elasticsearch.common.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:313)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.run(NioClientBoss.java:41)
+	at org.elasticsearch.common.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+	at org.elasticsearch.common.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+	... 3 more
+[2015-02-22 23:51:33,683][WARN ][cluster.service          ] [Nuke - Frank Simpson] failed to reconnect to node [Nuke - Frank Simpson][Bouh8eleQ_al0AqM_TjMKQ][inet[/192.168.1.141:9300]]
+org.elasticsearch.transport.ConnectTransportException: [Nuke - Frank Simpson][inet[/192.168.1.141:9300]] connect_timeout[30s]
+	at org.elasticsearch.transport.netty.NettyTransport.connectToChannels(NettyTransport.java:665)
+	at org.elasticsearch.transport.netty.NettyTransport.connectToNode(NettyTransport.java:604)
+	at org.elasticsearch.transport.netty.NettyTransport.connectToNode(NettyTransport.java:574)
+	at org.elasticsearch.transport.TransportService.connectToNode(TransportService.java:127)
+	at org.elasticsearch.cluster.service.InternalClusterService$ReconnectToNodes.run(InternalClusterService.java:395)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:695)
+Caused by: java.net.ConnectException: connection timed out
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.processConnectTimeout(NioClientBoss.java:136)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.process(NioClientBoss.java:82)
+	at org.elasticsearch.common.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:313)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.run(NioClientBoss.java:41)
+	at org.elasticsearch.common.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+	at org.elasticsearch.common.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+	... 3 more
+[2015-02-22 23:55:33,984][WARN ][cluster.service          ] [Nuke - Frank Simpson] failed to reconnect to node [Nuke - Frank Simpson][Bouh8eleQ_al0AqM_TjMKQ][inet[/192.168.1.141:9300]]
+org.elasticsearch.transport.ConnectTransportException: [Nuke - Frank Simpson][inet[/192.168.1.141:9300]] connect_timeout[30s]
+	at org.elasticsearch.transport.netty.NettyTransport.connectToChannels(NettyTransport.java:665)
+	at org.elasticsearch.transport.netty.NettyTransport.connectToNode(NettyTransport.java:604)
+	at org.elasticsearch.transport.netty.NettyTransport.connectToNode(NettyTransport.java:574)
+	at org.elasticsearch.transport.TransportService.connectToNode(TransportService.java:127)
+	at org.elasticsearch.cluster.service.InternalClusterService$ReconnectToNodes.run(InternalClusterService.java:395)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:695)
+Caused by: java.net.ConnectException: connection timed out
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.processConnectTimeout(NioClientBoss.java:136)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.process(NioClientBoss.java:82)
+	at org.elasticsearch.common.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:313)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.run(NioClientBoss.java:41)
+	at org.elasticsearch.common.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+	at org.elasticsearch.common.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+	... 3 more
+[2015-02-22 23:59:34,283][WARN ][cluster.service          ] [Nuke - Frank Simpson] failed to reconnect to node [Nuke - Frank Simpson][Bouh8eleQ_al0AqM_TjMKQ][inet[/192.168.1.141:9300]]
+org.elasticsearch.transport.ConnectTransportException: [Nuke - Frank Simpson][inet[/192.168.1.141:9300]] connect_timeout[30s]
+	at org.elasticsearch.transport.netty.NettyTransport.connectToChannels(NettyTransport.java:665)
+	at org.elasticsearch.transport.netty.NettyTransport.connectToNode(NettyTransport.java:604)
+	at org.elasticsearch.transport.netty.NettyTransport.connectToNode(NettyTransport.java:574)
+	at org.elasticsearch.transport.TransportService.connectToNode(TransportService.java:127)
+	at org.elasticsearch.cluster.service.InternalClusterService$ReconnectToNodes.run(InternalClusterService.java:395)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:695)
+Caused by: java.net.ConnectException: connection timed out
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.processConnectTimeout(NioClientBoss.java:136)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.process(NioClientBoss.java:82)
+	at org.elasticsearch.common.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:313)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.run(NioClientBoss.java:41)
+	at org.elasticsearch.common.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+	at org.elasticsearch.common.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+	... 3 more

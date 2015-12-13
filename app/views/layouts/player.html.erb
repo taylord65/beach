@@ -31,10 +31,10 @@
 <div class="sticky">
 	<div style="border-bottom: 1px solid #2D2C2F;"> 
 	<nav class="top-bar" data-topbar role="navigation">
+	  
 	  <ul class="title-area">
-		
 	    <li class="name">
-	      <h1><%= link_to('beached.', streams_path)  %></h1>
+	      <h1><%= link_to('beached.', streams_path)%></h1>
 	    </li>
 	  </ul>
 
@@ -45,7 +45,7 @@
 		
 		<li>
 			<div id="showmenu">
-				<img src="<%= asset_path( 'menu_1.svg' ) %>" id="drop_menu"/> &nbsp &nbsp &nbsp &nbsp &nbsp
+				<img src="<%= asset_path( 'menu_1.svg' ) %>" id="drop_menu"/> &nbsp &nbsp &nbsp
 			</div>
 		</li>
 		
@@ -64,13 +64,23 @@
 		</div>			
 		</li>
 		
-		<li class="divider"></li>
+		<li class="divider"></li> 
+
+					<i style="position:absolute;display:inline-block;width:0.5em;height:0.5em;background-color:#2B5469;-moz-border-radius:50px;-webkit-border-radius: 50px;border-radius:50px;
+margin-left:5px;margin-top:22px"></i></span></span>
 		
-		<li>
-				<div id= "stream_title"><h1> <%= @stream.title %> </h1> </div>
-		</li>
-		
-			
+	<li>
+		<div id= "play_Controls">				
+			<div id= "stream_title"><h1> <%= @stream.title %> </h1> </div> &nbsp &nbsp
+		</div>
+	</li>
+	
+	<li>
+		<div id= "play_Controls">							
+			<div id= "subscriber_title"><h1> <%=@stream.subs %> <%= pluralize_without_count(@stream.subs, "subscriber")%></h1></div>
+		</div>
+	</li>	
+
 	    </ul>
 	  </section>
 	

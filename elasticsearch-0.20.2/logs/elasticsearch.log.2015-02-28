@@ -1,0 +1,22 @@
+[2015-02-28 09:12:40,984][WARN ][cluster.service          ] [Nuke - Frank Simpson] failed to reconnect to node [Nuke - Frank Simpson][Bouh8eleQ_al0AqM_TjMKQ][inet[/192.168.1.141:9300]]
+org.elasticsearch.transport.ConnectTransportException: [Nuke - Frank Simpson][inet[/192.168.1.141:9300]] connect_timeout[30s]
+	at org.elasticsearch.transport.netty.NettyTransport.connectToChannels(NettyTransport.java:665)
+	at org.elasticsearch.transport.netty.NettyTransport.connectToNode(NettyTransport.java:604)
+	at org.elasticsearch.transport.netty.NettyTransport.connectToNode(NettyTransport.java:574)
+	at org.elasticsearch.transport.TransportService.connectToNode(TransportService.java:127)
+	at org.elasticsearch.cluster.service.InternalClusterService$ReconnectToNodes.run(InternalClusterService.java:395)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:695)
+Caused by: java.net.ConnectException: connection timed out
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.processConnectTimeout(NioClientBoss.java:136)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.process(NioClientBoss.java:82)
+	at org.elasticsearch.common.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:313)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioClientBoss.run(NioClientBoss.java:41)
+	at org.elasticsearch.common.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+	at org.elasticsearch.common.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+	... 3 more
+[2015-02-28 09:13:48,355][INFO ][node                     ] [Nuke - Frank Simpson] {0.20.2}[847]: stopping ...
+[2015-02-28 09:14:01,386][INFO ][node                     ] [Nuke - Frank Simpson] {0.20.2}[847]: stopped
+[2015-02-28 09:14:01,387][INFO ][node                     ] [Nuke - Frank Simpson] {0.20.2}[847]: closing ...
+[2015-02-28 09:14:02,553][INFO ][node                     ] [Nuke - Frank Simpson] {0.20.2}[847]: closed
