@@ -24,7 +24,7 @@ module Beach
     config.autoload_paths << Rails.root.join('lib')
     
     config.serve_static_assets = true
-    
+    config.assets.enabled = true
     
     # Add the fonts path
     config.assets.paths << "#{Rails.root}/app/assets/fonts"
