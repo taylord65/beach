@@ -1,4 +1,5 @@
 require 'open-uri'
+require 'json'
 
 class Video < ActiveRecord::Base
   belongs_to :stream

@@ -1,6 +1,7 @@
 class FilterJob
   
-  require 'open-uri'
+require 'open-uri'
+require 'openssl'
   
 
 def perform

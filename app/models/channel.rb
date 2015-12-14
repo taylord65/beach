@@ -1,5 +1,7 @@
 class Channel < ActiveRecord::Base
   require 'uri'
+  require 'open-uri'
+  require 'openssl'
   
   belongs_to :stream
   

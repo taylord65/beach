@@ -29,6 +29,7 @@ class Stream < ActiveRecord::Base
    def download_playlist_videos(list_id)
      
      require 'open-uri'
+     require 'openssl'
       
       doc = Nokogiri::HTML(open("https://www.youtube.com/playlist?list=#{list_id}"))
       
@@ -63,6 +64,7 @@ class Stream < ActiveRecord::Base
       #could also get the most popular of all time from each channel
       
       require 'open-uri'
+      require 'openssl'
       
       if url =~ /channel/
         path = URI.parse(url).path

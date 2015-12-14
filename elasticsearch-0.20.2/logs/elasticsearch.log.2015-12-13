@@ -1,0 +1,10 @@
+[2015-12-12 14:34:21,678][INFO ][node                     ] [Trapster] {0.20.2}[34223]: initializing ...
+[2015-12-12 14:34:21,685][INFO ][plugins                  ] [Trapster] loaded [], sites []
+[2015-12-12 14:34:24,426][INFO ][node                     ] [Trapster] {0.20.2}[34223]: initialized
+[2015-12-12 14:34:24,427][INFO ][node                     ] [Trapster] {0.20.2}[34223]: starting ...
+[2015-12-12 14:34:24,536][INFO ][transport                ] [Trapster] bound_address {inet[/0:0:0:0:0:0:0:0%0:9300]}, publish_address {inet[/10.0.1.89:9300]}
+[2015-12-12 14:34:27,614][INFO ][cluster.service          ] [Trapster] new_master [Trapster][0makdqn6QlG8W2JCQ_55EA][inet[/10.0.1.89:9300]], reason: zen-disco-join (elected_as_master)
+[2015-12-12 14:34:27,654][INFO ][discovery                ] [Trapster] elasticsearch/0makdqn6QlG8W2JCQ_55EA
+[2015-12-12 14:34:27,693][INFO ][http                     ] [Trapster] bound_address {inet[/0:0:0:0:0:0:0:0%0:9200]}, publish_address {inet[/10.0.1.89:9200]}
+[2015-12-12 14:34:27,693][INFO ][node                     ] [Trapster] {0.20.2}[34223]: started
+[2015-12-12 14:34:28,315][INFO ][gateway                  ] [Trapster] recovered [1] indices into cluster_state

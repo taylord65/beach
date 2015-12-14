@@ -39,6 +39,16 @@
 
 	  <section class="top-bar-section">
 
+	  	<ul class="right">
+			<li>
+					<div id= "loginlink"><%= link_to('LOG IN', new_user_session_path) %></div>
+			</li>	
+
+			<li>
+				&nbsp &nbsp
+			</li>
+		</ul>
+
 	    <!-- Left Nav Section -->
 	    <ul class="left">	
 		
@@ -70,7 +80,7 @@ margin-left:5px;margin-top:22px"></i>
 		
 	<li>
 		<div id= "play_Controls">				
-			<div id= "stream_title"><h1> <%= @stream.title %> </h1> &nbsp &nbsp </div> 
+			<div id= "stream_title"><h1> <%= @stream.title %> </h1> </div> 
 		</div>
 	</li>
 	
@@ -81,12 +91,10 @@ margin-left:5px;margin-top:22px"></i>
 	</li>	
 
 	    </ul>
-	  </section>
-	
-	<ul class="right">
 
-		
-	</ul>
+
+
+	  </section>
 	
 	
 	</nav>
