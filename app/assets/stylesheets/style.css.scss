@@ -6,7 +6,13 @@
 .top-bar #play_Controls {
 	  padding-top: 10px;
 	  background-color: #151718;
+
 	
+}
+
+.top-bar-section ul li {
+		background-color: #151718;
+
 }
 	
 	
@@ -27,6 +33,10 @@
 		font-size: 0.8em;
 		background-color: #151718;
 }	
+
+.top-bar {
+	border-bottom: 1px solid #2D2C2F;
+}
 
 @font-face {
     font-family: 'camptonbold';
@@ -171,8 +181,8 @@ html, body { height: 100%; width: 100%; font-family: Helvetica, Arial, sans-seri
 
 
 .Vid-Container {
-	width: 85%;
-	height: 85%; 
+	width: 95%;
+	height: 95%; 
     margin: 0 auto;
 	background-color: black; 
 }
