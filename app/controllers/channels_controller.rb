@@ -2,7 +2,6 @@ class ChannelsController < ApplicationController
   before_action :set_channel, only: [:show, :edit, :update, :destroy]
   require 'open-uri'
   require 'openssl'
-  OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
 
   # GET /channels
   # GET /channels.json

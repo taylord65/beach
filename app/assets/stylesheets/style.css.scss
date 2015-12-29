@@ -33,7 +33,7 @@
 
 .top-bar #loginlink a{
 		font-family: 'camptonlight';
-		color: white;
+		color: #898688;
 		font-size: 0.8em;
 		background-color: #151718;
 		padding-bottom: 10px;
@@ -527,6 +527,24 @@ div {
   }
 }
 
+.playersubscribebutton {
+		font-family: 'camptonlight';
+		color: #898688;
+		font-size: 0.4em;
+		background-color: #151718;
+		border: none;
+		margin-left: 15px;
+		margin-top: 6px;
+}
+
+.playersubscribebutton:hover {
+	font-weight: bold;
+}
+
+.playersubscribebutton:active {
+
+}
+
 .subscribebutton {
 	background-color: white;
 	-webkit-border-top-left-radius:0px;
@@ -558,4 +576,5 @@ div {
 	position:relative;
 	top:1px;
 }
+
 

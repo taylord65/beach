@@ -41,7 +41,11 @@
 
 	  	<ul class="right">
 			<li>
+			<% if user_signed_in? %>
+			<% else %>
 					<div id= "loginlink"><%= link_to('LOG IN', new_user_session_path) %></div>
+			<% end %>
+
 			</li>	
 
 			<li>
@@ -73,7 +77,7 @@
 		</div>			
 		</li>
 		
-		<li class="divider"></li> 
+		<li class="divider"></li>
 
 		<i style="position:absolute;display:inline-block;width:0.5em;height:0.5em;background-color:#2B5469;-moz-border-radius:50px;-webkit-border-radius: 50px;border-radius:50px;
 margin-left:5px;margin-top:22px"></i>
@@ -83,10 +87,35 @@ margin-left:5px;margin-top:22px"></i>
 			<div id= "stream_title"><h1> <%= @stream.title %> </h1> </div> 
 		</div>
 	</li>
+
+	<li>
+			<% if user_signed_in? %>
+				<% if current_user.id = @addkey %>
+					<%= button_to 'edit', edit_stream_path(@stream), :class => 'playersubscribebutton', :method => "get"  %> 
+				<% else %>
+					<%= button_to @buttontext, subscribe_stream_path(@stream), :method => :get , :remote=>true, :class => 'playersubscribebutton'  %>
+				<% end %>
+			<% else %>
+				<%= button_to "subscribe", new_user_registration_path, :method => :get, :class => 'playersubscribebutton' %>
+			<% end %>
+
+	</li>
+
+	<li>
+		<% if user_signed_in? %>
+			<% if current_user.id = @addkey %>
+			<% else %>
+				<%= button_to 'submit videos', edit_stream_path(@stream), :class => 'playersubscribebutton', :method => "get" %> 
+			<% end %>
+		<% else %>
+			<%= button_to "submit videos", new_user_registration_path, :method => :get, :class => 'playersubscribebutton' %>
+		<% end %>
+
+	</li>
 	
 	<li>
 		<div id= "play_Controls">							
-			<div id= "subscriber_title"><h1> <%=@stream.subs %> <%= pluralize_without_count(@stream.subs, "subscriber")%></h1></div>
+		<!--	<div id= "subscriber_title"><h1> <%=@stream.subs %> <%= pluralize_without_count(@stream.subs, "subscriber")%></h1></div> -->
 		</div>
 	</li>	
 
