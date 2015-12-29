@@ -1,10 +1,24 @@
+.top-bar .name h1 a {
+	font-family: 'Lato', sans-serif; font-weight: 900;
+	margin-left: 8px;
+
+}
+
+
+.top-bar .name h1 a:hover {
+	  background-color: #151718;
+	  border-bottom: 1px solid #2D2C2F;
+
+}
+
+
 .top-bar #showmenu  {
     padding-top: 7px;
   background-color: #151718;
 
     }
 .top-bar #play_Controls {
-	  padding-top: 10px;
+	  padding-top: 13px;
 	  background-color: #151718;
 	
 }
@@ -26,7 +40,7 @@
 }
 
 .top-bar #loginlink {
-		padding-top: 5px;
+		padding-top: 4px;
 }	
 
 .top-bar #loginlink a{
@@ -96,7 +110,7 @@
 /* Navigation Menu - Background */
 .menu {
   /* critical sizing and position styles */
-  width: 219px;
+  width: 226px;
   height: 100%;
   position: fixed;
   right: 0;
