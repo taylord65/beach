@@ -16,14 +16,12 @@
 
 	
 .top-bar #stream_title h1 {
-		padding-top: -3px;
-		padding-left: 20px;
+		padding-left: 36px;
 		font-family: 'camptonbold';
 		color: white;
 		font-size: 1.1em;
 		background-color: #151718;
-		border-bottom: 1px solid #2D2C2F;
-		padding-bottom: 6px;
+  		margin-top: 11px;
 
 }
 
@@ -38,6 +36,11 @@
 		background-color: #151718;
 		padding-bottom: 10px;
 		border-bottom: 1px solid #2D2C2F;
+}	
+
+.top-bar #loginlink a:hover{
+		font-weight: bold;
+		color: white;
 }	
 
 
@@ -533,12 +536,13 @@ div {
 		font-size: 0.4em;
 		background-color: #151718;
 		border: none;
-		margin-left: 15px;
-		margin-top: 6px;
+		margin-left: 18px;
+		margin-top: 4px;
 }
 
 .playersubscribebutton:hover {
 	font-weight: bold;
+	color: white;
 }
 
 .playersubscribebutton:active {
