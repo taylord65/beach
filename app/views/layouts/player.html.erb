@@ -64,41 +64,51 @@
 		
 		<li class="divider"></li>
 		
+		<li>
+			&nbsp &nbsp
+		</li>
 				
 		<li>	
 			<div id= "play_Controls">
-		&nbsp &nbsp	<img src="<%= asset_path( 'pause.svg' ) %>" id="play-button" /> &nbsp 
+				<img src="<%= asset_path( 'pause.svg' ) %>" id="play-button" /> 
 			</div>
+		</li>
+
+		<li>
+			<div id= "play_Controls">	
+				<img src="<%= asset_path( 'resize-enlarge.svg' ) %>" id="fullscreen-button" height="20" width="20" />  
+			</div>
+		</li>
+
+		<li>
+			<div id= "play_Controls">				
+				<img src="<%= asset_path( 'sound.svg' ) %>" id="mute-button" /> 
+			</div>			
 		</li>
 		
 		<li>
-		<div id= "play_Controls">				
-			<img src="<%= asset_path( 'sound.svg' ) %>" id="mute-button" /> &nbsp &nbsp
-		</div>			
-		</li>
-		
+			&nbsp &nbsp
+		</li>		
+
 		<li class="divider"></li>
 
 		<i style="position:absolute;display:inline-block;width:0.5em;height:0.5em;background-color:#478FCC;-moz-border-radius:50px;-webkit-border-radius: 50px;border-radius:50px;
-margin-left:19px;margin-top:20px"></i>
+margin-left:19px;margin-top:20px" title= "Live Stream"></i>
 		
-	<li>
-				
-			<div id= "stream_title"><h1> <%= @stream.title %> </h1> </div> 
-
+	<li>		
+		<div id= "stream_title"><h1> <%= @stream.title %> </h1> </div> 
 	</li>
 
 	<li>
-			<% if user_signed_in? %>
-				<% if current_user.id = @addkey %>
-					<%= button_to 'edit', edit_stream_path(@stream), :class => 'playersubscribebutton', :method => "get"  %> 
-				<% else %>
-					<%= button_to @buttontext, subscribe_stream_path(@stream), :method => :get , :remote=>true, :class => 'playersubscribebutton'  %>
-				<% end %>
+		<% if user_signed_in? %>
+			<% if current_user.id = @addkey %>
+				<%= button_to 'edit', edit_stream_path(@stream), :class => 'playersubscribebutton', :method => "get"  %> 
 			<% else %>
-				<%= button_to "subscribe", new_user_registration_path, :method => :get, :class => 'playersubscribebutton' %>
+				<%= button_to @buttontext, subscribe_stream_path(@stream), :method => :get , :remote=>true, :class => 'playersubscribebutton'  %>
 			<% end %>
-
+		<% else %>
+			<%= button_to "subscribe", new_user_registration_path, :method => :get, :class => 'playersubscribebutton' %>
+		<% end %>
 	</li>
 
 	<li>
@@ -121,10 +131,7 @@ margin-left:19px;margin-top:20px"></i>
 
 	</ul>
 
-
-
 	</section>
-	
 	
 	</nav>
 	</div>

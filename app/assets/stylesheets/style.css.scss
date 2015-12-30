@@ -20,6 +20,8 @@
 .top-bar #play_Controls {
 	  padding-top: 13px;
 	  background-color: #151718;
+	  padding-left: 7px;
+	  padding-right: 7px;
 	
 }
 
@@ -123,7 +125,7 @@
   
   /* non-critical appearance styles */
   list-style: none;
-  background-color: #151718;
+  background-color: #0C0B0E;
   border-right: 1px solid #2D2C2F;
 
 }
@@ -149,7 +151,7 @@
     margin-top: 0.5em;
     margin-bottom: 0.5em;
     margin-right: auto;
-    border-width: 1px;
+    border-width: 2px;
     margin-left: -25px;
 	border-color: black;
 
@@ -163,6 +165,7 @@
   border-top: 5px ;
   border-bottom: 5px ;
   margin: 10px 0;
+  padding: 3px;
 }
 
 .nav-item a:hover {
@@ -593,6 +596,10 @@ div {
 .subscribebutton:active {
 	position:relative;
 	top:1px;
+}
+
+#enlarge {
+	margin-top: 1px;
 }
 
 
