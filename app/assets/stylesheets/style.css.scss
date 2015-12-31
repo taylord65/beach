@@ -1,3 +1,9 @@
+.flex-video iframe, .flex-video object, .flex-video embed, .flex-video video {
+	max-height: 93vh;
+}
+
+
+
 .top-bar .name h1 a {
 	font-family: 'Lato', sans-serif; font-weight: 900;
 	margin-left: 8px;
@@ -182,13 +188,14 @@
 
 	
   /* Critical position and size styles */
-  min-height: 100%;
-  min-width: 100%;
+  min-height: 100vh;
+  min-width: 100vw;
   background-color: black; /* Needs a background or else the nav will show through */
 
   z-index: 1;
   
 }
+
 
 /* Nav Trigger */
 .nav-trigger {
@@ -223,10 +230,6 @@ html, body { height: 100%; width: 100%; font-family: Helvetica, Arial, sans-seri
 	height: 95%; 
     margin: 0 auto;
 	background-color: black; 
-}
-
-.flex-video.widescreen {
-	height: 93vh;
 }
 
 
