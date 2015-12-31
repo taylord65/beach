@@ -14,11 +14,10 @@ $(document).ready(function() {
 	<br>
 	
 	<% if user_signed_in? %>
-	<li class="nav-item"> <!-- <img align="left" src="<%= asset_path( 'plus-01.svg' ) %>"/> --> <%= link_to('Create Stream', new_stream_path )%></li>
+	<li class="nav-item"> <!-- <img align="left" src="<%= asset_path( 'plus-01.svg' ) %>"/> --> <%= link_to('Create a stream', new_stream_path )%></li>
 	<li class="nav-item"><%= link_to('Account Settings', edit_user_registration_path )%></li>
 	<% else %>
-	<li class="nav-item"><%= link_to('Log In', new_user_session_path)  %></li>
-	<li class="nav-item"><%= link_to('Create Stream', new_user_session_path )%></li>
+	<li class="nav-item"><%= link_to('Create a stream', new_user_session_path )%></li>
 	<% end %>
 	
 <br>
