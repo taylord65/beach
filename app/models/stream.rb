@@ -1,3 +1,9 @@
+require 'open-uri'
+require 'json'
+require 'openssl'
+
+OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
+
 class Stream < ActiveRecord::Base
   has_many :videos, :dependent => :destroy
   has_many :admins, :dependent => :destroy
@@ -24,12 +30,7 @@ class Stream < ActiveRecord::Base
     end
   end
   
-  
-  
    def download_playlist_videos(list_id)
-     
-     require 'open-uri'
-     require 'openssl'
       
       doc = Nokogiri::HTML(open("https://www.youtube.com/playlist?list=#{list_id}"))
       
@@ -42,7 +43,7 @@ class Stream < ActiveRecord::Base
       video = self.videos.find_or_create_by( video_id: @scraped_id, 
                                                 pid: list_id, 
                                                 length: JSON.parse(open("http://gdata.youtube.com/feeds/api/videos/#{@scraped_id}?v=2&alt=jsonc").read)['data']['duration'],
-                                                name:  JSON.parse(open("http://gdata.youtube.com/feeds/api/videos/#{@scraped_id}?v=2&alt=jsonc").read)['data']['title'],
+                                                name:  JSON.parse(open("https://www.googleapis.com/youtube/v3/videos?id=#{@scraped_id}&key=AIzaSyBD1bw3Tt2UX-kc_HgDTF2nKxyGfjcfIZ4&fields=items(snippet(title))&part=snippet").read)["items"][0]["snippet"]["title"],
                                                 url: "https://www.youtube.com/watch?v=" + "#{@scraped_id}",
                                                 y_date_added: Time.now                                       
                                                )
@@ -61,10 +62,6 @@ class Stream < ActiveRecord::Base
     
     
     def download_channel_videos(url)
-      #could also get the most popular of all time from each channel
-      
-      require 'open-uri'
-      require 'openssl'
       
       if url =~ /channel/
         path = URI.parse(url).path
@@ -86,7 +83,7 @@ class Stream < ActiveRecord::Base
      video = self.videos.find_or_create_by( video_id: @scraped_id, 
                                                pid: url, 
                                                length: JSON.parse(open("http://gdata.youtube.com/feeds/api/videos/#{@scraped_id}?v=2&alt=jsonc").read)['data']['duration'],
-                                               name:  JSON.parse(open("http://gdata.youtube.com/feeds/api/videos/#{@scraped_id}?v=2&alt=jsonc").read)['data']['title'],
+                                               name:  JSON.parse(open("https://www.googleapis.com/youtube/v3/videos?id=#{@scraped_id}&key=AIzaSyBD1bw3Tt2UX-kc_HgDTF2nKxyGfjcfIZ4&fields=items(snippet(title))&part=snippet").read)["items"][0]["snippet"]["title"],
                                                url: "https://www.youtube.com/watch?v=" + "#{@scraped_id}",
                                                y_date_added: JSON.parse(open("http://gdata.youtube.com/feeds/api/videos/#{@scraped_id}?v=2&alt=jsonc").read)['data']['uploaded']                                         
                                               )  
