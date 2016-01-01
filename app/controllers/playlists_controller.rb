@@ -42,7 +42,7 @@ class PlaylistsController < ApplicationController
     
     @playlist.title = @playlist.get_youtube_playlist_title(@playlist.playlist_id)
         
-    @stream.delay.download_playlist_videos(@playlist.playlist_id)
+    @stream.download_playlist_videos(@playlist.playlist_id) #    @stream.delay.download_playlist_videos(@playlist.playlist_id)
 
     end
     

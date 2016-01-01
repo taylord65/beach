@@ -11,6 +11,11 @@ class Channel < ActiveRecord::Base
   def getdoc(url)
     
     if url =~ /channel/
+
+      if url.include? "/videos"
+        url.slice! "/videos"
+      end
+
       path = URI.parse(url).path
       id = File.basename(path)
       
