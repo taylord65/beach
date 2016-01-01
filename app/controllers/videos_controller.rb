@@ -1,4 +1,11 @@
+require 'open-uri'
+require 'json'
+require 'openssl'
+
+OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
+
 class VideosController < ApplicationController
+
   before_action :set_video, only: [:show, :edit, :update, :destroy]  
 
   # GET /videos
@@ -33,7 +40,7 @@ class VideosController < ApplicationController
     if @stream.videos.where(video_id: @video.video_id).blank?
     
     @video.length = @video.get_youtube_video_duration(@video.video_id)
-    @video.name = @video.get_youtube_video_name(@video.video_id)
+    @video.name = @video.get_youtube_video_name(@video.video_id, @data)
     @video.y_date_added = @video.get_youtube_video_date(@video.video_id)
     
     end

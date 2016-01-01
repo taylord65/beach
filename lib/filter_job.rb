@@ -1,8 +1,12 @@
-class FilterJob
-  
 require 'open-uri'
+require 'json'
 require 'openssl'
-  
+
+silence_warnings do
+  OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
+end
+
+class FilterJob
 
 def perform
   
@@ -24,11 +28,12 @@ if timenow >= stream.totallength + stream.reprogrammed_at.to_i
           
           if stream.videos.where(video_id: @scraped_id).blank?
           
+          length = get_youtube_video_duration(@scraped_id)
           
    video = stream.videos.find_or_create_by( video_id: @scraped_id, 
                                              pid: playlist.playlist_id, 
-                                             length: JSON.parse(open("http://gdata.youtube.com/feeds/api/videos/#{@scraped_id}?v=2&alt=jsonc").read)['data']['duration'],
-                                             name:  JSON.parse(open("http://gdata.youtube.com/feeds/api/videos/#{@scraped_id}?v=2&alt=jsonc").read)['data']['title'],
+                                             length: length,
+                                             name:  JSON.parse(open("https://www.googleapis.com/youtube/v3/videos?id=#{@scraped_id}&key=AIzaSyBD1bw3Tt2UX-kc_HgDTF2nKxyGfjcfIZ4&fields=items(snippet(title))&part=snippet").read)["items"][0]["snippet"]["title"],
                                              url: "https://www.youtube.com/watch?v=" + "#{@scraped_id}",
                                              y_date_added: Time.now
                                             )
@@ -54,13 +59,15 @@ if timenow >= stream.totallength + stream.reprogrammed_at.to_i
           @scraped_id = el.attr('data-video-ids')
           
           if stream.videos.where(video_id: @scraped_id).blank?
+
+          length = get_youtube_video_duration(@scraped_id)
             
             video = stream.videos.find_or_create_by( video_id: @scraped_id, 
                                                       pid: channel.url, 
-                                                      length: JSON.parse(open("http://gdata.youtube.com/feeds/api/videos/#{@scraped_id}?v=2&alt=jsonc").read)['data']['duration'],
-                                                      name:  JSON.parse(open("http://gdata.youtube.com/feeds/api/videos/#{@scraped_id}?v=2&alt=jsonc").read)['data']['title'],
+                                                      length: length,
+                                                      name:  JSON.parse(open("https://www.googleapis.com/youtube/v3/videos?id=#{@scraped_id}&key=AIzaSyBD1bw3Tt2UX-kc_HgDTF2nKxyGfjcfIZ4&fields=items(snippet(title))&part=snippet").read)["items"][0]["snippet"]["title"],
                                                       url: "https://www.youtube.com/watch?v=" + "#{@scraped_id}",
-                                                      y_date_added: JSON.parse(open("http://gdata.youtube.com/feeds/api/videos/#{@scraped_id}?v=2&alt=jsonc").read)['data']['uploaded']
+                                                      y_date_added: JSON.parse(open("https://www.googleapis.com/youtube/v3/videos?id=#{@scraped_id}&key=AIzaSyBD1bw3Tt2UX-kc_HgDTF2nKxyGfjcfIZ4&fields=items(snippet(publishedAt))&part=snippet").read)["items"][0]["snippet"]["publishedAt"]
                                                      ) 
             video.save
            else
@@ -109,5 +116,58 @@ end #if present
 
 end #end each stream
 end
+
+def get_youtube_video_duration(video_id)
+      duration = JSON.parse(open("https://www.googleapis.com/youtube/v3/videos?id=#{video_id}&key=AIzaSyBD1bw3Tt2UX-kc_HgDTF2nKxyGfjcfIZ4&fields=items(contentDetails(duration))&part=contentDetails").read)["items"][0]["contentDetails"]["duration"]
+      duration.slice! "PT"
+      length = 0
+
+      if duration.include? "H"
+        copy = duration
+        copy = copy.slice(0..(copy.index('H')))
+        copy.slice! "H"
+        hours = copy.to_i
+        seconds = hours*3600
+        length += seconds
+      end  
+
+      if duration.include? "M"
+        copy = duration
+        if duration.include? "H"
+          copy = copy.slice(0..(copy.index('M')))
+          copy.slice!(0..(copy.index('H'))) 
+          copy.slice! "H"
+          copy.slice! "M"
+          minutes = copy.to_i
+          seconds = minutes*60
+          length += seconds
+        else
+          copy = copy.slice(0..(copy.index('M')))
+          copy.slice! "M"
+          minutes = copy.to_i
+          seconds = minutes*60
+          length += seconds
+        end
+      end
+
+      if duration.include? "S"
+        copy = duration
+        if duration.include? "M"
+          copy.slice!(0..(copy.index('M')))
+          copy.slice! "S"
+          seconds = copy.to_i
+          length += seconds
+        elsif duration.include? "H"
+          copy.slice!(0..(copy.index('H')))
+          copy.slice! "S"
+          seconds = copy.to_i
+          length += seconds
+        else
+          copy.slice! "S"
+          seconds = copy.to_i
+          length += seconds      
+        end
+      end
+    end
 
 end

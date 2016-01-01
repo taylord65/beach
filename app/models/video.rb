@@ -61,9 +61,7 @@ class Video < ActiveRecord::Base
             seconds = copy.to_i
             length += seconds      
           end
-
         end
-
       end
       
       def get_youtube_video_name(video_id)

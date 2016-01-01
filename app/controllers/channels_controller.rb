@@ -48,7 +48,7 @@ class ChannelsController < ApplicationController
     a.slice! " - YouTube"
     @channel.title = a
     
-    @stream.download_channel_videos(@channel.url)
+    @stream.delay.download_channel_videos(@channel.url)
         
     end 
 
