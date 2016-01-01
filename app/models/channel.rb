@@ -22,6 +22,10 @@ class Channel < ActiveRecord::Base
       doc = "https://www.youtube.com/channel/#{id}/videos?sort=dd&flow=list&view=0"
       doc
     else
+      if url.include? "/videos"
+        url.slice! "/videos"
+      end
+
       path = URI.parse(url).path
       id = File.basename(path)
       
