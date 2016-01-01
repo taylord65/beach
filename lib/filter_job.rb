@@ -67,7 +67,7 @@ if timenow >= stream.totallength + stream.reprogrammed_at.to_i
                                                       length: length,
                                                       name:  JSON.parse(open("https://www.googleapis.com/youtube/v3/videos?id=#{@scraped_id}&key=AIzaSyBD1bw3Tt2UX-kc_HgDTF2nKxyGfjcfIZ4&fields=items(snippet(title))&part=snippet").read)["items"][0]["snippet"]["title"],
                                                       url: "https://www.youtube.com/watch?v=" + "#{@scraped_id}",
-                                                      y_date_added: JSON.parse(open("https://www.googleapis.com/youtube/v3/videos?id=#{@scraped_id}&key=AIzaSyBD1bw3Tt2UX-kc_HgDTF2nKxyGfjcfIZ4&fields=items(snippet(publishedAt))&part=snippet").read)["items"][0]["snippet"]["publishedAt"]
+                                                      y_date_added: Time.now
                                                      ) 
             video.save
            else
