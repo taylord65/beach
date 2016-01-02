@@ -18,8 +18,7 @@ class Playlist < ActiveRecord::Base
       
       
       def get_youtube_playlist_title(playlist_id)
-        #title = JSON.parse(open("http://gdata.youtube.com/feeds/api/playlists/#{self.playlist_id}?v=2&alt=jsonc").read)['data']['title']
-        title = "PLAYLIST"
+        title = JSON.parse(open("https://www.googleapis.com/youtube/v3/playlists?id=#{self.playlist_id}&key=AIzaSyBD1bw3Tt2UX-kc_HgDTF2nKxyGfjcfIZ4&fields=items(snippet(title))&part=snippet").read)["items"][0]["snippet"]["title"]
         title
       end
       

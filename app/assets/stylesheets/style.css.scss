@@ -2,7 +2,10 @@
 	max-height: 93vh;
 }
 
-
+.form-inline {
+	display: inline;
+	white-space:nowrap;
+}
 
 .top-bar .name h1 a {
 	font-family: 'Lato', sans-serif; font-weight: 900;
