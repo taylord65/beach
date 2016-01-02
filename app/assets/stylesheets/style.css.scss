@@ -267,7 +267,7 @@ html, body { height: 100%; width: 100%; font-family: Helvetica, Arial, sans-seri
                 padding:8px 15px;
                 background-color: white;
                 border:1px solid #E5E5E5;
-			    width: 530px;
+			    width: 700px;
 				height: 58px;
 				font-family: 'Lato', sans-serif; font-weight: 900;
 				font-size:25px;
@@ -397,7 +397,8 @@ ul.hmenu li {
 	width:800px;
 	height:400px;
 	overflow-y:scroll;
-	overflow-x:hidden;	
+	overflow-x:hidden;
+	border: 1px solid #DFDFDF;	
 }
 
 #viddisplaytable, td{

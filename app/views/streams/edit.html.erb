@@ -51,7 +51,7 @@ You can contribute Youtube videos, playlists, and user channels to <%= @stream.t
 <% if current_user.id = @addkey %>
 <br> 
  <div class="field">
-    <%= f.text_area :description , :rows => 5, :cols => 91, :class => 'textarea' %>
+    <%= f.text_area :description , :rows => 5, :cols => 98, :class => 'textarea' %>
   </div>
   <div class="actions">
     <%= f.submit 'Update Description', :class => 'subscribebutton' %>
@@ -93,6 +93,7 @@ You can contribute Youtube videos, playlists, and user channels to <%= @stream.t
 <% end %>
 <% end %>
 <br>
+<br>
 <div class= "edittitles"><h1>Connected Channels</h1></div>
 <br>
 <div id="scrollbox">
@@ -124,6 +125,7 @@ You can contribute Youtube videos, playlists, and user channels to <%= @stream.t
 	  </div>
 	</div>
 	<% end %>
+	<br>
 	<br>
 					<div class= "edittitles"><h1>Connected Playlists</h1></div>
 					<br>
