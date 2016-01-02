@@ -75,7 +75,7 @@ class Video < ActiveRecord::Base
       end
       
     def converturl(url)
-        if url.include? "www.youtube.com/watch?v=" 
+        if url.include? "https://www.youtube.com/watch?v=" 
         #converts a url into a video id
 
         regex = /(?:.be\/|\/watch\?v=|\/(?=p\/))([\w\/\-]+)/
